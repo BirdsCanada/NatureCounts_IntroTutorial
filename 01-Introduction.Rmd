@@ -5,30 +5,31 @@ date: "27/08/2020"
 output: html_document
 ---
 
-# 1.1 An Introduction to NatureCounts {#intro}
+# 1. Introduction {#intro}
 
-NatureCounts is a website hosted and managed by Birds Canada, Canada’s leading scientific non-government organization dedicated to increasing the understanding, appreciation and conservation of wild birds and their habitats (www.birdscanada.org).  Birds Canada specializes in citizen science long-term monitoring programs using a partnership-based model.  Citizen science has been found to be the most cost-effective way to monitor bird populations across large geographic areas. In Canada, over 16,000 volunteers are currently involved in Birds Canada’s programs. 
+NatureCounts(www.naturecounts.ca) is a website hosted and managed by Birds Canada (www.birdscanada.org), Canada’s leading scientific non-government organization dedicated to increasing the understanding, appreciation and conservation of wild birds and their habitats . Birds Canada specializes in citizen science long-term monitoring programs using a partnership-based model.  Citizen science has been found to be the most cost-effective way to monitor bird populations across large geographic areas. In Canada, over 16,000 volunteers are currently involved in Birds Canada’s programs. 
 
-Launched in January 2008, Nature Counts (www.naturecounts.ca) is the first Canadian node of the Avian Knowledge Network (www.avianknowledge.net). It serves as an online data dissemination portal to facilitate the collection, management and sharing of biological data.  NatureCounts hosts hundreds of datasets, representing well over 100 million occurrences of birds. These include virtually all of Birds Canada’s monitoring initiatives, such as Breeding Bird Atlases, eBird Canada, the Marsh Monitoring Program, Nocturnal Owl Surveys, as well as many other major initiatives to which Birds Canada contributes in some capacity (e.g., Canadian Migration Monitoring Program, Hawk Count and the Raptor Population Index,Monarch Knowledge Network, the Breeding Bird Survey, Christmas Bird Count, Project FeederWatch). 
+Launched in January 2008, Nature Counts  is the first Canadian node of the Avian Knowledge Network (www.avianknowledge.net). It serves as an online data dissemination portal to facilitate the collection, management and sharing of biological data.  NatureCounts hosts hundreds of datasets, representing well over 100 million occurrences of birds. These include virtually all of Birds Canada’s monitoring initiatives, such as Breeding Bird Atlases, eBird Canada, the Marsh Monitoring Program, Nocturnal Owl Surveys, as well as many other major initiatives to which Birds Canada contributes in some capacity (e.g., Canadian Migration Monitoring Program, Hawk Count and the Raptor Population Index, Monarch Knowledge Network, Breeding Bird Survey, Christmas Bird Count, Project FeederWatch). 
 
-What can you do with the data?
+What can you do on the NatureCounts webportal?
 -	You can explore the data resources of NatureCounts via interactive maps that allow you to view the distribution of bird populations during any time of the year and across a variety of different sources. 
 -	You can obtain and visualize information on long term population trends of Canadian birds.
 -	You can explore an individual species pattern of distribution or the species richness of a location via dynamically generated summary tables and graphs.
--	Finally, much of the observational data can be directly accessed and downloaded for your own personal research!
+-	Finally, much of the observational data can be downloaded for your own personal research!
 
-# 1.2 NatureCounts and R {#introR}
+## 1.1 NatureCounts and R {#introR}
 
-The natuecounts R package was create to allow users to directly access and download data from NatureCounts into R. The goal of this online ‘handbook’ is to show NatureCounts users how to use the R statistical programming language (https://www.r-project.org/) to access, filter, summarize, and visualize naturecounts data. We also intend to create more advanced turtoials which explore various analytical procedures. 
+The natuecounts R package was create to allow users to directly access and download data from NatureCounts into R. The goal of this online book is to show NatureCounts users how to use the R statistical programming language (https://www.r-project.org/) to access, filter, summarize, and visualize naturecounts data. Moving forward, we intend to create more advanced turtoials which explore analytical procedures suitable for various datasets. If you have suggestions for additional content, please let us know by emailing dethier@birdscanada.org
 
-The naturecounts R package described herein is under continual development, and the intent of this online ‘handbook’ is to help users learn the various functionalities of the package, and potentially contribute to it. We also show how additional R packages such as ggplot can be used to explore, visualize, transform, and analyze Motus data.
+Throughout this book we use fictious and subsets real datasets to illustrate how to access, manage, explore and visualize NaturecCounts data in R. We recommend that you run through the sample code in each chapter with the sample dataset before doing the exercises or rusing your own data. 
 
-If you have suggestions for additional content, please let us know by emailing dethier@birdscanada.org.
+## 1.2 Prerequisites
 
+This book assumes that you have a basic understanding of R. We recommend that you become familiar with ‘R for Data Science’ by Garrett Grolemund and Hadley Wickham (http://r4ds.had.co.nz/), which covers how to import, visualize, and summarize data in R using the tidyverse collection of R packages (https://www.tidyverse.org/). 
 
-# 1.3 Acknowledgements
+## 1.3 Acknowledgements
 
-Some of the text included in this book was adapted from the naturecounts GitHub repository developed by Steffi LaZerte: https://github.com/BirdStudiesCanada/naturecounts. Many people have worked together to make the NatureCounts web interface and the R-package together. The core ‘Motus Team’ includes Joey Bernard, John Brzustowski, Tara Crewe, Zoe Crysler, Jeremy Hussell, Catherine Jardine, Steffi LaZerte, Denis Lepage, Stuart Mackenzie, Paul Morrill, and Philip Taylor.
+Some of the text included in this book was adapted from the NatureCounts GitHub repository developed by Steffi LaZerte: https://github.com/BirdStudiesCanada/naturecounts. Many people have worked together to make the NatureCounts web interface and the R-package, including Denis Lepage, Steffi LaZerte, Catherine Jardine.
 
-The development of the NatureCounts web interface, R package, and accompanying handbook were made possible through a Canarie grant to Bird Studies Canada (https://www.canarie.ca/). Motus continues to grow as a program of Bird Studies Canada, through the collaboration of numerous independent researchers, organizations, and individuals.
+The development of the NatureCounts web interface, R package, and accompanying online book were made possible through the generous contributions by Environment and Climate Change Canada.
 
