@@ -1,4 +1,4 @@
-# 2 Loading R Packages {#Package2}
+# Loading R Packages {#Package2}
 
 ```{r tidyr2, echo = FALSE, message = FALSE, warning = FALSE}
 
@@ -15,7 +15,7 @@ To update your existing packages:
 update.packages()                         
 ```
 
-## 2.1 Installing the NatureCounts package {#Package2.1}
+## Installing the NatureCounts package {#Package2.1}
 
 You can install this developmental version of naturecounts from GitHub with the remotes package:
 
@@ -30,13 +30,13 @@ After installation, you need to load the package each time you open a new R sess
 library(naturecounts)
 ```
 
-## 2.2 Installing additional packages {#Package2.2}
+## Installing additional packages {#Package2.2}
 
-Throughout the book we use [tidyverse](https://www.tidyverse.org/), which is a collection of R packages for data science, including tidyr, dplyr, ggplot2, and lubridate for managing and manipulating dates. This package can be installed from CRAN, as follows:
+Throughout the book we use [tidyverse](https://www.tidyverse.org/), which is a collection of R packages for data science, including tidyr, dplyr, ggplot2, and lubridate for managing and manipulating dates. This package can be installed from CRAN and loaded into R as follows:
 
 ``````{r tidy, eval = FALSE}
 install.packages("tidyverse")
 library(tidyverse)
 ````
 
-Congratulations! You have installed the NatureCounts R package. In the next chapter we will develop a better understand of the data structure, access levels, and authorizations before learning to download data.
+Users may find additional packages are needed to manipulate and visualize thier data. For example, if the used is interested in [Mapping Observation](https://birdstudiescanada.github.io/naturecounts/articles/articles/mapping-observations.html) a suite of packages need to be installed and loaded. The process is similar to that previously decribed. 
