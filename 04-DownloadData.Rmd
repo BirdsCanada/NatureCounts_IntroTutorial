@@ -20,21 +20,25 @@ Here we demonstrate how to download the Ontario Whip-poor-will collection (WPWI)
 WPWI1<-nc_data_dl(collections="WPWI", username = "sample", info="test data download")
 ```
 You should now see a copy of the WPWI collection in the Environments window (upper right panel of RStudio). 
-Notice in the code provided that `info` needs to be provided. This is a short description of reason for the download. This was not specified when using the `nc_count` function.
+Notice in the code that `info` needs to be provided. This is a short description of reason for the download. This does not need to be specified when using the `nc_count` function.
 
 To access Level 3 or 4 collections you must [sign up](https://www.birdscanada.org/birdmon/default/register.jsp) for a **free** account and request permission from the data custodian. For a complete list of datasets and access level, visit the NatureCounts [datasets page](https://www.birdscanada.org/birdmon/default/datasets.jsp) or use the `meta_collection()` function. Here you can brows information on each dataset prior to requesting access. 
 
-To make a data request, use the NatureCounts [Download Data query tool](https://www.birdscanada.org/birdmon/default/searchquery.jsp).  For step-by-step visual instructions, we encourage you to watch: [NatureCounts: An Introductory Tutorial](link to be provided). You will receive an email confirmation when your request has been approved, which will contain your `request_id`. Your `request_id` is also stored in your online account under 'Your data requests'. This number will be used to download your newly acquired dataset into R.   
+To make a data request, use the NatureCounts [Download Data query tool](https://www.birdscanada.org/birdmon/default/searchquery.jsp).  For step-by-step visual instructions, we encourage you to watch: [NatureCounts: An Introductory Tutorial](link to be provided). You will receive an email confirmation when your request has been approved, which will contain your `request_id`. This number will be used to download your newly acquired dataset into R. There is also a build in function that allows you to check the status of your request and retreive your `request_id`: 
+
+```{r request, eval = FALSE}
+nc_requests(username="sample")
+```
 
 Here is sample code to download Access Level 3 or 4 data: 
 ```{r RequestAccess, eval = FALSE}
 #This code is not functional and is here to serve as a structural example. You will need to insert your collection, request_id, username, and info in the code chunk below to make this work. 
 
-my_data <- nc_data_dl(collections = "ABATLAS1",
+my_data <- nc_data_dl(collections = "CBC",
                       request_id = 000000, username = "USER",
                       info = "MY REASON")
 ```
-**Note: if you applied filters to the web portal data request (e.g., species, region, year), you will only receive the subset of the dataset you requested. 
+**Note: if you applied filters to the web portal data request (e.g., species, region, year), you will only receive the subset of the dataset you requested.** 
 
 ## Applying Filters {##Dowload4.2}
 
@@ -68,7 +72,7 @@ You will notice there are now even fewer observation records (WPWI_bb = 72)
 
 Answer: BBS50-CAN, 75
 
-**Exercise 2: You (user "sample") are birding in the 	Beaverhill Lake Important Bird Area (iba) in May. You think you hear a Bobolink! You are curious if this species is often detected here in the [month of May](https://www.esrl.noaa.gov/gmd/grad/neubrew/Calendar.jsp). You choose to download the records you have authorization to freely access from NatureCounts. How many observation records did you download? What year are these records from?**    
+**Exercise 2: You (user "sample") are birding in the 	*Beaverhill Lake* Important Bird Area (iba) in May. You think you hear a Bobolink! You are curious if this species is often detected here in the [month of May](https://www.esrl.noaa.gov/gmd/grad/neubrew/Calendar.jsp). You choose to download the records you have authorization to freely access from NatureCounts. How many observation records did you download? What year are these records from?**    
 
 Answer: 2 (or 3 if you including Feb 29 in the doy calculation), 1988 
 
