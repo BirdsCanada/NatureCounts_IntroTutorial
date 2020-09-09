@@ -7,7 +7,7 @@ opts_chunk$set(tidy.opts=list(width.cutoff=50), tidy = FALSE)
 
 You have successfully downloaded and summarised your NatureCounts dataset. In this chapter we will demonstrate how to do some basic visulizations with plots and maps. 
 
-##Plotting {#PM6.1}
+## Plotting {#PM6.1}
 
 Plotting your data is a powerful way to detect patterns and make results stand out. Recall in [Chapter 2](#Package2.2) you installed the [tidyverse](https://www.tidyverse.org/) package, which included `ggplot2` for data visulizations. You are encouraged to learn more about this function by reviewing [Cookbook for R](http://www.cookbook-r.com/Graphs/). We also recommend you print a copy of the RStudio [Data Visualization](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf) cheat sheet as a reference document.
 
@@ -49,8 +49,7 @@ Next, we are interested in visually examining the mean number of migrant GRCA ea
 #use this shortcut function to calculate the standard error
 se <- function(x) sd(x) / sqrt(length(x))
 
-GRCA_year<-GRCA %>% group_by(survey_year) %>% summarise (MeanObs=mean(ObservationCount), SEObs = se(ObservationCount)) %>% 
-  mutate (yrmin=MeanObs+SEObs, yrmax=MeanObs-SEObs)
+GRCA_year<-GRCA %>% group_by(survey_year) %>% summarise (MeanObs=mean(ObservationCount), SEObs = se(ObservationCount)) %>%   mutate (yrmin=MeanObs+SEObs, yrmax=MeanObs-SEObs)
 
 ```
 
@@ -63,7 +62,9 @@ ggplot(data = GRCA_year) +
   
 ```
 
-##Mapping {#PM6.2}
+You will notice there was a large increase in the mean number of GRCA observed in 2018 compared to the previous three years. You might now be wondering why....   
 
-There is a comprehensive tutorial online for [Mapping Observation](https://birdstudiescanada.github.io/naturecounts/articles/articles/mapping-observations.html). The materials are not repeated here. We encourage you to walk through the online examples prior to   
+## Mapping {#PM6.2}
+
+There is a comprehensive tutorial online for [Mapping Observation](https://birdstudiescanada.github.io/naturecounts/articles/articles/mapping-observations.html). The materials are not repeated here.  
 

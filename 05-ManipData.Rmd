@@ -13,9 +13,9 @@ Recall in [Chapter 2](#Package2.2) you installed the [tidyverse](https://www.tid
 
 We are going to apply three key `dplyr` functions which will give you some of the basic tools needed to solve the vast majority of your data manipulation challenges. These functions include:
 
-- Select: Pick variables by their names 
-- Filter: Pick observations by their values 
-- Summarise: Collapse many values down to a single summary
+  - Select: Pick variables by their names 
+  - Filter: Pick observations by their values 
+  - Summarise: Collapse many values down to a single summary
 
 Let's continue using the [Ontario Whip-poor-will](https://www.birdscanada.org/birdmon/default/datasets.jsp?code=WPWI) collection for this chapter.   
 
@@ -23,29 +23,29 @@ Let's continue using the [Ontario Whip-poor-will](https://www.birdscanada.org/bi
 WPWI<-nc_data_dl(collections="WPWI", username = "sample", info="test data download")
 ```
 
-###Select {#Manip5.1.1}
+### Select {#Manip5.1.1}
 
 You will notice that Naturecounts datasets have many fields (i.e., columns) available. Generally, you will only want a few of these fields for your summary or analysis. Recall the complete version of the [BMDE](#Data3.1) includes 265 fields. The number of variables downloaded from the BMDE will depend on the `fields_set`, which is by default "minimum" (57 fields). You can narrow in on the variables you are interested in with the `select()` function, which allows you to subset the dataframe based on the names of the variables.
 
 For example, we are going to `select()` a subset of variables from the WPWI dataset that we need for our summary: 
 
-```{r OpenAccess, eval = FALSE}
+```{r select, eval = FALSE}
 WPWI_select<-WPWI %>% select ("ObservationCount", "SurveyAreaIdentifier", "RouteIdentifier", "species_id", "latitude", "longitude", "bcr", "survey_day", "survey_month", "survey_year")
 ```
 
 
-###Filter {#Manip5.1.2}
+### Filter {#Manip5.1.2}
 
 Often there are observational records in a database that are not needed. We could have filtered these records out using the `nc_data_dl()` [filters](#Dowload4.2). However, we can also use the `dplyr::filter()` function, which allows us to subset observations based on their row values. Observations are selected using:
 
--Comparison operators:`>`, `>=`, `<`, `<=`, `!=` (not equal), `==` (equal) 
--Logical operators: `&` (and), `|` (or),  `!` (is not)
+  - Comparison operators:`>`, `>=`, `<`, `<=`, `!=` (not equal), `==` (equal) 
+  - Logical operators: `&` (and), `|` (or),  `!` (is not)
 
 There are worked examples provided in the [Filtering data after download](https://birdstudiescanada.github.io/naturecounts/articles/filtering-data.html) article on Github to get you started with applying filters. These include:
 
-- Categorical filters
-- Numerical filters
-- Date filters
+  - Categorical filters
+  - Numerical filters
+  - Date filters
 
 Here we provide a few additional examples for you to work with. First, lets apply a simple `filter()` that subsets the data based on a single survey month: 
 
@@ -66,7 +66,7 @@ We can continue to add to the complexity of our filter:
 WPWI_multi<-WPWI_select %>% filter(survey_month %in% c(6,7) & bcr==12 & survey_year>=2010 & survey_year<=2012)
 ```
 
-###Summarise {#Manip5.1.3}
+### Summarise {#Manip5.1.3}
 
 Now that we have selected the columns we need for our analysis and limited the data to the observation records we wish to use, we will want to summarise what we have left! The `summarise()` function is most useful if pair it with `group_by()` argument, because this changes the unit of analysis from the complete dataset to individual groups.
 
@@ -106,15 +106,15 @@ There are a few additional helper functions built into the NatureCounts R packag
 The zero-fill function is particularly important if you want to ensure your dataset is complete!
 
 
-##Exercies {#Manip5.3}
+## Exercies {#Manip5.3}
 
-**Exercise 1:  You (user "sample") are doing a research project using the fall migration monitoring data collected at [Vaseux Lake Bird Observatory](https://www.birdscanada.org/birdmon/default/datasets.jsp?code=CMMN-DET-VLBO), British Columbia. You request the open access data from 2017-2020. After you request this subset of the collection, you need to determine the number of unique days Gray catbirds were records in each year?**
+*Exercise 1*:  You (user "sample") are doing a research project using the fall migration monitoring data collected at [Vaseux Lake Bird Observatory](https://www.birdscanada.org/birdmon/default/datasets.jsp?code=CMMN-DET-VLBO), British Columbia. You request the open access data from 2017-2020. After you request this subset of the collection, you need to determine the number of unique days Gray catbirds were records in each year?
 
 Answer: 
 2017 =	20
 2018 =	23
 
-**Exercise 2: Building off the same dataset used in Exercise 1, you now want to zero-fill the dataframe to ensure it is complete for your study on Gray catbirds. How many records (rows) are in the zero-fill Gray catbird dataframe?**
+*Exercise 2*: Building off the same dataset used in Exercise 1, you now want to zero-fill the dataframe to ensure it is complete for your study on Gray catbirds. How many records (rows) are in the zero-fill Gray catbird dataframe?
 
 Answer: 6709
 
