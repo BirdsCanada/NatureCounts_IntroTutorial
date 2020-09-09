@@ -5,11 +5,11 @@ library(knitr)
 opts_chunk$set(tidy.opts=list(width.cutoff=50), tidy = FALSE)
 ```
 
-You have successfully downloaded your NatureCounts dataset and are ready to explore, summarize, and visualize the data. In this chapter we will demonstrate how to do some basic data manipulations and summaries. The possibilities are endless, so we try to focus on examples we think would be most valuable to users. We intend to develop `collection` and `protocol_id` specific data manipulation and analysis code in the future. If you have specific requests or would like to contribute your existing code, please contact dethier@birdscanada.org. 
+You have successfully downloaded your NatureCounts dataset and are ready to explore and summarize the data. In this chapter we will demonstrate how to do some basic data manipulations and summaries. The possibilities are endless, so we try to focus on examples we think would be most valuable to users. We intend to develop `collection` and `protocol_id` specific data manipulation and analysis code in the future. If you have specific requests or would like to contribute your existing code, please contact dethier@birdscanada.org. 
 
 ## Basic data wrangling {#Manip5.1}
 
-Recall in [Chapter 2](#Package2.2) you installed the [tidyverse](https://www.tidyverse.org/) package, which included `dplyr` for data manipulations. You are encouraged to learn more about this function by reviewing the [Data Transformations](https://r4ds.had.co.nz/transform.html#filter-rows-with-filter) chapter in "R for Data Science" by Hadley Wickham and Garrett Grolemund. We also recommend you print a copy of the [Data Wrangling](https://rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf) cheat sheet as a reference document.
+Recall in [Chapter 2](#Package2.2) you installed the [tidyverse](https://www.tidyverse.org/) package, which included `dplyr` for data manipulations. You are encouraged to learn more about this function by reviewing the [Data Transformations](https://r4ds.had.co.nz/transform.html) chapter in "R for Data Science" by Hadley Wickham and Garrett Grolemund. We also recommend you print a copy of the RStudio [Data Wrangling](https://rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf) cheat sheet as a reference document.
 
 We are going to apply three key `dplyr` functions which will give you some of the basic tools needed to solve the vast majority of your data manipulation challenges. These functions include:
 
@@ -114,7 +114,7 @@ Answer:
 2017 =	20
 2018 =	23
 
-**Exercise 2: Building off the same dataset used in Exercise 1, you now need to zero-fill the dataframe to ensure it is complete for your study on Gray catbirds. How many records (rows) are in the zero-fill Gray catbird dataframe?**
+**Exercise 2: Building off the same dataset used in Exercise 1, you now want to zero-fill the dataframe to ensure it is complete for your study on Gray catbirds. How many records (rows) are in the zero-fill Gray catbird dataframe?**
 
 Answer: 6709
 

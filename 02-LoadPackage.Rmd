@@ -39,4 +39,4 @@ install.packages("tidyverse")
 library(tidyverse)
 ````
 
-Users may find additional packages are needed to manipulate and visualize thier data. For example, if the used is interested in [Mapping Observation](https://birdstudiescanada.github.io/naturecounts/articles/articles/mapping-observations.html) a suite of packages need to be installed and loaded. The process is similar to that previously decribed. 
+Users may find additional packages are needed to manipulate and visualize thier data. For example, if the used is interested in [Mapping Observation](https://birdstudiescanada.github.io/naturecounts/articles/articles/mapping-observations.html) a suite of packages need to be installed and loaded. The process is similar to that previously decribe.  

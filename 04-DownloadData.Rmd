@@ -1,4 +1,4 @@
-# Downloading and Filtering NatureCounts Data {#Dowload4}
+# Downloading and Filtering Data {#Dowload4}
 
 ```{r tidyr4, include = FALSE}
 library(knitr)
@@ -40,7 +40,7 @@ my_data <- nc_data_dl(collections = "CBC",
 ```
 **Note: if you applied filters to the web portal data request (e.g., species, region, year), you will only receive the subset of the dataset you requested.** 
 
-## Applying Filters {##Dowload4.2}
+## Applying Filters {#Dowload4.2}
 
 The filters applied in [Chapter 3](#Data3) when using the `nc_count` view function are also used for the `nc_data_dl` download function. Again, these options include: `collections`, `project_id`, `species`, `years`, `doy` (day-of-year), `region`, and `site_type`. The users may also wish to specify which fields/columns to return using the `field_set` and `fields` options in the `nc_data_dl` function. For help with this feature, see the github article ['Selecting columns and fields to download'](https://birdstudiescanada.github.io/naturecounts/articles/selecting-fields.html).   
 

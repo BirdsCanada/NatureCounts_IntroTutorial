@@ -1,4 +1,4 @@
-# Understanding and Viewing NatureCounts Data {#Data3}
+# Understanding and Viewing Data {#Data3}
 
 ```{r tidyr3, include = FALSE}
 library(knitr)

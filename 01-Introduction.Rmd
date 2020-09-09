@@ -13,10 +13,14 @@ opts_chunk$set(tidy.opts=list(width.cutoff=50), tidy = FALSE)
 Launched in January 2008, Nature Counts  is the first Canadian node of the [Avian Knowledge Network](www.avianknowledge.net). It serves as an online data dissemination portal to facilitate the collection, management and sharing of biological data.  NatureCounts hosts hundreds of datasets, representing well over 100 million occurrences of birds. These include virtually all of Birds Canada’s monitoring initiatives, such as Breeding Bird Atlases, eBird Canada, the Marsh Monitoring Program, Nocturnal Owl Surveys, as well as many other major initiatives to which Birds Canada contributes in some capacity (e.g., Canadian Migration Monitoring Program, Hawk Count and the Raptor Population Index, Monarch Knowledge Network, Breeding Bird Survey, Christmas Bird Count, Project FeederWatch). 
 
 What can you do on the NatureCounts [webportal](www.naturecounts.ca)?
--	You can explore the data resources of NatureCounts via interactive maps that allow you to view the distribution of bird populations during any time of the year and across a variety of different sources. 
--	You can obtain and visualize information on long term population trends of Canadian birds.
--	You can explore an individual species pattern of distribution or the species richness of a location via dynamically generated summary tables and graphs.
--	Finally, much of the observational data can be downloaded for your own personal research!
+
+  -	You can explore the data resources of NatureCounts via interactive maps that allow you to view the distribution of bird populations during any time of the year and across a variety of different sources. 
+
+  -	You can obtain and visualize information on long term population trends of Canadian birds.
+
+  -	You can explore an individual species pattern of distribution or the species richness of a location via dynamically generated summary tables and graphs.
+
+  -	Finally, much of the observational data can be downloaded for your own personal research!
 
 ## NatureCounts and R {#intro1.1}
 
