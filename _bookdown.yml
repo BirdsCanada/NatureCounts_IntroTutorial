@@ -1,7 +1,7 @@
-book_filename: "bookdown-start"
-chapter_name: "Chapter "
-repo: https://github.com/seankross/bookdown-start
+book_filename: "NatureCounts Introductory Tutorial"
+chapter_name: "Chapter"
+repo: https://github.com/DMEthier/NatureCounts_Tutorial_1
 output_dir: docs
-rmd_files: ["index.Rmd", "01-Introduction.Rmd", "02-Diving-In.Rmd"]
+rmd_files: ["01-Introductio.Rmd", "02-LoadPackages.Rmd", "03-ViewData.Rmd", "04-DownloadData.Rmd", "05-ManipData.Rmd", "06-VisualData.Rmd"]
 clean: [packages.bib, bookdown.bbl]
 new_session: yes
