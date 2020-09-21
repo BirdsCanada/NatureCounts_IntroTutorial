@@ -33,10 +33,9 @@ GRCA_dates<-format_dates(GRCA)
 
 Now we can plot raw counts (y-axis) for each day-of-year (x-axis). 
 
-```{r plot1VLBO}
+```{r plot1VLBO, eval=FALSE}
 
-ggplot(data = GRCA_dates) + 
-  geom_point(aes(x = doy, y = ObservationCount))
+ggplot(data = GRCA_dates) + geom_point(aes(x = doy, y = ObservationCount))
 
 ```
 
@@ -55,11 +54,10 @@ GRCA_year<-GRCA %>% group_by(survey_year) %>% summarise (MeanObs=mean(Observatio
 
 Now we can create the plot: 
 
-```{r plot2VLBO}
+```{r plot2VLBO, eval=FALSE}
 
-ggplot(data = GRCA_year) + 
-  geom_pointrange(aes(x = survey_year, y=MeanObs, ymin=yrmin, ymax=yrmax))
-  
+ggplot(data = GRCA_year) +  geom_pointrange(aes(x = survey_year, y=MeanObs, ymin=yrmin, ymax=yrmax))
+
 ```
 
 You will notice there was a large increase in the mean number of GRCA observed in 2018 compared to the previous three years. You might now be wondering why....   
