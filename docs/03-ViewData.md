@@ -12,7 +12,7 @@ By default, the NatureCounts package downloads the data with the *minimum* set o
 
 ## Levels of Data Access {#Data3.2}
 
-NatureCounts host many datasets, representing in excess of 100 million occurrence records, with a primary focus on Canadian bird monitoring data. Many of those datasets are from project lead by Birds Canada and/or its partners. While we thrive to make our data as openly available as possible, we also need to recognize the need of our partners and funders.
+NatureCounts host many datasets, representing in excess of 140 million occurrence records, with a primary focus on Canadian bird monitoring data. Many of those datasets are from project lead by Birds Canada and/or its partners. While we thrive to make our data as openly available as possible, we also need to recognize the need of our partners and funders.
 
 NatureCounts has five [Levels of Data Access](https://www.birdscanada.org/birdmon/default/nc_access_levels.jsp), which define how each dataset can be used. Those levels are set individually for each dataset, in consultation with the various partners and data custodians involved.
 
@@ -59,11 +59,11 @@ Or you can view the collections for which you have access using your username/pa
 nc_count(username = "sample")
 ```
 
-Further refinements can be applied to the `nc_count` function using filters.  Options include: `collections`, `project_id`, `species`, `years`, `doy` (day-of-year), `region`, and `site_type`. 
+Further refinements can be applied to the `nc_count` function using [filters](#Download4)  Options include: `collections`, `project_id`, `species`, `years`, `doy` (day-of-year), `region`, and `site_type`. 
 
 ## Metadata codes and decriptions {#Data3.5}
 
-There are [metadata](https://birdstudiescanada.github.io/naturecounts/reference/meta.html) associated with the various agruments used in the `nc_count` and `nc_data_dl` functions, the latter you will use in [Chapter 4](#Data4). These are stored locally and can be accessed anytime to help filter your data view or download query. They include: 
+There are [metadata](https://birdstudiescanada.github.io/naturecounts/reference/meta.html) associated with the various agruments used in the `nc_count` and `nc_data_dl` functions, the latter you will use in [Chapter 4](#Download4). These are stored locally and can be accessed anytime to help filter your data view or download query. They include: 
 
   - meta_country_codes: country codes
   
@@ -93,16 +93,18 @@ There are [metadata](https://birdstudiescanada.github.io/naturecounts/reference/
   
   - meta_protocol_types: protocol types and descriptions
 
-Comprehensive reference articles are availble online for retrieving [Region](https://birdstudiescanada.github.io/naturecounts/articles/region-codes.html) and [Species](https://birdstudiescanada.github.io/naturecounts/articles/species-codes.html) codes. We do not repeat those material here, but encourage you to review these prior to proceeding. You can explore the metadata materials using one line of code. For example, you can view the Important Bird Area (iba) metadata using:
+Comprehensive reference articles are availble online for retrieving [Region](https://birdstudiescanada.github.io/naturecounts/articles/region-codes.html) and [Species](https://birdstudiescanada.github.io/naturecounts/articles/species-codes.html) codes. We do not repeat those material here, but encourage you to review these prior to proceeding. 
+
+You can explore the metadata materials using one line of code. For example, you can view the Important Bird Area (iba) metadata using:
 
 
 ```r
 meta_iba_codes()
 ```
 
-## Examples and Exercises {#Data3.6}
+## Examples {#Data3.6}
 
-Here are a few examples and excersise for you to work through to become familar with the `nc_count` function.  
+Here are a few examples for you to work through to become familar with the `nc_count` function.  
 
 *Example 1*: Determine the number of collections and records for a specific *region*. The options include: country, statprov, subnational2, iba, bcr, utm_squares, bbox. You can find details and examples on how to [search_region](https://birdstudiescanada.github.io/naturecounts/articles/region-codes.html) at the link provided.
 
@@ -133,6 +135,9 @@ nc_count(species = 10060, year=c(2015, 2019))
 nc_count(species = 10060, region=list(bcr="11"), year=c(2015, 2019))
 ```
 
+## Exercises {#Data3.7}
+
+Now apply your newly aquired skills!
 
 *Excersice 1*: If you are interesting in doing a research project on Snowy Owls in Quebec, which three collections are you most likely to consider using (i.e., which have the most data)?
 

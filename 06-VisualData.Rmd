@@ -1,4 +1,4 @@
-# Data Visualisation {#PM6}
+# Data Visualisation {#Visual6}
 
 ```{r tidyr6, include = FALSE}
 library(knitr)
@@ -17,9 +17,12 @@ First, lets apply our previously aquired skills to download the filtered dataset
 
 ```{r VLBO, eval = FALSE}
 
-VLBO<-nc_data_dl(collections="CMMN-DET-VLBO", years=c(2015, NA), username = "sample", info = "test plot")
+VLBO<-nc_data_dl(collections="CMMN-DET-VLBO", years=c(2015, NA), 
+                 username = "sample", info = "test plot")
 
-GRCA<-format_zero_fill(VLBO, species= 15900, by=c("SamplingEventIdentifier", "survey_year", "survey_month", "survey_day"))
+GRCA<-format_zero_fill(VLBO, species= 15900, 
+                       by=c("SamplingEventIdentifier", "survey_year", 
+                            "survey_month", "survey_day"))
 
 ```
 

@@ -11,7 +11,7 @@ update.packages()
 
 ## Installing the NatureCounts package {#Package2.1}
 
-You can install the developmental version of NatureCounts from GitHub with the remotes package:
+You can install NatureCounts from GitHub with the remotes package:
 
 
 ```r

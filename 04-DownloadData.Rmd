@@ -44,7 +44,7 @@ The users can specify up to 3 filter options in the download process and should 
 
 ## Examples {#Download4.3}
 
-Here are a few examples work through to become familiar with the `nc_data_dl` function.
+Here are a few examples for you to work through to become familiar with the `nc_data_dl` function.
 
 *Example 1*: We will use the Ontario Whip-poor-will collection (WPWI) again for this example. After reviewing the online material, [here](https://www.birdscanada.org/birdmon/default/datasets.jsp?code=WPWI), you notice that the main survey ran from 2010 to 2012, but that additional surveys were conducted between 2009 and 2013. For your research, you only want data collected during the main survey window. Futher, the survey was Ontario-wide, but most effort and records are from southern Ontario. Let's further limit the data to those collected south of the Canadian Shield, which is approximated with [BCR](http://nabci-us.org/assets/images/bcr_map2.jpg) 13. 
 

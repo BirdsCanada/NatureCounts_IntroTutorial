@@ -1,8 +1,8 @@
-# Data Visualisation {#PM6}
+# Data Visualisation {#Visual6}
 
 
 
-You have successfully downloaded and summarised your NatureCounts dataset. In this chapter we will demonstrate how to do some basic visulizations with plots and maps. 
+You have successfully downloaded and summarised your NatureCounts dataset. In this chapter we will demonstrate how to do some basic visulizations with plots. 
 
 ## Plotting {#PM6.1}
 
@@ -14,9 +14,12 @@ First, lets apply our previously aquired skills to download the filtered dataset
 
 
 ```r
-VLBO<-nc_data_dl(collections="CMMN-DET-VLBO", years=c(2015, NA), username = "sample", info = "test plot")
+VLBO<-nc_data_dl(collections="CMMN-DET-VLBO", years=c(2015, NA), 
+                 username = "sample", info = "test plot")
 
-GRCA<-format_zero_fill(VLBO, species= 15900, by=c("SamplingEventIdentifier", "survey_year", "survey_month", "survey_day"))
+GRCA<-format_zero_fill(VLBO, species= 15900, 
+                       by=c("SamplingEventIdentifier", "survey_year", 
+                            "survey_month", "survey_day"))
 ```
 
 First, we are interested if there are any noticible patterns in migration timing. For this, we will use the [add date and day-of-year helper function](https://birdstudiescanada.github.io/naturecounts/reference/format_dates.html) to add two new columbs to the dataframe. 
@@ -30,7 +33,8 @@ Now we can plot raw counts (y-axis) for each day-of-year (x-axis).
 
 
 ```r
-ggplot(data = GRCA_dates) + geom_point(aes(x = doy, y = ObservationCount))
+ggplot(data = GRCA_dates) + 
+  geom_point(aes(x = doy, y = ObservationCount))
 ```
 
 What you will notice is that there isn't an obvious peak in migration for this species, but a realtively constant number of individuals counted throughout the season. 
@@ -42,19 +46,22 @@ Next, we are interested in visually examining the mean number of migrant GRCA ea
 #use this shortcut function to calculate the standard error
 se <- function(x) sd(x) / sqrt(length(x))
 
-GRCA_year<-GRCA %>% group_by(survey_year) %>% summarise (MeanObs=mean(ObservationCount), SEObs = se(ObservationCount)) %>%   mutate (yrmin=MeanObs+SEObs, yrmax=MeanObs-SEObs)
+GRCA_year<-GRCA %>% group_by(survey_year) %>% 
+  summarise (MeanObs=mean(ObservationCount), SEObs = se(ObservationCount)) %>%   
+  mutate (yrmin=MeanObs+SEObs, yrmax=MeanObs-SEObs)
 ```
 
 Now we can create the plot: 
 
 
 ```r
-ggplot(data = GRCA_year) +  geom_pointrange(aes(x = survey_year, y=MeanObs, ymin=yrmin, ymax=yrmax))
+ggplot(data = GRCA_year) +  
+  geom_pointrange(aes(x = survey_year, y=MeanObs, ymin=yrmin, ymax=yrmax))
 ```
 
 You will notice there was a large increase in the mean number of GRCA observed in 2018 compared to the previous three years. You might now be wondering why....   
 
 ## Mapping {#PM6.2}
 
-There is a comprehensive tutorial online for [Mapping Observation](https://birdstudiescanada.github.io/naturecounts/articles/articles/mapping-observations.html). The materials are not repeated here.  
+There is a comprehensive tutorial online for [Mapping Observation](https://birdstudiescanada.github.io/naturecounts/articles/articles/mapping-observations.html). The materials are not repeated here. We encourage you to check this out if are interested in mapping your data. 
 

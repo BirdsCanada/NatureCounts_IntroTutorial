@@ -4,7 +4,6 @@ author: "Danielle Ethier"
 date: "September 2020"
 site: bookdown::bookdown_site
 documentclass: book
-bibliography: [book.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: DMEthier/NatureCounts_Tutorial_1
