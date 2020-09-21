@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter4 Downloading and Filtering Data | 01-Introduction.split</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter4 Downloading and Filtering Data | 01-Introduction.split" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter4 Downloading and Filtering Data | 01-Introduction.split" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="Data3.html"/>
+<link rel="next" href="Manip5.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">NatureCounts Introductory Tutorial</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="intro1.html"><a href="intro1.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro1.html"><a href="intro1.html#intro1.1"><i class="fa fa-check"></i><b>1.1</b> NatureCounts and R</a></li>
+<li class="chapter" data-level="1.2" data-path="intro1.html"><a href="intro1.html#intro1.2"><i class="fa fa-check"></i><b>1.2</b> Prerequisites</a></li>
+<li class="chapter" data-level="1.3" data-path="intro1.html"><a href="intro1.html#intro1.3"><i class="fa fa-check"></i><b>1.3</b> Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="Package2.html"><a href="Package2.html"><i class="fa fa-check"></i><b>2</b> Loading R Packages</a><ul>
+<li class="chapter" data-level="2.1" data-path="Package2.html"><a href="Package2.html#Package2.1"><i class="fa fa-check"></i><b>2.1</b> Installing the NatureCounts package</a></li>
+<li class="chapter" data-level="2.2" data-path="Package2.html"><a href="Package2.html#Package2.2"><i class="fa fa-check"></i><b>2.2</b> Installing additional packages</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="Data3.html"><a href="Data3.html"><i class="fa fa-check"></i><b>3</b> Understanding and Viewing Data</a><ul>
+<li class="chapter" data-level="3.1" data-path="Data3.html"><a href="Data3.html#Data3.1"><i class="fa fa-check"></i><b>3.1</b> Data Structure</a></li>
+<li class="chapter" data-level="3.2" data-path="Data3.html"><a href="Data3.html#Data3.2"><i class="fa fa-check"></i><b>3.2</b> Levels of Data Access</a></li>
+<li class="chapter" data-level="3.3" data-path="Data3.html"><a href="Data3.html#Data3.3"><i class="fa fa-check"></i><b>3.3</b> Authorizations</a></li>
+<li class="chapter" data-level="3.4" data-path="Data3.html"><a href="Data3.html#Data3.4"><i class="fa fa-check"></i><b>3.4</b> Viewing information about NatureCounts collections</a></li>
+<li class="chapter" data-level="3.5" data-path="Data3.html"><a href="Data3.html#Data3.5"><i class="fa fa-check"></i><b>3.5</b> Metadata codes and decriptions</a></li>
+<li class="chapter" data-level="3.6" data-path="Data3.html"><a href="Data3.html#Data3.6"><i class="fa fa-check"></i><b>3.6</b> Examples and Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="Dowload4.html"><a href="Dowload4.html"><i class="fa fa-check"></i><b>4</b> Downloading and Filtering Data</a><ul>
+<li class="chapter" data-level="4.1" data-path="Dowload4.html"><a href="Dowload4.html#Dowload4.1"><i class="fa fa-check"></i><b>4.1</b> Downloading NatureCounts data</a></li>
+<li class="chapter" data-level="4.2" data-path="Dowload4.html"><a href="Dowload4.html#Dowload4.2"><i class="fa fa-check"></i><b>4.2</b> Applying Filters</a></li>
+<li class="chapter" data-level="4.3" data-path="Dowload4.html"><a href="Dowload4.html#Data4.3"><i class="fa fa-check"></i><b>4.3</b> Examples and Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="Manip5.html"><a href="Manip5.html"><i class="fa fa-check"></i><b>5</b> Data Manipulation</a><ul>
+<li class="chapter" data-level="5.1" data-path="Manip5.html"><a href="Manip5.html#Manip5.1"><i class="fa fa-check"></i><b>5.1</b> Basic data wrangling</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="Manip5.html"><a href="Manip5.html#Manip5.1.1"><i class="fa fa-check"></i><b>5.1.1</b> Select</a></li>
+<li class="chapter" data-level="5.1.2" data-path="Manip5.html"><a href="Manip5.html#Manip5.1.2"><i class="fa fa-check"></i><b>5.1.2</b> Filter</a></li>
+<li class="chapter" data-level="5.1.3" data-path="Manip5.html"><a href="Manip5.html#Manip5.1.3"><i class="fa fa-check"></i><b>5.1.3</b> Summarise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="Manip5.html"><a href="Manip5.html#Manip5.2"><i class="fa fa-check"></i><b>5.2</b> Helper Functions</a></li>
+<li class="chapter" data-level="5.3" data-path="Manip5.html"><a href="Manip5.html#Manip5.3"><i class="fa fa-check"></i><b>5.3</b> Exercies</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="PM6.html"><a href="PM6.html"><i class="fa fa-check"></i><b>6</b> Data Visualisation</a><ul>
+<li class="chapter" data-level="6.1" data-path="PM6.html"><a href="PM6.html#PM6.1"><i class="fa fa-check"></i><b>6.1</b> Plotting</a></li>
+<li class="chapter" data-level="6.2" data-path="PM6.html"><a href="PM6.html#PM6.2"><i class="fa fa-check"></i><b>6.2</b> Mapping</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="Dowload4" class="section level1">
+<h1><span class="header-section-number">Chapter4</span> Downloading and Filtering Data</h1>
+<p>This chapter jumps right into downloading NatureCounts data, which builds directly on the skills developed in <a href="Data3.html#Data3">Chapter 3</a>.</p>
+<div id="Dowload4.1" class="section level2">
+<h2><span class="header-section-number">4.1</span> Downloading NatureCounts data</h2>
+<p>Open access collections are available for download without a username/password, however, we encourage you to <a href="https://www.birdscanada.org/birdmon/default/register.jsp">sign up</a> for a <strong>free</strong> account.</p>
+<p>Here we demonstrate how to download the Ontario Whip-poor-will collection (WPWI), since it is Open Access (Level 5) and contains relatively few records (nrecords = 3012). Click <a href="https://www.birdscanada.org/birdmon/default/datasets.jsp?code=WPWI">here</a> for more information on this dataset.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1">WPWI1&lt;-<span class="kw">nc_data_dl</span>(<span class="dt">collections=</span><span class="st">&quot;WPWI&quot;</span>, <span class="dt">username =</span> <span class="st">&quot;sample&quot;</span>, <span class="dt">info=</span><span class="st">&quot;test data download&quot;</span>)</a></code></pre></div>
+<p>You should now see a copy of the WPWI collection in the Environments window (upper right panel of RStudio).
+Notice in the code that <code>info</code> needs to be provided. This is a short description of reason for the download. This does not need to be specified when using the <code>nc_count</code> function.</p>
+<p>To access Level 3 or 4 collections you must <a href="https://www.birdscanada.org/birdmon/default/register.jsp">sign up</a> for a <strong>free</strong> account and request permission from the data custodian. For a complete list of datasets and access level, visit the <a href="https://www.birdscanada.org/birdmon/default/datasets.jsp">NatureCounts datasets</a> page or use the <code>meta_collection()</code> function. Here you can brows information on each dataset prior to requesting access.</p>
+<p>To make a data request, use the NatureCounts <a href="https://www.birdscanada.org/birdmon/default/searchquery.jsp">Download Data query tool</a>. For step-by-step visual instructions, we encourage you to watch: <a href="link%20to%20be%20provided">NatureCounts: An Introductory Tutorial</a>. You will receive an email confirmation when your request has been approved, which will contain your <code>request_id</code>. This number will be used to download your newly acquired dataset into R. There is also a build in function that allows you to check the status of your request and retreive your <code>request_id</code>:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">nc_requests</span>(<span class="dt">username=</span><span class="st">&quot;sample&quot;</span>)</a></code></pre></div>
+<p>Here is sample code to download Access Level 3 or 4 data:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="co">#This code is not functional and is here to serve as a structural example. You will need to insert your collection, request_id, username, and info in the code chunk below to make this work. </span></a>
+<a class="sourceLine" id="cb14-2" title="2"></a>
+<a class="sourceLine" id="cb14-3" title="3">my_data &lt;-<span class="st"> </span><span class="kw">nc_data_dl</span>(<span class="dt">collections =</span> <span class="st">&quot;CBC&quot;</span>,</a>
+<a class="sourceLine" id="cb14-4" title="4">                      <span class="dt">request_id =</span> <span class="dv">000000</span>, <span class="dt">username =</span> <span class="st">&quot;USER&quot;</span>,</a>
+<a class="sourceLine" id="cb14-5" title="5">                      <span class="dt">info =</span> <span class="st">&quot;MY REASON&quot;</span>)</a></code></pre></div>
+<p><strong>Note: if you applied filters to the web portal data request (e.g., species, region, year), you will only receive the subset of the dataset you requested.</strong></p>
+</div>
+<div id="Dowload4.2" class="section level2">
+<h2><span class="header-section-number">4.2</span> Applying Filters</h2>
+<p>The filters applied in <a href="Data3.html#Data3">Chapter 3</a> when using the <code>nc_count</code> view function are also used for the <code>nc_data_dl</code> download function. Again, these options include: <code>collections</code>, <code>project_id</code>, <code>species</code>, <code>years</code>, <code>doy</code> (day-of-year), <code>region</code>, and <code>site_type</code>. The users may also wish to specify which fields/columns to return using the <code>field_set</code> and <code>fields</code> options in the <code>nc_data_dl</code> function. For help with this feature, see the github article <a href="https://birdstudiescanada.github.io/naturecounts/articles/selecting-fields.html">‘Selecting columns and fields to download’</a>.</p>
+<p>Please review the resources provided on <a href="Data3.html#Data3.5">filter metadata</a> prior to proceeding.</p>
+<p>The users can specify up to 3 filter options in the download process and should try to limit redundancies in filters. In most cases, one of these options will be <code>collections</code>, since authorization is given independently for each dataset (i.e., collection). If the user chooses to select <code>species</code>, then only collections the user has <em>authorization</em> to access will be used to retrieve species-specific data. This differs from the <code>nc_count</code> function, which by default shows you <em>all</em> the records available in each collection.</p>
+</div>
+<div id="Data4.3" class="section level2">
+<h2><span class="header-section-number">4.3</span> Examples and Exercises</h2>
+<p>Here are a few examples and exercise for you to work through to become familiar with the <code>nc_data_dl</code> function.</p>
+<p><em>Example 1</em>: We will use the Ontario Whip-poor-will collection (WPWI) again for this example. After reviewing the online material, <a href="https://www.birdscanada.org/birdmon/default/datasets.jsp?code=WPWI">here</a>, you notice that the main survey ran from 2010 to 2012, but that additional surveys were conducted between 2009 and 2013. For your research, you only want data collected during the main survey window. Futher, the survey was Ontario-wide, but most effort and records are from southern Ontario. Let’s further limit the data to those collected south of the Canadian Shield, which is approximated with <a href="http://nabci-us.org/assets/images/bcr_map2.jpg">BCR</a> 13.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1">WPWI_filter&lt;-<span class="kw">nc_data_dl</span>(<span class="dt">collections=</span><span class="st">&quot;WPWI&quot;</span>, <span class="dt">years=</span><span class="kw">c</span>(<span class="dv">2010</span>, <span class="dv">2012</span>), <span class="dt">region=</span><span class="kw">list</span>(<span class="dt">bcr=</span><span class="st">&quot;13&quot;</span>), <span class="dt">username =</span> <span class="st">&quot;sample&quot;</span>, <span class="dt">info=</span><span class="st">&quot;test data download&quot;</span>)</a></code></pre></div>
+<p>You will notice that the number of records in the filtered WPWI download (WPWI_filter = 754) is substantially less than the number of records in the full dataset (WPWI = 3012)</p>
+<p><em>Example 2</em>: Rather than using BCR 13 to approximate the study area, you are interested in just looking at records collected on the <a href="https://en.wikipedia.org/wiki/Bruce_Peninsula">Bruce Peninsula</a> for the full time period. You decide to use <a href="https://birdstudiescanada.github.io/naturecounts/articles/region-spatial.html">spatial data to filter observations</a>. Specifically, you create a <a href="https://birdstudiescanada.github.io/naturecounts/articles/region-codes.html">bounding box</a>, using coordinated from Google Maps which reflects latitude and longitude limits to extract these data.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1">WPWI_bb&lt;-<span class="kw">nc_data_dl</span>(<span class="dt">collections=</span><span class="st">&quot;WPWI&quot;</span>, <span class="dt">region =</span> <span class="kw">list</span>(<span class="dt">bbox =</span> <span class="kw">c</span>(<span class="dt">left =</span> <span class="fl">-81.7</span>, <span class="dt">bottom =</span> <span class="fl">44.5</span>, </a>
+<a class="sourceLine" id="cb16-2" title="2">                                <span class="dt">right =</span> <span class="fl">-80.9</span>, <span class="dt">top =</span> <span class="fl">45.3</span>)), <span class="dt">username =</span> <span class="st">&quot;sample&quot;</span>, <span class="dt">info=</span><span class="st">&quot;test data download&quot;</span>)</a></code></pre></div>
+<p>You will notice there are now even fewer observation records (WPWI_bb = 72)</p>
+<p><em>Exercise 1</em>: You (user “sample”) are from the Northwest Territories and interested in learning more about breeding birds in your region. First, you identify the NatureCounts dataset most suitable for this exercise using the ‘nc_count’ function. Next, you decide to focus your download to only include Blackpoll Warbler data collected over the past 5 years (2015-20). How many observation records did you download?</p>
+<p>Answer: BBS50-CAN, 75</p>
+<p><em>Exercise 2</em>: You (user “sample”) are birding in the <em>Beaverhill Lake</em> Important Bird Area (iba) in May. You think you hear a Bobolink! You are curious if this species is often detected here in the <a href="https://www.esrl.noaa.gov/gmd/grad/neubrew/Calendar.jsp">month of May</a>. You choose to download the records you have authorization to freely access from NatureCounts. How many observation records did you download? What year are these records from?</p>
+<p>Answer: 2 (or 3 if you including Feb 29 in the doy calculation), 1988</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="Data3.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="Manip5.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

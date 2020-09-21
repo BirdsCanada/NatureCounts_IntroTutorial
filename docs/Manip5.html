@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter5 Data Manipulation | 01-Introduction.split</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter5 Data Manipulation | 01-Introduction.split" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter5 Data Manipulation | 01-Introduction.split" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="Dowload4.html"/>
+<link rel="next" href="PM6.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">NatureCounts Introductory Tutorial</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="intro1.html"><a href="intro1.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro1.html"><a href="intro1.html#intro1.1"><i class="fa fa-check"></i><b>1.1</b> NatureCounts and R</a></li>
+<li class="chapter" data-level="1.2" data-path="intro1.html"><a href="intro1.html#intro1.2"><i class="fa fa-check"></i><b>1.2</b> Prerequisites</a></li>
+<li class="chapter" data-level="1.3" data-path="intro1.html"><a href="intro1.html#intro1.3"><i class="fa fa-check"></i><b>1.3</b> Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="Package2.html"><a href="Package2.html"><i class="fa fa-check"></i><b>2</b> Loading R Packages</a><ul>
+<li class="chapter" data-level="2.1" data-path="Package2.html"><a href="Package2.html#Package2.1"><i class="fa fa-check"></i><b>2.1</b> Installing the NatureCounts package</a></li>
+<li class="chapter" data-level="2.2" data-path="Package2.html"><a href="Package2.html#Package2.2"><i class="fa fa-check"></i><b>2.2</b> Installing additional packages</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="Data3.html"><a href="Data3.html"><i class="fa fa-check"></i><b>3</b> Understanding and Viewing Data</a><ul>
+<li class="chapter" data-level="3.1" data-path="Data3.html"><a href="Data3.html#Data3.1"><i class="fa fa-check"></i><b>3.1</b> Data Structure</a></li>
+<li class="chapter" data-level="3.2" data-path="Data3.html"><a href="Data3.html#Data3.2"><i class="fa fa-check"></i><b>3.2</b> Levels of Data Access</a></li>
+<li class="chapter" data-level="3.3" data-path="Data3.html"><a href="Data3.html#Data3.3"><i class="fa fa-check"></i><b>3.3</b> Authorizations</a></li>
+<li class="chapter" data-level="3.4" data-path="Data3.html"><a href="Data3.html#Data3.4"><i class="fa fa-check"></i><b>3.4</b> Viewing information about NatureCounts collections</a></li>
+<li class="chapter" data-level="3.5" data-path="Data3.html"><a href="Data3.html#Data3.5"><i class="fa fa-check"></i><b>3.5</b> Metadata codes and decriptions</a></li>
+<li class="chapter" data-level="3.6" data-path="Data3.html"><a href="Data3.html#Data3.6"><i class="fa fa-check"></i><b>3.6</b> Examples and Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="Dowload4.html"><a href="Dowload4.html"><i class="fa fa-check"></i><b>4</b> Downloading and Filtering Data</a><ul>
+<li class="chapter" data-level="4.1" data-path="Dowload4.html"><a href="Dowload4.html#Dowload4.1"><i class="fa fa-check"></i><b>4.1</b> Downloading NatureCounts data</a></li>
+<li class="chapter" data-level="4.2" data-path="Dowload4.html"><a href="Dowload4.html#Dowload4.2"><i class="fa fa-check"></i><b>4.2</b> Applying Filters</a></li>
+<li class="chapter" data-level="4.3" data-path="Dowload4.html"><a href="Dowload4.html#Data4.3"><i class="fa fa-check"></i><b>4.3</b> Examples and Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="Manip5.html"><a href="Manip5.html"><i class="fa fa-check"></i><b>5</b> Data Manipulation</a><ul>
+<li class="chapter" data-level="5.1" data-path="Manip5.html"><a href="Manip5.html#Manip5.1"><i class="fa fa-check"></i><b>5.1</b> Basic data wrangling</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="Manip5.html"><a href="Manip5.html#Manip5.1.1"><i class="fa fa-check"></i><b>5.1.1</b> Select</a></li>
+<li class="chapter" data-level="5.1.2" data-path="Manip5.html"><a href="Manip5.html#Manip5.1.2"><i class="fa fa-check"></i><b>5.1.2</b> Filter</a></li>
+<li class="chapter" data-level="5.1.3" data-path="Manip5.html"><a href="Manip5.html#Manip5.1.3"><i class="fa fa-check"></i><b>5.1.3</b> Summarise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="Manip5.html"><a href="Manip5.html#Manip5.2"><i class="fa fa-check"></i><b>5.2</b> Helper Functions</a></li>
+<li class="chapter" data-level="5.3" data-path="Manip5.html"><a href="Manip5.html#Manip5.3"><i class="fa fa-check"></i><b>5.3</b> Exercies</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="PM6.html"><a href="PM6.html"><i class="fa fa-check"></i><b>6</b> Data Visualisation</a><ul>
+<li class="chapter" data-level="6.1" data-path="PM6.html"><a href="PM6.html#PM6.1"><i class="fa fa-check"></i><b>6.1</b> Plotting</a></li>
+<li class="chapter" data-level="6.2" data-path="PM6.html"><a href="PM6.html#PM6.2"><i class="fa fa-check"></i><b>6.2</b> Mapping</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="Manip5" class="section level1">
+<h1><span class="header-section-number">Chapter5</span> Data Manipulation</h1>
+<p>You have successfully downloaded your NatureCounts dataset and are ready to explore and summarize the data. In this chapter we will demonstrate how to do some basic data manipulations and summaries. The possibilities are endless, so we try to focus on examples we think would be most valuable to users. We intend to develop <code>collection</code> and <code>protocol_id</code> specific data manipulation and analysis code in the future. If you have specific requests or would like to contribute your existing code, please contact <a href="mailto:dethier@birdscanada.org" class="email">dethier@birdscanada.org</a>.</p>
+<div id="Manip5.1" class="section level2">
+<h2><span class="header-section-number">5.1</span> Basic data wrangling</h2>
+<p>Recall in <a href="Package2.html#Package2.2">Chapter 2</a> you installed the <a href="https://www.tidyverse.org/">tidyverse</a> package, which included <code>dplyr</code> for data manipulations. You are encouraged to learn more about this function by reviewing the <a href="https://r4ds.had.co.nz/transform.html">Data Transformations</a> chapter in “R for Data Science” by Hadley Wickham and Garrett Grolemund. We also recommend you print a copy of the RStudio <a href="https://rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">Data Wrangling</a> cheat sheet as a reference document.</p>
+<p>We are going to apply three key <code>dplyr</code> functions which will give you some of the basic tools needed to solve the vast majority of your data manipulation challenges. These functions include:</p>
+<ul>
+<li>Select: Pick variables by their names</li>
+<li>Filter: Pick observations by their values</li>
+<li>Summarise: Collapse many values down to a single summary</li>
+</ul>
+<p>Let’s continue using the <a href="https://www.birdscanada.org/birdmon/default/datasets.jsp?code=WPWI">Ontario Whip-poor-will</a> collection for this chapter.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1">WPWI&lt;-<span class="kw">nc_data_dl</span>(<span class="dt">collections=</span><span class="st">&quot;WPWI&quot;</span>, <span class="dt">username =</span> <span class="st">&quot;sample&quot;</span>, <span class="dt">info=</span><span class="st">&quot;test data download&quot;</span>)</a></code></pre></div>
+<div id="Manip5.1.1" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> Select</h3>
+<p>You will notice that Naturecounts datasets have many fields (i.e., columns) available. Generally, you will only want a few of these fields for your summary or analysis. Recall the complete version of the <a href="Data3.html#Data3.1">BMDE</a> includes 265 fields. The number of variables downloaded from the BMDE will depend on the <code>fields_set</code>, which is by default “minimum” (57 fields). You can narrow in on the variables you are interested in with the <code>select()</code> function, which allows you to subset the dataframe based on the names of the variables.</p>
+<p>For example, we are going to <code>select()</code> a subset of variables from the WPWI dataset that we need for our summary:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1">WPWI_select&lt;-WPWI <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span> (<span class="st">&quot;ObservationCount&quot;</span>, <span class="st">&quot;SurveyAreaIdentifier&quot;</span>, <span class="st">&quot;RouteIdentifier&quot;</span>, <span class="st">&quot;species_id&quot;</span>, <span class="st">&quot;latitude&quot;</span>, <span class="st">&quot;longitude&quot;</span>, <span class="st">&quot;bcr&quot;</span>, <span class="st">&quot;survey_day&quot;</span>, <span class="st">&quot;survey_month&quot;</span>, <span class="st">&quot;survey_year&quot;</span>)</a></code></pre></div>
+</div>
+<div id="Manip5.1.2" class="section level3">
+<h3><span class="header-section-number">5.1.2</span> Filter</h3>
+<p>Often there are observational records in a database that are not needed. We could have filtered these records out using the <code>nc_data_dl()</code> <a href="Dowload4.html#Dowload4.2">filters</a>. However, we can also use the <code>dplyr::filter()</code> function, which allows us to subset observations based on their row values. Observations are selected using:</p>
+<ul>
+<li>Comparison operators:<code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>!=</code> (not equal), <code>==</code> (equal)</li>
+<li>Logical operators: <code>&amp;</code> (and), <code>|</code> (or), <code>!</code> (is not)</li>
+</ul>
+<p>There are worked examples provided in the <a href="https://birdstudiescanada.github.io/naturecounts/articles/filtering-data.html">Filtering data after download</a> article on Github to get you started with applying filters. These include:</p>
+<ul>
+<li>Categorical filters</li>
+<li>Numerical filters</li>
+<li>Date filters</li>
+</ul>
+<p>Here we provide a few additional examples for you to work with. First, lets apply a simple <code>filter()</code> that subsets the data based on a single survey month:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1">WPWI_June&lt;-WPWI_select <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(survey_month<span class="op">==</span><span class="dv">6</span>)</a></code></pre></div>
+<p>Now lets try multiple survey months by adding a logical operator:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1">WPWI_JJ&lt;-WPWI_select <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(survey_month<span class="op">==</span><span class="dv">6</span> <span class="op">|</span>survey_month<span class="op">==</span><span class="dv">7</span>)</a>
+<a class="sourceLine" id="cb20-2" title="2"></a>
+<a class="sourceLine" id="cb20-3" title="3"><span class="co">#Alternatively this can be written as:</span></a>
+<a class="sourceLine" id="cb20-4" title="4">WPWI_JJ&lt;-WPWI_select <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(survey_month <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">7</span>))</a></code></pre></div>
+<p>We can continue to add to the complexity of our filter:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1">WPWI_multi&lt;-WPWI_select <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(survey_month <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">7</span>) <span class="op">&amp;</span><span class="st"> </span>bcr<span class="op">==</span><span class="dv">12</span> <span class="op">&amp;</span><span class="st"> </span>survey_year<span class="op">&gt;=</span><span class="dv">2010</span> <span class="op">&amp;</span><span class="st"> </span>survey_year<span class="op">&lt;=</span><span class="dv">2012</span>)</a></code></pre></div>
+</div>
+<div id="Manip5.1.3" class="section level3">
+<h3><span class="header-section-number">5.1.3</span> Summarise</h3>
+<p>Now that we have selected the columns we need for our analysis and limited the data to the observation records we wish to use, we will want to summarise what we have left! The <code>summarise()</code> function is most useful if pair it with <code>group_by()</code> argument, because this changes the unit of analysis from the complete dataset to individual groups.</p>
+<p>For example, say we want to determine how many point count stops were on each Route. We will want to group observations by RouteIdentifier and summarise the number of district SurveyAreaIdentifier.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1">WPWI_Route&lt;-WPWI_multi <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(RouteIdentifier) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb22-2" title="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Nstops=</span><span class="kw">n_distinct</span>(SurveyAreaIdentifier))</a></code></pre></div>
+<p>Or we might want to know how many routes where run in each year.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1">WPWI_Year&lt;-WPWI_multi <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(survey_year) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb23-2" title="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Nroute=</span><span class="kw">n_distinct</span>(RouteIdentifier))</a></code></pre></div>
+<p>Finally, lets look to see how many Observations of WPWI were made on each route in each year. First we need to replace the ‘NA’ with zero count and ensure this variable is numeric.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1">WPWI_multi<span class="op">$</span>ObservationCount[<span class="kw">is.na</span>(WPWI_multi<span class="op">$</span>ObservationCount)] &lt;-<span class="st"> </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb24-2" title="2"></a>
+<a class="sourceLine" id="cb24-3" title="3">WPWI_Obs&lt;-WPWI_multi <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(RouteIdentifier, survey_year) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb24-4" title="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">MeanObs=</span><span class="kw">mean</span>(<span class="kw">as.numeric</span>(ObservationCount)))</a></code></pre></div>
+<p>No WIWP were detected in our subset of the data!! No wonder this speices is listed as <a href="https://www.ontario.ca/page/eastern-whip-poor-will">threatened</a> in the province.</p>
+</div>
+</div>
+<div id="Manip5.2" class="section level2">
+<h2><span class="header-section-number">5.2</span> Helper Functions</h2>
+<p>There are a few additional helper functions built into the NatureCounts R package that you may find useful. At present, they include:</p>
+<ul>
+<li><a href="https://birdstudiescanada.github.io/naturecounts/reference/format_dates.html">format_dates</a>:Creates and adds date and day-of-year (doy) field/columns to data</li>
+<li><a href="https://birdstudiescanada.github.io/naturecounts/reference/format_zero_fill.html">formate_zero-fill</a>: Zero-fill the species presence data by adding zero observations counts (absences) to an existing NatureCounts dataset</li>
+</ul>
+<p>The zero-fill function is particularly important if you want to ensure your dataset is complete!</p>
+</div>
+<div id="Manip5.3" class="section level2">
+<h2><span class="header-section-number">5.3</span> Exercies</h2>
+<p><em>Exercise 1</em>: You (user “sample”) are doing a research project using the fall migration monitoring data collected at <a href="https://www.birdscanada.org/birdmon/default/datasets.jsp?code=CMMN-DET-VLBO">Vaseux Lake Bird Observatory</a>, British Columbia. You request the open access data from 2017-2020. After you request this subset of the collection, you need to determine the number of unique days Gray catbirds were records in each year?</p>
+<p>Answer:
+2017 = 20
+2018 = 23</p>
+<p><em>Exercise 2</em>: Building off the same dataset used in Exercise 1, you now want to zero-fill the dataframe to ensure it is complete for your study on Gray catbirds. How many records (rows) are in the zero-fill Gray catbird dataframe?</p>
+<p>Answer: 6709</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="Dowload4.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="PM6.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
