@@ -11,7 +11,7 @@ This chapter begins with a brief introduction to the structure of the NatureCoun
 
 The [Bird Monitoring Data Exchange](https://www.birdscanada.org/birdmon/default/nc_bmde.jsp) (BMDE) was developed to be a standardized data exchange schema to promote the sharing and analysis of avian observational data. The schema is the core sharing standard of the [Avian Knowledge Network](http://www.avianknowledge.net).The BMDE (currently version 2.0) includes 169 *core* fields that are capable of capturing all metrics and descriptors associated with a bird observation. The BMDE schema was extended in 2018, and the *complete* version now includes 265 fields.
 
-By default, the NatureCounts package downloads the data with the *minimum* set of fields/columns. However, for more advanced applications, users may wish to specify which fields/columns to return using the `field_set` and `fields` options in the `nc_data_dl` function. For help with this feature, see the GitHub article ['Selecting columns and fields to download'](https://birdstudiescanada.github.io/naturecounts/articles/selecting-fields.html).   
+By default, the naturecounts package downloads the data with the *minimum* set of fields/columns. However, for more advanced applications, users may wish to specify which fields/columns to return using the `field_set` and `fields` options in the `nc_data_dl` function. For help with this feature, see the GitHub article ['Selecting columns and fields to download'](https://birdstudiescanada.github.io/naturecounts/articles/selecting-fields.html).   
 
 ## Levels of Data Access {#Data3.2}
 
@@ -41,11 +41,11 @@ meta_collections()
 
 ## Authorizations {#Data3.3}
 
-To access data using the NatureCounts R package, you must [sign up](https://www.birdscanada.org/birdmon/default/register.jsp) for a **free** account. Further, if you would like to access Level 3 or 4 collections you must make a [data request](https://www.birdscanada.org/birdmon/default/searchquery.jsp). For step-by-step visual instructions, we encourage you to watch: [NatureCounts: An Introductory Tutorial](link to be provided).
+To access data using the naturecounts R package, you must [sign up](https://www.birdscanada.org/birdmon/default/register.jsp) for a **free** account. Further, if you would like to access Level 3 or 4 collections you must make a [data request](https://www.birdscanada.org/birdmon/default/searchquery.jsp). For step-by-step visual instructions, we encourage you to watch: [NatureCounts: An Introductory Tutorial](link to be provided).
 
 ## Viewing information about NatureCounts collections {#Data3.4}
 
-First, lets use the NatureCounts R package to view the number of records available for different collections. To do this we use the `nc_count` function. You can view *all* the available collections and the number of observations using the default setting. 
+First, lets use the naturecounts R package to view the number of records available for different collections. To do this we use the `nc_count` function. You can view *all* the available collections and the number of observations using the default setting. 
 
 If a username is provided, the collections are filtered to only those available to the user. Otherwise all counts from all data sources are returned (default: show = "all").
 

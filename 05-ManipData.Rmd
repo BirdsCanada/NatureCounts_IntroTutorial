@@ -98,7 +98,7 @@ No WIWP were detected in our subset of the data!! No wonder this species is list
 
 ## Helper Functions {#Manip5.2}
 
-There are a few additional helper functions built into the NatureCounts R package that you may find useful. At present, they include: 
+There are a few additional helper functions built into the naturecounts R package that you may find useful. At present, they include: 
 
 - [format_dates](https://birdstudiescanada.github.io/naturecounts/reference/format_dates.html):Creates and adds date and day-of-year (doy) field/columns to data
 - [formate_zero-fill](https://birdstudiescanada.github.io/naturecounts/reference/format_zero_fill.html): Zero-fill the species presence data by adding zero observations counts (absences) to an existing NatureCounts dataset
