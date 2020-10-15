@@ -9,7 +9,7 @@ This chapter begins with a brief introduction to the structure of the NatureCoun
 
 ## Data Structure {#Data3.1}
 
-The [Bird Monitoring Data Exchange](https://www.birdscanada.org/birdmon/default/nc_bmde.jsp) (BMDE) was developed to be a standardized data exchange schema to promote the sharing and analysis of avain observational data. The schema is the core sharing standard of the [Avian Knowledge Network](www.avianknowledge.net).The BMDE (currently version 2.0) includes 169 *core* fields that are capable of capturing all metrics and descriptors associated with a bird observation. The BMDE schema was extended in 2018, and the *complete* version now includes 265 fields.
+The [Bird Monitoring Data Exchange](https://www.birdscanada.org/birdmon/default/nc_bmde.jsp) (BMDE) was developed to be a standardized data exchange schema to promote the sharing and analysis of avain observational data. The schema is the core sharing standard of the [Avian Knowledge Network](http://www.avianknowledge.net).The BMDE (currently version 2.0) includes 169 *core* fields that are capable of capturing all metrics and descriptors associated with a bird observation. The BMDE schema was extended in 2018, and the *complete* version now includes 265 fields.
 
 By default, the NatureCounts package downloads the data with the *minimum* set of fields/columns. However, for more advanced applications, users may wish to specify which fields/columns to return using the `field_set` and `fields` options in the `nc_data_dl` function. For help with this feature, see the github acticle ['Selecting columns and fields to download'](https://birdstudiescanada.github.io/naturecounts/articles/selecting-fields.html).   
 
