@@ -19,9 +19,9 @@ What can you do on the NatureCounts [webportal](https://www.naturecounts.ca)?
 
 ## NatureCounts and R {#intro1.1}
 
-The natuecounts R package was create to allow users to directly access and download data from NatureCounts into R. The goal of this online book is to show NatureCounts users how to use the [R](https://www.r-project.org/) statistical programming language  to access, filter, summarize, and visualize naturecounts data. Moving forward, we intend to create more advanced tutorials which explore analytical procedures suitable for various datasets. If you have suggestions for additional content, please let us know by emailing dethier@birdscanada.org
+The naturecounts R package was create to allow users to directly access and download data from NatureCounts into R. The goal of this online book is to show NatureCounts users how to use the [R](https://www.r-project.org/) statistical programming language  to access, filter, summarize, and visualize naturecounts data. Moving forward, we intend to create more advanced tutorials which explore analytical procedures suitable for various datasets. If you have suggestions for additional content, please let us know by emailing dethier@birdscanada.org
 
-Throughout this book we use fictious and subsets of real datasets to illustrate how to access, manage, explore and visualize NaturecCounts data in R. We recommend that you run through the sample code in each chapter with the sample dataset before doing the exercises or using own data. 
+Throughout this book we use fictitious and subsets of real datasets to illustrate how to access, manage, explore and visualize NatureCounts data in R. We recommend that you run through the sample code in each chapter with the sample dataset before doing the exercises or using own data. 
 
 ## Prerequisites {#intro1.2}
 
@@ -29,7 +29,7 @@ This book assumes that you have a basic understanding of R. We recommend that yo
 
 ## Acknowledgements {#intro1.3}
 
-The text in this document were adapted from the [NatureCount webpage](https://www.birdscanada.org/birdmon/default/main.jsp) and the [NatureCounts GitHub](https://github.com/BirdStudiesCanada/naturecounts) repository. The structure of this book follows that of the [Motus R Book](https://beta.motus.org/MotusRBook/index.html). Online [tutorials](https://birdstudiescanada.github.io/naturecounts/articles/index.html) are avaiable for the NatureCounts R-package, which are referenced throughout this document. You are encouraged to review these tutorials for additional examples and more advanced options.  
+The text in this document were adapted from the [NatureCount webpage](https://www.birdscanada.org/birdmon/default/main.jsp) and the [NatureCounts GitHub](https://github.com/BirdStudiesCanada/naturecounts) repository. The structure of this book follows that of the [Motus R Book](https://beta.motus.org/MotusRBook/index.html). Online [tutorials](https://birdstudiescanada.github.io/naturecounts/articles/index.html) are available for the NatureCounts R-package, which are referenced throughout this document. You are encouraged to review these tutorials for additional examples and more advanced options.  
 
-Many people have contrubuted to the NatureCounts web interface and the R package, including, Denis Lepage, Steffi LaZerte, and Catherine Jardine. The development of the NatureCounts web interface, R package, and accompanying online book were made possible by funding provided by Environment and Climate Change Canada and the generosity of donors to [Birds Canada](https://www.birdscanada.org/give/). Thank you!
+Many people have contributed to the NatureCounts web interface and the R package, including, Denis Lepage, Steffi LaZerte, and Catherine Jardine. The development of the NatureCounts web interface, R package, and accompanying online book were made possible by funding provided by Environment and Climate Change Canada and the generosity of donors to [Birds Canada](https://www.birdscanada.org/give/). Thank you!
 

@@ -28,7 +28,7 @@ library(naturecounts)
 
 ## Installing additional packages {#Package2.2}
 
-Throughout the book we use [tidyverse](https://www.tidyverse.org/), which is a collection of R packages for data science, including tidyr, dplyr, and ggplot2, among others This package can be installed from CRAN and loaded into R as follows:
+Throughout the book we use [tidyverse](https://www.tidyverse.org/), which is a collection of R packages for data science, including tidyr, dplyr, and ggplot2, among others. tidyverse packages can be installed from CRAN and loaded into R as follows:
 
 
 ```r
@@ -36,4 +36,4 @@ install.packages("tidyverse")
 library(tidyverse)
 ```
 
-You may find additional packages are needed to manipulate and visualize your data. For example, if you are interested in [Mapping Observation](https://birdstudiescanada.github.io/naturecounts/articles/articles/mapping-observations.html) a suite of packages need to be installed and loaded. The process is similar to that previously decribe.  
+You may find additional packages are needed to manipulate and visualize your data. For example, if you are interested in [Mapping Observation](https://birdstudiescanada.github.io/naturecounts/articles/articles/mapping-observations.html) a suite of packages need to be installed and loaded. The process is similar to that previously described.  

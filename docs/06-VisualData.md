@@ -2,15 +2,15 @@
 
 
 
-You have successfully downloaded and summarised your NatureCounts dataset. In this chapter we will demonstrate how to do some basic visulizations with plots. 
+You have successfully downloaded and summarised your NatureCounts dataset. In this chapter we will demonstrate how to do some basic visualizations with plots. 
 
 ## Plotting {#PM6.1}
 
-Plotting your data is a powerful way to detect patterns and make results stand out. Recall in [Chapter 2](#Package2.2) you installed the [tidyverse](https://www.tidyverse.org/) package, which included `ggplot2` for data visulizations. You are encouraged to learn more about this function by reviewing [Cookbook for R](http://www.cookbook-r.com/Graphs/). We also recommend you print a copy of the RStudio [Data Visualization](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf) cheat sheet as a reference document.
+Plotting your data is a powerful way to detect patterns and make results stand out. Recall in [Chapter 2](#Package2.2) you installed the [tidyverse](https://www.tidyverse.org/) package, which included `ggplot2` for data visualizations. You are encouraged to learn more about this function by reviewing [Cookbook for R](http://www.cookbook-r.com/Graphs/). We also recommend you print a copy of the RStudio [Data Visualization](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf) cheat sheet as a reference document.
 
 At the end of [Chapter 5](#Manip5) you were exploring fall migration monitoring data collected at [Vaseux Lake Bird Observatory](https://www.birdscanada.org/birdmon/default/datasets.jsp?code=CMMN-DET-VLBO), British Columbia. Let's continue using this dataset for our plotting example and download the data for 2015-present. 
 
-First, lets apply our previously aquired skills to download the filtered dataset and zero-fill for GRCA, while also keep some extra variables. 
+First, lets apply our previously acquired skills to download the filtered dataset and zero-fill for GRCA, while also keep some extra variables. 
 
 
 ```r
@@ -22,7 +22,7 @@ GRCA<-format_zero_fill(VLBO, species= 15900,
                             "survey_month", "survey_day"))
 ```
 
-First, we are interested if there are any noticible patterns in migration timing. For this, we will use the [add date and day-of-year helper function](https://birdstudiescanada.github.io/naturecounts/reference/format_dates.html) to add two new columbs to the dataframe. 
+First, we are interested if there are any noticeable patterns in migration timing. For this, we will use the [add date and day-of-year helper function](https://birdstudiescanada.github.io/naturecounts/reference/format_dates.html) to add two new columns to the dataframe. 
 
 
 ```r
@@ -37,9 +37,9 @@ ggplot(data = GRCA_dates) +
   geom_point(aes(x = doy, y = ObservationCount))
 ```
 
-What you will notice is that there isn't an obvious peak in migration for this species, but a realtively constant number of individuals counted throughout the season. 
+What you will notice is that there isn't an obvious peak in migration for this species, but a relatively constant number of individuals counted throughout the season. 
 
-Next, we are interested in visually examining the mean number of migrant GRCA each year, to see if there are any noticible changes over time. First, we need to summarise the data: 
+Next, we are interested in visually examining the mean number of migrant GRCA each year, to see if there are any noticeable changes over time. First, we need to summarise the data: 
 
 
 ```r

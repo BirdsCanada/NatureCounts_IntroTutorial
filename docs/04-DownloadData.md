@@ -17,7 +17,7 @@ You should now see a copy of the WPWI collection in the upper right panel of RSt
 
 To access Level 3 or 4 collections you must [sign up](https://www.birdscanada.org/birdmon/default/register.jsp) for a **free** account and request permission from the data custodian. For a complete list of datasets and access level, visit the [NatureCounts datasets](https://www.birdscanada.org/birdmon/default/datasets.jsp) page or use the `meta_collection()` function. Here you can brows information on each dataset prior to requesting access. 
 
-To make a data request, use the NatureCounts [Download Data query tool](https://www.birdscanada.org/birdmon/default/searchquery.jsp).  For step-by-step visual instructions, we encourage you to watch: [NatureCounts: An Introductory Tutorial](link to be provided). You will receive an email confirmation when your request has been approved, which will contain your `request_id`. This number will be used to download your newly acquired dataset into R. There is also a build in function that allows you to check the status of your request and retreive your `request_id`: 
+To make a data request, use the NatureCounts [Download Data query tool](https://www.birdscanada.org/birdmon/default/searchquery.jsp).  For step-by-step visual instructions, we encourage you to watch: [NatureCounts: An Introductory Tutorial](link to be provided). You will receive an email confirmation when your request has been approved, which will contain your `request_id`. This number will be used to download your newly acquired dataset into R. There is also a build in function that allows you to check the status of your request and retrieve your `request_id`: 
 
 
 ```r
@@ -35,7 +35,7 @@ my_data <- nc_data_dl(collections = "CBC",
 
 ## Applying Filters {#Download4.2}
 
-The filters applied in [Chapter 3](#Data3) when using the `nc_count` view function are also used for the `nc_data_dl` download function. Again, these options include: `collections`, `project_id`, `species`, `years`, `doy` (day-of-year), `region`, and `site_type`. You may also wish to specify which fields/columns to return using the `field_set` and `fields` options in the `nc_data_dl` function. For help with this feature, see the github article ['Selecting columns and fields to download'](https://birdstudiescanada.github.io/naturecounts/articles/selecting-fields.html).   
+The filters applied in [Chapter 3](#Data3) when using the `nc_count` view function are also used for the `nc_data_dl` download function. Again, these options include: `collections`, `project_id`, `species`, `years`, `doy` (day-of-year), `region`, and `site_type`. You may also wish to specify which fields/columns to return using the `field_set` and `fields` options in the `nc_data_dl` function. For help with this feature, see the GitHub article ['Selecting columns and fields to download'](https://birdstudiescanada.github.io/naturecounts/articles/selecting-fields.html).   
 
 Please review the resources provided on [filter metadata](#Data3.5) prior to proceeding. 
 
@@ -45,7 +45,7 @@ The users can specify up to 3 filter options in the download process and should 
 
 Here are a few examples for you to work through to become familiar with the `nc_data_dl` function.
 
-*Example 1*: We will use the Ontario Whip-poor-will collection (WPWI) again for this example. After reviewing the online material, [here](https://www.birdscanada.org/birdmon/default/datasets.jsp?code=WPWI), you notice that the main survey ran from 2010 to 2012, but that additional surveys were conducted between 2009 and 2013. For your research, you only want data collected during the main survey window. Futher, the survey was Ontario-wide, but most effort and records are from southern Ontario. Let's further limit the data to those collected south of the Canadian Shield, which is approximated with [BCR](http://nabci-us.org/assets/images/bcr_map2.jpg) 13. 
+*Example 1*: We will use the Ontario Whip-poor-will collection (WPWI) again for this example. After reviewing the online material, [here](https://www.birdscanada.org/birdmon/default/datasets.jsp?code=WPWI), you notice that the main survey ran from 2010 to 2012, but that additional surveys were conducted between 2009 and 2013. For your research, you only want data collected during the main survey window. Further, the survey was Ontario-wide, but most effort and records are from southern Ontario. Let's further limit the data to those collected south of the Canadian Shield, which is approximated with [BCR](http://nabci-us.org/assets/images/bcr_map2.jpg) 13. 
 
  
 
@@ -66,7 +66,7 @@ You will notice there are now even fewer observation records (WPWI_bb = 72)
 
 ## Exercises {#Download4.4}
 
-Now apply your newly aquired skills!
+Now apply your newly acquired skills!
 
 *Exercise 1*:  You (user "sample") are from the Northwest Territories and interested in learning more about breeding birds in your region. First, you identify the NatureCounts dataset most suitable for this exercise using the `nc_count` function. Next, you decide to focus your download to only include Blackpoll Warbler data collected over the past 5 years (2015-2020). How many observation records did you download? 
 

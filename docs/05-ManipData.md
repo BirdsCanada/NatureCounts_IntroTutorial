@@ -23,7 +23,7 @@ WPWI<-nc_data_dl(collections="WPWI", username = "sample", info="test data downlo
 
 ### Select {#Manip5.1.1}
 
-You will notice that Naturecounts datasets have many fields (i.e., columns) available. Generally, you will only want a few of these fields for your summary or analysis. Recall the complete version of the [BMDE](#Data3.1) includes 265 fields. The number of variables downloaded from the BMDE will depend on the `fields_set`, which is by default "minimum" (57 fields). You can narrow in on the variables you are interested in with the `select()` function, which allows you to subset the dataframe based on the names of the variables.
+You will notice that NatureCounts datasets have many fields (i.e., columns) available. Generally, you will only want a few of these fields for your summary or analysis. Recall the complete version of the [BMDE](#Data3.1) includes 265 fields. The number of variables downloaded from the BMDE will depend on the `fields_set`, which is by default "minimum" (57 fields). You can narrow in on the variables you are interested in with the `select()` function, which allows you to subset the dataframe based on the names of the variables.
 
 For example, we are going to `select()` a subset of variables from the WPWI dataset that we need for our summary: 
 
@@ -40,7 +40,7 @@ Often there are observational records in a database that are not needed. We coul
   - Comparison operators:`>`, `>=`, `<`, `<=`, `!=` (not equal), `==` (equal) 
   - Logical operators: `&` (and), `|` (or),  `!` (is not)
 
-There are worked examples provided in the [Filtering data after download](https://birdstudiescanada.github.io/naturecounts/articles/filtering-data.html) article on Github to get you started with applying filters. These include:
+There are worked examples provided in the [Filtering data after download](https://birdstudiescanada.github.io/naturecounts/articles/filtering-data.html) article on GitHub to get you started with applying filters. These include:
 
   - Categorical filters
   - Numerical filters
@@ -98,7 +98,7 @@ WPWI_Obs<-WPWI_multi %>% group_by(RouteIdentifier, survey_year) %>%
   summarise(MeanObs=mean(as.numeric(ObservationCount)))
 ```
 
-No WIWP were detected in our subset of the data!! No wonder this speices is listed as [threatened](https://www.ontario.ca/page/eastern-whip-poor-will) in the province. 
+No WIWP were detected in our subset of the data!! No wonder this species is listed as [threatened](https://www.ontario.ca/page/eastern-whip-poor-will) in the province. 
 
 ## Helper Functions {#Manip5.2}
 
