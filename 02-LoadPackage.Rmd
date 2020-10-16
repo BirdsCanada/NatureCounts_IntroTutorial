@@ -1,6 +1,6 @@
 # Loading R Packages {#Package2}
 
-```{r tidyr2, include = FALSE}
+```{r tidyr2, include = FALSE, warning = FALSE}
 
 library(knitr)
 opts_chunk$set(tidy.opts=list(width.cutoff=50), tidy = FALSE)

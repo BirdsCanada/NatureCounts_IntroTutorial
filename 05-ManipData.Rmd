@@ -1,10 +1,10 @@
 # Data Manipulation {#Manip5}
 
-```{r tidyr5, include = FALSE}
+```{r tidyr5, include = FALSE, warning = FALSE}
 library(knitr)
 opts_chunk$set(tidy.opts=list(width.cutoff=50), tidy = FALSE, cache = TRUE)
 options(max.print = 30)
-library(dplyr) # If we load it here first, the next time it won't have any messages
+library(dplyr) 
 library(naturecounts)
 ```
 

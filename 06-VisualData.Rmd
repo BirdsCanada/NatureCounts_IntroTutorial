@@ -1,8 +1,12 @@
 # Data Visualisation {#Visual6}
 
-```{r tidyr6, include = FALSE}
+```{r tidyr6, include = FALSE, warning = FALSE}
 library(knitr)
 opts_chunk$set(tidy.opts=list(width.cutoff=50), tidy = FALSE, cache = TRUE)
+options(max.print = 30)
+library(dplyr) 
+library(ggplot2)
+library(naturecounts)
 ```
 
 You have successfully downloaded and summarised your NatureCounts dataset. In this chapter we will demonstrate how to do some basic visualizations with plots. 

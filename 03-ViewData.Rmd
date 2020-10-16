@@ -1,6 +1,6 @@
 # Understanding and Viewing Data {#Data3}
 
-```{r tidyr3, include = FALSE}
+```{r tidyr3, include = FALSE, warning = FALSE}
 library(knitr)
 opts_chunk$set(tidy.opts=list(width.cutoff=50), tidy = FALSE, cache = TRUE)
 library(naturecounts)
@@ -101,7 +101,7 @@ Comprehensive reference articles are available online for retrieving [Region](ht
 
 You can explore the metadata materials using one line of code. For example, you can view the Important Bird Area (IBA) metadata using:
 
-```{r meta}
+```{r meta, eval = FALSE}
 meta_iba_codes()
 ```
 
