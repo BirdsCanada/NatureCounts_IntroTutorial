@@ -2,6 +2,6 @@ book_filename: "NatureCounts Introductory Tutorial"
 chapter_name: "Chapter "
 repo: https://github.com/DMEthier/NatureCounts_Tutorial_1
 output_dir: docs
-rmd_files: ["01-Introduction.Rmd", "02-LoadPackage.Rmd", "03-ViewData.Rmd", "04-DownloadData.Rmd", "05-ManipData.Rmd", "06-VisualData.Rmd"]
+rmd_files: ["index.Rmd", "01-Introduction.Rmd", "02-LoadPackage.Rmd", "03-ViewData.Rmd", "04-DownloadData.Rmd", "05-ManipData.Rmd", "06-VisualData.Rmd"]
 clean: [packages.bib, bookdown.bbl]
 new_session: yes
