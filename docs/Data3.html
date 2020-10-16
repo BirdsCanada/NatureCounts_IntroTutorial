@@ -4,23 +4,24 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Understanding and Viewing Data | 01-Introduction.split</title>
-  <meta name="description" content="" />
+  <title>Chapter 3 Understanding and Viewing Data | NatureCounts: An Introductiory Tutorial</title>
+  <meta name="description" content="Introduction to NatureCounts and associated R Package" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Understanding and Viewing Data | 01-Introduction.split" />
+  <meta property="og:title" content="Chapter 3 Understanding and Viewing Data | NatureCounts: An Introductiory Tutorial" />
   <meta property="og:type" content="book" />
-  
-  
-  
-  
+  <meta property="og:url" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.git" />
+  <meta property="og:image" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.gitNC.png" />
+  <meta property="og:description" content="Introduction to NatureCounts and associated R Package" />
+  <meta name="github-repo" content="DMEthier/NatureCounts_Tutorial_1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Understanding and Viewing Data | 01-Introduction.split" />
+  <meta name="twitter:title" content="Chapter 3 Understanding and Viewing Data | NatureCounts: An Introductiory Tutorial" />
   
-  
-  
+  <meta name="twitter:description" content="Introduction to NatureCounts and associated R Package" />
+  <meta name="twitter:image" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.gitNC.png" />
 
+<meta name="author" content="Danielle Ethier" />
 
 
 
@@ -48,12 +49,13 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -62,14 +64,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -78,9 +82,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -113,7 +117,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="mystyles.css" type="text/css" />
 </head>
 
 <body>
@@ -129,13 +133,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">NatureCounts Introductory Tutorial</a></li>
 
 <li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to NatureCount!</a></li>
 <li class="chapter" data-level="1" data-path="Intro1.html"><a href="Intro1.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="Intro1.html"><a href="Intro1.html#intro1.1"><i class="fa fa-check"></i><b>1.1</b> NatureCounts and R</a></li>
 <li class="chapter" data-level="1.2" data-path="Intro1.html"><a href="Intro1.html#intro1.2"><i class="fa fa-check"></i><b>1.2</b> Prerequisites</a></li>
 <li class="chapter" data-level="1.3" data-path="Intro1.html"><a href="Intro1.html#intro1.3"><i class="fa fa-check"></i><b>1.3</b> Acknowledgements</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="Package2.html"><a href="Package2.html"><i class="fa fa-check"></i><b>2</b> Loading R Packages</a><ul>
-<li class="chapter" data-level="2.1" data-path="Package2.html"><a href="Package2.html#Package2.1"><i class="fa fa-check"></i><b>2.1</b> Installing the NatureCounts package</a></li>
+<li class="chapter" data-level="2.1" data-path="Package2.html"><a href="Package2.html#Package2.1"><i class="fa fa-check"></i><b>2.1</b> Installing the naturecounts package</a></li>
 <li class="chapter" data-level="2.2" data-path="Package2.html"><a href="Package2.html#Package2.2"><i class="fa fa-check"></i><b>2.2</b> Installing additional packages</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="Data3.html"><a href="Data3.html"><i class="fa fa-check"></i><b>3</b> Understanding and Viewing Data</a><ul>
@@ -178,7 +183,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">NatureCounts: An Introductiory Tutorial</a>
           </h1>
         </div>
 
@@ -191,85 +196,172 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This chapter begins with a brief introduction to the structure of the NatureCounts database, followed by a description of access levels and how to create a user account. We then provide instructions on how to view data from various collections and apply filters.</p>
 <div id="Data3.1" class="section level2">
 <h2><span class="header-section-number">3.1</span> Data Structure</h2>
-<p>The <a href="https://www.birdscanada.org/birdmon/default/nc_bmde.jsp">Bird Monitoring Data Exchange</a> (BMDE) was developed to be a standardized data exchange schema to promote the sharing and analysis of avain observational data. The schema is the core sharing standard of the <a href="www.avianknowledge.net">Avian Knowledge Network</a>.The BMDE (currently version 2.0) includes 169 <em>core</em> fields that are capable of capturing all metrics and descriptors associated with a bird observation. The BMDE schema was extended in 2018, and the <em>complete</em> version now includes 265 fields.</p>
-<p>By default, the NatureCounts package downloads the data with the <em>minimum</em> set of fields/columns. However, for more advanced applications, users may wish to specify which fields/columns to return using the <code>field_set</code> and <code>fields</code> options in the <code>nc_data_dl</code> function. For help with this feature, see the github acticle <a href="https://birdstudiescanada.github.io/naturecounts/articles/selecting-fields.html">‘Selecting columns and fields to download’</a>.</p>
+<p>The <a href="https://www.birdscanada.org/birdmon/default/nc_bmde.jsp">Bird Monitoring Data Exchange</a> (BMDE) was developed to be a standardized data exchange schema to promote the sharing and analysis of avian observational data. The schema is the core sharing standard of the <a href="http://www.avianknowledge.net">Avian Knowledge Network</a>.The BMDE (currently version 2.0) includes 169 <em>core</em> fields (variables) that are capable of capturing all metrics and descriptors associated with a bird observation. The BMDE schema was extended in 2018, and the <em>complete</em> version now includes 265 fields (variables).</p>
+<blockquote>
+<p><strong>Fields</strong> are variables or columns in a data set</p>
+</blockquote>
+<p>By default, the naturecounts package downloads the data with the <em>minimum</em> set of fields/columns. However, for more advanced applications, users may wish to specify which fields/columns to return using the <code>field_set</code> and <code>fields</code> options in the <code>nc_data_dl()</code> function. For help with this feature, see the naturecounts article <a href="https://birdstudiescanada.github.io/naturecounts/articles/selecting-fields.html">‘Selecting columns and fields to download’</a>.</p>
 </div>
 <div id="Data3.2" class="section level2">
 <h2><span class="header-section-number">3.2</span> Levels of Data Access</h2>
-<p>NatureCounts host many datasets, representing in excess of 140 million occurrence records, with a primary focus on Canadian bird monitoring data. Many of those datasets are from project lead by Birds Canada and/or its partners. While we thrive to make our data as openly available as possible, we also need to recognize the need of our partners and funders.</p>
+<p>NatureCounts hosts many datasets, representing in excess of 140 million occurrence records, with a primary focus on Canadian bird monitoring data. Many of those datasets are from projects lead by Birds Canada and/or its partners. While we thrive to make our data as openly available as possible, we also need to recognize the needs of our partners and funders.</p>
 <p>NatureCounts has five <a href="https://www.birdscanada.org/birdmon/default/nc_access_levels.jsp">Levels of Data Access</a>, which define how each dataset can be used. Those levels are set individually for each dataset, in consultation with the various partners and data custodians involved.</p>
 <ul>
 <li><p>Level 0: most restricted (archival only)</p></li>
 <li><p>Level 1: archival only, metadata visible</p></li>
 <li><p>Level 2: data used for visualizations only</p></li>
 <li><p>Level 3: data available to third parties by request</p></li>
-<li><p>Level 4: data shared with external portals and avaialble by request</p></li>
+<li><p>Level 4: data shared with external portals and available by request</p></li>
 <li><p>Level 5: open access</p></li>
 </ul>
 <p>All contributing members of NatureCounts have complete authority over the use of the data they have provided, and can withhold data at any time from any party or application. All users of any NatureCounts data must clearly acknowledge the contribution of the members who are making data available. Each dataset comes with its own <a href="https://www.birdscanada.org/birdmon/default/nc_data_sharing.jsp">Data Sharing Policy</a> that defines the various conditions for data usage.</p>
-<p>You can view the Data Access Level for each collection on the <a href="https://www.birdscanada.org/birdmon/default/datasets.jsp">NatureCounts Datasets</a> page or using the <a href="Data3.html#Data3.5">metadata</a> function (see akn_level):</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">meta_collections</span>() </a></code></pre></div>
+<p>You can view the Data Access Level for each collection on the <a href="https://www.birdscanada.org/birdmon/default/datasets.jsp">NatureCounts Datasets</a> page or using the <a href="Data3.html#Data3.5">metadata</a> function (see <code>akn_level</code>):</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="Data3.html#cb5-1"></a><span class="kw">meta_collections</span>() </span></code></pre></div>
 </div>
 <div id="Data3.3" class="section level2">
 <h2><span class="header-section-number">3.3</span> Authorizations</h2>
-<p>To access data using the NatureCounts R package, you must <a href="https://www.birdscanada.org/birdmon/default/register.jsp">sign up</a> for a <strong>free</strong> account. Further, if you would like to access Level 3 or 4 collections you must make a <a href="https://www.birdscanada.org/birdmon/default/searchquery.jsp">data request</a>. For step-by-step visual instructions, we encourage you to watch: <a href="link%20to%20be%20provided">NatureCounts: An Introductory Tutorial</a>.</p>
+<p>To access data using the naturecounts R package, you must <a href="https://www.birdscanada.org/birdmon/default/register.jsp">sign up</a> for a <strong>free</strong> account. Further, if you would like to access Level 3 or 4 collections you must make a <a href="https://www.birdscanada.org/birdmon/default/searchquery.jsp">data request</a>. For step-by-step visual instructions, we encourage you to watch: <a href="link%20to%20be%20provided">NatureCounts: An Introductory Tutorial</a>.</p>
 </div>
 <div id="Data3.4" class="section level2">
 <h2><span class="header-section-number">3.4</span> Viewing information about NatureCounts collections</h2>
-<p>First, lets use the NatureCounts R package to view the number of records available for different collections. To do this we use the <code>nc_count</code> function. You can view <em>all</em> the available collections and the number of observations using the default setting.</p>
-<p>If a username is provided, the collections are filtered to only those available to the user. Otherwise all counts from all data sources are returned (default: show = “all”).</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">nc_count</span>() </a></code></pre></div>
+<p>First, lets use the naturecounts R package to view the number of records available for different collections. To do this we use the <code>nc_count()</code> function. You can view <em>all</em> the available collections and the number of observations using the default setting.</p>
+<p>If a username is provided, the collections are filtered to only those available to the user. Otherwise all counts from all data sources are returned (default: <code>show = "all"</code>).</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="Data3.html#cb6-1"></a><span class="kw">nc_count</span>() </span></code></pre></div>
+<pre><code>## Without a username, using &#39;show = &quot;all&quot;&#39;</code></pre>
+<pre><code>##   collection akn_level     access nrecords
+## 1   ABATLAS1         5       full   123364
+## 2   ABATLAS2         5       full   201398
+## 3 ABBIRDRECS         5       full   357264
+## 4     ABOWLS         4 by request        0
+## 5      ATBBS         4 by request        0
+## 6     ATOWLS         4 by request    25192
+## 7        BBS         5       full  5735895
+##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 166 rows ]</code></pre>
 <p>Or you can view the collections for which you have access using your username/password. Here we use the <em>sample</em> account. If you use your own account, you will be prompted for a password.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">nc_count</span>(<span class="dt">username =</span> <span class="st">&quot;sample&quot;</span>)</a></code></pre></div>
-<p>Further refinements can be applied to the <code>nc_count</code> function using <a href="Download4.html#Download4">filters</a> Options include: <code>collections</code>, <code>project_id</code>, <code>species</code>, <code>years</code>, <code>doy</code> (day-of-year), <code>region</code>, and <code>site_type</code>.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="Data3.html#cb9-1"></a><span class="kw">nc_count</span>(<span class="dt">username =</span> <span class="st">&quot;sample&quot;</span>)</span></code></pre></div>
+<pre><code>##      collection akn_level access nrecords
+## 1      ABATLAS1         5   full   123364
+## 2      ABATLAS2         5   full   201398
+## 3    ABBIRDRECS         5   full   357264
+## 4           BBS         5   full  5735895
+## 5         BBS50         5   full        0
+## 6     BBS50-CAN         5   full  4168740
+## 7 BBS50-US-EAST         5   full  9940162
+##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 51 rows ]</code></pre>
+<p>Further refinements can be applied to the <code>nc_count()</code> function using <a href="Download4.html#Download4">filters</a> Options include: <code>collections</code>, <code>project_id</code>, <code>species</code>, <code>years</code>, <code>doy</code> (day-of-year), <code>region</code>, and <code>site_type</code>.</p>
 </div>
 <div id="Data3.5" class="section level2">
 <h2><span class="header-section-number">3.5</span> Metadata codes and decriptions</h2>
-<p>There are <a href="https://birdstudiescanada.github.io/naturecounts/reference/meta.html">metadata</a> associated with the various agruments used in the <code>nc_count</code> and <code>nc_data_dl</code> functions, the latter you will use in <a href="Download4.html#Download4">Chapter 4</a>. These are stored locally and can be accessed anytime to help filter your data view or download query. They include:</p>
+<p>There are <a href="https://birdstudiescanada.github.io/naturecounts/reference/meta.html">metadata</a> associated with the various arguments used in the <code>nc_count()</code> and <code>nc_data_dl()</code> functions, the latter you will use in <a href="Download4.html#Download4">Chapter 4</a>. These are stored locally and can be accessed anytime to help filter your data view or download query. They include:</p>
 <ul>
-<li><p>meta_country_codes: country codes</p></li>
-<li><p>meta_statprov_codes: state/Province codes</p></li>
-<li><p>meta_subnational2_codes: subnational2 codes</p></li>
-<li><p>meta_iba_codes: Important Bird Area (IBA) codes</p></li>
-<li><p>meta_bcr_codes: Bird Conservation Region (BCR) codes</p></li>
-<li><p>meta_utm_squares: UTM Square codes</p></li>
-<li><p>meta_species_authority: species taxonomic authorities</p></li>
-<li><p>meta_species_codes: alpha-numeric codes for avian species</p></li>
-<li><p>meta_species_taxonomy: codes and taxonomic information for all species</p></li>
-<li><p>meta_collections: collections names and descriptions</p></li>
-<li><p>meta_breeding_codes: breeding codes and descriptions</p></li>
-<li><p>meta_project_protocols: project protocols</p></li>
-<li><p>meta_projects: projects ids, names, websites, and descriptions</p></li>
-<li><p>meta_protocol_types: protocol types and descriptions</p></li>
+<li><p><code>meta_country_codes()</code>: country codes</p></li>
+<li><p><code>meta_statprov_codes()</code>: state/Province codes</p></li>
+<li><p><code>meta_subnational2_codes()</code>: subnational2 codes</p></li>
+<li><p><code>meta_iba_codes()</code>: Important Bird Area (IBA) codes</p></li>
+<li><p><code>meta_bcr_codes()</code>: Bird Conservation Region (BCR) codes</p></li>
+<li><p><code>meta_utm_squares()</code>: UTM Square codes</p></li>
+<li><p><code>meta_species_authority()</code>: species taxonomic authorities</p></li>
+<li><p><code>meta_species_codes()</code>: alpha-numeric codes for avian species</p></li>
+<li><p><code>meta_species_taxonomy()</code>: codes and taxonomic information for all species</p></li>
+<li><p><code>meta_collections()</code>: collections names and descriptions</p></li>
+<li><p><code>meta_breeding_codes()</code>: breeding codes and descriptions</p></li>
+<li><p><code>meta_project_protocols()</code>: project protocols</p></li>
+<li><p><code>meta_projects()</code>: projects ids, names, websites, and descriptions</p></li>
+<li><p><code>meta_protocol_types()</code>: protocol types and descriptions</p></li>
 </ul>
-<p>Comprehensive reference articles are availble online for retrieving <a href="https://birdstudiescanada.github.io/naturecounts/articles/region-codes.html">Region</a> and <a href="https://birdstudiescanada.github.io/naturecounts/articles/species-codes.html">Species</a> codes. We do not repeat those material here, but encourage you to review these prior to proceeding.</p>
-<p>You can explore the metadata materials using one line of code. For example, you can view the Important Bird Area (iba) metadata using:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">meta_iba_codes</span>()</a></code></pre></div>
+<p>Comprehensive reference articles are available online for retrieving <a href="https://birdstudiescanada.github.io/naturecounts/articles/region-codes.html">Region</a> and <a href="https://birdstudiescanada.github.io/naturecounts/articles/species-codes.html">Species</a> codes. We do not repeat those material here, but encourage you to review these prior to proceeding.</p>
+<p>You can explore the metadata materials using one line of code. For example, you can view the Important Bird Area (IBA) metadata using:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="Data3.html#cb11-1"></a><span class="kw">meta_iba_codes</span>()</span></code></pre></div>
+<pre><code>##   iba_site           iba_name_fr latitude statprov area_ha alt_min
+## 1    AB001       Beaverhill Lake 53.45019       AB  208.47     668
+## 2    AB002 Peace-Athabasca Delta 58.65267       AB 7584.60     250
+##                iba_name   nearest_town bcr ncc_region alt_max longitude status
+## 1       Beaverhill Lake        Tofield  11         66     670 -112.5287      G
+## 2 Peace-Athabasca Delta Fort Chipewyan  06         00     250 -111.8126      G
+##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 597 rows ]</code></pre>
 </div>
 <div id="Data3.6" class="section level2">
 <h2><span class="header-section-number">3.6</span> Examples</h2>
-<p>Here are a few examples for you to work through to become familar with the <code>nc_count</code> function.</p>
-<p><em>Example 1</em>: Determine the number of collections and records for a specific <em>region</em>. The options include: country, statprov, subnational2, iba, bcr, utm_squares, bbox. You can find details and examples on how to <a href="https://birdstudiescanada.github.io/naturecounts/articles/region-codes.html">search_region</a> at the link provided.</p>
+<p>Here are a few examples for you to work through to become familiar with the <code>nc_count()</code> function.</p>
+<p><em>Example 1</em>: Determine the number of collections and records for a specific <em>region</em>. The options include: <code>country</code>, <code>statprov</code>, <code>subnational2</code>, <code>iba</code>, <code>bcr</code>, <code>utm_squares</code>, and <code>bbox</code>. You can find details and examples on how to <a href="https://birdstudiescanada.github.io/naturecounts/articles/region-codes.html"><code>search_region()</code></a> at the link provided.</p>
 <p>The following code will retrieve all available collections and number of records for British Columbia</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">search_region</span>(<span class="st">&quot;British Columbia&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;statprov&quot;</span>)</a>
-<a class="sourceLine" id="cb9-2" title="2"><span class="kw">nc_count</span>(<span class="dt">region =</span> <span class="kw">list</span>(<span class="dt">statprov =</span> <span class="st">&quot;BC&quot;</span>))</a></code></pre></div>
-<p><em>Example 2</em>: Detemine the number of records for a specific <em>species</em>. You can find details and examples on how to <a href="https://birdstudiescanada.github.io/naturecounts/reference/search_species_code.html">search_species_code</a> based on common names and <a href="https://birdstudiescanada.github.io/naturecounts/reference/search_species.html">search_species</a> based on 4 letter alpha code at the links provided.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="Data3.html#cb13-1"></a><span class="kw">search_region</span>(<span class="st">&quot;British Columbia&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;statprov&quot;</span>)</span></code></pre></div>
+<pre><code>##   country_code statprov_code   statprov_name_es    statprov_name
+## 1           CA            BC Columbia Británica British Columbia
+##       statprov_name_fr
+## 1 Colombie-Britannique</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="Data3.html#cb15-1"></a><span class="kw">nc_count</span>(<span class="dt">region =</span> <span class="kw">list</span>(<span class="dt">statprov =</span> <span class="st">&quot;BC&quot;</span>))</span></code></pre></div>
+<pre><code>## Without a username, using &#39;show = &quot;all&quot;&#39;</code></pre>
+<pre><code>## Using filters: statprov (BC)</code></pre>
+<pre><code>##        collection akn_level access nrecords
+## 1        ABATLAS2         5   full      306
+## 2      ABBIRDRECS         5   full      426
+## 3             BBS         5   full   123355
+## 4       BBS50-CAN         5   full   532379
+## 5   BCATLAS1BE_DO         5   full    41412
+## 6  BCATLAS1BE_RAW         5   full   344433
+## 7 BCATLAS1BE_SUMM         5   full   165485
+##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 21 rows ]</code></pre>
+<p><em>Example 2</em>: Determine the number of records for a specific <em>species</em>. You can find details and examples on how to <a href="https://birdstudiescanada.github.io/naturecounts/reference/search_species_code.html"><code>search_species_code()</code></a> based on common names and <a href="https://birdstudiescanada.github.io/naturecounts/reference/search_species.html"><code>search_species()</code></a> based on 4 letter alpha code at the links provided.</p>
 <p>The following code will retrieve all available collections and number of records for Red-headed Woodpecker</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">search_species</span>(<span class="st">&quot;Red-headed Woodpecker&quot;</span>)</a>
-<a class="sourceLine" id="cb10-2" title="2"><span class="kw">nc_count</span>(<span class="dt">species =</span> <span class="dv">10060</span>)</a></code></pre></div>
-<p><em>Example 3</em>: We can further refine the Red-headed Woodpeacker example (above) by filtering the species-specific data by region (e.g., <a href="http://nabci-us.org/assets/images/bcr_map2.jpg">Bird Conservation Region</a> 11), time period (e.g., 2015-2019), or a combination of both.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">nc_count</span>(<span class="dt">species =</span> <span class="dv">10060</span>, <span class="dt">region=</span><span class="kw">list</span>(<span class="dt">bcr=</span><span class="st">&quot;11&quot;</span>))</a>
-<a class="sourceLine" id="cb11-2" title="2"></a>
-<a class="sourceLine" id="cb11-3" title="3"><span class="kw">nc_count</span>(<span class="dt">species =</span> <span class="dv">10060</span>, <span class="dt">year=</span><span class="kw">c</span>(<span class="dv">2015</span>, <span class="dv">2019</span>))</a>
-<a class="sourceLine" id="cb11-4" title="4"></a>
-<a class="sourceLine" id="cb11-5" title="5"><span class="kw">nc_count</span>(<span class="dt">species =</span> <span class="dv">10060</span>, <span class="dt">region=</span><span class="kw">list</span>(<span class="dt">bcr=</span><span class="st">&quot;11&quot;</span>), <span class="dt">year=</span><span class="kw">c</span>(<span class="dv">2015</span>, <span class="dv">2019</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="Data3.html#cb19-1"></a><span class="kw">search_species</span>(<span class="st">&quot;Red-headed Woodpecker&quot;</span>)</span></code></pre></div>
+<pre><code>##   species_id            scientific_name          english_name      french_name
+## 1      10060 Melanerpes erythrocephalus Red-headed Woodpecker Pic à tête rouge
+##   taxon_group
+## 1       BIRDS</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="Data3.html#cb21-1"></a><span class="kw">nc_count</span>(<span class="dt">species =</span> <span class="dv">10060</span>)</span></code></pre></div>
+<pre><code>## Without a username, using &#39;show = &quot;all&quot;&#39;</code></pre>
+<pre><code>## Using filters: species (10060)</code></pre>
+<pre><code>##      collection akn_level access nrecords
+## 1      ABATLAS1         5   full        5
+## 2      ABATLAS2         5   full       12
+## 3    ABBIRDRECS         5   full        3
+## 4           BBS         5   full    23735
+## 5     BBS50-CAN         5   full      263
+## 6 BBS50-US-EAST         5   full    14750
+## 7 BBS50-US-WEST         5   full    16439
+##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 55 rows ]</code></pre>
+<p><em>Example 3</em>: We can further refine the Red-headed Woodpecker example (above) by filtering the species-specific data by region (e.g., <a href="http://nabci-us.org/assets/images/bcr_map2.jpg">Bird Conservation Region</a> 11), time period (e.g., 2015-2019), or a combination of both.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="Data3.html#cb25-1"></a><span class="kw">nc_count</span>(<span class="dt">species =</span> <span class="dv">10060</span>, <span class="dt">region =</span> <span class="kw">list</span>(<span class="dt">bcr =</span> <span class="st">&quot;11&quot;</span>))</span></code></pre></div>
+<pre><code>## Without a username, using &#39;show = &quot;all&quot;&#39;</code></pre>
+<pre><code>## Using filters: species (10060); bcr (BCR.11)</code></pre>
+<pre><code>##      collection akn_level    access nrecords
+## 1      ABATLAS1         5      full        4
+## 2      ABATLAS2         5      full        7
+## 3    ABBIRDRECS         5      full        3
+## 4     BBS50-CAN         5      full      147
+## 5 BBS50-US-WEST         5      full     1656
+## 6           CBC         2 no access      263
+## 7 CMMN-DET-DMBO         2 no access        7
+##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 13 rows ]</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="Data3.html#cb29-1"></a><span class="kw">nc_count</span>(<span class="dt">species =</span> <span class="dv">10060</span>, <span class="dt">year =</span> <span class="kw">c</span>(<span class="dv">2015</span>, <span class="dv">2019</span>))</span></code></pre></div>
+<pre><code>## Without a username, using &#39;show = &quot;all&quot;&#39;</code></pre>
+<pre><code>## Using filters: species (10060); start_year (2015); end_year (2019)</code></pre>
+<pre><code>##       collection akn_level     access nrecords
+## 1      BBS50-CAN         5       full       71
+## 2  BBS50-US-EAST         5       full     3156
+## 3  BBS50-US-WEST         5       full     3551
+## 4            CBC         2  no access     1814
+## 5 CMMN-BAND-LPBO         3 by request       60
+## 6  CMMN-DET-BPBO         3 by request        8
+## 7   CMMN-DET-HBO         5       full        3
+##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 15 rows ]</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="Data3.html#cb33-1"></a><span class="kw">nc_count</span>(<span class="dt">species =</span> <span class="dv">10060</span>, <span class="dt">region =</span> <span class="kw">list</span>(<span class="dt">bcr =</span> <span class="st">&quot;11&quot;</span>), <span class="dt">year =</span> <span class="kw">c</span>(<span class="dv">2015</span>, <span class="dv">2019</span>))</span></code></pre></div>
+<pre><code>## Without a username, using &#39;show = &quot;all&quot;&#39;</code></pre>
+<pre><code>## Using filters: species (10060); start_year (2015); end_year (2019); bcr (BCR.11)</code></pre>
+<pre><code>##      collection akn_level     access nrecords
+## 1     BBS50-CAN         5       full       43
+## 2 BBS50-US-WEST         5       full      354
+## 3           CBC         2  no access       11
+## 4   EBIRD-CA-PR         4 by request      696
+## 5 SKATLAS1BE_DO         4 by request        7</code></pre>
 </div>
 <div id="Data3.7" class="section level2">
 <h2><span class="header-section-number">3.7</span> Exercises</h2>
-<p>Now apply your newly aquired skills!</p>
-<p><em>Excersice 1</em>: If you are interesting in doing a research project on Snowy Owls in Quebec, which three collections are you most likely to consider using (i.e., which have the most data)?</p>
+<p>Now apply your newly acquired skills!</p>
+<p><em>Exercise 1</em>: If you are interesting in doing a research project on Snowy Owls in Quebec, which three collections are you most likely to consider using (i.e., which have the most data)?</p>
 <p>Answer: EBird-CA-QC, OISEAUXQC, CBC</p>
-<p><em>Exercise 2</em>: How many records of Gadwal are in the <a href="https://www.birdscanada.org/birdmon/atowls/datasets.jsp?code=BCCWS">British Columbia Coastal Waterbird Survey</a> collection? What if you are only interest in records from 2010-2019, how many records are available?</p>
+<p><em>Exercise 2</em>: How many records of Gadwal are in the <a href="https://www.birdscanada.org/birdmon/atowls/datasets.jsp?code=BCCWS">British Columbia Coastal Waterbird Survey</a> collection? What if you are only interested in records from 2010-2019, how many records are available?</p>
 <p>Answer: 702, 389</p>
 
 </div>

@@ -4,23 +4,24 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Loading R Packages | 01-Introduction.split</title>
-  <meta name="description" content="" />
+  <title>Chapter 2 Loading R Packages | NatureCounts: An Introductiory Tutorial</title>
+  <meta name="description" content="Introduction to NatureCounts and associated R Package" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Loading R Packages | 01-Introduction.split" />
+  <meta property="og:title" content="Chapter 2 Loading R Packages | NatureCounts: An Introductiory Tutorial" />
   <meta property="og:type" content="book" />
-  
-  
-  
-  
+  <meta property="og:url" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.git" />
+  <meta property="og:image" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.gitNC.png" />
+  <meta property="og:description" content="Introduction to NatureCounts and associated R Package" />
+  <meta name="github-repo" content="DMEthier/NatureCounts_Tutorial_1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Loading R Packages | 01-Introduction.split" />
+  <meta name="twitter:title" content="Chapter 2 Loading R Packages | NatureCounts: An Introductiory Tutorial" />
   
-  
-  
+  <meta name="twitter:description" content="Introduction to NatureCounts and associated R Package" />
+  <meta name="twitter:image" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.gitNC.png" />
 
+<meta name="author" content="Danielle Ethier" />
 
 
 
@@ -48,12 +49,13 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -62,14 +64,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -78,9 +82,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -113,7 +117,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="mystyles.css" type="text/css" />
 </head>
 
 <body>
@@ -129,13 +133,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">NatureCounts Introductory Tutorial</a></li>
 
 <li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to NatureCount!</a></li>
 <li class="chapter" data-level="1" data-path="Intro1.html"><a href="Intro1.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="Intro1.html"><a href="Intro1.html#intro1.1"><i class="fa fa-check"></i><b>1.1</b> NatureCounts and R</a></li>
 <li class="chapter" data-level="1.2" data-path="Intro1.html"><a href="Intro1.html#intro1.2"><i class="fa fa-check"></i><b>1.2</b> Prerequisites</a></li>
 <li class="chapter" data-level="1.3" data-path="Intro1.html"><a href="Intro1.html#intro1.3"><i class="fa fa-check"></i><b>1.3</b> Acknowledgements</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="Package2.html"><a href="Package2.html"><i class="fa fa-check"></i><b>2</b> Loading R Packages</a><ul>
-<li class="chapter" data-level="2.1" data-path="Package2.html"><a href="Package2.html#Package2.1"><i class="fa fa-check"></i><b>2.1</b> Installing the NatureCounts package</a></li>
+<li class="chapter" data-level="2.1" data-path="Package2.html"><a href="Package2.html#Package2.1"><i class="fa fa-check"></i><b>2.1</b> Installing the naturecounts package</a></li>
 <li class="chapter" data-level="2.2" data-path="Package2.html"><a href="Package2.html#Package2.2"><i class="fa fa-check"></i><b>2.2</b> Installing additional packages</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="Data3.html"><a href="Data3.html"><i class="fa fa-check"></i><b>3</b> Understanding and Viewing Data</a><ul>
@@ -178,7 +183,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">NatureCounts: An Introductiory Tutorial</a>
           </h1>
         </div>
 
@@ -189,21 +194,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="Package2" class="section level1">
 <h1><span class="header-section-number">Chapter 2</span> Loading R Packages</h1>
 <p>The functionalities of some packages may require updated versions of <a href="https://www.r-project.org/">R</a> and <a href="https://www.rstudio.com">RStudio</a>. To avoid errors, please ensure you are using the most recent releases of R and RStudio, and update your R packages.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">update.packages</span>()                         </a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="Package2.html#cb1-1"></a><span class="kw">update.packages</span>()                         </span></code></pre></div>
 <div id="Package2.1" class="section level2">
-<h2><span class="header-section-number">2.1</span> Installing the NatureCounts package</h2>
-<p>You can install NatureCounts from GitHub with the remotes package:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;remotes&quot;</span>)</a>
-<a class="sourceLine" id="cb2-2" title="2">remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;BirdStudiesCanada/naturecounts&quot;</span>)</a></code></pre></div>
+<h2><span class="header-section-number">2.1</span> Installing the naturecounts package</h2>
+<p>You can install naturecounts from GitHub with the remotes package:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="Package2.html#cb2-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;remotes&quot;</span>)</span>
+<span id="cb2-2"><a href="Package2.html#cb2-2"></a>remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;BirdStudiesCanada/naturecounts&quot;</span>)</span></code></pre></div>
 <p>After installation, you need to load the package each time you open a new R session.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">library</span>(naturecounts)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="Package2.html#cb3-1"></a><span class="kw">library</span>(naturecounts)</span></code></pre></div>
 </div>
 <div id="Package2.2" class="section level2">
 <h2><span class="header-section-number">2.2</span> Installing additional packages</h2>
-<p>Throughout the book we use <a href="https://www.tidyverse.org/">tidyverse</a>, which is a collection of R packages for data science, including tidyr, dplyr, and ggplot2, among others This package can be installed from CRAN and loaded into R as follows:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
-<a class="sourceLine" id="cb4-2" title="2"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
-<p>You may find additional packages are needed to manipulate and visualize your data. For example, if you are interested in <a href="https://birdstudiescanada.github.io/naturecounts/articles/articles/mapping-observations.html">Mapping Observation</a> a suite of packages need to be installed and loaded. The process is similar to that previously decribe.</p>
+<p>Throughout the book we use the <a href="https://www.tidyverse.org/">tidyverse</a> R package, which is actually a collection of R packages for data science, including tidyr, dplyr, and ggplot2, among others. The tidyverse package can be installed from CRAN and loaded into R as follows:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="Package2.html#cb4-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span>
+<span id="cb4-2"><a href="Package2.html#cb4-2"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
+<p>You may find additional packages are needed to manipulate and visualize your data. For example, if you are interested in <a href="https://birdstudiescanada.github.io/naturecounts/articles/articles/mapping-observations.html">Mapping Observation</a> a suite of packages need to be installed and loaded. The process is similar to that previously describe.</p>
 
 </div>
 </div>

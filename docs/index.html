@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 1 Introduction | NatureCounts: An Introductiory Tutorial</title>
+  <title>NatureCounts: An Introductiory Tutorial</title>
   <meta name="description" content="Introduction to NatureCounts and associated R Package" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 1 Introduction | NatureCounts: An Introductiory Tutorial" />
+  <meta property="og:title" content="NatureCounts: An Introductiory Tutorial" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.git" />
   <meta property="og:image" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.gitNC.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="DMEthier/NatureCounts_Tutorial_1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 1 Introduction | NatureCounts: An Introductiory Tutorial" />
+  <meta name="twitter:title" content="NatureCounts: An Introductiory Tutorial" />
   
   <meta name="twitter:description" content="Introduction to NatureCounts and associated R Package" />
   <meta name="twitter:image" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.gitNC.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="Package2.html"/>
+
+<link rel="next" href="Intro1.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -191,43 +191,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="Intro1" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
-<p><a href="https://www.naturecounts.ca">NatureCounts</a> is a website hosted and managed by <a href="https://www.birdscanada.org">Birds Canada</a>, Canada’s leading scientific non-government organization dedicated to increasing the understanding, appreciation and conservation of wild birds and their habitats . Birds Canada specializes in citizen science long-term monitoring programs using a partnership-based model. Citizen science has been found to be the most cost-effective way to monitor bird populations across large geographic areas. In Canada, over 16,000 volunteers are currently involved in Birds Canada’s programs.</p>
-<p>Launched in January 2008, NatureCounts is the first Canadian node of the <a href="http://www.avianknowledge.net">Avian Knowledge Network</a>. It serves as an online data dissemination portal to facilitate the collection, management and sharing of biological data. NatureCounts hosts hundreds of datasets, representing well over 140 million occurrences of birds. These include virtually all of Birds Canada’s monitoring initiatives, such as Breeding Bird Atlases, eBird Canada, the Marsh Monitoring Program, Nocturnal Owl Surveys, as well as many other major initiatives to which Birds Canada contributes in some capacity (e.g., Canadian Migration Monitoring Program, HawkCount and the Raptor Population Index, Monarch Knowledge Network, Breeding Bird Survey, Christmas Bird Count, Project FeederWatch).</p>
-<p>What can you do on the NatureCounts <a href="http://www.naturecounts.ca">webportal</a>?</p>
-<ul>
-<li><p>You can explore the data resources of NatureCounts via interactive maps that allow you to view the distribution of bird populations during any time of the year and across a variety of different sources.</p></li>
-<li><p>You can obtain and visualize information on long term population trends of Canadian birds.</p></li>
-<li><p>You can explore an individual species pattern of distribution or the species richness of a location via dynamically generated summary tables and graphs.</p></li>
-<li><p>Finally, much of the observational data can be downloaded for your own personal research!</p></li>
-</ul>
-<div id="intro1.1" class="section level2">
-<h2><span class="header-section-number">1.1</span> NatureCounts and R</h2>
-<p>The naturecounts R package was create to allow users to directly access and download data from NatureCounts into R. The goal of this online book is to show NatureCounts users how to use the <a href="https://www.r-project.org/">R</a> statistical programming language to access, filter, summarize, and visualize naturecounts data. Moving forward, we intend to create more advanced tutorials which explore analytical procedures suitable for various datasets. If you have suggestions for additional content, please let us know by emailing <a href="mailto:dethier@birdscanada.org" class="email">dethier@birdscanada.org</a></p>
-<blockquote>
-<p>Note that you can differentiate the R package (“naturecounts”) from the database (“NatureCounts”)</p>
-</blockquote>
-<p>Throughout this book we use subsets of real datasets to illustrate how to access, manage, explore and visualize NatureCounts data in R. We recommend that you run through the sample code in each chapter with the sample dataset before doing the exercises or using own data.</p>
+<div id="header">
+<h1 class="title">NatureCounts: An Introductiory Tutorial</h1>
+<p class="author"><em>Danielle Ethier</em></p>
+<p class="date"><em>September 2020</em></p>
 </div>
-<div id="intro1.2" class="section level2">
-<h2><span class="header-section-number">1.2</span> Prerequisites</h2>
-<p>This book assumes that you have a basic understanding of R. We recommend that you become familiar with <a href="http://r4ds.had.co.nz/">‘R for Data Science’</a> by Garrett Grolemund and Hadley Wickham, which covers how to import, visualize, and summarize data in R using the <a href="https://www.tidyverse.org/">tidyverse</a> collection of R packages.</p>
-</div>
-<div id="intro1.3" class="section level2">
-<h2><span class="header-section-number">1.3</span> Acknowledgements</h2>
-<p>The text in this document were adapted from the <a href="https://www.birdscanada.org/birdmon/default/main.jsp">NatureCount webpage</a> and the <a href="https://github.com/BirdStudiesCanada/naturecounts">NatureCounts GitHub</a> repository. The structure of this book follows that of the <a href="https://beta.motus.org/MotusRBook/index.html">Motus R Book</a>. Online <a href="https://birdstudiescanada.github.io/naturecounts/articles/index.html">tutorials</a> are available for the NatureCounts R-package, which are referenced throughout this document. You are encouraged to review these tutorials for additional examples and more advanced options.</p>
-<p>Many people have contributed to the NatureCounts web interface and the R package, including, Denis Lepage, Steffi LaZerte, and Catherine Jardine. The development of the NatureCounts web interface, R package, and accompanying online book were made possible by funding provided by Environment and Climate Change Canada and the generosity of donors to <a href="https://www.birdscanada.org/give/">Birds Canada</a>. Thank you!</p>
+<div id="welcome-to-naturecount" class="section level1 unnumbered">
+<h1>Welcome to NatureCount!</h1>
+<p><img src="images/NC.png" width="700px" style="display: block; margin: auto;" /></p>
+<p>NatureCounts is the gateway to avian citizen science data collected in North American, with an emphasis on Canadian datasets managed by Birds Canada. The purpose of this workbook is to provide you with the basic tools and skills you will need to get started using the <code>naturecounts</code> R package. Let’s get started!</p>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="Package2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+
+<a href="Intro1.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
