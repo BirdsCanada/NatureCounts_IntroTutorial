@@ -13,7 +13,7 @@ Open access collections are available for download without a username/password, 
 
 Here we demonstrate how to download the Ontario Whip-poor-will collection (WPWI), since it is Open Access (Level 5) and contains relatively few records (n = 3012).  Click [here](https://www.birdscanada.org/birdmon/default/datasets.jsp?code=WPWI) for more information on this dataset.    
 ```{r OpenAccess, eval = FALSE}
-WPWI1<-nc_data_dl(collections="WPWI", username = "sample", info="test data download")
+WPWI1<-nc_data_dl(collections="WPWI", username = "sample", info="tutorial example")
 ```
 You should now see a copy of the WPWI collection in the upper right panel of RStudio under the *Environment* tab. Notice in the code that `info` needs to be provided. This is a short description of reason for the download. This does not need to be specified when using the `nc_count` function.
 
@@ -50,16 +50,14 @@ Here are a few examples for you to work through to become familiar with the `nc_
 
  
 ```{r nc_dl_Filter, eval = FALSE}
-WPWI_filter<-nc_data_dl(collections="WPWI", years=c(2010, 2012), region=list(bcr="13"), 
-                        username = "sample", info="test data download")
+WPWI_filter<-nc_data_dl(collections="WPWI", years=c(2010, 2012), region=list(bcr="13"), username = "sample", info="tutorial example")
 ```
 You will notice that the number of records in the filtered WPWI download (WPWI_filter = 754) is substantially less than the number of records in the full dataset (WPWI = 3012) downloaded in [Chapter 3](#Data3).
 
 *Example 2*: Rather than using BCR 13 to approximate the study area, you are interested in just looking at records collected on the [Bruce Peninsula](https://en.wikipedia.org/wiki/Bruce_Peninsula) for the full time period. You decide to use [spatial data to filter observations](https://birdstudiescanada.github.io/naturecounts/articles/region-spatial.html). Specifically, you create a [bounding box](https://birdstudiescanada.github.io/naturecounts/articles/region-codes.html), using coordinates from Google Map, which reflects latitude and longitude limits to extract these data. 
 
 ```{r nc_dl_BB, eval = FALSE}
-WPWI_bb<-nc_data_dl(collections="WPWI", region = list(bbox = c(left = -81.7, bottom = 44.5, 
-                      right = -80.9, top = 45.3)), username = "sample", info="test data download")
+WPWI_bb<-nc_data_dl(collections="WPWI", region = list(bbox = c(left = -81.7, bottom = 44.5, right = -80.9, top = 45.3)), username = "sample", info="tutorial example")
 ```
 You will notice there are now even fewer observation records (WPWI_bb = 72)
 
