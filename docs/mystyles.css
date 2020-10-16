@@ -1,0 +1,18 @@
+pre {
+  margin-top: 1em !important;
+  margin-bottom: 5px !important;
+  
+  padding-top: 1px !important;
+  padding-bottom: 1px !important;
+}
+pre + pre {
+  margin-top: 1px !important;
+}
+
+pre + p {
+  margin-top: 1.5em !important;
+}
+
+div + p {
+  margin-top: 1.5em !important;
+}
