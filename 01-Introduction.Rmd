@@ -28,7 +28,7 @@ The naturecounts R package was create to allow users to directly access and down
 
 > Note that you can differentiate the R package ("naturecounts") from the database ("NatureCounts")
 
-Throughout this book we use fictitious and subsets of real datasets to illustrate how to access, manage, explore and visualize NatureCounts data in R. We recommend that you run through the sample code in each chapter with the sample dataset before doing the exercises or using own data. 
+Throughout this book we use subsets of real datasets to illustrate how to access, manage, explore and visualize NatureCounts data in R. We recommend that you run through the sample code in each chapter with the sample dataset before doing the exercises or using own data. 
 
 ## Prerequisites {#intro1.2}
 
