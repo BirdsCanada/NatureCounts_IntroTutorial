@@ -2,7 +2,9 @@
 
 ```{r tidyr3, include = FALSE}
 library(knitr)
-opts_chunk$set(tidy.opts=list(width.cutoff=50), tidy = FALSE)
+opts_chunk$set(tidy.opts=list(width.cutoff=50), tidy = FALSE, cache = TRUE)
+library(naturecounts)
+options(max.print = 30)
 ```
 
 This chapter begins with a brief introduction to the structure of the NatureCounts database, followed by a description of access levels and how to create a user account. We then provide instructions on how to view data from various collections and apply filters. 
@@ -51,13 +53,13 @@ First, lets use the naturecounts R package to view the number of records availab
 
 If a username is provided, the collections are filtered to only those available to the user. Otherwise all counts from all data sources are returned (default: `show = "all"`).
 
-```{r view all, eval = FALSE}
+```{r view all}
 nc_count() 
 ```
 
 Or you can view the collections for which you have access using your username/password. Here we use the *sample* account. If you use your own account, you will be prompted for a password. 
 
-```{r view username, eval = FALSE}
+```{r view username}
 nc_count(username = "sample")
 ```
 
@@ -99,7 +101,7 @@ Comprehensive reference articles are available online for retrieving [Region](ht
 
 You can explore the metadata materials using one line of code. For example, you can view the Important Bird Area (IBA) metadata using:
 
-```{r meta, eval=FALSE}
+```{r meta}
 meta_iba_codes()
 ```
 
@@ -110,7 +112,7 @@ Here are a few examples for you to work through to become familiar with the `nc_
 *Example 1*: Determine the number of collections and records for a specific *region*. The options include: `country`, `statprov`, `subnational2`, `iba`, `bcr`, `utm_squares`, and `bbox`. You can find details and examples on how to [`search_region()`](https://birdstudiescanada.github.io/naturecounts/articles/region-codes.html) at the link provided.
 
 The following code will retrieve all available collections and number of records for British Columbia
-```{r nc_region, eval=FALSE}
+```{r nc_region}
 search_region("British Columbia", type = "statprov")
 nc_count(region = list(statprov = "BC"))
 ```
@@ -118,14 +120,14 @@ nc_count(region = list(statprov = "BC"))
 *Example 2*: Determine the number of records for a specific *species*. You can find details and examples on how to [`search_species_code()`](https://birdstudiescanada.github.io/naturecounts/reference/search_species_code.html) based on common names and [`search_species()`](https://birdstudiescanada.github.io/naturecounts/reference/search_species.html) based on 4 letter alpha code at the links provided.  
 
 The following code will retrieve all available collections and number of records for Red-headed Woodpecker  
-```{r nc_species1, eval=FALSE}
+```{r nc_species1}
 search_species("Red-headed Woodpecker")
 nc_count(species = 10060)
 ```
 
 *Example 3*: We can further refine the Red-headed Woodpecker example (above) by filtering the species-specific data by region (e.g., [Bird Conservation Region](http://nabci-us.org/assets/images/bcr_map2.jpg) 11), time period (e.g., 2015-2019), or a combination of both.
 
-```{r nc_species2, eval=FALSE}
+```{r nc_species2}
 nc_count(species = 10060, region = list(bcr = "11"))
 
 nc_count(species = 10060, year = c(2015, 2019))

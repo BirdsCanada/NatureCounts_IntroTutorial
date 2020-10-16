@@ -2,7 +2,10 @@
 
 ```{r tidyr5, include = FALSE}
 library(knitr)
-opts_chunk$set(tidy.opts=list(width.cutoff=50), tidy = FALSE)
+opts_chunk$set(tidy.opts=list(width.cutoff=50), tidy = FALSE, cache = TRUE)
+options(max.print = 30)
+library(dplyr) # If we load it here first, the next time it won't have any messages
+library(naturecounts)
 ```
 
 You have successfully downloaded your NatureCounts dataset and are ready to explore and summarize the data. In this chapter we will demonstrate how to do some basic data manipulations and summaries. The possibilities are endless, so we try to focus on examples we think would be most valuable to users. We intend to develop `collection` and `protocol_id` specific data manipulation and analysis code in the future. If you have specific requests or would like to contribute your existing code, please contact dethier@birdscanada.org. 
@@ -20,20 +23,23 @@ We are going to apply three key dplyr functions which will give you some of the 
 
 Let's continue using the [Ontario Whip-poor-will](https://www.birdscanada.org/birdmon/default/datasets.jsp?code=WPWI) collection for this chapter.   
 
-```{r OpenAccess, eval = FALSE}
+```{r OpenAccess}
 WPWI <- nc_data_dl(collections = "WPWI", username = "sample", info = "tutorial example")
 ```
 
 ### Select {#Manip5.1.1}
 
-You will notice that NatureCounts datasets have many fields (i.e., columns) available. Generally, you will only want a few of these fields for your summary or analysis. Recall the complete version of the [BMDE](#Data3.1) includes 265 fields. The number of variables downloaded from the BMDE will depend on the `fields_set`, which is by default "minimum" (57 fields). You can narrow in on the variables you are interested in with the `dplyr::select()` function, which allows you to subset the dataframe based on the names of the variables.
+You will notice that NatureCounts datasets have many fields (i.e., columns) available. Generally, you will only want a few of these fields for your summary or analysis. Recall the complete version of the [BMDE](#Data3.1) includes 265 fields. The number of variables downloaded from the BMDE will depend on the `fields_set`, which is by default "minimum" (57 fields). You can narrow in on the variables you are interested in with the `select()` function, which allows you to subset the dataframe based on the names of the variables.
 
 For example, we are going to `select()` a subset of variables from the WPWI dataset that we need for our summary: 
 
-```{r select, eval = FALSE}
-WPWI_select <- select(WPWI, "ObservationCount", "SurveyAreaIdentifier", "RouteIdentifier", 
-                      "species_id", "latitude", "longitude", "bcr", "survey_day", 
-                      "survey_month", "survey_year")
+```{r select}
+library(dplyr)
+WPWI_select <- select(WPWI, "ObservationCount", "SurveyAreaIdentifier", 
+                      "RouteIdentifier", "species_id", "latitude", 
+                      "longitude", "bcr", "survey_day", "survey_month", 
+                      "survey_year")
+WPWI_select
 ```
 
 ### Filter {#Manip5.1.2}
@@ -51,22 +57,26 @@ There are worked examples provided in the naturecounts article [Filtering data a
 
 Here we provide a few additional examples for you to work with. First, lets apply a simple `filter()` that subsets the data based on a single survey month: 
 
-```{r WPWIJune, eval = FALSE}
+```{r WPWIJune}
 WPWI_June <- filter(WPWI_select, survey_month == 6)
+WPWI_June
 ```
 
 Now lets try multiple survey months by adding a logical operator:
-```{r WPWIJuneJuly, eval = FALSE}
+```{r WPWIJuneJuly}
 WPWI_JJ <- filter(WPWI_select, survey_month == 6 | survey_month == 7)
 
 #Alternatively this can be written as:
 WPWI_JJ <- filter(WPWI_select, survey_month %in% c(6,7))
+WPWI_JJ
 ```
 
 We can continue to add to the complexity of our filter:
-```{r WPWIBCR, eval = FALSE}
+```{r WPWIBCR}
 WPWI_multi <- filter(WPWI_select, 
-                     survey_month %in% c(6,7) & bcr==12 & survey_year>=2010 & survey_year<=2012)
+                     survey_month %in% c(6,7) & bcr == 12 & 
+                       survey_year >= 2010 & survey_year <= 2012)
+WPWI_multi
 ```
 
 ### Summarise {#Manip5.1.3}
@@ -84,10 +94,11 @@ However, now that we're getting on to more complex operations, we'll introduce t
 use of the pipe `%>%`. This allows you to pass (pipe) the output of one line 
 as input to the next line. Therefore, the previous code can be re-written as:
 
-```{r WPWIRoute, eval = FALSE}
+```{r WPWIRoute}
 WPWI_Route <- WPWI_multi %>% 
   group_by(RouteIdentifier) %>% 
   summarise(Nstops = n_distinct(SurveyAreaIdentifier))
+WPWI_Route
 ```
 
 Note that there is a pipe (`%>%`) between each set of lines and that the data (`WPWI_multi`)
@@ -97,21 +108,23 @@ exact same result.
 
 Back to our example, we might also want to know how many routes where run in each year. 
 
-```{r WPWIYear, eval = FALSE}
+```{r WPWIYear}
 WPWI_Year <- WPWI_multi %>% 
   group_by(survey_year) %>% 
   summarise(Nroute = n_distinct(RouteIdentifier))
+WPWI_Year
 ```
 
 Finally, lets look to see how many Observations (`ObservationCount`) of WPWI were made on each route in each year. First we need to replace any `NA`s with `0` and ensure this variable is numeric.
 
-```{r WPWIObs, eval = FALSE}
+```{r WPWIObs}
 
 WPWI_multi$ObservationCount[is.na(WPWI_multi$ObservationCount)] <- 0
 
 WPWI_Obs <- WPWI_multi %>% 
   group_by(RouteIdentifier, survey_year) %>% 
   summarise(MeanObs = mean(as.numeric(ObservationCount)))
+WPWI_Obs
 ```
 
 No WIWP were detected in our subset of the data!! No wonder this species is listed as [threatened](https://www.ontario.ca/page/eastern-whip-poor-will) in the province. 
