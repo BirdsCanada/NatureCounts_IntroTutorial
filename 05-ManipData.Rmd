@@ -23,7 +23,7 @@ We are going to apply three key dplyr functions which will give you some of the 
 
 Let's continue using the [Ontario Whip-poor-will](https://www.birdscanada.org/birdmon/default/datasets.jsp?code=WPWI) collection for this chapter.   
 
-```{r OpenAccess}
+```{r OpenAccess, eval = FALSE}
 WPWI <- nc_data_dl(collections = "WPWI", username = "sample", info = "tutorial example")
 ```
 

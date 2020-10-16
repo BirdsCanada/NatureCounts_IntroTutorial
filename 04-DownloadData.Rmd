@@ -1,6 +1,6 @@
 # Downloading and Filtering Data {#Download4}
 
-```{r tidyr4, include = FALSE}
+```{r tidyr4, include = FALSE, warning = FALSE}
 library(knitr)
 opts_chunk$set(tidy.opts=list(width.cutoff=50), tidy = FALSE, cache = TRUE)
 options(max.print = 30)
@@ -15,7 +15,7 @@ Open access collections are available for download without a username/password, 
 
 Here we demonstrate how to download the Ontario Whip-poor-will collection (WPWI), since it is Open Access (Level 5) and contains relatively few records (n = 3012).  Click [here](https://www.birdscanada.org/birdmon/default/datasets.jsp?code=WPWI) for more information on this dataset.    
 
-```{r OpenAccess}
+```{r OpenAccess, eval = FALSE}
 WPWI <- nc_data_dl(collections = "WPWI", username = "sample", info = "tutorial example")
 ```
 
@@ -25,7 +25,7 @@ To access Level 3 or 4 collections you must [sign up](https://www.birdscanada.or
 
 To make a data request, use the NatureCounts [Download Data query tool](https://www.birdscanada.org/birdmon/default/searchquery.jsp).  For step-by-step visual instructions, we encourage you to watch: [NatureCounts: An Introductory Tutorial](link to be provided). You will receive an email confirmation when your request has been approved, which will contain your `request_id`. This number will be used to download your newly acquired dataset into R. There is also a build in function that allows you to check the status of your request and retrieve your `request_id`: 
 
-```{r request}
+```{r request, eval = FALSE}
 nc_requests(username = "sample")
 ```
 

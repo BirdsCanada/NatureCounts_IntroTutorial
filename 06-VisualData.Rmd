@@ -71,11 +71,12 @@ Now we can create the plot:
 ```{r plot2VLBO}
 ggplot(data = GRCA_year) +  
   geom_pointrange(aes(x = survey_year, y = MeanObs, ymin = yrmin, ymax = yrmax))
+
 ```
 
-You will notice there was a large increase in the mean number of GRCA observed in 2018 compared to the previous three years. You might now be wondering why....   
+You will notice there was a increase in the mean number of GRCA observed in th elast three years compared to 2015. You might now be wondering why.  
 
 ## Mapping {#PM6.2}
 
-There is a comprehensive tutorial online for [Mapping Observation](https://birdstudiescanada.github.io/naturecounts/articles/articles/mapping-observations.html). The materials are not repeated here. We encourage you to check this out if are interested in mapping your data. 
+There is a comprehensive tutorial online for [Mapping Observation](https://birdstudiescanada.github.io/naturecounts/articles/articles/mapping-observations.html). The materials are not repeated here. We encourage you to check this out if are interested in mapping your data! 
 
