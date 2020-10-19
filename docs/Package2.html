@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Loading R Packages | NatureCounts: An Introductiory R Tutorial</title>
+  <title>Chapter 2 Loading R Packages | NatureCounts: An Introductory R Tutorial</title>
   <meta name="description" content="Introduction to NatureCounts and associated R Package" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Loading R Packages | NatureCounts: An Introductiory R Tutorial" />
+  <meta property="og:title" content="Chapter 2 Loading R Packages | NatureCounts: An Introductory R Tutorial" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.git" />
   <meta property="og:image" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.gitNC.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="DMEthier/NatureCounts_Tutorial_1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Loading R Packages | NatureCounts: An Introductiory R Tutorial" />
+  <meta name="twitter:title" content="Chapter 2 Loading R Packages | NatureCounts: An Introductory R Tutorial" />
   
   <meta name="twitter:description" content="Introduction to NatureCounts and associated R Package" />
   <meta name="twitter:image" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.gitNC.png" />
@@ -130,15 +130,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">NatureCounts Introductory Tutorial</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to NatureCount!</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to NatureCounts</a></li>
 <li class="chapter" data-level="1" data-path="Intro1.html"><a href="Intro1.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="Intro1.html"><a href="Intro1.html#intro1.1"><i class="fa fa-check"></i><b>1.1</b> NatureCounts and R</a></li>
 <li class="chapter" data-level="1.2" data-path="Intro1.html"><a href="Intro1.html#intro1.2"><i class="fa fa-check"></i><b>1.2</b> Prerequisites</a></li>
 <li class="chapter" data-level="1.3" data-path="Intro1.html"><a href="Intro1.html#intro1.3"><i class="fa fa-check"></i><b>1.3</b> Acknowledgements</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="Package2.html"><a href="Package2.html"><i class="fa fa-check"></i><b>2</b> Loading R Packages</a><ul>
-<li class="chapter" data-level="2.1" data-path="Package2.html"><a href="Package2.html#Package2.1"><i class="fa fa-check"></i><b>2.1</b> Installing the naturecounts package</a></li>
-<li class="chapter" data-level="2.2" data-path="Package2.html"><a href="Package2.html#Package2.2"><i class="fa fa-check"></i><b>2.2</b> Installing additional packages</a></li>
+<li class="chapter" data-level="2.1" data-path="Package2.html"><a href="Package2.html#Package2.1"><i class="fa fa-check"></i><b>2.1</b> Installing naturecounts</a></li>
+<li class="chapter" data-level="2.2" data-path="Package2.html"><a href="Package2.html#Package2.2"><i class="fa fa-check"></i><b>2.2</b> Additional packages</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="Data3.html"><a href="Data3.html"><i class="fa fa-check"></i><b>3</b> Understanding and Viewing Data</a><ul>
 <li class="chapter" data-level="3.1" data-path="Data3.html"><a href="Data3.html#Data3.1"><i class="fa fa-check"></i><b>3.1</b> Data Structure</a></li>
@@ -185,7 +185,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">NatureCounts: An Introductiory R Tutorial</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">NatureCounts: An Introductory R Tutorial</a>
           </h1>
         </div>
 
@@ -198,7 +198,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The functionalities of some packages may require updated versions of <a href="https://www.r-project.org/">R</a> and <a href="https://www.rstudio.com">RStudio</a>. To avoid errors, please ensure you are using the most recent releases of R and RStudio, and update your R packages.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">update.packages</span>()                         </a></code></pre></div>
 <div id="Package2.1" class="section level2">
-<h2><span class="header-section-number">2.1</span> Installing the naturecounts package</h2>
+<h2><span class="header-section-number">2.1</span> Installing naturecounts</h2>
 <p>You can install naturecounts from GitHub with the remotes package:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;remotes&quot;</span>)</a>
 <a class="sourceLine" id="cb2-2" title="2">remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;BirdStudiesCanada/naturecounts&quot;</span>)</a></code></pre></div>
@@ -206,7 +206,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">library</span>(naturecounts)</a></code></pre></div>
 </div>
 <div id="Package2.2" class="section level2">
-<h2><span class="header-section-number">2.2</span> Installing additional packages</h2>
+<h2><span class="header-section-number">2.2</span> Additional packages</h2>
 <p>Throughout the book we use the <a href="https://www.tidyverse.org/">tidyverse</a> R package, which is actually a collection of R packages for data science, including tidyr, dplyr, and ggplot2, among others. The tidyverse package can be installed from CRAN and loaded into R as follows:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
 <a class="sourceLine" id="cb4-2" title="2"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
