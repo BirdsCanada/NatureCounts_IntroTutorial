@@ -23,7 +23,7 @@ We are going to apply three key dplyr functions which will give you some of the 
 
 Let's continue using the [Ontario Whip-poor-will](https://www.birdscanada.org/birdmon/default/datasets.jsp?code=WPWI) collection for this chapter.   
 
-```{r OpenAccess, eval = FALSE}
+```{r OpenAccess}
 WPWI <- nc_data_dl(collections = "WPWI", username = "sample", info = "tutorial example")
 ```
 
@@ -34,7 +34,6 @@ You will notice that NatureCounts datasets have many fields (i.e., columns) avai
 For example, we are going to `select()` a subset of variables from the WPWI dataset that we need for our summary: 
 
 ```{r select}
-library(dplyr)
 WPWI_select <- select(WPWI, "ObservationCount", "SurveyAreaIdentifier", 
                       "RouteIdentifier", "species_id", "latitude", 
                       "longitude", "bcr", "survey_day", "survey_month", 
