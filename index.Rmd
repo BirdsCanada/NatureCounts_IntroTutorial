@@ -1,5 +1,5 @@
 --- 
-title: "NatureCounts: An Introductiory R Tutorial"
+title: "NatureCounts: An Introductory R Tutorial"
 author: "Danielle Ethier"
 date: "September 2020"
 site: bookdown::bookdown_site
@@ -12,7 +12,7 @@ description: "Introduction to NatureCounts and associated R Package"
 cover-image: NC.png
 ---
 
-# Welcome to NatureCount! {-}
+# Welcome to NatureCounts {-}
 
 ```{r coverimage, echo=FALSE, out.width="700px", fig.align='center'}
 knitr::include_graphics("images/NC.png")
