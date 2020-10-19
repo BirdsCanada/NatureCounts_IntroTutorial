@@ -112,7 +112,7 @@ Here are a few examples for you to work through to become familiar with the `nc_
 *Example 1*: Determine the number of collections and records for a specific *region*. The options include: `country`, `statprov`, `subnational2`, `iba`, `bcr`, `utm_squares`, and `bbox`. You can find details and examples on how to [`search_region()`](https://birdstudiescanada.github.io/naturecounts/articles/region-codes.html) at the link provided.
 
 The following code will retrieve all available collections and number of records for British Columbia
-```{r nc_region}
+```{r nc_region, warning = FALSE}
 search_region("British Columbia", type = "statprov")
 nc_count(region = list(statprov = "BC"))
 ```
@@ -147,5 +147,5 @@ Answer: EBird-CA-QC, OISEAUXQC, CBC
 
 Answer: 702, 389
 
-
+Answers to the exercises can be found in [Chapter 7](#Ans7.1).
 
