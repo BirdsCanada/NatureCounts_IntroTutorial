@@ -77,11 +77,11 @@ Now apply your newly acquired skills!
 
 *Exercise 1*:  You (user "sample") are from the Northwest Territories and interested in learning more about breeding birds in your region. First, you identify the NatureCounts dataset most suitable for this exercise using the `nc_count()` function. Next, you decide to focus your download to only include Blackpoll Warbler data collected over the past 5 years (2015-2020). How many observation records did you download? 
 
-Answer: BBS50-CAN, 75
+Answer: BBS50-CAN, 1756
 
 *Exercise 2*: You (user "sample") are birding in the 	*Beaverhill Lake* Important Bird Area (iba) in May. You think you hear a Bobolink! You are curious if this species has been detected here in the [month of May](https://www.esrl.noaa.gov/gmd/grad/neubrew/Calendar.jsp). You choose to download the records you have authorization to freely access from NatureCounts. How many observation records did you download? What year are these records from?    
 
-Answer: 2 (or 3 if you included Feb 29 in the doy calculation), 1988 
+Answer: 3, 1988 & 1987
 
 
 
