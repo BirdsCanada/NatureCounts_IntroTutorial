@@ -117,7 +117,7 @@ search_region("British Columbia", type = "statprov")
 nc_count(region = list(statprov = "BC"))
 ```
 
-*Example 2*: Determine the number of records for a specific *species*. You can find details and examples on how to [`search_species_code()`](https://birdstudiescanada.github.io/naturecounts/reference/search_species_code.html) based on common names and [`search_species()`](https://birdstudiescanada.github.io/naturecounts/reference/search_species.html) based on 4 letter alpha code at the links provided.  
+*Example 2*: Determine the number of records for a specific *species*. You can find details and examples on how to [`search_species_code()`](https://birdstudiescanada.github.io/naturecounts/reference/search_species_code.html) based on 4 letter alpha code and [`search_species()`](https://birdstudiescanada.github.io/naturecounts/reference/search_species.html) based on common names at the links provided.  
 
 The following code will retrieve all available collections and number of records for Red-headed Woodpecker  
 ```{r nc_species1}
