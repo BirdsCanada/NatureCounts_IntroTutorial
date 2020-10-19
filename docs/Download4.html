@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Downloading and Filtering Data | NatureCounts: An Introductiory Tutorial</title>
+  <title>Chapter 4 Downloading and Filtering Data | NatureCounts: An Introductiory R Tutorial</title>
   <meta name="description" content="Introduction to NatureCounts and associated R Package" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Downloading and Filtering Data | NatureCounts: An Introductiory Tutorial" />
+  <meta property="og:title" content="Chapter 4 Downloading and Filtering Data | NatureCounts: An Introductiory R Tutorial" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.git" />
   <meta property="og:image" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.gitNC.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="DMEthier/NatureCounts_Tutorial_1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Downloading and Filtering Data | NatureCounts: An Introductiory Tutorial" />
+  <meta name="twitter:title" content="Chapter 4 Downloading and Filtering Data | NatureCounts: An Introductiory R Tutorial" />
   
   <meta name="twitter:description" content="Introduction to NatureCounts and associated R Package" />
   <meta name="twitter:image" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.gitNC.png" />
@@ -49,13 +49,12 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -64,16 +63,14 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -82,9 +79,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -171,6 +168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1" data-path="Visual6.html"><a href="Visual6.html#PM6.1"><i class="fa fa-check"></i><b>6.1</b> Plotting</a></li>
 <li class="chapter" data-level="6.2" data-path="Visual6.html"><a href="Visual6.html#PM6.2"><i class="fa fa-check"></i><b>6.2</b> Mapping</a></li>
 </ul></li>
+<li class="chapter" data-level="7" data-path="Ans7.html"><a href="Ans7.html"><i class="fa fa-check"></i><b>7</b> Exercise Answers</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -183,7 +181,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">NatureCounts: An Introductiory Tutorial</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">NatureCounts: An Introductiory R Tutorial</a>
           </h1>
         </div>
 
@@ -198,27 +196,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">4.1</span> Downloading NatureCounts data</h2>
 <p>Open access collections are available for download without a username/password, however, we encourage you to <a href="https://www.birdscanada.org/birdmon/default/register.jsp">sign up</a> for a <strong>free</strong> account.</p>
 <p>Here we demonstrate how to download the Ontario Whip-poor-will collection (WPWI), since it is Open Access (Level 5) and contains relatively few records (n = 3012). Click <a href="https://www.birdscanada.org/birdmon/default/datasets.jsp?code=WPWI">here</a> for more information on this dataset.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="Download4.html#cb37-1"></a>WPWI &lt;-<span class="st"> </span><span class="kw">nc_data_dl</span>(<span class="dt">collections =</span> <span class="st">&quot;WPWI&quot;</span>, <span class="dt">username =</span> <span class="st">&quot;sample&quot;</span>, <span class="dt">info =</span> <span class="st">&quot;tutorial example&quot;</span>)</span></code></pre></div>
-<pre><code>## Using filters: collections (WPWI); fields_set (BMDE2.00-min)</code></pre>
-<pre><code>## Collecting available records...</code></pre>
-<pre><code>##   collection nrecords
-## 1       WPWI     3012
-## Total records: 3,012</code></pre>
-<pre><code>## 
-## Downloading records for each collection:</code></pre>
-<pre><code>##   WPWI</code></pre>
-<pre><code>##     Records 1 to 3012 / 3012</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1">WPWI &lt;-<span class="st"> </span><span class="kw">nc_data_dl</span>(<span class="dt">collections =</span> <span class="st">&quot;WPWI&quot;</span>, <span class="dt">username =</span> <span class="st">&quot;sample&quot;</span>, <span class="dt">info =</span> <span class="st">&quot;tutorial example&quot;</span>)</a></code></pre></div>
 <p>You should now see a copy of the WPWI collection in the upper right panel of RStudio under the <em>Environment</em> tab. Notice in the code that <code>info</code> needs to be provided. This is a short description of reason for the download. This does not need to be specified when using the <code>nc_count()</code> function.</p>
 <p>To access Level 3 or 4 collections you must <a href="https://www.birdscanada.org/birdmon/default/register.jsp">sign up</a> for a <strong>free</strong> account and request permission from the data custodian. For a complete list of datasets and access level, visit the <a href="https://www.birdscanada.org/birdmon/default/datasets.jsp">NatureCounts datasets</a> page or use the <code>meta_collection()</code> function. Here you can browse information on each dataset prior to requesting access.</p>
 <p>To make a data request, use the NatureCounts <a href="https://www.birdscanada.org/birdmon/default/searchquery.jsp">Download Data query tool</a>. For step-by-step visual instructions, we encourage you to watch: <a href="link%20to%20be%20provided">NatureCounts: An Introductory Tutorial</a>. You will receive an email confirmation when your request has been approved, which will contain your <code>request_id</code>. This number will be used to download your newly acquired dataset into R. There is also a build in function that allows you to check the status of your request and retrieve your <code>request_id</code>:</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="Download4.html#cb44-1"></a><span class="kw">nc_requests</span>(<span class="dt">username =</span> <span class="st">&quot;sample&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] request_id    requestOrigin requestLabel  collection    status       
-## [6] nrecords      filters      
-## &lt;0 rows&gt; (or 0-length row.names)</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" title="1"><span class="kw">nc_requests</span>(<span class="dt">username =</span> <span class="st">&quot;sample&quot;</span>)</a></code></pre></div>
 <p>Here is sample code to download Access Level 3 or 4 data:</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="Download4.html#cb46-1"></a>my_data &lt;-<span class="st"> </span><span class="kw">nc_data_dl</span>(<span class="dt">collections =</span> <span class="st">&quot;CBC&quot;</span>,</span>
-<span id="cb46-2"><a href="Download4.html#cb46-2"></a>                      <span class="dt">request_id =</span> <span class="dv">000000</span>, <span class="dt">username =</span> <span class="st">&quot;USER&quot;</span>,</span>
-<span id="cb46-3"><a href="Download4.html#cb46-3"></a>                      <span class="dt">info =</span> <span class="st">&quot;MY REASON&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" title="1">my_data &lt;-<span class="st"> </span><span class="kw">nc_data_dl</span>(<span class="dt">collections =</span> <span class="st">&quot;CBC&quot;</span>,</a>
+<a class="sourceLine" id="cb40-2" title="2">                      <span class="dt">request_id =</span> <span class="dv">000000</span>, <span class="dt">username =</span> <span class="st">&quot;USER&quot;</span>,</a>
+<a class="sourceLine" id="cb40-3" title="3">                      <span class="dt">info =</span> <span class="st">&quot;MY REASON&quot;</span>)</a></code></pre></div>
 <p><strong>Note: This code is not functional and is here to serve as a structural example. You will need to insert your <code>collections</code>, <code>request_id</code>, <code>username</code>, and <code>info</code> in the code chunk above to make this work. If you applied filters to the web portal data request (e.g., species, region, year), you will only receive the subset of the dataset you requested.</strong></p>
 </div>
 <div id="Download4.2" class="section level2">
@@ -231,42 +217,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">4.3</span> Examples</h2>
 <p>Here are a few examples for you to work through to become familiar with the <code>nc_data_dl()</code> function.</p>
 <p><em>Example 1</em>: We will use the Ontario Whip-poor-will collection (WPWI) again for this example. After reviewing the online material, <a href="https://www.birdscanada.org/birdmon/default/datasets.jsp?code=WPWI">here</a>, you notice that the main survey ran from 2010 to 2012, but that additional surveys were conducted between 2009 and 2013. For your research, you only want data collected during the main survey window. Further, the survey was Ontario-wide, but most effort and records are from southern Ontario. Let’s further limit the data to those collected south of the Canadian Shield, which is approximated with <a href="http://nabci-us.org/assets/images/bcr_map2.jpg">BCR</a> 13.</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="Download4.html#cb47-1"></a>WPWI_filter &lt;-<span class="st"> </span><span class="kw">nc_data_dl</span>(<span class="dt">collections =</span> <span class="st">&quot;WPWI&quot;</span>, <span class="dt">years =</span> <span class="kw">c</span>(<span class="dv">2010</span>, <span class="dv">2012</span>), </span>
-<span id="cb47-2"><a href="Download4.html#cb47-2"></a>                          <span class="dt">region =</span> <span class="kw">list</span>(<span class="dt">bcr =</span> <span class="st">&quot;13&quot;</span>), </span>
-<span id="cb47-3"><a href="Download4.html#cb47-3"></a>                          <span class="dt">username =</span> <span class="st">&quot;sample&quot;</span>, <span class="dt">info =</span> <span class="st">&quot;tutorial example&quot;</span>)</span></code></pre></div>
-<pre><code>## Using filters: collections (WPWI); fields_set (BMDE2.00-min); start_year (2010); end_year (2012); bcr (BCR.13)</code></pre>
-<pre><code>## Collecting available records...</code></pre>
-<pre><code>##   collection nrecords
-## 1       WPWI      754
-## Total records: 754</code></pre>
-<pre><code>## 
-## Downloading records for each collection:</code></pre>
-<pre><code>##   WPWI</code></pre>
-<pre><code>##     Records 1 to 754 / 754</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" title="1">WPWI_filter &lt;-<span class="st"> </span><span class="kw">nc_data_dl</span>(<span class="dt">collections =</span> <span class="st">&quot;WPWI&quot;</span>, <span class="dt">years =</span> <span class="kw">c</span>(<span class="dv">2010</span>, <span class="dv">2012</span>), </a>
+<a class="sourceLine" id="cb41-2" title="2">                          <span class="dt">region =</span> <span class="kw">list</span>(<span class="dt">bcr =</span> <span class="st">&quot;13&quot;</span>), </a>
+<a class="sourceLine" id="cb41-3" title="3">                          <span class="dt">username =</span> <span class="st">&quot;sample&quot;</span>, <span class="dt">info =</span> <span class="st">&quot;tutorial example&quot;</span>)</a></code></pre></div>
 <p>You will notice that the number of records in the filtered WPWI download (<code>WPWI_filter</code> = 754) is substantially less than the number of records in the full dataset (<code>WPWI</code> = 3012) downloaded in <a href="Data3.html#Data3">Chapter 3</a>.</p>
 <p><em>Example 2</em>: Rather than using BCR 13 to approximate the study area, you are interested in just looking at records collected on the <a href="https://en.wikipedia.org/wiki/Bruce_Peninsula">Bruce Peninsula</a> for the full time period. You decide to use <a href="https://birdstudiescanada.github.io/naturecounts/articles/region-spatial.html">spatial data to filter observations</a>. Specifically, you create a <a href="https://birdstudiescanada.github.io/naturecounts/articles/region-codes.html">bounding box</a>, using coordinates from Google Map, which reflects latitude and longitude limits to extract these data.</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="Download4.html#cb54-1"></a>WPWI_bb &lt;-<span class="st"> </span><span class="kw">nc_data_dl</span>(<span class="dt">collections =</span> <span class="st">&quot;WPWI&quot;</span>, </span>
-<span id="cb54-2"><a href="Download4.html#cb54-2"></a>                      <span class="dt">region =</span> <span class="kw">list</span>(<span class="dt">bbox =</span> <span class="kw">c</span>(<span class="dt">left =</span> <span class="fl">-81.7</span>, <span class="dt">bottom =</span> <span class="fl">44.5</span>, </span>
-<span id="cb54-3"><a href="Download4.html#cb54-3"></a>                                             <span class="dt">right =</span> <span class="fl">-80.9</span>, <span class="dt">top =</span> <span class="fl">45.3</span>)), </span>
-<span id="cb54-4"><a href="Download4.html#cb54-4"></a>                      <span class="dt">username =</span> <span class="st">&quot;sample&quot;</span>, <span class="dt">info =</span> <span class="st">&quot;tutorial example&quot;</span>)</span></code></pre></div>
-<pre><code>## Using filters: collections (WPWI); fields_set (BMDE2.00-min); bbox_left (-81.7); bbox_bottom (44.5); bbox_right (-80.9); bbox_top (45.3)</code></pre>
-<pre><code>## Collecting available records...</code></pre>
-<pre><code>##   collection nrecords
-## 1       WPWI       72
-## Total records: 72</code></pre>
-<pre><code>## 
-## Downloading records for each collection:</code></pre>
-<pre><code>##   WPWI</code></pre>
-<pre><code>##     Records 1 to 72 / 72</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" title="1">WPWI_bb &lt;-<span class="st"> </span><span class="kw">nc_data_dl</span>(<span class="dt">collections =</span> <span class="st">&quot;WPWI&quot;</span>, </a>
+<a class="sourceLine" id="cb42-2" title="2">                      <span class="dt">region =</span> <span class="kw">list</span>(<span class="dt">bbox =</span> <span class="kw">c</span>(<span class="dt">left =</span> <span class="fl">-81.7</span>, <span class="dt">bottom =</span> <span class="fl">44.5</span>, </a>
+<a class="sourceLine" id="cb42-3" title="3">                                             <span class="dt">right =</span> <span class="fl">-80.9</span>, <span class="dt">top =</span> <span class="fl">45.3</span>)), </a>
+<a class="sourceLine" id="cb42-4" title="4">                      <span class="dt">username =</span> <span class="st">&quot;sample&quot;</span>, <span class="dt">info =</span> <span class="st">&quot;tutorial example&quot;</span>)</a></code></pre></div>
 <p>You will notice there are now even fewer observation records (<code>WPWI_bb</code> = 72)</p>
 </div>
 <div id="Download4.4" class="section level2">
 <h2><span class="header-section-number">4.4</span> Exercises</h2>
 <p>Now apply your newly acquired skills!</p>
 <p><em>Exercise 1</em>: You (user “sample”) are from the Northwest Territories and interested in learning more about breeding birds in your region. First, you identify the NatureCounts dataset most suitable for this exercise using the <code>nc_count()</code> function. Next, you decide to focus your download to only include Blackpoll Warbler data collected over the past 5 years (2015-2020). How many observation records did you download?</p>
-<p>Answer: BBS50-CAN, 75</p>
+<p>Answer: BBS50-CAN, 1756</p>
 <p><em>Exercise 2</em>: You (user “sample”) are birding in the <em>Beaverhill Lake</em> Important Bird Area (iba) in May. You think you hear a Bobolink! You are curious if this species has been detected here in the <a href="https://www.esrl.noaa.gov/gmd/grad/neubrew/Calendar.jsp">month of May</a>. You choose to download the records you have authorization to freely access from NatureCounts. How many observation records did you download? What year are these records from?</p>
-<p>Answer: 2 (or 3 if you included Feb 29 in the doy calculation), 1988</p>
+<p>Answer: 3, 1988 &amp; 1987</p>
 
 </div>
 </div>

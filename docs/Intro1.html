@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 1 Introduction | NatureCounts: An Introductiory Tutorial</title>
+  <title>Chapter 1 Introduction | NatureCounts: An Introductiory R Tutorial</title>
   <meta name="description" content="Introduction to NatureCounts and associated R Package" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 1 Introduction | NatureCounts: An Introductiory Tutorial" />
+  <meta property="og:title" content="Chapter 1 Introduction | NatureCounts: An Introductiory R Tutorial" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.git" />
   <meta property="og:image" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.gitNC.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="DMEthier/NatureCounts_Tutorial_1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 1 Introduction | NatureCounts: An Introductiory Tutorial" />
+  <meta name="twitter:title" content="Chapter 1 Introduction | NatureCounts: An Introductiory R Tutorial" />
   
   <meta name="twitter:description" content="Introduction to NatureCounts and associated R Package" />
   <meta name="twitter:image" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.gitNC.png" />
@@ -49,13 +49,12 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -64,16 +63,14 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -82,9 +79,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -171,6 +168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1" data-path="Visual6.html"><a href="Visual6.html#PM6.1"><i class="fa fa-check"></i><b>6.1</b> Plotting</a></li>
 <li class="chapter" data-level="6.2" data-path="Visual6.html"><a href="Visual6.html#PM6.2"><i class="fa fa-check"></i><b>6.2</b> Mapping</a></li>
 </ul></li>
+<li class="chapter" data-level="7" data-path="Ans7.html"><a href="Ans7.html"><i class="fa fa-check"></i><b>7</b> Exercise Answers</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -183,7 +181,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">NatureCounts: An Introductiory Tutorial</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">NatureCounts: An Introductiory R Tutorial</a>
           </h1>
         </div>
 
@@ -206,9 +204,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">1.1</span> NatureCounts and R</h2>
 <p>The naturecounts R package was create to allow users to directly access and download data from NatureCounts into R. The goal of this online book is to show NatureCounts users how to use the <a href="https://www.r-project.org/">R</a> statistical programming language to access, filter, summarize, and visualize naturecounts data. Moving forward, we intend to create more advanced tutorials which explore analytical procedures suitable for various datasets. If you have suggestions for additional content, please let us know by emailing <a href="mailto:dethier@birdscanada.org" class="email">dethier@birdscanada.org</a></p>
 <blockquote>
-<p>Note that you can differentiate the R package (“naturecounts”) from the database (“NatureCounts”)</p>
+<p>Note you can differentiate the R package (“naturecounts”) from the database (“NatureCounts”)</p>
 </blockquote>
-<p>Throughout this book we use subsets of real datasets to illustrate how to access, manage, explore and visualize NatureCounts data in R. We recommend that you run through the sample code in each chapter with the sample dataset before doing the exercises or using own data.</p>
+<p>Throughout this book we use subsets of real datasets to illustrate how to access, manage, explore and visualize NatureCounts data in R. We recommend that you run through the sample code in each chapter with the sample dataset before doing the exercises or using own data. Answers to the exercises can be found in <a href="Ans7.html#Ans7">Chapter 7</a>.</p>
 </div>
 <div id="intro1.2" class="section level2">
 <h2><span class="header-section-number">1.2</span> Prerequisites</h2>

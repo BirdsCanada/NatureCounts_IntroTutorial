@@ -1,5 +1,5 @@
 --- 
-title: "NatureCounts: An Introductiory Tutorial"
+title: "NatureCounts: An Introductiory R Tutorial"
 author: "Danielle Ethier"
 date: "September 2020"
 site: bookdown::bookdown_site

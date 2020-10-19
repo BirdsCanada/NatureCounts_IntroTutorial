@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Data Visualisation | NatureCounts: An Introductiory Tutorial</title>
+  <title>Chapter 6 Data Visualisation | NatureCounts: An Introductiory R Tutorial</title>
   <meta name="description" content="Introduction to NatureCounts and associated R Package" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Data Visualisation | NatureCounts: An Introductiory Tutorial" />
+  <meta property="og:title" content="Chapter 6 Data Visualisation | NatureCounts: An Introductiory R Tutorial" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.git" />
   <meta property="og:image" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.gitNC.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="DMEthier/NatureCounts_Tutorial_1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Data Visualisation | NatureCounts: An Introductiory Tutorial" />
+  <meta name="twitter:title" content="Chapter 6 Data Visualisation | NatureCounts: An Introductiory R Tutorial" />
   
   <meta name="twitter:description" content="Introduction to NatureCounts and associated R Package" />
   <meta name="twitter:image" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.gitNC.png" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="Manip5.html"/>
-
+<link rel="next" href="Ans7.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -49,13 +49,12 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -64,16 +63,14 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -82,9 +79,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -171,6 +168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1" data-path="Visual6.html"><a href="Visual6.html#PM6.1"><i class="fa fa-check"></i><b>6.1</b> Plotting</a></li>
 <li class="chapter" data-level="6.2" data-path="Visual6.html"><a href="Visual6.html#PM6.2"><i class="fa fa-check"></i><b>6.2</b> Mapping</a></li>
 </ul></li>
+<li class="chapter" data-level="7" data-path="Ans7.html"><a href="Ans7.html"><i class="fa fa-check"></i><b>7</b> Exercise Answers</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -183,7 +181,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">NatureCounts: An Introductiory Tutorial</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">NatureCounts: An Introductiory R Tutorial</a>
           </h1>
         </div>
 
@@ -199,42 +197,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Plotting your data is a powerful way to detect patterns and make results stand out. Recall in <a href="Package2.html#Package2.2">Chapter 2</a> you installed the <a href="https://www.tidyverse.org/">tidyverse</a> package, which included <code>ggplot2</code> for data visualizations. You are encouraged to learn more about this function by reviewing <a href="http://www.cookbook-r.com/Graphs/">Cookbook for R</a>. We also recommend you download a copy of the RStudio <a href="https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">Data Visualization</a> cheat sheet as a reference document.</p>
 <p>At the end of <a href="Manip5.html#Manip5">Chapter 5</a> you were exploring fall migration monitoring data collected at <a href="https://www.birdscanada.org/birdmon/default/datasets.jsp?code=CMMN-DET-VLBO">Vaseux Lake Bird Observatory</a>, British Columbia. Let’s continue using this dataset for our plotting example and download the data for 2015-present.</p>
 <p>First, lets apply our previously acquired skills to download the filtered dataset and zero-fill for GRCA, while also keep some extra variables.</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="Visual6.html#cb89-1"></a><span class="kw">library</span>(naturecounts)</span>
-<span id="cb89-2"><a href="Visual6.html#cb89-2"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb89-3"><a href="Visual6.html#cb89-3"></a></span>
-<span id="cb89-4"><a href="Visual6.html#cb89-4"></a>VLBO &lt;-<span class="st"> </span><span class="kw">nc_data_dl</span>(<span class="dt">collections =</span> <span class="st">&quot;CMMN-DET-VLBO&quot;</span>, <span class="dt">years =</span> <span class="kw">c</span>(<span class="dv">2015</span>, <span class="ot">NA</span>), </span>
-<span id="cb89-5"><a href="Visual6.html#cb89-5"></a>                   <span class="dt">username =</span> <span class="st">&quot;sample&quot;</span>, <span class="dt">info =</span> <span class="st">&quot;tutorial example&quot;</span>)</span>
-<span id="cb89-6"><a href="Visual6.html#cb89-6"></a></span>
-<span id="cb89-7"><a href="Visual6.html#cb89-7"></a>GRCA &lt;-<span class="st"> </span><span class="kw">format_zero_fill</span>(VLBO, <span class="dt">species =</span> <span class="dv">15900</span>, </span>
-<span id="cb89-8"><a href="Visual6.html#cb89-8"></a>                         <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;SamplingEventIdentifier&quot;</span>, <span class="st">&quot;survey_year&quot;</span>, </span>
-<span id="cb89-9"><a href="Visual6.html#cb89-9"></a>                                <span class="st">&quot;survey_month&quot;</span>, <span class="st">&quot;survey_day&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" title="1"><span class="kw">library</span>(naturecounts)</a>
+<a class="sourceLine" id="cb71-2" title="2"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb71-3" title="3"></a>
+<a class="sourceLine" id="cb71-4" title="4">VLBO &lt;-<span class="st"> </span><span class="kw">nc_data_dl</span>(<span class="dt">collections =</span> <span class="st">&quot;CMMN-DET-VLBO&quot;</span>, <span class="dt">years =</span> <span class="kw">c</span>(<span class="dv">2015</span>, <span class="ot">NA</span>), </a>
+<a class="sourceLine" id="cb71-5" title="5">                   <span class="dt">username =</span> <span class="st">&quot;sample&quot;</span>, <span class="dt">info =</span> <span class="st">&quot;tutorial example&quot;</span>)</a>
+<a class="sourceLine" id="cb71-6" title="6"></a>
+<a class="sourceLine" id="cb71-7" title="7">GRCA &lt;-<span class="st"> </span><span class="kw">format_zero_fill</span>(VLBO, <span class="dt">species =</span> <span class="dv">15900</span>, </a>
+<a class="sourceLine" id="cb71-8" title="8">                         <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;SamplingEventIdentifier&quot;</span>, <span class="st">&quot;survey_year&quot;</span>, </a>
+<a class="sourceLine" id="cb71-9" title="9">                                <span class="st">&quot;survey_month&quot;</span>, <span class="st">&quot;survey_day&quot;</span>))</a></code></pre></div>
 <p>First, we are interested if there are any noticeable patterns in migration timing. For this, we will use the <a href="https://birdstudiescanada.github.io/naturecounts/reference/format_dates.html">add date and day-of-year helper function</a> to add two new columns to the dataframe.</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="Visual6.html#cb90-1"></a>GRCA_dates &lt;-<span class="st"> </span><span class="kw">format_dates</span>(GRCA)</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" title="1">GRCA_dates &lt;-<span class="st"> </span><span class="kw">format_dates</span>(GRCA)</a></code></pre></div>
 <p>Now we can plot raw counts (y-axis) for each day-of-year (x-axis).</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="Visual6.html#cb91-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> GRCA_dates) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb91-2"><a href="Visual6.html#cb91-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> doy, <span class="dt">y =</span> ObservationCount))</span></code></pre></div>
-<pre><code>## Warning: Removed 1220 rows containing missing values (geom_point).</code></pre>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> GRCA_dates) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb73-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> doy, <span class="dt">y =</span> ObservationCount))</a></code></pre></div>
 <p><img src="06-VisualData_files/figure-html/plot1VLBO-1.png" width="672" /></p>
 <p>What you will notice is that there isn’t an obvious peak in migration for this species, but a relatively constant number of individuals counted throughout the season.</p>
 <p>Next, we are interested in visually examining the mean number of migrant GRCA each year, to see if there are any noticeable changes over time. First, we need to summarise the data:</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="Visual6.html#cb93-1"></a><span class="co">#use this shortcut function to calculate the standard error</span></span>
-<span id="cb93-2"><a href="Visual6.html#cb93-2"></a>se &lt;-<span class="st"> </span><span class="cf">function</span>(x) <span class="kw">sd</span>(x) <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">length</span>(x))</span>
-<span id="cb93-3"><a href="Visual6.html#cb93-3"></a></span>
-<span id="cb93-4"><a href="Visual6.html#cb93-4"></a>GRCA_year &lt;-<span class="st"> </span>GRCA <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb93-5"><a href="Visual6.html#cb93-5"></a><span class="st">  </span><span class="kw">group_by</span>(survey_year) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb93-6"><a href="Visual6.html#cb93-6"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">MeanObs =</span> <span class="kw">mean</span>(ObservationCount), </span>
-<span id="cb93-7"><a href="Visual6.html#cb93-7"></a>            <span class="dt">SEObs =</span> <span class="kw">se</span>(ObservationCount)) <span class="op">%&gt;%</span><span class="st">   </span></span>
-<span id="cb93-8"><a href="Visual6.html#cb93-8"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">yrmin =</span> MeanObs <span class="op">+</span><span class="st"> </span>SEObs, <span class="dt">yrmax =</span> MeanObs <span class="op">-</span><span class="st"> </span>SEObs)</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" title="1"><span class="co">#use this shortcut function to calculate the standard error</span></a>
+<a class="sourceLine" id="cb74-2" title="2">se &lt;-<span class="st"> </span><span class="cf">function</span>(x) <span class="kw">sd</span>(x) <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">length</span>(x))</a>
+<a class="sourceLine" id="cb74-3" title="3"></a>
+<a class="sourceLine" id="cb74-4" title="4">GRCA_year &lt;-<span class="st"> </span>GRCA <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb74-5" title="5"><span class="st">  </span><span class="kw">group_by</span>(survey_year) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb74-6" title="6"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">MeanObs =</span> <span class="kw">mean</span>(ObservationCount), </a>
+<a class="sourceLine" id="cb74-7" title="7">            <span class="dt">SEObs =</span> <span class="kw">se</span>(ObservationCount)) <span class="op">%&gt;%</span><span class="st">   </span></a>
+<a class="sourceLine" id="cb74-8" title="8"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">yrmin =</span> MeanObs <span class="op">+</span><span class="st"> </span>SEObs, <span class="dt">yrmax =</span> MeanObs <span class="op">-</span><span class="st"> </span>SEObs)</a></code></pre></div>
 <pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
 <p>Now we can create the plot:</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="Visual6.html#cb95-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> GRCA_year) <span class="op">+</span><span class="st">  </span></span>
-<span id="cb95-2"><a href="Visual6.html#cb95-2"></a><span class="st">  </span><span class="kw">geom_pointrange</span>(<span class="kw">aes</span>(<span class="dt">x =</span> survey_year, <span class="dt">y =</span> MeanObs, <span class="dt">ymin =</span> yrmin, <span class="dt">ymax =</span> yrmax))</span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> GRCA_year) <span class="op">+</span><span class="st">  </span></a>
+<a class="sourceLine" id="cb76-2" title="2"><span class="st">  </span><span class="kw">geom_pointrange</span>(<span class="kw">aes</span>(<span class="dt">x =</span> survey_year, <span class="dt">y =</span> MeanObs, <span class="dt">ymin =</span> yrmin, <span class="dt">ymax =</span> yrmax))</a></code></pre></div>
 <p><img src="06-VisualData_files/figure-html/plot2VLBO-1.png" width="672" /></p>
-<p>You will notice there was a large increase in the mean number of GRCA observed in 2018 compared to the previous three years. You might now be wondering why….</p>
+<p>You will notice there was a increase in the mean number of GRCA observed in th elast three years compared to 2015. You might now be wondering why.</p>
 </div>
 <div id="PM6.2" class="section level2">
 <h2><span class="header-section-number">6.2</span> Mapping</h2>
-<p>There is a comprehensive tutorial online for <a href="https://birdstudiescanada.github.io/naturecounts/articles/articles/mapping-observations.html">Mapping Observation</a>. The materials are not repeated here. We encourage you to check this out if are interested in mapping your data.</p>
+<p>There is a comprehensive tutorial online for <a href="https://birdstudiescanada.github.io/naturecounts/articles/articles/mapping-observations.html">Mapping Observation</a>. The materials are not repeated here. We encourage you to check this out if are interested in mapping your data!</p>
 
 </div>
 </div>
@@ -243,8 +240,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="Manip5.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="Manip5.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="Ans7.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

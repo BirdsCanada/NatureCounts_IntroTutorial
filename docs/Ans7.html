@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 Exercise Answers | NatureCounts: An Introductiory R Tutorial</title>
+  <meta name="description" content="Introduction to NatureCounts and associated R Package" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 Exercise Answers | NatureCounts: An Introductiory R Tutorial" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.git" />
+  <meta property="og:image" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.gitNC.png" />
+  <meta property="og:description" content="Introduction to NatureCounts and associated R Package" />
+  <meta name="github-repo" content="DMEthier/NatureCounts_Tutorial_1" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 Exercise Answers | NatureCounts: An Introductiory R Tutorial" />
+  
+  <meta name="twitter:description" content="Introduction to NatureCounts and associated R Package" />
+  <meta name="twitter:image" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.gitNC.png" />
+
+<meta name="author" content="Danielle Ethier" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="Visual6.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="mystyles.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">NatureCounts Introductory Tutorial</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to NatureCount!</a></li>
+<li class="chapter" data-level="1" data-path="Intro1.html"><a href="Intro1.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="Intro1.html"><a href="Intro1.html#intro1.1"><i class="fa fa-check"></i><b>1.1</b> NatureCounts and R</a></li>
+<li class="chapter" data-level="1.2" data-path="Intro1.html"><a href="Intro1.html#intro1.2"><i class="fa fa-check"></i><b>1.2</b> Prerequisites</a></li>
+<li class="chapter" data-level="1.3" data-path="Intro1.html"><a href="Intro1.html#intro1.3"><i class="fa fa-check"></i><b>1.3</b> Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="Package2.html"><a href="Package2.html"><i class="fa fa-check"></i><b>2</b> Loading R Packages</a><ul>
+<li class="chapter" data-level="2.1" data-path="Package2.html"><a href="Package2.html#Package2.1"><i class="fa fa-check"></i><b>2.1</b> Installing the naturecounts package</a></li>
+<li class="chapter" data-level="2.2" data-path="Package2.html"><a href="Package2.html#Package2.2"><i class="fa fa-check"></i><b>2.2</b> Installing additional packages</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="Data3.html"><a href="Data3.html"><i class="fa fa-check"></i><b>3</b> Understanding and Viewing Data</a><ul>
+<li class="chapter" data-level="3.1" data-path="Data3.html"><a href="Data3.html#Data3.1"><i class="fa fa-check"></i><b>3.1</b> Data Structure</a></li>
+<li class="chapter" data-level="3.2" data-path="Data3.html"><a href="Data3.html#Data3.2"><i class="fa fa-check"></i><b>3.2</b> Levels of Data Access</a></li>
+<li class="chapter" data-level="3.3" data-path="Data3.html"><a href="Data3.html#Data3.3"><i class="fa fa-check"></i><b>3.3</b> Authorizations</a></li>
+<li class="chapter" data-level="3.4" data-path="Data3.html"><a href="Data3.html#Data3.4"><i class="fa fa-check"></i><b>3.4</b> Viewing information about NatureCounts collections</a></li>
+<li class="chapter" data-level="3.5" data-path="Data3.html"><a href="Data3.html#Data3.5"><i class="fa fa-check"></i><b>3.5</b> Metadata codes and decriptions</a></li>
+<li class="chapter" data-level="3.6" data-path="Data3.html"><a href="Data3.html#Data3.6"><i class="fa fa-check"></i><b>3.6</b> Examples</a></li>
+<li class="chapter" data-level="3.7" data-path="Data3.html"><a href="Data3.html#Data3.7"><i class="fa fa-check"></i><b>3.7</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="Download4.html"><a href="Download4.html"><i class="fa fa-check"></i><b>4</b> Downloading and Filtering Data</a><ul>
+<li class="chapter" data-level="4.1" data-path="Download4.html"><a href="Download4.html#Download4.1"><i class="fa fa-check"></i><b>4.1</b> Downloading NatureCounts data</a></li>
+<li class="chapter" data-level="4.2" data-path="Download4.html"><a href="Download4.html#Download4.2"><i class="fa fa-check"></i><b>4.2</b> Applying Filters</a></li>
+<li class="chapter" data-level="4.3" data-path="Download4.html"><a href="Download4.html#Download4.3"><i class="fa fa-check"></i><b>4.3</b> Examples</a></li>
+<li class="chapter" data-level="4.4" data-path="Download4.html"><a href="Download4.html#Download4.4"><i class="fa fa-check"></i><b>4.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="Manip5.html"><a href="Manip5.html"><i class="fa fa-check"></i><b>5</b> Data Manipulation</a><ul>
+<li class="chapter" data-level="5.1" data-path="Manip5.html"><a href="Manip5.html#Manip5.1"><i class="fa fa-check"></i><b>5.1</b> Basic data wrangling</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="Manip5.html"><a href="Manip5.html#Manip5.1.1"><i class="fa fa-check"></i><b>5.1.1</b> Select</a></li>
+<li class="chapter" data-level="5.1.2" data-path="Manip5.html"><a href="Manip5.html#Manip5.1.2"><i class="fa fa-check"></i><b>5.1.2</b> Filter</a></li>
+<li class="chapter" data-level="5.1.3" data-path="Manip5.html"><a href="Manip5.html#Manip5.1.3"><i class="fa fa-check"></i><b>5.1.3</b> Summarise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="Manip5.html"><a href="Manip5.html#Manip5.2"><i class="fa fa-check"></i><b>5.2</b> Helper Functions</a></li>
+<li class="chapter" data-level="5.3" data-path="Manip5.html"><a href="Manip5.html#Manip5.3"><i class="fa fa-check"></i><b>5.3</b> Exercies</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="Visual6.html"><a href="Visual6.html"><i class="fa fa-check"></i><b>6</b> Data Visualisation</a><ul>
+<li class="chapter" data-level="6.1" data-path="Visual6.html"><a href="Visual6.html#PM6.1"><i class="fa fa-check"></i><b>6.1</b> Plotting</a></li>
+<li class="chapter" data-level="6.2" data-path="Visual6.html"><a href="Visual6.html#PM6.2"><i class="fa fa-check"></i><b>6.2</b> Mapping</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="Ans7.html"><a href="Ans7.html"><i class="fa fa-check"></i><b>7</b> Exercise Answers</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">NatureCounts: An Introductiory R Tutorial</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="Ans7" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> Exercise Answers</h1>
+<p>##Chapter 3 {#Ans7.1}</p>
+<p>Exercise 1: If you are interesting in doing a research project on Snowy Owls in Quebec, which three collections are you most likely to consider using (i.e., which have the most data)?</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" title="1"><span class="kw">search_species</span>(<span class="st">&quot;Snowy Owl&quot;</span>)</a></code></pre></div>
+<pre><code>##   species_id scientific_name english_name        french_name taxon_group
+## 1       7450 Bubo scandiacus    Snowy Owl Harfang des neiges       BIRDS</code></pre>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" title="1"><span class="kw">search_region</span>(<span class="st">&quot;Quebec&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;statprov&quot;</span>)</a></code></pre></div>
+<pre><code>##   country_code statprov_code statprov_name_es statprov_name statprov_name_fr
+## 1           CA            QC           Quebec        Québec           Québec</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" title="1"><span class="kw">nc_count</span>(<span class="dt">species=</span><span class="dv">7450</span>, <span class="dt">region =</span> <span class="kw">list</span>(<span class="dt">statprov=</span><span class="st">&quot;QC&quot;</span>))</a></code></pre></div>
+<pre><code>## Without a username, using &#39;show = &quot;all&quot;&#39;</code></pre>
+<pre><code>## Using filters: species (7450); statprov (QC)</code></pre>
+<pre><code>##               collection nrecords
+## 1                    CBC      387
+## 2           CMMN-DET-OOT       15
+## 3            EBIRD-CA-QC    29529
+## 4                   GBBC       77
+## 5              NESTWATCH        1
+## 6              OISEAUXQC      706
+## 7                    PFW        3
+## 8   QCATLAS_NORTH_BE_RAW       83
+## 9  QCATLAS_NORTH_BE_SUMM       67
+## 10        QCATLAS1BE_RAW        2
+## 11       QCATLAS1BE_SUMM        5
+## 12         QCATLAS2BE_DO        5
+## 13        QCATLAS2BE_RAW       71
+## 14       QCATLAS2BE_SUMM       60
+## 15            QCATLAS2RC        3</code></pre>
+<p>Answer: EBird-CA-QC, OISEAUXQC, CBC</p>
+<p>Exercise 2: How many records of Gadwal are in the British Columbia Coastal Waterbird Survey collection? What if you are only interested in records from 2010-2019, how many records are available?</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" title="1"><span class="kw">search_species</span>(<span class="st">&quot;Gadwal&quot;</span>)</a></code></pre></div>
+<pre><code>##   species_id                      scientific_name
+## 1        390                      Mareca strepera
+## 2      40151 Mareca strepera x Anas platyrhynchos
+## 3      40152   Spatula clypeata x Mareca strepera
+## 4      41251         Mareca strepera x Anas acuta
+## 5      41471             Mareca strepera strepera
+## 6      41472               Mareca strepera couesi
+##                           english_name                         french_name
+## 1                              Gadwall                      Canard chipeau
+## 2           Gadwall x Mallard (hybrid) Hybride Canard chipeau x C. colvert
+## 3 Northern Shoveler x Gadwall (hybrid) Hybride Canard souchet x C. chipeau
+## 4  Gadwall x Northern Pintail (hybrid)   Hybride Canard chipeau x C. pilet
+## 5                     Gadwall (Common)           Canard chipeau (strepera)
+## 6                    Gadwall (Coues&#39;s)             Canard chipeau (couesi)
+##   taxon_group
+## 1       BIRDS
+## 2       BIRDS
+## 3       BIRDS
+## 4       BIRDS
+## 5       BIRDS
+## 6       BIRDS
+##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 3 rows ]</code></pre>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" title="1">collections&lt;-<span class="kw">meta_collections</span>()</a>
+<a class="sourceLine" id="cb87-2" title="2"><span class="kw">nc_count</span>(<span class="dt">species=</span><span class="dv">390</span>, <span class="dt">collections =</span> <span class="st">&quot;BCCWS&quot;</span>)</a></code></pre></div>
+<pre><code>## Without a username, using &#39;show = &quot;all&quot;&#39;</code></pre>
+<pre><code>## Using filters: collections (BCCWS); species (390)</code></pre>
+<pre><code>##   collection nrecords
+## 1      BCCWS      702</code></pre>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" title="1"><span class="kw">nc_count</span>(<span class="dt">species=</span><span class="dv">390</span>, <span class="dt">collections =</span> <span class="st">&quot;BCCWS&quot;</span>, <span class="dt">years =</span><span class="kw">c</span>(<span class="dv">2010</span>,<span class="dv">2019</span>))</a></code></pre></div>
+<pre><code>## Without a username, using &#39;show = &quot;all&quot;&#39;</code></pre>
+<pre><code>## Using filters: collections (BCCWS); species (390); start_year (2010); end_year (2019)</code></pre>
+<pre><code>##   collection nrecords
+## 1      BCCWS      389</code></pre>
+<p>Answer: 702, 389</p>
+<p>##Chapter 4 {#Ans7.2}</p>
+<p>Exercise 1: You (user “sample”) are from the Northwest Territories and interested in learning more about birds in your region. First, you identify the NatureCounts dataset most suitable for this exercise using the nc_count() function (i.e., which has the most data). Next, you decide to focus your download to only include Blackpoll Warbler data collected over the past 5 years (2015-2020). How many observation records did you download?</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" title="1"><span class="kw">search_region</span>(<span class="st">&quot;Northwest Territories&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;statprov&quot;</span>)</a>
+<a class="sourceLine" id="cb95-2" title="2"><span class="kw">nc_count</span>(<span class="dt">region =</span> <span class="kw">list</span>(<span class="dt">statprov=</span><span class="st">&quot;NT&quot;</span>), <span class="dt">username=</span><span class="st">&quot;sample&quot;</span>)</a>
+<a class="sourceLine" id="cb95-3" title="3"></a>
+<a class="sourceLine" id="cb95-4" title="4"><span class="kw">search_species</span>(<span class="st">&quot;Blackpoll warbler&quot;</span>)</a>
+<a class="sourceLine" id="cb95-5" title="5">BLPW&lt;-<span class="kw">nc_data_dl</span>(<span class="dt">collections=</span><span class="st">&quot;BBS50-CAN&quot;</span>, <span class="dt">species =</span> <span class="dv">16820</span>, <span class="dt">years =</span><span class="kw">c</span>(<span class="dv">2015</span>, <span class="dv">2020</span>), <span class="dt">username=</span><span class="st">&quot;sample&quot;</span>, <span class="dt">info=</span><span class="st">&quot;tutorial example&quot;</span>)</a></code></pre></div>
+<p>Answer: BBS50-CAN, 1756</p>
+<p>Exercise 2: You (user “sample”) are birding in the Beaverhill Lake Important Bird Area (iba) in May. You think you hear a Bobolink! You are curious if this species has been detected here in the month of May. You choose to download the records you have authorization to freely access from NatureCounts. How many observation records did you download? What year are these records from?</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" title="1"><span class="kw">search_region</span>(<span class="st">&quot;Beaverhill Lake&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;iba&quot;</span>) </a>
+<a class="sourceLine" id="cb96-2" title="2"><span class="kw">search_species</span>(<span class="st">&quot;Bobolink&quot;</span>)</a>
+<a class="sourceLine" id="cb96-3" title="3"><span class="co">#May = doy 122-152</span></a>
+<a class="sourceLine" id="cb96-4" title="4"></a>
+<a class="sourceLine" id="cb96-5" title="5">BOBO&lt;-<span class="kw">nc_data_dl</span>(<span class="dt">region =</span> <span class="kw">list</span>(<span class="dt">iba=</span><span class="st">&quot;AB001&quot;</span>), <span class="dt">species=</span> <span class="dv">19520</span>, <span class="dt">doy=</span><span class="kw">c</span>(<span class="dv">122</span>,<span class="dv">152</span>),  <span class="dt">username=</span><span class="st">&quot;sample&quot;</span>, <span class="dt">info=</span><span class="st">&quot;tutorial example&quot;</span>)</a></code></pre></div>
+<p>Answer: 3, 1988 &amp; 1987</p>
+<p>##Chapter 5 {Ans7.3}</p>
+<p>Exercise 1: You (user “sample”) are doing a research project using the fall migration monitoring data collected at Vaseux Lake Bird Observatory, British Columbia. You request the open access data from 2017-2020. After you request this subset of the collection, you need to determine the number of unique days Gray catbirds were records in each year?</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" title="1">collections&lt;-<span class="kw">meta_collections</span>()</a>
+<a class="sourceLine" id="cb97-2" title="2"><span class="kw">search_species</span>(<span class="st">&quot;Gray Catbird&quot;</span>) </a>
+<a class="sourceLine" id="cb97-3" title="3">VLBO &lt;-<span class="st"> </span><span class="kw">nc_data_dl</span>(<span class="dt">collections =</span> <span class="st">&quot;CMMN-DET-VLBO&quot;</span>, <span class="dt">species=</span><span class="dv">15900</span>, <span class="dt">years =</span> <span class="kw">c</span>(<span class="dv">2017</span>, <span class="dv">2020</span>), <span class="dt">username =</span> <span class="st">&quot;sample&quot;</span>, <span class="dt">info =</span> <span class="st">&quot;tutorial example&quot;</span>)</a>
+<a class="sourceLine" id="cb97-4" title="4"></a>
+<a class="sourceLine" id="cb97-5" title="5">VLBO&lt;-<span class="kw">format_dates</span>(VLBO) <span class="co">#This step is not strictly required.</span></a>
+<a class="sourceLine" id="cb97-6" title="6"></a>
+<a class="sourceLine" id="cb97-7" title="7">GRCA&lt;-VLBO <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(survey_year) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="dt">day_distinct =</span> <span class="kw">n_distinct</span>(doy)) <span class="co">#Could have alternatively counted the number of district `SamplingEventIdentifier` </span></a></code></pre></div>
+<p>Answer: 2017 = 54 2018 = 53</p>
+<p>Exercise 2: Building off the same dataset used in Exercise 1, you now want to zero-fill the dataframe to ensure it is complete for your study on Gray catbirds. How many records (rows) are in the zero-fill Gray catbird dataframe?</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" title="1"><span class="co">#You will pull all the data for this exercise, not just the records for Gray catbird. This ensures the zero-fill works correctly</span></a>
+<a class="sourceLine" id="cb98-2" title="2"></a>
+<a class="sourceLine" id="cb98-3" title="3">VLBO &lt;-<span class="st"> </span><span class="kw">nc_data_dl</span>(<span class="dt">collections =</span> <span class="st">&quot;CMMN-DET-VLBO&quot;</span>, <span class="dt">years =</span> <span class="kw">c</span>(<span class="dv">2017</span>, <span class="dv">2020</span>), <span class="dt">username =</span> <span class="st">&quot;sample&quot;</span>, <span class="dt">info =</span> <span class="st">&quot;tutorial example&quot;</span>)</a>
+<a class="sourceLine" id="cb98-4" title="4"></a>
+<a class="sourceLine" id="cb98-5" title="5">VLBO&lt;-<span class="kw">format_zero_fill</span>(VLBO)</a>
+<a class="sourceLine" id="cb98-6" title="6"></a>
+<a class="sourceLine" id="cb98-7" title="7">GRCA&lt;-VLBO <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(species_id<span class="op">==</span><span class="dv">15900</span>)</a>
+<a class="sourceLine" id="cb98-8" title="8"></a>
+<a class="sourceLine" id="cb98-9" title="9"><span class="co">#The number of records is the number of rows in the resulting dataframe. </span></a></code></pre></div>
+<p>Answer: 152</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="Visual6.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": true
+});
+});
+</script>
+
+</body>
+
+</html>
