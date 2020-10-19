@@ -143,11 +143,11 @@ The zero-fill function is particularly important if you want to ensure your data
 *Exercise 1*:  You (user "sample") are doing a research project using the fall migration monitoring data collected at [Vaseux Lake Bird Observatory](https://www.birdscanada.org/birdmon/default/datasets.jsp?code=CMMN-DET-VLBO), British Columbia. You request the open access data from 2017-2020. After you request this subset of the collection, you need to determine the number of unique days Gray catbirds were records in each year?
 
 Answer: 
-2017 =	20
-2018 =	23
+2017 =	54
+2018 =	53
 
 *Exercise 2*: Building off the same dataset used in Exercise 1, you now want to zero-fill the dataframe to ensure it is complete for your study on Gray catbirds. How many records (rows) are in the zero-fill Gray catbird dataframe?
 
-Answer: 6709
+Answer: 152
 
 
