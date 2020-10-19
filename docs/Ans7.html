@@ -168,7 +168,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1" data-path="Visual6.html"><a href="Visual6.html#PM6.1"><i class="fa fa-check"></i><b>6.1</b> Plotting</a></li>
 <li class="chapter" data-level="6.2" data-path="Visual6.html"><a href="Visual6.html#PM6.2"><i class="fa fa-check"></i><b>6.2</b> Mapping</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="Ans7.html"><a href="Ans7.html"><i class="fa fa-check"></i><b>7</b> Exercise Answers</a></li>
+<li class="chapter" data-level="7" data-path="Ans7.html"><a href="Ans7.html"><i class="fa fa-check"></i><b>7</b> Exercise Answers</a><ul>
+<li class="chapter" data-level="7.1" data-path="Ans7.html"><a href="Ans7.html#Ans7.1"><i class="fa fa-check"></i><b>7.1</b> Chapter 3</a></li>
+<li class="chapter" data-level="7.2" data-path="Ans7.html"><a href="Ans7.html#Ans7.2"><i class="fa fa-check"></i><b>7.2</b> Chapter 4</a></li>
+<li class="chapter" data-level="7.3" data-path="Ans7.html"><a href="Ans7.html#Ans7.3"><i class="fa fa-check"></i><b>7.3</b> Chapter 5</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -191,15 +195,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="Ans7" class="section level1">
 <h1><span class="header-section-number">Chapter 7</span> Exercise Answers</h1>
-<p>##Chapter 3 {#Ans7.1}</p>
+<div id="Ans7.1" class="section level2">
+<h2><span class="header-section-number">7.1</span> Chapter 3</h2>
 <p>Exercise 1: If you are interesting in doing a research project on Snowy Owls in Quebec, which three collections are you most likely to consider using (i.e., which have the most data)?</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" title="1"><span class="kw">search_species</span>(<span class="st">&quot;Snowy Owl&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" title="1"><span class="kw">search_species</span>(<span class="st">&quot;Snowy Owl&quot;</span>)</a></code></pre></div>
 <pre><code>##   species_id scientific_name english_name        french_name taxon_group
 ## 1       7450 Bubo scandiacus    Snowy Owl Harfang des neiges       BIRDS</code></pre>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" title="1"><span class="kw">search_region</span>(<span class="st">&quot;Quebec&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;statprov&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" title="1"><span class="kw">search_region</span>(<span class="st">&quot;Quebec&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;statprov&quot;</span>)</a></code></pre></div>
 <pre><code>##   country_code statprov_code statprov_name_es statprov_name statprov_name_fr
 ## 1           CA            QC           Quebec        Québec           Québec</code></pre>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" title="1"><span class="kw">nc_count</span>(<span class="dt">species=</span><span class="dv">7450</span>, <span class="dt">region =</span> <span class="kw">list</span>(<span class="dt">statprov=</span><span class="st">&quot;QC&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" title="1"><span class="kw">nc_count</span>(<span class="dt">species=</span><span class="dv">7450</span>, <span class="dt">region =</span> <span class="kw">list</span>(<span class="dt">statprov=</span><span class="st">&quot;QC&quot;</span>))</a></code></pre></div>
 <pre><code>## Without a username, using &#39;show = &quot;all&quot;&#39;</code></pre>
 <pre><code>## Using filters: species (7450); statprov (QC)</code></pre>
 <pre><code>##               collection nrecords
@@ -220,7 +225,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 15            QCATLAS2RC        3</code></pre>
 <p>Answer: EBird-CA-QC, OISEAUXQC, CBC</p>
 <p>Exercise 2: How many records of Gadwal are in the British Columbia Coastal Waterbird Survey collection? What if you are only interested in records from 2010-2019, how many records are available?</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" title="1"><span class="kw">search_species</span>(<span class="st">&quot;Gadwal&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" title="1"><span class="kw">search_species</span>(<span class="st">&quot;Gadwal&quot;</span>)</a></code></pre></div>
 <pre><code>##   species_id                      scientific_name
 ## 1        390                      Mareca strepera
 ## 2      40151 Mareca strepera x Anas platyrhynchos
@@ -243,55 +248,128 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5       BIRDS
 ## 6       BIRDS
 ##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 3 rows ]</code></pre>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" title="1">collections&lt;-<span class="kw">meta_collections</span>()</a>
-<a class="sourceLine" id="cb87-2" title="2"><span class="kw">nc_count</span>(<span class="dt">species=</span><span class="dv">390</span>, <span class="dt">collections =</span> <span class="st">&quot;BCCWS&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" title="1">collections&lt;-<span class="kw">meta_collections</span>()</a>
+<a class="sourceLine" id="cb85-2" title="2"><span class="kw">nc_count</span>(<span class="dt">species=</span><span class="dv">390</span>, <span class="dt">collections =</span> <span class="st">&quot;BCCWS&quot;</span>)</a></code></pre></div>
 <pre><code>## Without a username, using &#39;show = &quot;all&quot;&#39;</code></pre>
 <pre><code>## Using filters: collections (BCCWS); species (390)</code></pre>
 <pre><code>##   collection nrecords
 ## 1      BCCWS      702</code></pre>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" title="1"><span class="kw">nc_count</span>(<span class="dt">species=</span><span class="dv">390</span>, <span class="dt">collections =</span> <span class="st">&quot;BCCWS&quot;</span>, <span class="dt">years =</span><span class="kw">c</span>(<span class="dv">2010</span>,<span class="dv">2019</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" title="1"><span class="kw">nc_count</span>(<span class="dt">species=</span><span class="dv">390</span>, <span class="dt">collections =</span> <span class="st">&quot;BCCWS&quot;</span>, <span class="dt">years =</span><span class="kw">c</span>(<span class="dv">2010</span>,<span class="dv">2019</span>))</a></code></pre></div>
 <pre><code>## Without a username, using &#39;show = &quot;all&quot;&#39;</code></pre>
 <pre><code>## Using filters: collections (BCCWS); species (390); start_year (2010); end_year (2019)</code></pre>
 <pre><code>##   collection nrecords
 ## 1      BCCWS      389</code></pre>
 <p>Answer: 702, 389</p>
-<p>##Chapter 4 {#Ans7.2}</p>
+</div>
+<div id="Ans7.2" class="section level2">
+<h2><span class="header-section-number">7.2</span> Chapter 4</h2>
 <p>Exercise 1: You (user “sample”) are from the Northwest Territories and interested in learning more about birds in your region. First, you identify the NatureCounts dataset most suitable for this exercise using the nc_count() function (i.e., which has the most data). Next, you decide to focus your download to only include Blackpoll Warbler data collected over the past 5 years (2015-2020). How many observation records did you download?</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" title="1"><span class="kw">search_region</span>(<span class="st">&quot;Northwest Territories&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;statprov&quot;</span>)</a>
-<a class="sourceLine" id="cb95-2" title="2"><span class="kw">nc_count</span>(<span class="dt">region =</span> <span class="kw">list</span>(<span class="dt">statprov=</span><span class="st">&quot;NT&quot;</span>), <span class="dt">username=</span><span class="st">&quot;sample&quot;</span>)</a>
-<a class="sourceLine" id="cb95-3" title="3"></a>
-<a class="sourceLine" id="cb95-4" title="4"><span class="kw">search_species</span>(<span class="st">&quot;Blackpoll warbler&quot;</span>)</a>
-<a class="sourceLine" id="cb95-5" title="5">BLPW&lt;-<span class="kw">nc_data_dl</span>(<span class="dt">collections=</span><span class="st">&quot;BBS50-CAN&quot;</span>, <span class="dt">species =</span> <span class="dv">16820</span>, <span class="dt">years =</span><span class="kw">c</span>(<span class="dv">2015</span>, <span class="dv">2020</span>), <span class="dt">username=</span><span class="st">&quot;sample&quot;</span>, <span class="dt">info=</span><span class="st">&quot;tutorial example&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" title="1"><span class="kw">search_region</span>(<span class="st">&quot;Northwest Territories&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;statprov&quot;</span>)</a></code></pre></div>
+<pre><code>##   country_code statprov_code         statprov_name_es         statprov_name
+## 1           CA            NT Territorios del Noroeste Northwest Territories
+##            statprov_name_fr
+## 1 Territoires-du-Nord-Ouest</code></pre>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" title="1"><span class="kw">nc_count</span>(<span class="dt">region =</span> <span class="kw">list</span>(<span class="dt">statprov=</span><span class="st">&quot;NT&quot;</span>), <span class="dt">username=</span><span class="st">&quot;sample&quot;</span>)</a></code></pre></div>
+<pre><code>## Using filters: statprov (NT)</code></pre>
+<pre><code>##   access collection nrecords
+## 1    yes   ABATLAS2        5
+## 2    yes ABBIRDRECS      520
+## 3    yes        BBS     5692
+## 4    yes  BBS50-CAN    51194
+## 5    yes EBUTTERFLY       25
+## 6    yes        PFW      917</code></pre>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" title="1"><span class="kw">search_species</span>(<span class="st">&quot;Blackpoll warbler&quot;</span>)</a></code></pre></div>
+<pre><code>##   species_id              scientific_name
+## 1      16820            Setophaga striata
+## 2      42154   Setophaga castanea/striata
+## 3      46697 Setophaga castanea x striata
+##                                english_name
+## 1                         Blackpoll Warbler
+## 2            Bay-breasted/Blackpoll Warbler
+## 3 Bay-breasted x Blackpoll Warbler (hybrid)
+##                                   french_name taxon_group
+## 1                              Paruline rayée       BIRDS
+## 2        Paruline à poitrine baie ou P. rayée       BIRDS
+## 3 Hybride Paruline à poitrine baie x P. rayée       BIRDS</code></pre>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" title="1">BLPW&lt;-<span class="kw">nc_data_dl</span>(<span class="dt">collections=</span><span class="st">&quot;BBS50-CAN&quot;</span>, <span class="dt">species =</span> <span class="dv">16820</span>, <span class="dt">years =</span><span class="kw">c</span>(<span class="dv">2015</span>, <span class="dv">2020</span>), <span class="dt">username=</span><span class="st">&quot;sample&quot;</span>, <span class="dt">info=</span><span class="st">&quot;tutorial example&quot;</span>)</a></code></pre></div>
+<pre><code>## Using filters: collections (BBS50-CAN); species (16820); fields_set (BMDE2.00-min); start_year (2015); end_year (2020)</code></pre>
+<pre><code>## Collecting available records...</code></pre>
+<pre><code>##   access collection nrecords
+## 1    yes  BBS50-CAN     1756
+## Total records: 1,756</code></pre>
+<pre><code>## 
+## Downloading records for each collection:</code></pre>
+<pre><code>##   BBS50-CAN</code></pre>
+<pre><code>##     Records 1 to 1756 / 1756</code></pre>
 <p>Answer: BBS50-CAN, 1756</p>
 <p>Exercise 2: You (user “sample”) are birding in the Beaverhill Lake Important Bird Area (iba) in May. You think you hear a Bobolink! You are curious if this species has been detected here in the month of May. You choose to download the records you have authorization to freely access from NatureCounts. How many observation records did you download? What year are these records from?</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" title="1"><span class="kw">search_region</span>(<span class="st">&quot;Beaverhill Lake&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;iba&quot;</span>) </a>
-<a class="sourceLine" id="cb96-2" title="2"><span class="kw">search_species</span>(<span class="st">&quot;Bobolink&quot;</span>)</a>
-<a class="sourceLine" id="cb96-3" title="3"><span class="co">#May = doy 122-152</span></a>
-<a class="sourceLine" id="cb96-4" title="4"></a>
-<a class="sourceLine" id="cb96-5" title="5">BOBO&lt;-<span class="kw">nc_data_dl</span>(<span class="dt">region =</span> <span class="kw">list</span>(<span class="dt">iba=</span><span class="st">&quot;AB001&quot;</span>), <span class="dt">species=</span> <span class="dv">19520</span>, <span class="dt">doy=</span><span class="kw">c</span>(<span class="dv">122</span>,<span class="dv">152</span>),  <span class="dt">username=</span><span class="st">&quot;sample&quot;</span>, <span class="dt">info=</span><span class="st">&quot;tutorial example&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" title="1"><span class="kw">search_region</span>(<span class="st">&quot;Beaverhill Lake&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;iba&quot;</span>) </a></code></pre></div>
+<pre><code>##   iba_site     iba_name_fr latitude statprov area_ha alt_min        iba_name
+## 1    AB001 Beaverhill Lake 53.45019       AB  208.47     668 Beaverhill Lake
+##   nearest_town bcr ncc_region alt_max longitude status
+## 1      Tofield  11         66     670 -112.5287      G</code></pre>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" title="1"><span class="kw">search_species</span>(<span class="st">&quot;Bobolink&quot;</span>)</a></code></pre></div>
+<pre><code>##   species_id       scientific_name english_name    french_name taxon_group
+## 1      19520 Dolichonyx oryzivorus     Bobolink Goglu des prés       BIRDS</code></pre>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" title="1"><span class="co">#May = doy 122-152</span></a>
+<a class="sourceLine" id="cb111-2" title="2"></a>
+<a class="sourceLine" id="cb111-3" title="3">BOBO&lt;-<span class="kw">nc_data_dl</span>(<span class="dt">region =</span> <span class="kw">list</span>(<span class="dt">iba=</span><span class="st">&quot;AB001&quot;</span>), <span class="dt">species=</span> <span class="dv">19520</span>, <span class="dt">doy=</span><span class="kw">c</span>(<span class="dv">122</span>,<span class="dv">152</span>),  <span class="dt">username=</span><span class="st">&quot;sample&quot;</span>, <span class="dt">info=</span><span class="st">&quot;tutorial example&quot;</span>)</a></code></pre></div>
+<pre><code>## Using filters: species (19520); fields_set (BMDE2.00-min); start_doy (122); end_doy (152); iba (IBA.AB001)</code></pre>
+<pre><code>## Collecting available records...</code></pre>
+<pre><code>##   access collection nrecords
+## 1    yes   ABATLAS1        3
+## Total records: 3</code></pre>
+<pre><code>## 
+## Downloading records for each collection:</code></pre>
+<pre><code>##   ABATLAS1</code></pre>
+<pre><code>##     Records 1 to 3 / 3</code></pre>
 <p>Answer: 3, 1988 &amp; 1987</p>
-<p>##Chapter 5 {Ans7.3}</p>
+</div>
+<div id="Ans7.3" class="section level2">
+<h2><span class="header-section-number">7.3</span> Chapter 5</h2>
 <p>Exercise 1: You (user “sample”) are doing a research project using the fall migration monitoring data collected at Vaseux Lake Bird Observatory, British Columbia. You request the open access data from 2017-2020. After you request this subset of the collection, you need to determine the number of unique days Gray catbirds were records in each year?</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" title="1">collections&lt;-<span class="kw">meta_collections</span>()</a>
-<a class="sourceLine" id="cb97-2" title="2"><span class="kw">search_species</span>(<span class="st">&quot;Gray Catbird&quot;</span>) </a>
-<a class="sourceLine" id="cb97-3" title="3">VLBO &lt;-<span class="st"> </span><span class="kw">nc_data_dl</span>(<span class="dt">collections =</span> <span class="st">&quot;CMMN-DET-VLBO&quot;</span>, <span class="dt">species=</span><span class="dv">15900</span>, <span class="dt">years =</span> <span class="kw">c</span>(<span class="dv">2017</span>, <span class="dv">2020</span>), <span class="dt">username =</span> <span class="st">&quot;sample&quot;</span>, <span class="dt">info =</span> <span class="st">&quot;tutorial example&quot;</span>)</a>
-<a class="sourceLine" id="cb97-4" title="4"></a>
-<a class="sourceLine" id="cb97-5" title="5">VLBO&lt;-<span class="kw">format_dates</span>(VLBO) <span class="co">#This step is not strictly required.</span></a>
-<a class="sourceLine" id="cb97-6" title="6"></a>
-<a class="sourceLine" id="cb97-7" title="7">GRCA&lt;-VLBO <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(survey_year) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="dt">day_distinct =</span> <span class="kw">n_distinct</span>(doy)) <span class="co">#Could have alternatively counted the number of district `SamplingEventIdentifier` </span></a></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb118-1" title="1">collections&lt;-<span class="kw">meta_collections</span>()</a>
+<a class="sourceLine" id="cb118-2" title="2"><span class="kw">search_species</span>(<span class="st">&quot;Gray Catbird&quot;</span>) </a></code></pre></div>
+<pre><code>##   species_id        scientific_name english_name  french_name taxon_group
+## 1      15900 Dumetella carolinensis Gray Catbird Moqueur chat       BIRDS</code></pre>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb120-1" title="1">VLBO &lt;-<span class="st"> </span><span class="kw">nc_data_dl</span>(<span class="dt">collections =</span> <span class="st">&quot;CMMN-DET-VLBO&quot;</span>, <span class="dt">species=</span><span class="dv">15900</span>, <span class="dt">years =</span> <span class="kw">c</span>(<span class="dv">2017</span>, <span class="dv">2020</span>), <span class="dt">username =</span> <span class="st">&quot;sample&quot;</span>, <span class="dt">info =</span> <span class="st">&quot;tutorial example&quot;</span>)</a></code></pre></div>
+<pre><code>## Using filters: collections (CMMN-DET-VLBO); species (15900); fields_set (BMDE2.00-min); start_year (2017); end_year (2020)</code></pre>
+<pre><code>## Collecting available records...</code></pre>
+<pre><code>##   access    collection nrecords
+## 1    yes CMMN-DET-VLBO      107
+## Total records: 107</code></pre>
+<pre><code>## 
+## Downloading records for each collection:</code></pre>
+<pre><code>##   CMMN-DET-VLBO</code></pre>
+<pre><code>##     Records 1 to 107 / 107</code></pre>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" title="1">VLBO&lt;-<span class="kw">format_dates</span>(VLBO) <span class="co">#This step is not strictly required.</span></a>
+<a class="sourceLine" id="cb127-2" title="2"></a>
+<a class="sourceLine" id="cb127-3" title="3">GRCA&lt;-VLBO <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(survey_year) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="dt">day_distinct =</span> <span class="kw">n_distinct</span>(doy)) <span class="co">#Could have alternatively counted the number of district `SamplingEventIdentifier` </span></a></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
 <p>Answer: 2017 = 54 2018 = 53</p>
 <p>Exercise 2: Building off the same dataset used in Exercise 1, you now want to zero-fill the dataframe to ensure it is complete for your study on Gray catbirds. How many records (rows) are in the zero-fill Gray catbird dataframe?</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" title="1"><span class="co">#You will pull all the data for this exercise, not just the records for Gray catbird. This ensures the zero-fill works correctly</span></a>
-<a class="sourceLine" id="cb98-2" title="2"></a>
-<a class="sourceLine" id="cb98-3" title="3">VLBO &lt;-<span class="st"> </span><span class="kw">nc_data_dl</span>(<span class="dt">collections =</span> <span class="st">&quot;CMMN-DET-VLBO&quot;</span>, <span class="dt">years =</span> <span class="kw">c</span>(<span class="dv">2017</span>, <span class="dv">2020</span>), <span class="dt">username =</span> <span class="st">&quot;sample&quot;</span>, <span class="dt">info =</span> <span class="st">&quot;tutorial example&quot;</span>)</a>
-<a class="sourceLine" id="cb98-4" title="4"></a>
-<a class="sourceLine" id="cb98-5" title="5">VLBO&lt;-<span class="kw">format_zero_fill</span>(VLBO)</a>
-<a class="sourceLine" id="cb98-6" title="6"></a>
-<a class="sourceLine" id="cb98-7" title="7">GRCA&lt;-VLBO <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(species_id<span class="op">==</span><span class="dv">15900</span>)</a>
-<a class="sourceLine" id="cb98-8" title="8"></a>
-<a class="sourceLine" id="cb98-9" title="9"><span class="co">#The number of records is the number of rows in the resulting dataframe. </span></a></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb129-1" title="1"><span class="co">#You will pull all the data for this exercise, not just the records for Gray catbird. This ensures the zero-fill works correctly</span></a>
+<a class="sourceLine" id="cb129-2" title="2"></a>
+<a class="sourceLine" id="cb129-3" title="3">VLBO &lt;-<span class="st"> </span><span class="kw">nc_data_dl</span>(<span class="dt">collections =</span> <span class="st">&quot;CMMN-DET-VLBO&quot;</span>, <span class="dt">years =</span> <span class="kw">c</span>(<span class="dv">2017</span>, <span class="dv">2020</span>), <span class="dt">username =</span> <span class="st">&quot;sample&quot;</span>, <span class="dt">info =</span> <span class="st">&quot;tutorial example&quot;</span>)</a></code></pre></div>
+<pre><code>## Using filters: collections (CMMN-DET-VLBO); fields_set (BMDE2.00-min); start_year (2017); end_year (2020)</code></pre>
+<pre><code>## Collecting available records...</code></pre>
+<pre><code>##   access    collection nrecords
+## 1    yes CMMN-DET-VLBO     6664
+## Total records: 6,664</code></pre>
+<pre><code>## 
+## Downloading records for each collection:</code></pre>
+<pre><code>##   CMMN-DET-VLBO</code></pre>
+<pre><code>##     Records 1 to 5000 / 6664</code></pre>
+<pre><code>##     Records 5001 to 6664 / 6664</code></pre>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb137-1" title="1">VLBO&lt;-<span class="kw">format_zero_fill</span>(VLBO)</a></code></pre></div>
+<pre><code>##  - Consider summarizing multiple observations per set of &#39;by&#39; before zero-filling to increase speed</code></pre>
+<pre><code>##  - Converted &#39;fill&#39; column (ObservationCount) from character to numeric</code></pre>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" title="1">GRCA&lt;-VLBO <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(species_id<span class="op">==</span><span class="dv">15900</span>)</a>
+<a class="sourceLine" id="cb140-2" title="2"></a>
+<a class="sourceLine" id="cb140-3" title="3"><span class="co">#The number of records is the number of rows in the resulting dataframe. </span></a></code></pre></div>
 <p>Answer: 152</p>
 
+</div>
 </div>
             </section>
 

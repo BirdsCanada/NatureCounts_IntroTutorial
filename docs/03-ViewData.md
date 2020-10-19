@@ -175,15 +175,6 @@ nc_count(region = list(statprov = "BC"))
 ```
 
 ```
-## The server did not respond within 30s. Trying again...
-```
-
-```
-## Warning in stri_detect_regex(string, pattern, negate = negate, opts_regex =
-## opts(pattern)): argument is not an atomic vector; coercing
-```
-
-```
 ##         collection nrecords
 ## 1         ABATLAS2      306
 ## 2       ABBIRDRECS      426
@@ -350,5 +341,5 @@ Answer: EBird-CA-QC, OISEAUXQC, CBC
 
 Answer: 702, 389
 
-
+Answers to the exercises can be found in [Chapter 7](#Ans7.1).
 

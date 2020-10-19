@@ -291,4 +291,4 @@ Answer:
 
 Answer: 152
 
-
+Answers to the exercises can be found in [Chapter 7](#Ans7.3).

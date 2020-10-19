@@ -72,7 +72,7 @@ ggplot(data = GRCA_year) +
 
 <img src="06-VisualData_files/figure-html/plot2VLBO-1.png" width="672" />
 
-You will notice there was a increase in the mean number of GRCA observed in th elast three years compared to 2015. You might now be wondering why.  
+You will notice there was a increase in the mean number of GRCA observed in th last years. You might now be wondering why.  
 
 ## Mapping {#PM6.2}
 

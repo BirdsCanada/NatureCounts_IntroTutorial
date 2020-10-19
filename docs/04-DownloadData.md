@@ -81,5 +81,5 @@ Answer: BBS50-CAN, 1756
 
 Answer: 3, 1988 & 1987
 
-
+Answers to the exercises can be found in [Chapter 7](#Ans7.2).
 

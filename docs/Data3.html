@@ -168,7 +168,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1" data-path="Visual6.html"><a href="Visual6.html#PM6.1"><i class="fa fa-check"></i><b>6.1</b> Plotting</a></li>
 <li class="chapter" data-level="6.2" data-path="Visual6.html"><a href="Visual6.html#PM6.2"><i class="fa fa-check"></i><b>6.2</b> Mapping</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="Ans7.html"><a href="Ans7.html"><i class="fa fa-check"></i><b>7</b> Exercise Answers</a></li>
+<li class="chapter" data-level="7" data-path="Ans7.html"><a href="Ans7.html"><i class="fa fa-check"></i><b>7</b> Exercise Answers</a><ul>
+<li class="chapter" data-level="7.1" data-path="Ans7.html"><a href="Ans7.html#Ans7.1"><i class="fa fa-check"></i><b>7.1</b> Chapter 3</a></li>
+<li class="chapter" data-level="7.2" data-path="Ans7.html"><a href="Ans7.html#Ans7.2"><i class="fa fa-check"></i><b>7.2</b> Chapter 4</a></li>
+<li class="chapter" data-level="7.3" data-path="Ans7.html"><a href="Ans7.html#Ans7.3"><i class="fa fa-check"></i><b>7.3</b> Chapter 5</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -295,9 +299,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">nc_count</span>(<span class="dt">region =</span> <span class="kw">list</span>(<span class="dt">statprov =</span> <span class="st">&quot;BC&quot;</span>))</a></code></pre></div>
 <pre><code>## Without a username, using &#39;show = &quot;all&quot;&#39;</code></pre>
 <pre><code>## Using filters: statprov (BC)</code></pre>
-<pre><code>## The server did not respond within 30s. Trying again...</code></pre>
-<pre><code>## Warning in stri_detect_regex(string, pattern, negate = negate, opts_regex =
-## opts(pattern)): argument is not an atomic vector; coercing</code></pre>
 <pre><code>##         collection nrecords
 ## 1         ABATLAS2      306
 ## 2       ABBIRDRECS      426
@@ -317,12 +318,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 13 rows ]</code></pre>
 <p><em>Example 2</em>: Determine the number of records for a specific <em>species</em>. You can find details and examples on how to <a href="https://birdstudiescanada.github.io/naturecounts/reference/search_species_code.html"><code>search_species_code()</code></a> based on 4 letter alpha code and <a href="https://birdstudiescanada.github.io/naturecounts/reference/search_species.html"><code>search_species()</code></a> based on common names at the links provided.</p>
 <p>The following code will retrieve all available collections and number of records for Red-headed Woodpecker</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">search_species</span>(<span class="st">&quot;Red-headed Woodpecker&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1"><span class="kw">search_species</span>(<span class="st">&quot;Red-headed Woodpecker&quot;</span>)</a></code></pre></div>
 <pre><code>##   species_id            scientific_name          english_name      french_name
 ## 1      10060 Melanerpes erythrocephalus Red-headed Woodpecker Pic à tête rouge
 ##   taxon_group
 ## 1       BIRDS</code></pre>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1"><span class="kw">nc_count</span>(<span class="dt">species =</span> <span class="dv">10060</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">nc_count</span>(<span class="dt">species =</span> <span class="dv">10060</span>)</a></code></pre></div>
 <pre><code>## Without a username, using &#39;show = &quot;all&quot;&#39;</code></pre>
 <pre><code>## Using filters: species (10060)</code></pre>
 <pre><code>##        collection nrecords
@@ -343,7 +344,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 15  CMMN-DET-LMBO        2
 ##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 47 rows ]</code></pre>
 <p><em>Example 3</em>: We can further refine the Red-headed Woodpecker example (above) by filtering the species-specific data by region (e.g., <a href="http://nabci-us.org/assets/images/bcr_map2.jpg">Bird Conservation Region</a> 11), time period (e.g., 2015-2019), or a combination of both.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1"><span class="kw">nc_count</span>(<span class="dt">species =</span> <span class="dv">10060</span>, <span class="dt">region =</span> <span class="kw">list</span>(<span class="dt">bcr =</span> <span class="st">&quot;11&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="kw">nc_count</span>(<span class="dt">species =</span> <span class="dv">10060</span>, <span class="dt">region =</span> <span class="kw">list</span>(<span class="dt">bcr =</span> <span class="st">&quot;11&quot;</span>))</a></code></pre></div>
 <pre><code>## Without a username, using &#39;show = &quot;all&quot;&#39;</code></pre>
 <pre><code>## Using filters: species (10060); bcr (BCR.11)</code></pre>
 <pre><code>##         collection nrecords
@@ -363,7 +364,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 14      MBATLAS1PC       34
 ## 15      MBATLAS1RC      236
 ##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 5 rows ]</code></pre>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1"><span class="kw">nc_count</span>(<span class="dt">species =</span> <span class="dv">10060</span>, <span class="dt">year =</span> <span class="kw">c</span>(<span class="dv">2015</span>, <span class="dv">2019</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1"><span class="kw">nc_count</span>(<span class="dt">species =</span> <span class="dv">10060</span>, <span class="dt">year =</span> <span class="kw">c</span>(<span class="dv">2015</span>, <span class="dv">2019</span>))</a></code></pre></div>
 <pre><code>## Without a username, using &#39;show = &quot;all&quot;&#39;</code></pre>
 <pre><code>## Using filters: species (10060); start_year (2015); end_year (2019)</code></pre>
 <pre><code>##         collection nrecords
@@ -383,7 +384,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 14     EBIRD-CA-AT       96
 ## 15     EBIRD-CA-BC        5
 ##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 7 rows ]</code></pre>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1"><span class="kw">nc_count</span>(<span class="dt">species =</span> <span class="dv">10060</span>, <span class="dt">region =</span> <span class="kw">list</span>(<span class="dt">bcr =</span> <span class="st">&quot;11&quot;</span>), <span class="dt">year =</span> <span class="kw">c</span>(<span class="dv">2015</span>, <span class="dv">2019</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1"><span class="kw">nc_count</span>(<span class="dt">species =</span> <span class="dv">10060</span>, <span class="dt">region =</span> <span class="kw">list</span>(<span class="dt">bcr =</span> <span class="st">&quot;11&quot;</span>), <span class="dt">year =</span> <span class="kw">c</span>(<span class="dv">2015</span>, <span class="dv">2019</span>))</a></code></pre></div>
 <pre><code>## Without a username, using &#39;show = &quot;all&quot;&#39;</code></pre>
 <pre><code>## Using filters: species (10060); start_year (2015); end_year (2019); bcr (BCR.11)</code></pre>
 <pre><code>##      collection nrecords
@@ -400,6 +401,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Answer: EBird-CA-QC, OISEAUXQC, CBC</p>
 <p><em>Exercise 2</em>: How many records of Gadwal are in the <a href="https://www.birdscanada.org/birdmon/atowls/datasets.jsp?code=BCCWS">British Columbia Coastal Waterbird Survey</a> collection? What if you are only interested in records from 2010-2019, how many records are available?</p>
 <p>Answer: 702, 389</p>
+<p>Answers to the exercises can be found in <a href="Ans7.html#Ans7.1">Chapter 7</a>.</p>
 
 </div>
 </div>
