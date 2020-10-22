@@ -47,6 +47,8 @@ meta_collections()
 
 To access data using the naturecounts R package, you must [sign up](https://www.birdscanada.org/birdmon/default/register.jsp) for a **free** account. Further, if you would like to access Level 3 or 4 collections you must make a [data request](https://www.birdscanada.org/birdmon/default/searchquery.jsp). For step-by-step visual instructions, we encourage you to watch: [NatureCounts: An Introductory Tutorial](link to be provided).
 
+> Create your **free** account now before continuing with this workbook
+
 ## Viewing information about NatureCounts collections {#Data3.4}
 
 First, lets use the naturecounts R package to view the number of records available for different collections. To do this we use the `nc_count()` function. You can view *all* the available collections and the number of observations using the default setting. 
