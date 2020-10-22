@@ -9,6 +9,8 @@ options(max.print = 30)
 
 This chapter begins with a brief introduction to the structure of the NatureCounts database, followed by a description of access levels and how to create a user account. We then provide instructions on how to view data from various collections and apply filters. 
 
+> The code in this Chapter will not work unless you replace `"YourUserName"` with your actual user name. You will be prompted to enter your password.
+
 ## Data Structure {#Data3.1}
 
 The [Bird Monitoring Data Exchange](https://www.birdscanada.org/birdmon/default/nc_bmde.jsp) (BMDE) was developed to be a standardized data exchange schema to promote the sharing and analysis of avian observational data. The schema is the core sharing standard of the [Avian Knowledge Network](http://www.avianknowledge.net).The BMDE (currently version 2.0) includes 169 *core* fields (variables) that are capable of capturing all metrics and descriptors associated with a bird observation. The BMDE schema was extended in 2018, and the *complete* version now includes 265 fields (variables).
@@ -55,14 +57,14 @@ First, lets use the naturecounts R package to view the number of records availab
 
 If a username is provided, the collections are filtered to only those available to the user. Otherwise all counts from all data sources are returned (default: `show = "all"`).
 
-```{r view all}
+```{r view all, eval=FALSE}
 nc_count() 
 ```
 
-Or you can view the collections for which you have access using your username/password. Here we use the *sample* account. If you use your own account, you will be prompted for a password. 
+Or you can view the collections for which you have access using your username/password. 
 
-```{r view username}
-nc_count(username = "sample")
+```{r view username, eval=FALSE}
+nc_count(username = "YourUserName")
 ```
 
 Further refinements can be applied to the `nc_count()` function using [filters](#Download4)  Options include: `collections`, `project_id`, `species`, `years`, `doy` (day-of-year), `region`, and `site_type`. 
@@ -122,14 +124,14 @@ nc_count(region = list(statprov = "BC"))
 *Example 2*: Determine the number of records for a specific *species*. You can find details and examples on how to [`search_species_code()`](https://birdstudiescanada.github.io/naturecounts/reference/search_species_code.html) based on 4 letter alpha code and [`search_species()`](https://birdstudiescanada.github.io/naturecounts/reference/search_species.html) based on common names at the links provided.  
 
 The following code will retrieve all available collections and number of records for Red-headed Woodpecker  
-```{r nc_species1}
+```{r nc_species1, eval=FALSE}
 search_species("Red-headed Woodpecker")
 nc_count(species = 10060)
 ```
 
 *Example 3*: We can further refine the Red-headed Woodpecker example (above) by filtering the species-specific data by region (e.g., [Bird Conservation Region](http://nabci-us.org/assets/images/bcr_map2.jpg) 11), time period (e.g., 2015-2019), or a combination of both.
 
-```{r nc_species2}
+```{r nc_species2, eval=FALSE}
 nc_count(species = 10060, region = list(bcr = "11"))
 
 nc_count(species = 10060, year = c(2015, 2019))
