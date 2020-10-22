@@ -196,6 +196,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="Data3" class="section level1">
 <h1><span class="header-section-number">Chapter 3</span> Understanding and Viewing Data</h1>
 <p>This chapter begins with a brief introduction to the structure of the NatureCounts database, followed by a description of access levels and how to create a user account. We then provide instructions on how to view data from various collections and apply filters.</p>
+<blockquote>
+<p>The code in this Chapter will not work unless you replace <code>"YourUserName"</code> with your actual user name. You will be prompted to enter your password.</p>
+</blockquote>
 <div id="Data3.1" class="section level2">
 <h2><span class="header-section-number">3.1</span> Data Structure</h2>
 <p>The <a href="https://www.birdscanada.org/birdmon/default/nc_bmde.jsp">Bird Monitoring Data Exchange</a> (BMDE) was developed to be a standardized data exchange schema to promote the sharing and analysis of avian observational data. The schema is the core sharing standard of the <a href="http://www.avianknowledge.net">Avian Knowledge Network</a>.The BMDE (currently version 2.0) includes 169 <em>core</em> fields (variables) that are capable of capturing all metrics and descriptors associated with a bird observation. The BMDE schema was extended in 2018, and the <em>complete</em> version now includes 265 fields (variables).</p>
@@ -223,44 +226,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="Data3.3" class="section level2">
 <h2><span class="header-section-number">3.3</span> Authorizations</h2>
 <p>To access data using the naturecounts R package, you must <a href="https://www.birdscanada.org/birdmon/default/register.jsp">sign up</a> for a <strong>free</strong> account. Further, if you would like to access Level 3 or 4 collections you must make a <a href="https://www.birdscanada.org/birdmon/default/searchquery.jsp">data request</a>. For step-by-step visual instructions, we encourage you to watch: <a href="link%20to%20be%20provided">NatureCounts: An Introductory Tutorial</a>.</p>
+<blockquote>
+<p>Create your <strong>free</strong> account now before continuing with this workbook</p>
+</blockquote>
 </div>
 <div id="Data3.4" class="section level2">
 <h2><span class="header-section-number">3.4</span> Viewing information about NatureCounts collections</h2>
 <p>First, lets use the naturecounts R package to view the number of records available for different collections. To do this we use the <code>nc_count()</code> function. You can view <em>all</em> the available collections and the number of observations using the default setting.</p>
 <p>If a username is provided, the collections are filtered to only those available to the user. Otherwise all counts from all data sources are returned (default: <code>show = "all"</code>).</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">nc_count</span>() </a></code></pre></div>
-<pre><code>## Without a username, using &#39;show = &quot;all&quot;&#39;</code></pre>
-<pre><code>##         collection nrecords
-## 1         ABATLAS1   123364
-## 2         ABATLAS2   201398
-## 3       ABBIRDRECS   357264
-## 4           ATOWLS    25192
-## 5              BBS  5735895
-## 6        BBS50-CAN  4168740
-## 7    BBS50-US-EAST  9940162
-## 8    BBS50-US-WEST 10749161
-## 9    BCATLAS1BE_DO    41412
-## 10  BCATLAS1BE_RAW   344433
-## 11 BCATLAS1BE_SUMM   165485
-## 12      BCATLAS1PC   260647
-## 13      BCATLAS1RC    21884
-## 14         BCBEACH    10182
-## 15           BCCWS   353868
-##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 108 rows ]</code></pre>
-<p>Or you can view the collections for which you have access using your username/password. Here we use the <em>sample</em> account. If you use your own account, you will be prompted for a password.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">nc_count</span>(<span class="dt">username =</span> <span class="st">&quot;sample&quot;</span>)</a></code></pre></div>
-<pre><code>##    access      collection nrecords
-## 1     yes        ABATLAS1   123364
-## 2     yes        ABATLAS2   201398
-## 3     yes      ABBIRDRECS   357264
-## 4     yes             BBS  5735895
-## 5     yes       BBS50-CAN  4168740
-## 6     yes   BBS50-US-EAST  9940162
-## 7     yes   BBS50-US-WEST 10749161
-## 8     yes   BCATLAS1BE_DO    41412
-## 9     yes  BCATLAS1BE_RAW   344433
-## 10    yes BCATLAS1BE_SUMM   165485
-##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 41 rows ]</code></pre>
+<p>Or you can view the collections for which you have access using your username/password.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">nc_count</span>(<span class="dt">username =</span> <span class="st">&quot;YourUserName&quot;</span>)</a></code></pre></div>
 <p>Further refinements can be applied to the <code>nc_count()</code> function using <a href="Download4.html#Download4">filters</a> Options include: <code>collections</code>, <code>project_id</code>, <code>species</code>, <code>years</code>, <code>doy</code> (day-of-year), <code>region</code>, and <code>site_type</code>.</p>
 </div>
 <div id="Data3.5" class="section level2">
@@ -284,115 +260,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Comprehensive reference articles are available online for retrieving <a href="https://birdstudiescanada.github.io/naturecounts/articles/region-codes.html">Region</a> and <a href="https://birdstudiescanada.github.io/naturecounts/articles/species-codes.html">Species</a> codes. We do not repeat those material here, but encourage you to review these prior to proceeding.</p>
 <p>You can explore the metadata materials using one line of code. For example, you can view the Important Bird Area (IBA) metadata using:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">meta_iba_codes</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">meta_iba_codes</span>()</a></code></pre></div>
 </div>
 <div id="Data3.6" class="section level2">
 <h2><span class="header-section-number">3.6</span> Examples</h2>
 <p>Here are a few examples for you to work through to become familiar with the <code>nc_count()</code> function.</p>
 <p><em>Example 1</em>: Determine the number of collections and records for a specific <em>region</em>. The options include: <code>country</code>, <code>statprov</code>, <code>subnational2</code>, <code>iba</code>, <code>bcr</code>, <code>utm_squares</code>, and <code>bbox</code>. You can find details and examples on how to <a href="https://birdstudiescanada.github.io/naturecounts/articles/region-codes.html"><code>search_region()</code></a> at the link provided.</p>
 <p>The following code will retrieve all available collections and number of records for British Columbia</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">search_region</span>(<span class="st">&quot;British Columbia&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;statprov&quot;</span>)</a></code></pre></div>
-<pre><code>##   country_code statprov_code   statprov_name_es    statprov_name
-## 1           CA            BC Columbia Británica British Columbia
-##       statprov_name_fr
-## 1 Colombie-Britannique</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">nc_count</span>(<span class="dt">region =</span> <span class="kw">list</span>(<span class="dt">statprov =</span> <span class="st">&quot;BC&quot;</span>))</a></code></pre></div>
-<pre><code>## Without a username, using &#39;show = &quot;all&quot;&#39;</code></pre>
-<pre><code>## Using filters: statprov (BC)</code></pre>
-<pre><code>##         collection nrecords
-## 1         ABATLAS2      306
-## 2       ABBIRDRECS      426
-## 3              BBS   123355
-## 4        BBS50-CAN   532379
-## 5    BCATLAS1BE_DO    41412
-## 6   BCATLAS1BE_RAW   344433
-## 7  BCATLAS1BE_SUMM   165485
-## 8       BCATLAS1PC   260647
-## 9       BCATLAS1RC    21884
-## 10           BCCWS   353868
-## 11            BCMA    11291
-## 12          BCOWLS    28577
-## 13       BIRDSOFBC   498444
-## 14             CBC   186214
-## 15    CMMN-DET-MNO    69732
-##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 13 rows ]</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">search_region</span>(<span class="st">&quot;British Columbia&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;statprov&quot;</span>)</a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="kw">nc_count</span>(<span class="dt">region =</span> <span class="kw">list</span>(<span class="dt">statprov =</span> <span class="st">&quot;BC&quot;</span>))</a></code></pre></div>
 <p><em>Example 2</em>: Determine the number of records for a specific <em>species</em>. You can find details and examples on how to <a href="https://birdstudiescanada.github.io/naturecounts/reference/search_species_code.html"><code>search_species_code()</code></a> based on 4 letter alpha code and <a href="https://birdstudiescanada.github.io/naturecounts/reference/search_species.html"><code>search_species()</code></a> based on common names at the links provided.</p>
 <p>The following code will retrieve all available collections and number of records for Red-headed Woodpecker</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1"><span class="kw">search_species</span>(<span class="st">&quot;Red-headed Woodpecker&quot;</span>)</a></code></pre></div>
-<pre><code>##   species_id            scientific_name          english_name      french_name
-## 1      10060 Melanerpes erythrocephalus Red-headed Woodpecker Pic à tête rouge
-##   taxon_group
-## 1       BIRDS</code></pre>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">nc_count</span>(<span class="dt">species =</span> <span class="dv">10060</span>)</a></code></pre></div>
-<pre><code>## Without a username, using &#39;show = &quot;all&quot;&#39;</code></pre>
-<pre><code>## Using filters: species (10060)</code></pre>
-<pre><code>##        collection nrecords
-## 1        ABATLAS1        5
-## 2        ABATLAS2       12
-## 3      ABBIRDRECS        3
-## 4             BBS    23735
-## 5       BBS50-CAN      263
-## 6   BBS50-US-EAST    14750
-## 7   BBS50-US-WEST    16439
-## 8             CBC    26894
-## 9  CMMN-BAND-LPBO     1230
-## 10   CMMN-DET-ABO        9
-## 11  CMMN-DET-BPBO       62
-## 12  CMMN-DET-DMBO        7
-## 13   CMMN-DET-HBO      123
-## 14  CMMN-DET-IPBO        7
-## 15  CMMN-DET-LMBO        2
-##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 47 rows ]</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">search_species</span>(<span class="st">&quot;Red-headed Woodpecker&quot;</span>)</a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="kw">nc_count</span>(<span class="dt">species =</span> <span class="dv">10060</span>)</a></code></pre></div>
 <p><em>Example 3</em>: We can further refine the Red-headed Woodpecker example (above) by filtering the species-specific data by region (e.g., <a href="http://nabci-us.org/assets/images/bcr_map2.jpg">Bird Conservation Region</a> 11), time period (e.g., 2015-2019), or a combination of both.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="kw">nc_count</span>(<span class="dt">species =</span> <span class="dv">10060</span>, <span class="dt">region =</span> <span class="kw">list</span>(<span class="dt">bcr =</span> <span class="st">&quot;11&quot;</span>))</a></code></pre></div>
-<pre><code>## Without a username, using &#39;show = &quot;all&quot;&#39;</code></pre>
-<pre><code>## Using filters: species (10060); bcr (BCR.11)</code></pre>
-<pre><code>##         collection nrecords
-## 1         ABATLAS1        4
-## 2         ABATLAS2        7
-## 3       ABBIRDRECS        3
-## 4        BBS50-CAN      147
-## 5    BBS50-US-WEST     1656
-## 6              CBC      263
-## 7    CMMN-DET-DMBO        7
-## 8    CMMN-DET-LMBO        2
-## 9      EBIRD-CA-PR     1397
-## 10            GBBC        2
-## 11   MBATLAS1BE_DO       72
-## 12  MBATLAS1BE_RAW      315
-## 13 MBATLAS1BE_SUMM      168
-## 14      MBATLAS1PC       34
-## 15      MBATLAS1RC      236
-##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 5 rows ]</code></pre>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1"><span class="kw">nc_count</span>(<span class="dt">species =</span> <span class="dv">10060</span>, <span class="dt">year =</span> <span class="kw">c</span>(<span class="dv">2015</span>, <span class="dv">2019</span>))</a></code></pre></div>
-<pre><code>## Without a username, using &#39;show = &quot;all&quot;&#39;</code></pre>
-<pre><code>## Using filters: species (10060); start_year (2015); end_year (2019)</code></pre>
-<pre><code>##         collection nrecords
-## 1        BBS50-CAN       71
-## 2    BBS50-US-EAST     3156
-## 3    BBS50-US-WEST     3551
-## 4              CBC     1814
-## 5   CMMN-BAND-LPBO       60
-## 6    CMMN-DET-BPBO        8
-## 7     CMMN-DET-HBO        3
-## 8    CMMN-DET-IPBO        2
-## 9    CMMN-DET-LPBO      333
-## 10  CMMN-DET-PEPBO        7
-## 11   CMMN-DET-PIBO       71
-## 12   CMMN-DET-TCBO        9
-## 13 CMMN-DET-TTPBRS        5
-## 14     EBIRD-CA-AT       96
-## 15     EBIRD-CA-BC        5
-##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 7 rows ]</code></pre>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1"><span class="kw">nc_count</span>(<span class="dt">species =</span> <span class="dv">10060</span>, <span class="dt">region =</span> <span class="kw">list</span>(<span class="dt">bcr =</span> <span class="st">&quot;11&quot;</span>), <span class="dt">year =</span> <span class="kw">c</span>(<span class="dv">2015</span>, <span class="dv">2019</span>))</a></code></pre></div>
-<pre><code>## Without a username, using &#39;show = &quot;all&quot;&#39;</code></pre>
-<pre><code>## Using filters: species (10060); start_year (2015); end_year (2019); bcr (BCR.11)</code></pre>
-<pre><code>##      collection nrecords
-## 1     BBS50-CAN       43
-## 2 BBS50-US-WEST      354
-## 3           CBC       11
-## 4   EBIRD-CA-PR      696
-## 5 SKATLAS1BE_DO        7</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">nc_count</span>(<span class="dt">species =</span> <span class="dv">10060</span>, <span class="dt">region =</span> <span class="kw">list</span>(<span class="dt">bcr =</span> <span class="st">&quot;11&quot;</span>))</a>
+<a class="sourceLine" id="cb11-2" title="2"></a>
+<a class="sourceLine" id="cb11-3" title="3"><span class="kw">nc_count</span>(<span class="dt">species =</span> <span class="dv">10060</span>, <span class="dt">year =</span> <span class="kw">c</span>(<span class="dv">2015</span>, <span class="dv">2019</span>))</a>
+<a class="sourceLine" id="cb11-4" title="4"></a>
+<a class="sourceLine" id="cb11-5" title="5"><span class="kw">nc_count</span>(<span class="dt">species =</span> <span class="dv">10060</span>, <span class="dt">region =</span> <span class="kw">list</span>(<span class="dt">bcr =</span> <span class="st">&quot;11&quot;</span>), <span class="dt">year =</span> <span class="kw">c</span>(<span class="dv">2015</span>, <span class="dv">2019</span>))</a></code></pre></div>
 </div>
 <div id="Data3.7" class="section level2">
 <h2><span class="header-section-number">3.7</span> Exercises</h2>

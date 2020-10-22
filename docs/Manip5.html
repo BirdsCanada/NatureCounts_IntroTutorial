@@ -196,6 +196,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="Manip5" class="section level1">
 <h1><span class="header-section-number">Chapter 5</span> Data Manipulation</h1>
 <p>You have successfully downloaded your NatureCounts dataset and are ready to explore and summarize the data. In this chapter we will demonstrate how to do some basic data manipulations and summaries. The possibilities are endless, so we try to focus on examples we think would be most valuable to users. We intend to develop <code>collection</code> and <code>protocol_id</code> specific data manipulation and analysis code in the future. If you have specific requests or would like to contribute your existing code, please contact <a href="mailto:dethier@birdscanada.org" class="email">dethier@birdscanada.org</a>.</p>
+<blockquote>
+<p>The code in this Chapter will not work unless you replace <code>"YourUserName"</code> with your actual user name. You will be prompted to enter your password.</p>
+</blockquote>
 <div id="Manip5.1" class="section level2">
 <h2><span class="header-section-number">5.1</span> Basic data wrangling</h2>
 <p>Recall in <a href="Package2.html#Package2.2">Chapter 2</a> you installed the <a href="https://www.tidyverse.org/">tidyverse</a> package, which included dplyr for data manipulations. You are encouraged to learn more about this function by reviewing the <a href="https://r4ds.had.co.nz/transform.html">Data Transformations</a> chapter in “R for Data Science” by Hadley Wickham and Garrett Grolemund. We also recommend you download a copy of the RStudio <a href="https://rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">Data Wrangling</a> cheat sheet as a reference document.</p>
@@ -206,34 +209,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>summarise()</code>: Collapse many values down to a single summary (often with <code>group_by()</code>)</li>
 </ul>
 <p>Let’s continue using the <a href="https://www.birdscanada.org/birdmon/default/datasets.jsp?code=WPWI">Ontario Whip-poor-will</a> collection for this chapter.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" title="1">WPWI &lt;-<span class="st"> </span><span class="kw">nc_data_dl</span>(<span class="dt">collections =</span> <span class="st">&quot;WPWI&quot;</span>, <span class="dt">username =</span> <span class="st">&quot;sample&quot;</span>, <span class="dt">info =</span> <span class="st">&quot;tutorial example&quot;</span>)</a></code></pre></div>
-<pre><code>## Using filters: collections (WPWI); fields_set (BMDE2.00-min)</code></pre>
-<pre><code>## Collecting available records...</code></pre>
-<pre><code>##   access collection nrecords
-## 1    yes       WPWI     3012
-## Total records: 3,012</code></pre>
-<pre><code>## 
-## Downloading records for each collection:</code></pre>
-<pre><code>##   WPWI</code></pre>
-<pre><code>##     Records 1 to 3012 / 3012</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1">WPWI &lt;-<span class="st"> </span><span class="kw">nc_data_dl</span>(<span class="dt">collections =</span> <span class="st">&quot;WPWI&quot;</span>, <span class="dt">username =</span> <span class="st">&quot;YourUserName&quot;</span>, <span class="dt">info =</span> <span class="st">&quot;tutorial example&quot;</span>)</a></code></pre></div>
 <div id="Manip5.1.1" class="section level3">
 <h3><span class="header-section-number">5.1.1</span> Select</h3>
 <p>You will notice that NatureCounts datasets have many fields (i.e., columns) available. Generally, you will only want a few of these fields for your summary or analysis. Recall the complete version of the <a href="Data3.html#Data3.1">BMDE</a> includes 265 fields. The number of variables downloaded from the BMDE will depend on the <code>fields_set</code>, which is by default “minimum” (57 fields). You can narrow in on the variables you are interested in with the <code>select()</code> function, which allows you to subset the dataframe based on the names of the variables.</p>
 <p>For example, we are going to <code>select()</code> a subset of variables from the WPWI dataset that we need for our summary:</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" title="1">WPWI_select &lt;-<span class="st"> </span><span class="kw">select</span>(WPWI, <span class="st">&quot;ObservationCount&quot;</span>, <span class="st">&quot;SurveyAreaIdentifier&quot;</span>, </a>
-<a class="sourceLine" id="cb48-2" title="2">                      <span class="st">&quot;RouteIdentifier&quot;</span>, <span class="st">&quot;species_id&quot;</span>, <span class="st">&quot;latitude&quot;</span>, </a>
-<a class="sourceLine" id="cb48-3" title="3">                      <span class="st">&quot;longitude&quot;</span>, <span class="st">&quot;bcr&quot;</span>, <span class="st">&quot;survey_day&quot;</span>, <span class="st">&quot;survey_month&quot;</span>, </a>
-<a class="sourceLine" id="cb48-4" title="4">                      <span class="st">&quot;survey_year&quot;</span>)</a>
-<a class="sourceLine" id="cb48-5" title="5">WPWI_select</a></code></pre></div>
-<pre><code>##   ObservationCount SurveyAreaIdentifier RouteIdentifier species_id latitude
-## 1             &lt;NA&gt;                 2W-1              2W         NA 50.99415
-## 2                0                 2W-2              2W       7870 50.99208
-## 3             &lt;NA&gt;                 2W-3              2W       7870 50.98019
-##   longitude bcr survey_day survey_month survey_year
-## 1 -94.16117   8         24            6        2010
-## 2 -94.13520   8         24            6        2010
-## 3 -94.11525   8         24            6        2010
-##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 3009 rows ]</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1">WPWI_select &lt;-<span class="st"> </span><span class="kw">select</span>(WPWI, <span class="st">&quot;ObservationCount&quot;</span>, <span class="st">&quot;SurveyAreaIdentifier&quot;</span>, </a>
+<a class="sourceLine" id="cb18-2" title="2">                      <span class="st">&quot;RouteIdentifier&quot;</span>, <span class="st">&quot;species_id&quot;</span>, <span class="st">&quot;latitude&quot;</span>, </a>
+<a class="sourceLine" id="cb18-3" title="3">                      <span class="st">&quot;longitude&quot;</span>, <span class="st">&quot;bcr&quot;</span>, <span class="st">&quot;survey_day&quot;</span>, <span class="st">&quot;survey_month&quot;</span>, </a>
+<a class="sourceLine" id="cb18-4" title="4">                      <span class="st">&quot;survey_year&quot;</span>)</a></code></pre></div>
 </div>
 <div id="Manip5.1.2" class="section level3">
 <h3><span class="header-section-number">5.1.2</span> Filter</h3>
@@ -249,113 +233,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Date filters</li>
 </ul>
 <p>Here we provide a few additional examples for you to work with. First, lets apply a simple <code>filter()</code> that subsets the data based on a single survey month:</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" title="1">WPWI_June &lt;-<span class="st"> </span><span class="kw">filter</span>(WPWI_select, survey_month <span class="op">==</span><span class="st"> </span><span class="dv">6</span>)</a>
-<a class="sourceLine" id="cb50-2" title="2">WPWI_June</a></code></pre></div>
-<pre><code>##   ObservationCount SurveyAreaIdentifier RouteIdentifier species_id latitude
-## 1             &lt;NA&gt;                 2W-1              2W         NA 50.99415
-## 2                0                 2W-2              2W       7870 50.99208
-## 3             &lt;NA&gt;                 2W-3              2W       7870 50.98019
-##   longitude bcr survey_day survey_month survey_year
-## 1 -94.16117   8         24            6        2010
-## 2 -94.13520   8         24            6        2010
-## 3 -94.11525   8         24            6        2010
-##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 2546 rows ]</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1">WPWI_June &lt;-<span class="st"> </span><span class="kw">filter</span>(WPWI_select, survey_month <span class="op">==</span><span class="st"> </span><span class="dv">6</span>)</a></code></pre></div>
 <p>Now lets try multiple survey months by adding a logical operator:</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" title="1">WPWI_JJ &lt;-<span class="st"> </span><span class="kw">filter</span>(WPWI_select, survey_month <span class="op">==</span><span class="st"> </span><span class="dv">6</span> <span class="op">|</span><span class="st"> </span>survey_month <span class="op">==</span><span class="st"> </span><span class="dv">7</span>)</a>
-<a class="sourceLine" id="cb52-2" title="2"></a>
-<a class="sourceLine" id="cb52-3" title="3"><span class="co">#Alternatively this can be written as:</span></a>
-<a class="sourceLine" id="cb52-4" title="4">WPWI_JJ &lt;-<span class="st"> </span><span class="kw">filter</span>(WPWI_select, survey_month <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">7</span>))</a>
-<a class="sourceLine" id="cb52-5" title="5">WPWI_JJ</a></code></pre></div>
-<pre><code>##   ObservationCount SurveyAreaIdentifier RouteIdentifier species_id latitude
-## 1             &lt;NA&gt;                 2W-1              2W         NA 50.99415
-## 2                0                 2W-2              2W       7870 50.99208
-## 3             &lt;NA&gt;                 2W-3              2W       7870 50.98019
-##   longitude bcr survey_day survey_month survey_year
-## 1 -94.16117   8         24            6        2010
-## 2 -94.13520   8         24            6        2010
-## 3 -94.11525   8         24            6        2010
-##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 2602 rows ]</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1">WPWI_JJ &lt;-<span class="st"> </span><span class="kw">filter</span>(WPWI_select, survey_month <span class="op">==</span><span class="st"> </span><span class="dv">6</span> <span class="op">|</span><span class="st"> </span>survey_month <span class="op">==</span><span class="st"> </span><span class="dv">7</span>)</a>
+<a class="sourceLine" id="cb20-2" title="2"></a>
+<a class="sourceLine" id="cb20-3" title="3"><span class="co">#Alternatively this can be written as:</span></a>
+<a class="sourceLine" id="cb20-4" title="4">WPWI_JJ &lt;-<span class="st"> </span><span class="kw">filter</span>(WPWI_select, survey_month <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">7</span>))</a></code></pre></div>
 <p>We can continue to add to the complexity of our filter:</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" title="1">WPWI_multi &lt;-<span class="st"> </span><span class="kw">filter</span>(WPWI_select, </a>
-<a class="sourceLine" id="cb54-2" title="2">                     survey_month <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">7</span>) <span class="op">&amp;</span><span class="st"> </span>bcr <span class="op">==</span><span class="st"> </span><span class="dv">12</span> <span class="op">&amp;</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb54-3" title="3"><span class="st">                       </span>survey_year <span class="op">&gt;=</span><span class="st"> </span><span class="dv">2010</span> <span class="op">&amp;</span><span class="st"> </span>survey_year <span class="op">&lt;=</span><span class="st"> </span><span class="dv">2012</span>)</a>
-<a class="sourceLine" id="cb54-4" title="4">WPWI_multi</a></code></pre></div>
-<pre><code>##   ObservationCount SurveyAreaIdentifier RouteIdentifier species_id latitude
-## 1             &lt;NA&gt;                  3-1               3         NA 44.79400
-## 2             &lt;NA&gt;                  3-3               3         NA 44.80629
-## 3             &lt;NA&gt;                  3-4               3         NA 44.82274
-##   longitude bcr survey_day survey_month survey_year
-## 1 -79.38787  12         24            6        2010
-## 2 -79.34094  12         24            6        2010
-## 3 -79.34187  12         24            6        2010
-##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 1082 rows ]</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1">WPWI_multi &lt;-<span class="st"> </span><span class="kw">filter</span>(WPWI_select, </a>
+<a class="sourceLine" id="cb21-2" title="2">                     survey_month <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">7</span>) <span class="op">&amp;</span><span class="st"> </span>bcr <span class="op">==</span><span class="st"> </span><span class="dv">12</span> <span class="op">&amp;</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb21-3" title="3"><span class="st">                       </span>survey_year <span class="op">&gt;=</span><span class="st"> </span><span class="dv">2010</span> <span class="op">&amp;</span><span class="st"> </span>survey_year <span class="op">&lt;=</span><span class="st"> </span><span class="dv">2012</span>)</a></code></pre></div>
 </div>
 <div id="Manip5.1.3" class="section level3">
 <h3><span class="header-section-number">5.1.3</span> Summarise</h3>
 <p>Now that we have selected the columns we need for our analysis and limited the data to the observation records we wish to use, we will want to summarise what we have left! The <code>summarise()</code> function is most useful if paired with the <code>group_by()</code> argument, because this changes the unit of analysis from the complete dataset to individual groups.</p>
 <p>For example, say we want to determine how many point count stops were on each Route. We will want to group observations by <code>RouteIdentifier</code> and summarise the number of district <code>SurveyAreaIdentifier</code>.</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" title="1">WPWI_Route &lt;-<span class="st"> </span><span class="kw">group_by</span>(WPWI_multi, RouteIdentifier)</a>
-<a class="sourceLine" id="cb56-2" title="2">WPWI_Route &lt;-<span class="st"> </span><span class="kw">summarise</span>(WPWI_Route, <span class="dt">Nstops =</span> <span class="kw">n_distinct</span>(SurveyAreaIdentifier))</a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1">WPWI_Route &lt;-<span class="st"> </span><span class="kw">group_by</span>(WPWI_multi, RouteIdentifier)</a>
+<a class="sourceLine" id="cb22-2" title="2">WPWI_Route &lt;-<span class="st"> </span><span class="kw">summarise</span>(WPWI_Route, <span class="dt">Nstops =</span> <span class="kw">n_distinct</span>(SurveyAreaIdentifier))</a></code></pre></div>
 <p>However, now that we’re getting on to more complex operations, we’ll introduce the
 use of the pipe <code>%&gt;%</code>. This allows you to pass (pipe) the output of one line
 as input to the next line. Therefore, the previous code can be re-written as:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" title="1">WPWI_Route &lt;-<span class="st"> </span>WPWI_multi <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb57-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(RouteIdentifier) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb57-3" title="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Nstops =</span> <span class="kw">n_distinct</span>(SurveyAreaIdentifier))</a></code></pre></div>
-<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" title="1">WPWI_Route</a></code></pre></div>
-<pre><code>## # A tibble: 62 x 2
-##    RouteIdentifier Nstops
-##    &lt;chr&gt;            &lt;int&gt;
-##  1 104                 10
-##  2 11                  10
-##  3 119                  3
-##  4 124                 10
-##  5 13                  10
-##  6 137                 10
-##  7 138                 10
-##  8 143                 10
-##  9 161                 10
-## 10 165                 10
-## # ... with 52 more rows</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1">WPWI_Route &lt;-<span class="st"> </span>WPWI_multi <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb23-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(RouteIdentifier) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb23-3" title="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Nstops =</span> <span class="kw">n_distinct</span>(SurveyAreaIdentifier))</a></code></pre></div>
 <p>Note that there is a pipe (<code>%&gt;%</code>) between each set of lines and that the data (<code>WPWI_multi</code>)
 is only referred to once, at the very start. These two different codes achieve the
 exact same result.</p>
 <p>Back to our example, we might also want to know how many routes where run in each year.</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" title="1">WPWI_Year &lt;-<span class="st"> </span>WPWI_multi <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb61-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(survey_year) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb61-3" title="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Nroute =</span> <span class="kw">n_distinct</span>(RouteIdentifier))</a></code></pre></div>
-<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" title="1">WPWI_Year</a></code></pre></div>
-<pre><code>## # A tibble: 3 x 2
-##   survey_year Nroute
-##         &lt;int&gt;  &lt;int&gt;
-## 1        2010     40
-## 2        2011     46
-## 3        2012      9</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1">WPWI_Year &lt;-<span class="st"> </span>WPWI_multi <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb24-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(survey_year) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb24-3" title="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Nroute =</span> <span class="kw">n_distinct</span>(RouteIdentifier))</a></code></pre></div>
 <p>Finally, lets look to see how many Observations (<code>ObservationCount</code>) of WPWI were made on each route in each year. First we need to replace any <code>NA</code>s with <code>0</code> and ensure this variable is numeric.</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" title="1">WPWI_multi<span class="op">$</span>ObservationCount[<span class="kw">is.na</span>(WPWI_multi<span class="op">$</span>ObservationCount)] &lt;-<span class="st"> </span><span class="dv">0</span></a>
-<a class="sourceLine" id="cb65-2" title="2"></a>
-<a class="sourceLine" id="cb65-3" title="3">WPWI_Obs &lt;-<span class="st"> </span>WPWI_multi <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb65-4" title="4"><span class="st">  </span><span class="kw">group_by</span>(RouteIdentifier, survey_year) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb65-5" title="5"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">MeanObs =</span> <span class="kw">mean</span>(<span class="kw">as.numeric</span>(ObservationCount)))</a></code></pre></div>
-<pre><code>## `summarise()` regrouping output by &#39;RouteIdentifier&#39; (override with `.groups` argument)</code></pre>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" title="1">WPWI_Obs</a></code></pre></div>
-<pre><code>## # A tibble: 95 x 3
-## # Groups:   RouteIdentifier [62]
-##    RouteIdentifier survey_year MeanObs
-##    &lt;chr&gt;                 &lt;int&gt;   &lt;dbl&gt;
-##  1 104                    2010       0
-##  2 104                    2011       0
-##  3 11                     2010       0
-##  4 11                     2011       0
-##  5 119                    2010       0
-##  6 119                    2011       0
-##  7 119                    2012       0
-##  8 124                    2010       0
-##  9 124                    2011       0
-## 10 13                     2010       0
-## # ... with 85 more rows</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1">WPWI_multi<span class="op">$</span>ObservationCount[<span class="kw">is.na</span>(WPWI_multi<span class="op">$</span>ObservationCount)] &lt;-<span class="st"> </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb25-2" title="2"></a>
+<a class="sourceLine" id="cb25-3" title="3">WPWI_Obs &lt;-<span class="st"> </span>WPWI_multi <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb25-4" title="4"><span class="st">  </span><span class="kw">group_by</span>(RouteIdentifier, survey_year) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb25-5" title="5"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">MeanObs =</span> <span class="kw">mean</span>(<span class="kw">as.numeric</span>(ObservationCount)))</a></code></pre></div>
 <p>No WIWP were detected in our subset of the data!! No wonder this species is listed as <a href="https://www.ontario.ca/page/eastern-whip-poor-will">threatened</a> in the province.</p>
 </div>
 </div>
@@ -370,7 +283,7 @@ exact same result.</p>
 </div>
 <div id="Manip5.3" class="section level2">
 <h2><span class="header-section-number">5.3</span> Exercies</h2>
-<p><em>Exercise 1</em>: You (user “sample”) are doing a research project using the fall migration monitoring data collected at <a href="https://www.birdscanada.org/birdmon/default/datasets.jsp?code=CMMN-DET-VLBO">Vaseux Lake Bird Observatory</a>, British Columbia. You request the open access data from 2017-2020. After you request this subset of the collection, you need to determine the number of unique days Gray catbirds were records in each year?</p>
+<p><em>Exercise 1</em>: You are doing a research project using the fall migration monitoring data collected at <a href="https://www.birdscanada.org/birdmon/default/datasets.jsp?code=CMMN-DET-VLBO">Vaseux Lake Bird Observatory</a>, British Columbia. You request the open access data from 2017-2020. After you request this subset of the collection, you need to determine the number of unique days Gray catbirds were records in each year?</p>
 <p>Answer:
 2017 = 54
 2018 = 53</p>

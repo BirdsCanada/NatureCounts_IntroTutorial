@@ -4,6 +4,8 @@
 
 You have successfully downloaded your NatureCounts dataset and are ready to explore and summarize the data. In this chapter we will demonstrate how to do some basic data manipulations and summaries. The possibilities are endless, so we try to focus on examples we think would be most valuable to users. We intend to develop `collection` and `protocol_id` specific data manipulation and analysis code in the future. If you have specific requests or would like to contribute your existing code, please contact dethier@birdscanada.org. 
 
+> The code in this Chapter will not work unless you replace `"YourUserName"` with your actual user name. You will be prompted to enter your password. 
+
 ## Basic data wrangling {#Manip5.1}
 
 Recall in [Chapter 2](#Package2.2) you installed the [tidyverse](https://www.tidyverse.org/) package, which included dplyr for data manipulations. You are encouraged to learn more about this function by reviewing the [Data Transformations](https://r4ds.had.co.nz/transform.html) chapter in "R for Data Science" by Hadley Wickham and Garrett Grolemund. We also recommend you download a copy of the RStudio [Data Wrangling](https://rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf) cheat sheet as a reference document.
@@ -19,34 +21,7 @@ Let's continue using the [Ontario Whip-poor-will](https://www.birdscanada.org/bi
 
 
 ```r
-WPWI <- nc_data_dl(collections = "WPWI", username = "sample", info = "tutorial example")
-```
-
-```
-## Using filters: collections (WPWI); fields_set (BMDE2.00-min)
-```
-
-```
-## Collecting available records...
-```
-
-```
-##   access collection nrecords
-## 1    yes       WPWI     3012
-## Total records: 3,012
-```
-
-```
-## 
-## Downloading records for each collection:
-```
-
-```
-##   WPWI
-```
-
-```
-##     Records 1 to 3012 / 3012
+WPWI <- nc_data_dl(collections = "WPWI", username = "YourUserName", info = "tutorial example")
 ```
 
 ### Select {#Manip5.1.1}
@@ -61,19 +36,6 @@ WPWI_select <- select(WPWI, "ObservationCount", "SurveyAreaIdentifier",
                       "RouteIdentifier", "species_id", "latitude", 
                       "longitude", "bcr", "survey_day", "survey_month", 
                       "survey_year")
-WPWI_select
-```
-
-```
-##   ObservationCount SurveyAreaIdentifier RouteIdentifier species_id latitude
-## 1             <NA>                 2W-1              2W         NA 50.99415
-## 2                0                 2W-2              2W       7870 50.99208
-## 3             <NA>                 2W-3              2W       7870 50.98019
-##   longitude bcr survey_day survey_month survey_year
-## 1 -94.16117   8         24            6        2010
-## 2 -94.13520   8         24            6        2010
-## 3 -94.11525   8         24            6        2010
-##  [ reached 'max' / getOption("max.print") -- omitted 3009 rows ]
 ```
 
 ### Filter {#Manip5.1.2}
@@ -94,19 +56,6 @@ Here we provide a few additional examples for you to work with. First, lets appl
 
 ```r
 WPWI_June <- filter(WPWI_select, survey_month == 6)
-WPWI_June
-```
-
-```
-##   ObservationCount SurveyAreaIdentifier RouteIdentifier species_id latitude
-## 1             <NA>                 2W-1              2W         NA 50.99415
-## 2                0                 2W-2              2W       7870 50.99208
-## 3             <NA>                 2W-3              2W       7870 50.98019
-##   longitude bcr survey_day survey_month survey_year
-## 1 -94.16117   8         24            6        2010
-## 2 -94.13520   8         24            6        2010
-## 3 -94.11525   8         24            6        2010
-##  [ reached 'max' / getOption("max.print") -- omitted 2546 rows ]
 ```
 
 Now lets try multiple survey months by adding a logical operator:
@@ -116,19 +65,6 @@ WPWI_JJ <- filter(WPWI_select, survey_month == 6 | survey_month == 7)
 
 #Alternatively this can be written as:
 WPWI_JJ <- filter(WPWI_select, survey_month %in% c(6,7))
-WPWI_JJ
-```
-
-```
-##   ObservationCount SurveyAreaIdentifier RouteIdentifier species_id latitude
-## 1             <NA>                 2W-1              2W         NA 50.99415
-## 2                0                 2W-2              2W       7870 50.99208
-## 3             <NA>                 2W-3              2W       7870 50.98019
-##   longitude bcr survey_day survey_month survey_year
-## 1 -94.16117   8         24            6        2010
-## 2 -94.13520   8         24            6        2010
-## 3 -94.11525   8         24            6        2010
-##  [ reached 'max' / getOption("max.print") -- omitted 2602 rows ]
 ```
 
 We can continue to add to the complexity of our filter:
@@ -137,19 +73,6 @@ We can continue to add to the complexity of our filter:
 WPWI_multi <- filter(WPWI_select, 
                      survey_month %in% c(6,7) & bcr == 12 & 
                        survey_year >= 2010 & survey_year <= 2012)
-WPWI_multi
-```
-
-```
-##   ObservationCount SurveyAreaIdentifier RouteIdentifier species_id latitude
-## 1             <NA>                  3-1               3         NA 44.79400
-## 2             <NA>                  3-3               3         NA 44.80629
-## 3             <NA>                  3-4               3         NA 44.82274
-##   longitude bcr survey_day survey_month survey_year
-## 1 -79.38787  12         24            6        2010
-## 2 -79.34094  12         24            6        2010
-## 3 -79.34187  12         24            6        2010
-##  [ reached 'max' / getOption("max.print") -- omitted 1082 rows ]
 ```
 
 ### Summarise {#Manip5.1.3}
@@ -175,35 +98,9 @@ WPWI_Route <- WPWI_multi %>%
   summarise(Nstops = n_distinct(SurveyAreaIdentifier))
 ```
 
-```
-## `summarise()` ungrouping output (override with `.groups` argument)
-```
-
-```r
-WPWI_Route
-```
-
-```
-## # A tibble: 62 x 2
-##    RouteIdentifier Nstops
-##    <chr>            <int>
-##  1 104                 10
-##  2 11                  10
-##  3 119                  3
-##  4 124                 10
-##  5 13                  10
-##  6 137                 10
-##  7 138                 10
-##  8 143                 10
-##  9 161                 10
-## 10 165                 10
-## # ... with 52 more rows
-```
-
 Note that there is a pipe (`%>%`) between each set of lines and that the data (`WPWI_multi`)
 is only referred to once, at the very start. These two different codes achieve the 
 exact same result.
-
 
 Back to our example, we might also want to know how many routes where run in each year. 
 
@@ -212,23 +109,6 @@ Back to our example, we might also want to know how many routes where run in eac
 WPWI_Year <- WPWI_multi %>% 
   group_by(survey_year) %>% 
   summarise(Nroute = n_distinct(RouteIdentifier))
-```
-
-```
-## `summarise()` ungrouping output (override with `.groups` argument)
-```
-
-```r
-WPWI_Year
-```
-
-```
-## # A tibble: 3 x 2
-##   survey_year Nroute
-##         <int>  <int>
-## 1        2010     40
-## 2        2011     46
-## 3        2012      9
 ```
 
 Finally, lets look to see how many Observations (`ObservationCount`) of WPWI were made on each route in each year. First we need to replace any `NA`s with `0` and ensure this variable is numeric.
@@ -240,32 +120,6 @@ WPWI_multi$ObservationCount[is.na(WPWI_multi$ObservationCount)] <- 0
 WPWI_Obs <- WPWI_multi %>% 
   group_by(RouteIdentifier, survey_year) %>% 
   summarise(MeanObs = mean(as.numeric(ObservationCount)))
-```
-
-```
-## `summarise()` regrouping output by 'RouteIdentifier' (override with `.groups` argument)
-```
-
-```r
-WPWI_Obs
-```
-
-```
-## # A tibble: 95 x 3
-## # Groups:   RouteIdentifier [62]
-##    RouteIdentifier survey_year MeanObs
-##    <chr>                 <int>   <dbl>
-##  1 104                    2010       0
-##  2 104                    2011       0
-##  3 11                     2010       0
-##  4 11                     2011       0
-##  5 119                    2010       0
-##  6 119                    2011       0
-##  7 119                    2012       0
-##  8 124                    2010       0
-##  9 124                    2011       0
-## 10 13                     2010       0
-## # ... with 85 more rows
 ```
 
 No WIWP were detected in our subset of the data!! No wonder this species is listed as [threatened](https://www.ontario.ca/page/eastern-whip-poor-will) in the province. 
@@ -281,7 +135,7 @@ The zero-fill function is particularly important if you want to ensure your data
 
 ## Exercies {#Manip5.3}
 
-*Exercise 1*:  You (user "sample") are doing a research project using the fall migration monitoring data collected at [Vaseux Lake Bird Observatory](https://www.birdscanada.org/birdmon/default/datasets.jsp?code=CMMN-DET-VLBO), British Columbia. You request the open access data from 2017-2020. After you request this subset of the collection, you need to determine the number of unique days Gray catbirds were records in each year?
+*Exercise 1*:  You are doing a research project using the fall migration monitoring data collected at [Vaseux Lake Bird Observatory](https://www.birdscanada.org/birdmon/default/datasets.jsp?code=CMMN-DET-VLBO), British Columbia. You request the open access data from 2017-2020. After you request this subset of the collection, you need to determine the number of unique days Gray catbirds were records in each year?
 
 Answer: 
 2017 =	54
