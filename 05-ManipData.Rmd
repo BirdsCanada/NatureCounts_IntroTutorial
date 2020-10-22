@@ -94,7 +94,7 @@ However, now that we're getting on to more complex operations, we'll introduce t
 use of the pipe `%>%`. This allows you to pass (pipe) the output of one line 
 as input to the next line. Therefore, the previous code can be re-written as:
 
-```{r WPWIRoute, eval=FALSA}
+```{r WPWIRoute, eval=FALSE}
 WPWI_Route <- WPWI_multi %>% 
   group_by(RouteIdentifier) %>% 
   summarise(Nstops = n_distinct(SurveyAreaIdentifier))
@@ -104,7 +104,6 @@ WPWI_Route <- WPWI_multi %>%
 Note that there is a pipe (`%>%`) between each set of lines and that the data (`WPWI_multi`)
 is only referred to once, at the very start. These two different codes achieve the 
 exact same result.
-
 
 Back to our example, we might also want to know how many routes where run in each year. 
 

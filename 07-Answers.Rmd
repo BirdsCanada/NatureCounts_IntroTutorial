@@ -34,7 +34,7 @@ Answer: 702, 389
 
 Exercise 1: You are from the Northwest Territories and interested in learning more about birds in your region. First, you identify the NatureCounts dataset most suitable for this exercise using the nc_count() function (i.e., which has the most data). Next, you decide to focus your download to only include Blackpoll Warbler data collected over the past 5 years (2015-2020). How many observation records did you download?
 
-```{r Ans4.1. eval=FALSE}
+```{r Ans4.1, eval=FALSE}
 search_region("Northwest Territories", type = "statprov")
 nc_count(region = list(statprov="NT"), username="YourUserName")
 
