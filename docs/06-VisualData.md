@@ -23,8 +23,8 @@ VLBO <- nc_data_dl(collections = "CMMN-DET-VLBO", years = c(2015, NA),
                    username = "YourUserName", info = "tutorial example")
 
 GRCA <- format_zero_fill(VLBO, species = 15900, 
-                         by = c("SamplingEventIdentifier", "survey_year", 
-                                "survey_month", "survey_day"))
+                         by = "SamplingEventIdentifier", 
+                         extra_event= c("survey_year", "survey_month", "survey_day"))
 ```
 
 First, we are interested if there are any noticeable patterns in migration timing. For this, we will use the [add date and day-of-year helper function](https://birdstudiescanada.github.io/naturecounts/reference/format_dates.html) to add two new columns to the dataframe. 

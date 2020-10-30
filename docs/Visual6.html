@@ -211,8 +211,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb26-5" title="5">                   <span class="dt">username =</span> <span class="st">&quot;YourUserName&quot;</span>, <span class="dt">info =</span> <span class="st">&quot;tutorial example&quot;</span>)</a>
 <a class="sourceLine" id="cb26-6" title="6"></a>
 <a class="sourceLine" id="cb26-7" title="7">GRCA &lt;-<span class="st"> </span><span class="kw">format_zero_fill</span>(VLBO, <span class="dt">species =</span> <span class="dv">15900</span>, </a>
-<a class="sourceLine" id="cb26-8" title="8">                         <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;SamplingEventIdentifier&quot;</span>, <span class="st">&quot;survey_year&quot;</span>, </a>
-<a class="sourceLine" id="cb26-9" title="9">                                <span class="st">&quot;survey_month&quot;</span>, <span class="st">&quot;survey_day&quot;</span>))</a></code></pre></div>
+<a class="sourceLine" id="cb26-8" title="8">                         <span class="dt">by =</span> <span class="st">&quot;SamplingEventIdentifier&quot;</span>, </a>
+<a class="sourceLine" id="cb26-9" title="9">                         <span class="dt">extra_event=</span> <span class="kw">c</span>(<span class="st">&quot;survey_year&quot;</span>, <span class="st">&quot;survey_month&quot;</span>, <span class="st">&quot;survey_day&quot;</span>))</a></code></pre></div>
 <p>First, we are interested if there are any noticeable patterns in migration timing. For this, we will use the <a href="https://birdstudiescanada.github.io/naturecounts/reference/format_dates.html">add date and day-of-year helper function</a> to add two new columns to the dataframe.</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1">GRCA_dates &lt;-<span class="st"> </span><span class="kw">format_dates</span>(GRCA)</a></code></pre></div>
 <p>Now we can plot raw counts (y-axis) for each day-of-year (x-axis).</p>
