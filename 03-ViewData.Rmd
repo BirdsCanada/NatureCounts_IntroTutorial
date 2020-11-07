@@ -21,7 +21,7 @@ By default, the naturecounts package downloads the data with the *minimum* set o
 
 ## Levels of Data Access {#Data3.2}
 
-NatureCounts hosts many datasets, representing in excess of 140 million occurrence records, with a primary focus on Canadian bird monitoring data. Many of those datasets are from projects lead by Birds Canada and/or its partners. While we thrive to make our data as openly available as possible, we also need to recognize the needs of our partners and funders.
+NatureCounts hosts many datasets, representing in excess of 140 million occurrence records, with a primary focus on Canadian bird monitoring data. Many of those datasets are from projects lead by Birds Canada and/or its partners. While we strive to make our data as openly available as possible, we also need to recognize the needs of our partners and funders.
 
 NatureCounts has five [Levels of Data Access](https://www.birdscanada.org/birdmon/default/nc_access_levels.jsp), which define how each dataset can be used. Those levels are set individually for each dataset, in consultation with the various partners and data custodians involved.
 
