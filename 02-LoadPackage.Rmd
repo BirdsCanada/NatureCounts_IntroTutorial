@@ -17,7 +17,7 @@ update.packages()
 
 You can install naturecounts from GitHub with the remotes package:
 
-``````{r install, eval = FALSE}
+```{r install, eval = FALSE}
 install.packages("remotes")
 remotes::install_github("BirdStudiesCanada/naturecounts")
 ```
@@ -32,7 +32,7 @@ library(naturecounts)
 
 Throughout the book we use the [tidyverse](https://www.tidyverse.org/) R package, which is actually a collection of R packages for data science, including tidyr, dplyr, and ggplot2, among others. The tidyverse package can be installed from CRAN and loaded into R as follows:
 
-``````{r tidy, eval = FALSE}
+```{r tidy, eval = FALSE}
 install.packages("tidyverse")
 library(tidyverse)
 ````
