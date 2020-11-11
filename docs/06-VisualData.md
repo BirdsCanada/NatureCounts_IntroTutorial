@@ -44,7 +44,7 @@ ggplot(data = GRCA_dates) +
 
 <img src="06-VisualData_files/figure-html/plot1VLBO-1.png" width="672" />
 
-What you will notice is that there isn't an obvious peak in migration for this species, but a relatively constant number of individuals counted throughout the season. 
+What you will notice is that migration for this species is highest early in the year and diminishes with time. 
 
 Next, we are interested in visually examining the mean number of migrant GRCA each year, to see if there are any noticeable changes over time. First, we need to summarise the data: 
 
@@ -70,7 +70,7 @@ ggplot(data = GRCA_year) +
 
 <img src="06-VisualData_files/figure-html/plot2VLBO-1.png" width="672" />
 
-You will notice there was a increase in the mean number of GRCA observed in th last years. You might now be wondering why.  
+You will notice there was an increase in the mean number of GRCA observed in the last three years. You might now be wondering why.  
 
 ## Mapping {#PM6.2}
 
