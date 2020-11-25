@@ -11,7 +11,7 @@ library(naturecounts)
 
 You have successfully downloaded and summarised your NatureCounts dataset. In this chapter we will demonstrate how to do some basic visualizations with plots. 
 
-> The code in this Chapter will not work unless you replace `"YourUserName"` with your actual user name. You will be prompted to enter your password. 
+> The code in this Chapter will not work unless you replace `"testuser"` with your actual user name. You will be prompted to enter your password. 
 
 ## Plotting {#PM6.1}
 
@@ -21,12 +21,12 @@ At the end of [Chapter 5](#Manip5) you were exploring fall migration monitoring 
 
 First, lets apply our previously acquired skills to download the filtered dataset and zero-fill for GRCA, while also keep some extra variables. 
 
-```{r VLBO, message = FALSE, eval=FALSE}
+```{r VLBO, message = FALSE}
 library(naturecounts)
 library(tidyverse)
 
 VLBO <- nc_data_dl(collections = "CMMN-DET-VLBO", years = c(2015, NA), 
-                   username = "YourUserName", info = "tutorial example")
+                   username = "testuser", info = "tutorial example")
 
 GRCA <- format_zero_fill(VLBO, species = 15900, 
                          by = "SamplingEventIdentifier", 
@@ -36,7 +36,7 @@ GRCA <- format_zero_fill(VLBO, species = 15900,
 
 First, we are interested if there are any noticeable patterns in migration timing. For this, we will use the [add date and day-of-year helper function](https://birdstudiescanada.github.io/naturecounts/reference/format_dates.html) to add two new columns to the dataframe. 
 
-```{r doy, warning = FALSE, eval=FALSE}
+```{r doy, warning = FALSE}
 
 GRCA_dates <- format_dates(GRCA)
 
@@ -55,7 +55,7 @@ What you will notice is that migration for this species is highest early in the 
 
 Next, we are interested in visually examining the mean number of migrant GRCA each year, to see if there are any noticeable changes over time. First, we need to summarise the data: 
 
-```{r VLBOsum, eval=FALSE, warning=FALSE}
+```{r VLBOsum, warning=FALSE}
 
 #use this shortcut function to calculate the standard error
 se <- function(x) sd(x) / sqrt(length(x))
