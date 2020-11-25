@@ -8,13 +8,13 @@ This chapter jumps right into downloading NatureCounts data, which builds direct
 
 Open access collections are available for download without a username/password, however, we encourage you to [sign up](https://www.birdscanada.org/birdmon/default/register.jsp) for a **free** account.
 
-> The code in this Chapter will not work unless you replace `"YourUserName"` with your actual user name. You will be prompted to enter your password. 
+> The code in this Chapter will not work unless you replace `"testuser"` with your actual user name. You will be prompted to enter your password. 
 
 Here we demonstrate how to download the Ontario Whip-poor-will collection (WPWI), since it is Open Access (Level 5) and contains relatively few records (n = 3012).  Click [here](https://www.birdscanada.org/birdmon/default/datasets.jsp?code=WPWI) for more information on this dataset.    
 
 
 ```r
-WPWI <- nc_data_dl(collections = "WPWI", username = "YourUserName", info = "tutorial example")
+WPWI <- nc_data_dl(collections = "WPWI", username = "testuser", info = "tutorial example")
 ```
 
 You should now see a copy of the WPWI collection in the upper right panel of RStudio under the *Environment* tab. Notice in the code that `info` needs to be provided. This is a short description of reason for the download. This does not need to be specified when using the `nc_count()` function.
@@ -25,7 +25,7 @@ To make a data request, use the NatureCounts [Download Data query tool](https://
 
 
 ```r
-nc_requests(username = "YourUserName")
+nc_requests(username = "testuser")
 ```
 
 Here is sample code to download Access Level 3 or 4 data: 
@@ -56,7 +56,7 @@ Here are a few examples for you to work through to become familiar with the `nc_
 ```r
 WPWI_filter <- nc_data_dl(collections = "WPWI", years = c(2010, 2012), 
                           region = list(bcr = "13"), 
-                          username = "YourUserName", info = "tutorial example")
+                          username = "testuser", info = "tutorial example")
 ```
 You will notice that the number of records in the filtered WPWI download (`WPWI_filter` = 754) is substantially less than the number of records in the full dataset (`WPWI` = 3012) downloaded in [Chapter 3](#Data3).
 
@@ -67,7 +67,7 @@ You will notice that the number of records in the filtered WPWI download (`WPWI_
 WPWI_bb <- nc_data_dl(collections = "WPWI", 
                       region = list(bbox = c(left = -81.7, bottom = 44.5, 
                                              right = -80.9, top = 45.3)), 
-                      username = "YourUserName", info = "tutorial example")
+                      username = "testuser", info = "tutorial example")
 ```
 You will notice there are now even fewer observation records (`WPWI_bb` = 72)
 

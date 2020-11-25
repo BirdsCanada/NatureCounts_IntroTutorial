@@ -4,7 +4,7 @@
 
 This chapter begins with a brief introduction to the structure of the NatureCounts database, followed by a description of access levels and how to create a user account. We then provide instructions on how to view data from various collections and apply filters. 
 
-> The code in this Chapter will not work unless you replace `"YourUserName"` with your actual user name. You will be prompted to enter your password.
+> The code in this Chapter will not work unless you replace `"testuser"` with your actual user name. You will be prompted to enter your password.
 
 ## Data Structure {#Data3.1}
 
@@ -62,7 +62,7 @@ Or you can view the collections for which you have access using your username/pa
 
 
 ```r
-nc_count(username = "YourUserName")
+nc_count(username = "testuser")
 ```
 
 Further refinements can be applied to the `nc_count()` function using [filters](#Download4)  Options include: `collections`, `project_id`, `species`, `years`, `doy` (day-of-year), `region`, and `site_type`. 

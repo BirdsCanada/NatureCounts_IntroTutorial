@@ -4,7 +4,7 @@
 
 You have successfully downloaded and summarised your NatureCounts dataset. In this chapter we will demonstrate how to do some basic visualizations with plots. 
 
-> The code in this Chapter will not work unless you replace `"YourUserName"` with your actual user name. You will be prompted to enter your password. 
+> The code in this Chapter will not work unless you replace `"testuser"` with your actual user name. You will be prompted to enter your password. 
 
 ## Plotting {#PM6.1}
 
@@ -20,7 +20,7 @@ library(naturecounts)
 library(tidyverse)
 
 VLBO <- nc_data_dl(collections = "CMMN-DET-VLBO", years = c(2015, NA), 
-                   username = "YourUserName", info = "tutorial example")
+                   username = "testuser", info = "tutorial example")
 
 GRCA <- format_zero_fill(VLBO, species = 15900, 
                          by = "SamplingEventIdentifier", 
@@ -58,6 +58,10 @@ GRCA_year <- GRCA %>%
   summarise(MeanObs = mean(ObservationCount), 
             SEObs = se(ObservationCount)) %>%   
   mutate(yrmin = MeanObs + SEObs, yrmax = MeanObs - SEObs)
+```
+
+```
+## `summarise()` ungrouping output (override with `.groups` argument)
 ```
 
 Now we can create the plot: 

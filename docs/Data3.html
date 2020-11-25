@@ -197,7 +197,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 3</span> Understanding and Viewing Data</h1>
 <p>This chapter begins with a brief introduction to the structure of the NatureCounts database, followed by a description of access levels and how to create a user account. We then provide instructions on how to view data from various collections and apply filters.</p>
 <blockquote>
-<p>The code in this Chapter will not work unless you replace <code>"YourUserName"</code> with your actual user name. You will be prompted to enter your password.</p>
+<p>The code in this Chapter will not work unless you replace <code>"testuser"</code> with your actual user name. You will be prompted to enter your password.</p>
 </blockquote>
 <div id="Data3.1" class="section level2">
 <h2><span class="header-section-number">3.1</span> Data Structure</h2>
@@ -236,7 +236,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If a username is provided, the collections are filtered to only those available to the user. Otherwise all counts from all data sources are returned (default: <code>show = "all"</code>).</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">nc_count</span>() </a></code></pre></div>
 <p>Or you can view the collections for which you have access using your username/password.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">nc_count</span>(<span class="dt">username =</span> <span class="st">&quot;YourUserName&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">nc_count</span>(<span class="dt">username =</span> <span class="st">&quot;testuser&quot;</span>)</a></code></pre></div>
 <p>Further refinements can be applied to the <code>nc_count()</code> function using <a href="Download4.html#Download4">filters</a> Options include: <code>collections</code>, <code>project_id</code>, <code>species</code>, <code>years</code>, <code>doy</code> (day-of-year), <code>region</code>, and <code>site_type</code>.</p>
 </div>
 <div id="Data3.5" class="section level2">

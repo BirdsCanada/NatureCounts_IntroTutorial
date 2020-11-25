@@ -32,10 +32,10 @@ Exercise 1: You are from the Northwest Territories and interested in learning mo
 
 ```r
 search_region("Northwest Territories", type = "statprov")
-nc_count(region = list(statprov="NT"), username="YourUserName")
+nc_count(region = list(statprov="NT"), username="testuser")
 
 search_species("Blackpoll warbler")
-BLPW<-nc_data_dl(collections="BBS50-CAN", species = 16820, years =c(2015, 2020), username="YourUserName", info="tutorial example")
+BLPW<-nc_data_dl(collections="BBS50-CAN", species = 16820, years =c(2015, 2020), username="testuser", info="tutorial example")
 ```
 
 Answer: BBS50-CAN, 1756
@@ -48,7 +48,7 @@ search_region("Beaverhill Lake", type = "iba")
 search_species("Bobolink")
 #May = doy 122-152
 
-BOBO<-nc_data_dl(region = list(iba="AB001"), species= 19520, doy=c(122,152),  username="YourUserName", info="tutorial example")
+BOBO<-nc_data_dl(region = list(iba="AB001"), species= 19520, doy=c(122,152),  username="testuser", info="tutorial example")
 ```
 Answer: 3, 1988 & 1987
 
@@ -61,7 +61,7 @@ Exercise 1: You are doing a research project using the fall migration monitoring
 collections<-meta_collections()
 search_species("Gray Catbird") 
 
-VLBO <- nc_data_dl(collections = "CMMN-DET-VLBO", species=15900, years = c(2017, 2020), username = "YourUserName", info = "tutorial example")
+VLBO <- nc_data_dl(collections = "CMMN-DET-VLBO", species=15900, years = c(2017, 2020), username = "testuser", info = "tutorial example")
 
 VLBO<-format_dates(VLBO) #This step is not strictly required.
 
@@ -75,7 +75,7 @@ Exercise 2: Building off the same dataset used in Exercise 1, you now want to ze
 ```r
 #You will pull all the data for this exercise, not just the records for Gray catbird. This ensures the zero-fill works correctly
 
-VLBO <- nc_data_dl(collections = "CMMN-DET-VLBO", years = c(2017, 2020), username = "YourUserName", info = "tutorial example")
+VLBO <- nc_data_dl(collections = "CMMN-DET-VLBO", years = c(2017, 2020), username = "testuser", info = "tutorial example")
 
 VLBO<-format_zero_fill(VLBO)
 

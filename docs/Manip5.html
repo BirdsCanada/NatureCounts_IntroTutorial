@@ -197,7 +197,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 5</span> Data Manipulation</h1>
 <p>You have successfully downloaded your NatureCounts dataset and are ready to explore and summarize the data. In this chapter we will demonstrate how to do some basic data manipulations and summaries. The possibilities are endless, so we try to focus on examples we think would be most valuable to users. We intend to develop <code>collection</code> and <code>protocol_id</code> specific data manipulation and analysis code in the future. If you have specific requests or would like to contribute your existing code, please contact <a href="mailto:dethier@birdscanada.org" class="email">dethier@birdscanada.org</a>.</p>
 <blockquote>
-<p>The code in this Chapter will not work unless you replace <code>"YourUserName"</code> with your actual user name. You will be prompted to enter your password.</p>
+<p>The code in this Chapter will not work unless you replace <code>"testuser"</code> with your actual user name. You will be prompted to enter your password.</p>
 </blockquote>
 <div id="Manip5.1" class="section level2">
 <h2><span class="header-section-number">5.1</span> Basic data wrangling</h2>
@@ -209,7 +209,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>summarise()</code>: Collapse many values down to a single summary (often with <code>group_by()</code>)</li>
 </ul>
 <p>Let’s continue using the <a href="https://www.birdscanada.org/birdmon/default/datasets.jsp?code=WPWI">Ontario Whip-poor-will</a> collection for this chapter.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1">WPWI &lt;-<span class="st"> </span><span class="kw">nc_data_dl</span>(<span class="dt">collections =</span> <span class="st">&quot;WPWI&quot;</span>, <span class="dt">username =</span> <span class="st">&quot;YourUserName&quot;</span>, <span class="dt">info =</span> <span class="st">&quot;tutorial example&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1">WPWI &lt;-<span class="st"> </span><span class="kw">nc_data_dl</span>(<span class="dt">collections =</span> <span class="st">&quot;WPWI&quot;</span>, <span class="dt">username =</span> <span class="st">&quot;testuser&quot;</span>, <span class="dt">info =</span> <span class="st">&quot;tutorial example&quot;</span>)</a></code></pre></div>
 <div id="Manip5.1.1" class="section level3">
 <h3><span class="header-section-number">5.1.1</span> Select</h3>
 <p>You will notice that NatureCounts datasets have many fields (i.e., columns) available. Generally, you will only want a few of these fields for your summary or analysis. Recall the complete version of the <a href="Data3.html#Data3.1">BMDE</a> includes 265 fields. The number of variables downloaded from the BMDE will depend on the <code>fields_set</code>, which is by default “minimum” (57 fields). You can narrow in on the variables you are interested in with the <code>select()</code> function, which allows you to subset the dataframe based on the names of the variables.</p>

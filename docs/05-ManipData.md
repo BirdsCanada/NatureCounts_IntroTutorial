@@ -4,7 +4,7 @@
 
 You have successfully downloaded your NatureCounts dataset and are ready to explore and summarize the data. In this chapter we will demonstrate how to do some basic data manipulations and summaries. The possibilities are endless, so we try to focus on examples we think would be most valuable to users. We intend to develop `collection` and `protocol_id` specific data manipulation and analysis code in the future. If you have specific requests or would like to contribute your existing code, please contact dethier@birdscanada.org. 
 
-> The code in this Chapter will not work unless you replace `"YourUserName"` with your actual user name. You will be prompted to enter your password. 
+> The code in this Chapter will not work unless you replace `"testuser"` with your actual user name. You will be prompted to enter your password. 
 
 ## Basic data wrangling {#Manip5.1}
 
@@ -21,7 +21,7 @@ Let's continue using the [Ontario Whip-poor-will](https://www.birdscanada.org/bi
 
 
 ```r
-WPWI <- nc_data_dl(collections = "WPWI", username = "YourUserName", info = "tutorial example")
+WPWI <- nc_data_dl(collections = "WPWI", username = "testuser", info = "tutorial example")
 ```
 
 ### Select {#Manip5.1.1}

@@ -197,7 +197,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 6</span> Data Visualisation</h1>
 <p>You have successfully downloaded and summarised your NatureCounts dataset. In this chapter we will demonstrate how to do some basic visualizations with plots.</p>
 <blockquote>
-<p>The code in this Chapter will not work unless you replace <code>"YourUserName"</code> with your actual user name. You will be prompted to enter your password.</p>
+<p>The code in this Chapter will not work unless you replace <code>"testuser"</code> with your actual user name. You will be prompted to enter your password.</p>
 </blockquote>
 <div id="PM6.1" class="section level2">
 <h2><span class="header-section-number">6.1</span> Plotting</h2>
@@ -208,7 +208,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb26-2" title="2"><span class="kw">library</span>(tidyverse)</a>
 <a class="sourceLine" id="cb26-3" title="3"></a>
 <a class="sourceLine" id="cb26-4" title="4">VLBO &lt;-<span class="st"> </span><span class="kw">nc_data_dl</span>(<span class="dt">collections =</span> <span class="st">&quot;CMMN-DET-VLBO&quot;</span>, <span class="dt">years =</span> <span class="kw">c</span>(<span class="dv">2015</span>, <span class="ot">NA</span>), </a>
-<a class="sourceLine" id="cb26-5" title="5">                   <span class="dt">username =</span> <span class="st">&quot;YourUserName&quot;</span>, <span class="dt">info =</span> <span class="st">&quot;tutorial example&quot;</span>)</a>
+<a class="sourceLine" id="cb26-5" title="5">                   <span class="dt">username =</span> <span class="st">&quot;testuser&quot;</span>, <span class="dt">info =</span> <span class="st">&quot;tutorial example&quot;</span>)</a>
 <a class="sourceLine" id="cb26-6" title="6"></a>
 <a class="sourceLine" id="cb26-7" title="7">GRCA &lt;-<span class="st"> </span><span class="kw">format_zero_fill</span>(VLBO, <span class="dt">species =</span> <span class="dv">15900</span>, </a>
 <a class="sourceLine" id="cb26-8" title="8">                         <span class="dt">by =</span> <span class="st">&quot;SamplingEventIdentifier&quot;</span>, </a>
@@ -229,9 +229,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb29-6" title="6"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">MeanObs =</span> <span class="kw">mean</span>(ObservationCount), </a>
 <a class="sourceLine" id="cb29-7" title="7">            <span class="dt">SEObs =</span> <span class="kw">se</span>(ObservationCount)) <span class="op">%&gt;%</span><span class="st">   </span></a>
 <a class="sourceLine" id="cb29-8" title="8"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">yrmin =</span> MeanObs <span class="op">+</span><span class="st"> </span>SEObs, <span class="dt">yrmax =</span> MeanObs <span class="op">-</span><span class="st"> </span>SEObs)</a></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
 <p>Now we can create the plot:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> GRCA_year) <span class="op">+</span><span class="st">  </span></a>
-<a class="sourceLine" id="cb30-2" title="2"><span class="st">  </span><span class="kw">geom_pointrange</span>(<span class="kw">aes</span>(<span class="dt">x =</span> survey_year, <span class="dt">y =</span> MeanObs, <span class="dt">ymin =</span> yrmin, <span class="dt">ymax =</span> yrmax))</a></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> GRCA_year) <span class="op">+</span><span class="st">  </span></a>
+<a class="sourceLine" id="cb31-2" title="2"><span class="st">  </span><span class="kw">geom_pointrange</span>(<span class="kw">aes</span>(<span class="dt">x =</span> survey_year, <span class="dt">y =</span> MeanObs, <span class="dt">ymin =</span> yrmin, <span class="dt">ymax =</span> yrmax))</a></code></pre></div>
 <p><img src="06-VisualData_files/figure-html/plot2VLBO-1.png" width="672" /></p>
 <p>You will notice there was an increase in the mean number of GRCA observed in the last three years. You might now be wondering why.</p>
 </div>
