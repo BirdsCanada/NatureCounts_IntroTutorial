@@ -62,7 +62,9 @@ WPWI_filter <- nc_data_dl(collections = "WPWI", years = c(2010, 2012),
 ```
 You will notice that the number of records in the filtered WPWI download (`WPWI_filter` = 754) is substantially less than the number of records in the full dataset (`WPWI` = 3012) downloaded in [Chapter 3](#Data3).
 
-*Example 2*: Rather than using BCR 13 to approximate the study area, you are interested in just looking at records collected on the [Bruce Peninsula](https://en.wikipedia.org/wiki/Bruce_Peninsula) for the full time period. You decide to use [spatial data to filter observations](https://birdstudiescanada.github.io/naturecounts/articles/region-spatial.html). Specifically, you create a [bounding box](https://birdstudiescanada.github.io/naturecounts/articles/region-codes.html), using coordinates from Google Map, which reflects latitude and longitude limits to extract these data. 
+*Example 2*: Rather than using BCR 13 to approximate the study area, you are interested in just looking at records collected on the [Bruce Peninsula](https://en.wikipedia.org/wiki/Bruce_Peninsula) for the full time period. You decide to use [spatial data to filter observations](https://birdstudiescanada.github.io/naturecounts/articles/region-spatial.html). Specifically, you create a [bounding box](https://birdstudiescanada.github.io/naturecounts/articles/region-codes.html), using coordinates from Google Map, which reflects latitude and longitude limits to extract these data.
+
+[Here](https://www.birdscanada.org/monitoring/georef_rec.jsp?lang=EN) is a handy tools to help you get the coordiantes of a bounding box for your study region.  
 
 ```{r nc_dl_BB, R.options=list(width=80), eval = FALSE}
 WPWI_bb <- nc_data_dl(collections = "WPWI", 

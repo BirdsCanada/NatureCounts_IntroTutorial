@@ -19,8 +19,8 @@ Recall in [Chapter 2](#Package2.2) you installed the [tidyverse](https://www.tid
 
 We are going to apply three key dplyr functions which will give you some of the basic tools needed to solve the vast majority of your data manipulation challenges. These functions include:
 
-  - `select()`: Pick variables by their names 
-  - `filter()`: Pick observations by their values 
+  - `select()`: Pick variables by their names (columns)
+  - `filter()`: Pick observations by their values (rows)
   - `summarise()`: Collapse many values down to a single summary (often with `group_by()`)
 
 Let's continue using the [Ontario Whip-poor-will](https://www.birdscanada.org/birdmon/default/datasets.jsp?code=WPWI) collection for this chapter.   
