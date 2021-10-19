@@ -21,7 +21,7 @@ By default, the naturecounts package downloads the data with the *minimum* set o
 
 ## Levels of Data Access {#Data3.2}
 
-NatureCounts hosts many datasets, representing in excess of 140 million occurrence records, with a primary focus on Canadian bird monitoring data. Many of those datasets are from projects lead by Birds Canada and/or its partners. While we strive to make our data as openly available as possible, we also need to recognize the needs of our partners and funders.
+NatureCounts hosts many datasets, representing in excess of 170 million occurrence records, with a primary focus on Canadian bird monitoring data. Many of those datasets are from projects lead by Birds Canada and/or its partners. While we strive to make our data as openly available as possible, we also need to recognize the needs of our partners and funders.
 
 NatureCounts has five [Levels of Data Access](https://www.birdscanada.org/birdmon/default/nc_access_levels.jsp), which define how each dataset can be used. Those levels are set individually for each dataset, in consultation with the various partners and data custodians involved.
 
@@ -42,8 +42,11 @@ All contributing members of NatureCounts have complete authority over the use of
 You can view the Data Access Level for each collection on the [NatureCounts Datasets](https://www.birdscanada.org/birdmon/default/datasets.jsp) page or using the [metadata](#Data3.5) function (see `akn_level`):
 
 ```{r access, eval = FALSE}
-meta_collections() 
+collections<-meta_collections()
+View(collections)
 ``` 
+
+> You can create a stand alone table for any metadata table using similar syntax as above
 
 ## Authorizations {#Data3.3}
 
@@ -101,15 +104,60 @@ There are [metadata](https://birdstudiescanada.github.io/naturecounts/reference/
   
   - `meta_protocol_types()`: protocol types and descriptions
 
-Comprehensive reference articles are available online for retrieving [Region](https://birdstudiescanada.github.io/naturecounts/articles/region-codes.html) and [Species](https://birdstudiescanada.github.io/naturecounts/articles/species-codes.html) codes. We do not repeat those material here, but encourage you to review these prior to proceeding. 
-
-You can explore the metadata materials using one line of code. For example, you can view the Important Bird Area (IBA) metadata using:
+You can explore the metadata materials using two lines of code. For example, you can view the Important Bird Area (IBA) metadata using:
 
 ```{r meta, eval = FALSE}
-meta_iba_codes()
+iba<-meta_iba_codes()
+View(iba)
 ```
 
-## Examples {#Data3.6}
+## Region & Species filtering {#Data3.6}
+
+Filtering will often be done based on geographic extent (i.e., `region`). To filtering by `region` you must provide a named list with *one* of the following:  
+
+- `country`: country code (e.g., CA for Canada)
+
+- `statprov`: state/province code (e.g., MB for Manitoba)
+
+- `subnational2`: subnational (type 2) code (e.g., CA.MB.07 for the Brandon Area)
+
+- `iba`: Important Bird Areas (IBA) code (e.g., AB001 for Beaverhill Lake in Alberta)
+
+- `bcr`: Bird Conservation Regions (e.g., 2 for Western Alaska)
+
+- `utm_squares`: UTM square code (e.g., 10UFE96 for a grid in Alberta)
+
+- `bbox`: bounding box coordinates (e.g., c(left = -101.097223, bottom = 50.494717, right = -99.511239, top = 51.027557) for a box containing Riding Mountain National Park in Manitoba). On the NatureCounts web portal there is a handy [Within Coordinates](https://www.birdscanada.org/birdmon/default/searchquery.jsp)) tool to help you retrieve custom coordinates for your data query and/or download.  
+
+To use the `region` argument: 
+
+```{r nc_count example, eval=FALSE}
+
+nc_count(region=list(statprov="ON"))
+
+```
+
+Another commonly used filter is specific to `species`. In order to filter by `species` you need to get the species id codes. These are numeric codes that reflect species identity.
+
+For all species, you can search by scientific, English or French name with the search_species() function.
+
+```{r species example, eval=FALSE}
+
+search_species("chickadee")
+
+```
+
+For birds, you can also search by alphanumeric species codes with the search_species_code() function. This function also gives you the option of returning all species codes (including subspecies) related to a single species, and is considered a more robust method for ensuring that you do not miss observations.
+
+```{r species code search example, eval=FALSE}
+
+search_species_code("BCCH")
+
+```
+
+For additional examples and more advanced options are available online for retrieving [Region](https://birdstudiescanada.github.io/naturecounts/articles/region-codes.html) and [Species](https://birdstudiescanada.github.io/naturecounts/articles/species-codes.html) codes.
+
+## Examples {#Data3.7}
 
 Here are a few examples for you to work through to become familiar with the `nc_count()` function.  
 
@@ -126,20 +174,27 @@ nc_count(region = list(statprov = "BC"))
 The following code will retrieve all available collections and number of records for Red-headed Woodpecker  
 ```{r nc_species1, eval=FALSE}
 search_species("Red-headed Woodpecker")
-nc_count(species = 10060)
+
+search_species_code("RHWO")
+
+RHWO<-nc_count(species = 10060)
+View(RHWO)
 ```
 
 *Example 3*: We can further refine the Red-headed Woodpecker example (above) by filtering the species-specific data by region (e.g., [Bird Conservation Region](http://nabci-us.org/assets/images/bcr_map2.jpg) 11), time period (e.g., 2015-2019), or a combination of both.
 
 ```{r nc_species2, eval=FALSE}
-nc_count(species = 10060, region = list(bcr = "11"))
+RHWO_11<-nc_count(species = 10060, region = list(bcr = "11"))
+View(RHWO_11)
 
-nc_count(species = 10060, year = c(2015, 2019))
+RHWO_year<-nc_count(species = 10060, year = c(2015, 2019))
+View(RHWO_year)
 
-nc_count(species = 10060, region = list(bcr = "11"), year = c(2015, 2019))
+RHWO_11_year<-nc_count(species = 10060, region = list(bcr = "11"), year = c(2015, 2019))
+View(RHWO_11_year)
 ```
 
-## Exercises {#Data3.7}
+## Exercises {#Data3.8}
 
 Now apply your newly acquired skills!
 
@@ -151,5 +206,5 @@ Answer: EBird-CA-QC, OISEAUXQC, CBC
 
 Answer: 702, 389
 
-Answers to the exercises can be found in [Chapter 7](#Ans7.1).
+Full answers to the exercises can be found in [Chapter 7](#Ans7.1).
 

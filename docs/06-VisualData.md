@@ -27,7 +27,7 @@ GRCA <- format_zero_fill(VLBO, species = 15900,
                          extra_event= c("survey_year", "survey_month", "survey_day"))
 ```
 
-First, we are interested if there are any noticeable patterns in migration timing. For this, we will use the [add date and day-of-year helper function](https://birdstudiescanada.github.io/naturecounts/reference/format_dates.html) to add two new columns to the dataframe. 
+First, we are interested if there are any noticeable patterns in migration timing. For this, we will use the [add date and day-of-year helper function](https://birdstudiescanada.github.io/naturecounts/reference/format_dates.html), introduced at the end of [Chapter 5](#Manip5.3), to add two new columns to the dataframe. 
 
 
 ```r
@@ -74,7 +74,7 @@ ggplot(data = GRCA_year) +
 
 <img src="06-VisualData_files/figure-html/plot2VLBO-1.png" width="672" />
 
-You will notice there was an increase in the mean number of GRCA observed in the last three years. You might now be wondering why.  
+You will notice there was an increase in the mean number of GRCA observed in the last three years, compared to 2015. You might now be wondering why.  
 
 ## Mapping {#PM6.2}
 

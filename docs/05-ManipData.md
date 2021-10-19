@@ -2,7 +2,7 @@
 
 
 
-You have successfully downloaded your NatureCounts dataset and are ready to explore and summarize the data. In this chapter we will demonstrate how to do some basic data manipulations and summaries. The possibilities are endless, so we try to focus on examples we think would be most valuable to users. We intend to develop `collection` and `protocol_id` specific data manipulation and analysis code in the future. If you have specific requests or would like to contribute your existing code, please contact dethier@birdscanada.org. 
+You have successfully downloaded your NatureCounts dataset and are ready to explore and summarise the data. In this chapter we will demonstrate how to do some basic data manipulations and summaries. The possibilities are endless, so we try to focus on examples we think would be most valuable to users. We intend to develop `collection` and `protocol_id` specific data manipulation and analysis code in the future. If you have specific requests or would like to contribute your existing code, please contact dethier@birdscanada.org. 
 
 > The code in this Chapter will not work unless you replace `"testuser"` with your actual user name. You will be prompted to enter your password. 
 
@@ -13,11 +13,11 @@ Recall in [Chapter 2](#Package2.2) you installed the [tidyverse](https://www.tid
 
 We are going to apply three key dplyr functions which will give you some of the basic tools needed to solve the vast majority of your data manipulation challenges. These functions include:
 
-  - `select()`: Pick variables by their names 
-  - `filter()`: Pick observations by their values 
+  - `select()`: Pick variables by their names (columns)
+  - `filter()`: Pick observations by their values (rows)
   - `summarise()`: Collapse many values down to a single summary (often with `group_by()`)
 
-Let's continue using the [Ontario Whip-poor-will](https://www.birdscanada.org/birdmon/default/datasets.jsp?code=WPWI) collection for this chapter.   
+Let's continue using the full [Ontario Whip-poor-will](https://www.birdscanada.org/birdmon/default/datasets.jsp?code=WPWI) collection for this chapter.   
 
 
 ```r
@@ -32,7 +32,7 @@ For example, we are going to `select()` a subset of variables from the WPWI data
 
 
 ```r
-WPWI_select <- select(WPWI, "ObservationCount", "SurveyAreaIdentifier", 
+WPWI_select <- select(WPWI, "SurveyAreaIdentifier", 
                       "RouteIdentifier", "species_id", "latitude", 
                       "longitude", "bcr", "survey_day", "survey_month", 
                       "survey_year")
@@ -77,54 +77,102 @@ WPWI_multi <- filter(WPWI_select,
 
 ### Summarise {#Manip5.1.3}
 
-Now that we have selected the columns we need for our analysis and limited the data to the observation records we wish to use, we will want to summarise what we have left! The `summarise()` function is most useful if paired with the `group_by()` argument, because this changes the unit of analysis from the complete dataset to individual groups.
+Now that we have selected the columns we need for our analysis we will demonstrate how to summarise the data. The `summarise()` function is most useful if paired with the `group_by()` argument, because this changes the unit of analysis from the complete dataset to individual groups.
 
-For example, say we want to determine how many point count stops were on each Route. We will want to group observations by `RouteIdentifier` and summarise the number of district `SurveyAreaIdentifier`. 
+For example, say we want to determine how many point count stops were on each WPWI Route. We will want to group observations by `RouteIdentifier` and summarise the number of district `SurveyAreaIdentifier`. 
 
 
 ```r
-WPWI_Route <- group_by(WPWI_multi, RouteIdentifier)
+WPWI_Route <- group_by(WPWI_select, RouteIdentifier)
 WPWI_Route <- summarise(WPWI_Route, Nstops = n_distinct(SurveyAreaIdentifier))
 ```
 
-However, now that we're getting on to more complex operations, we'll introduce the 
-use of the pipe `%>%`. This allows you to pass (pipe) the output of one line 
-as input to the next line. Therefore, the previous code can be re-written as:
+However, now that we're getting on to more complex operations, we'll introduce the use of the pipe `%>%`. This allows you to pass (pipe) the output of one line as input to the next line. Therefore, the previous code can be re-written as:
 
 
 ```r
-WPWI_Route <- WPWI_multi %>% 
+WPWI_Route <- WPWI_select %>% 
   group_by(RouteIdentifier) %>% 
   summarise(Nstops = n_distinct(SurveyAreaIdentifier))
+
+View(WPWI_Route)
 ```
 
-Note that there is a pipe (`%>%`) between each set of lines and that the data (`WPWI_multi`)
-is only referred to once, at the very start. These two different codes achieve the 
-exact same result.
+Note that there is a pipe (`%>%`) between each set of lines and that the data (`WPWI_select`) is only referred to once, at the very start. These two different codes achieve the exact same result.
 
 Back to our example, we might also want to know how many routes where run in each year. 
 
 
 ```r
-WPWI_Year <- WPWI_multi %>% 
+WPWI_Year <- WPWI_select %>% 
   group_by(survey_year) %>% 
   summarise(Nroute = n_distinct(RouteIdentifier))
+
+View(WPWI_Year)
 ```
 
-Finally, lets look to see how many Observations (`ObservationCount`) of WPWI were made on each route in each year. First we need to replace any `NA`s with `0` and ensure this variable is numeric.
+Finally, lets look to see how many Observations of WPWI were made in each year. Since each row of data represents a survey point, we want to count the number of rows containing species_id = "7871" within each unique year. We can do this by first removing the 'NA' using the `filter` function, and then use the `group_by` and `summarise` to determine the 'length' of the dataset (i.e., the number of rows with WPWI sightings). 
 
 
 ```r
-WPWI_multi$ObservationCount[is.na(WPWI_multi$ObservationCount)] <- 0
+WPWI_Obs <- WPWI_select %>% filter (species_id != "NA") %>% 
+  group_by(survey_year) %>% 
+  summarise(SumObs=length(species_id))
 
-WPWI_Obs <- WPWI_multi %>% 
-  group_by(RouteIdentifier, survey_year) %>% 
-  summarise(MeanObs = mean(as.numeric(ObservationCount)))
+View(WPWI_Obs)
 ```
 
-No WIWP were detected in our subset of the data!! No wonder this species is listed as [threatened](https://www.ontario.ca/page/eastern-whip-poor-will) in the province. 
+## Combine datasets {#Manip5.2}
 
-## Helper Functions {#Manip5.2}
+There are many reasons to join two datatables. For example, if you have species observations across several years you might want to associate these with weather covariates to assess if they are correlated. Or you might have observations over a specific geographic region, which you wish to associate with land cover covariates. To do this, you will want to join (merge) two tables. Looking at the [Data Wrangling](https://rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf) cheat sheet, you will notice there are several `join` functions. In all instances, you will need to specify the **key** variable, which is found in both tables, which is used for binding the tables together.     
+
+Here we provide an example using metadata available to you in naturecounts. 
+
+When you pull `collections` with the  "minimum" `fields_set` (default) you will notice you get the species_id column, but not alpha species code. For example, let's pull a small amount of data from the second Alberta Breeding Bird Atlas (ABATLAS2) from Beaverhill Lake Important Bird Area (AB001) in 2005.
+
+
+```r
+AB_Atlas<-nc_data_dl(collections="ABATLAS2", region=list(iba = "AB001"), years=2005, username = "testuser", info = "tutorial example")
+```
+Notice there are 57 variables, including is a numeric species_id, but no alpha species code.
+
+To rectify this, there are two options: 
+
+1. Set the `fields_set` argument to *extended*. 
+
+
+```r
+AB_Atlas2<-nc_data_dl(collections="ABATLAS2", region=list(iba = "AB001"), years=2005, fields_set="extended", username = "testuser", info = "tutorial example")
+```
+Notice you are now pulling 285 variables, including the CommonName. However, for this particular dataset, there is still no alpha code (SpeciesCode). Most datasets will have these in the BMDE, this one does not. Lets add them using the an auxiliary table.    
+
+2. Create a species code table using the available metadata and then join this to your existing data table.
+
+First, identify the appropriate taxonomic authority using the metadata. 
+
+
+```r
+authority<-meta_species_authority()
+View(authority)
+```
+
+Second, pull the species code table, and filter for the "ABATLAS2" authority. 
+
+
+```r
+species<-meta_species_codes()
+View(species)
+species<-species %>% filter(authority=="ABATLAS2")
+```
+
+Third, join your tables so that it includes the desired species information. 
+
+```r
+AB_Atlas_sp<-left_join(AB_Atlas, species, by="species_id")
+```
+Now your datatable contains the species code, which is familar to most birders. You can also try joining the Atlas data to the meta_species_taxonomy() table if you wish to capture the english common, french, or scientific names, amoung other fields. 
+
+## Helper functions {#Manip5.3}
 
 There are a few additional helper functions built into the naturecounts R package that you may find useful. At present, they include: 
 
@@ -133,7 +181,7 @@ There are a few additional helper functions built into the naturecounts R packag
 
 The zero-fill function is particularly important if you want to ensure your dataset is complete!
 
-## Exercies {#Manip5.3}
+## Exercies {#Manip5.4}
 
 *Exercise 1*:  You are doing a research project using the fall migration monitoring data collected at [Vaseux Lake Bird Observatory](https://www.birdscanada.org/birdmon/default/datasets.jsp?code=CMMN-DET-VLBO), British Columbia. You request the open access data from 2017-2020. After you request this subset of the collection, you need to determine the number of unique days Gray catbirds were records in each year?
 

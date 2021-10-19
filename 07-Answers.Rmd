@@ -16,7 +16,8 @@ Exercise 1: If you are interesting in doing a research project on Snowy Owls in 
 ```{r Ans3.1, eval=FALSE}
 search_species("Snowy Owl")
 search_region("Quebec", type = "statprov")
-nc_count(species=7450, region = list(statprov="QC"))
+SNOW<-nc_count(species=7450, region = list(statprov="QC"))
+View(SNOW)
 ```
 Answer: EBird-CA-QC, OISEAUXQC, CBC
 
@@ -24,9 +25,14 @@ Exercise 2: How many records of Gadwal are in the British Columbia Coastal Water
 
 ```{r Ans3.2, eval=FALSE}
 search_species("Gadwal")
-collections<-meta_collections()
-nc_count(species=390, collections = "BCCWS")
-nc_count(species=390, collections = "BCCWS", years =c(2010,2019))
+collection<-collections<-meta_collections()
+View(collection)
+
+GADW<-nc_count(species=390, collections = "BCCWS")
+View(GADW)
+
+GADW2<-nc_count(species=390, collections = "BCCWS", years =c(2010,2019))
+View(GADW2)
 ```
 Answer: 702, 389
 
@@ -36,7 +42,8 @@ Exercise 1: You are from the Northwest Territories and interested in learning mo
 
 ```{r Ans4.1, eval=FALSE}
 search_region("Northwest Territories", type = "statprov")
-nc_count(region = list(statprov="NT"), username="testuser")
+NT<-nc_count(region = list(statprov="NT"), username="testuser")
+View(NT)
 
 search_species("Blackpoll warbler")
 BLPW<-nc_data_dl(collections="BBS50-CAN", species = 16820, years =c(2015, 2020), username="testuser", info="tutorial example")
@@ -52,6 +59,7 @@ search_species("Bobolink")
 #May = doy 122-152
 
 BOBO<-nc_data_dl(region = list(iba="AB001"), species= 19520, doy=c(122,152),  username="testuser", info="tutorial example")
+View(BOBO)
 ```
 Answer: 3, 1988 & 1987
 
@@ -68,6 +76,7 @@ VLBO <- nc_data_dl(collections = "CMMN-DET-VLBO", species=15900, years = c(2017,
 VLBO<-format_dates(VLBO) #This step is not strictly required.
 
 GRCA<-VLBO %>% group_by(survey_year) %>% summarize(day_distinct = n_distinct(doy)) #Could have alternatively counted the number of district `SamplingEventIdentifier` 
+View(GRCA)
 
 ```
 Answer: 2017 = 54 2018 = 53

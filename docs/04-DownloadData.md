@@ -6,7 +6,7 @@ This chapter jumps right into downloading NatureCounts data, which builds direct
 
 ## Downloading NatureCounts data {#Download4.1}
 
-Open access collections are available for download without a username/password, however, we encourage you to [sign up](https://www.birdscanada.org/birdmon/default/register.jsp) for a **free** account.
+To download data you need to [sign up](https://www.birdscanada.org/birdmon/default/register.jsp) for a **free** account.
 
 > The code in this Chapter will not work unless you replace `"testuser"` with your actual user name. You will be prompted to enter your password. 
 
@@ -31,11 +31,10 @@ nc_requests(username = "testuser")
 Here is sample code to download Access Level 3 or 4 data: 
 
 ```r
-my_data <- nc_data_dl(collections = "CBC",
-                      request_id = 000000, username = "USER",
+my_data <- nc_data_dl(request_id = 000000, username = "USER",
                       info = "MY REASON")
 ```
-**Note: This code is not functional and is here to serve as a structural example. You will need to insert your `collections`, `request_id`, `username`, and `info` in the code chunk above to make this work. If you applied filters to the web portal data request (e.g., species, region, year), you will only receive the subset of the dataset you requested.** 
+**Note: This code is not functional and is here to serve as a structural example. You will need to insert your `request_id`, `username`, and `info` in the code chunk above to make this work. If you applied filters to the web portal data request (e.g., species, region, year), you will only receive the subset of the dataset you requested.** 
 
 ## Applying Filters {#Download4.2}
 
@@ -60,16 +59,16 @@ WPWI_filter <- nc_data_dl(collections = "WPWI", years = c(2010, 2012),
 ```
 You will notice that the number of records in the filtered WPWI download (`WPWI_filter` = 754) is substantially less than the number of records in the full dataset (`WPWI` = 3012) downloaded in [Chapter 3](#Data3).
 
-*Example 2*: Rather than using BCR 13 to approximate the study area, you are interested in just looking at records collected on the [Bruce Peninsula](https://en.wikipedia.org/wiki/Bruce_Peninsula) for the full time period. You decide to use [spatial data to filter observations](https://birdstudiescanada.github.io/naturecounts/articles/region-spatial.html). Specifically, you create a [bounding box](https://birdstudiescanada.github.io/naturecounts/articles/region-codes.html), using coordinates from Google Map, which reflects latitude and longitude limits to extract these data. 
+*Example 2*: Rather than using BCR 13 to approximate the study area, you are interested in just looking at records collected on the [Bruce Peninsula](https://en.wikipedia.org/wiki/Bruce_Peninsula) for the full time period. You decide to use [spatial data to filter observations](https://birdstudiescanada.github.io/naturecounts/articles/region-spatial.html). Specifically, you create a [bounding box](https://birdstudiescanada.github.io/naturecounts/articles/region-codes.html), using the [Within Coordinates](https://www.birdscanada.org/birdmon/default/searchquery.jsp)) tool to help you retrieve custom coordinates for your data query and/or download.  
 
 
 ```r
-WPWI_bb <- nc_data_dl(collections = "WPWI", 
+WPWI_bp <- nc_data_dl(collections = "WPWI", 
                       region = list(bbox = c(left = -81.7, bottom = 44.5, 
                                              right = -80.9, top = 45.3)), 
                       username = "testuser", info = "tutorial example")
 ```
-You will notice there are now even fewer observation records (`WPWI_bb` = 72)
+You will notice there are now even fewer observation records (`WPWI_bp` = 72)
 
 ## Exercises {#Download4.4}
 

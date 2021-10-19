@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Understanding and Viewing Data | NatureCounts: An Introductory R Tutorial</title>
   <meta name="description" content="Introduction to NatureCounts and associated R Package" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Understanding and Viewing Data | NatureCounts: An Introductory R Tutorial" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.git" />
-  <meta property="og:image" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.gitNC.png" />
+  <meta property="og:image" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.git/NC.png" />
   <meta property="og:description" content="Introduction to NatureCounts and associated R Package" />
   <meta name="github-repo" content="DMEthier/NatureCounts_Tutorial_1" />
 
@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="Chapter 3 Understanding and Viewing Data | NatureCounts: An Introductory R Tutorial" />
   
   <meta name="twitter:description" content="Introduction to NatureCounts and associated R Package" />
-  <meta name="twitter:image" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.gitNC.png" />
+  <meta name="twitter:image" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.git/NC.png" />
 
 <meta name="author" content="Danielle Ethier" />
 
@@ -32,7 +32,9 @@
   
 <link rel="prev" href="Package2.html"/>
 <link rel="next" href="Download4.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -48,29 +50,32 @@
 
 
 
-
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -79,9 +84,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -114,6 +119,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <link rel="stylesheet" href="mystyles.css" type="text/css" />
 </head>
 
@@ -131,44 +137,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to NatureCounts</a></li>
-<li class="chapter" data-level="1" data-path="Intro1.html"><a href="Intro1.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1" data-path="Intro1.html"><a href="Intro1.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="Intro1.html"><a href="Intro1.html#intro1.1"><i class="fa fa-check"></i><b>1.1</b> NatureCounts and R</a></li>
 <li class="chapter" data-level="1.2" data-path="Intro1.html"><a href="Intro1.html#intro1.2"><i class="fa fa-check"></i><b>1.2</b> Prerequisites</a></li>
 <li class="chapter" data-level="1.3" data-path="Intro1.html"><a href="Intro1.html#intro1.3"><i class="fa fa-check"></i><b>1.3</b> Acknowledgements</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="Package2.html"><a href="Package2.html"><i class="fa fa-check"></i><b>2</b> Loading R Packages</a><ul>
+<li class="chapter" data-level="2" data-path="Package2.html"><a href="Package2.html"><i class="fa fa-check"></i><b>2</b> Loading R Packages</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="Package2.html"><a href="Package2.html#Package2.1"><i class="fa fa-check"></i><b>2.1</b> Installing naturecounts</a></li>
 <li class="chapter" data-level="2.2" data-path="Package2.html"><a href="Package2.html#Package2.2"><i class="fa fa-check"></i><b>2.2</b> Additional packages</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="Data3.html"><a href="Data3.html"><i class="fa fa-check"></i><b>3</b> Understanding and Viewing Data</a><ul>
+<li class="chapter" data-level="3" data-path="Data3.html"><a href="Data3.html"><i class="fa fa-check"></i><b>3</b> Understanding and Viewing Data</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="Data3.html"><a href="Data3.html#Data3.1"><i class="fa fa-check"></i><b>3.1</b> Data Structure</a></li>
 <li class="chapter" data-level="3.2" data-path="Data3.html"><a href="Data3.html#Data3.2"><i class="fa fa-check"></i><b>3.2</b> Levels of Data Access</a></li>
 <li class="chapter" data-level="3.3" data-path="Data3.html"><a href="Data3.html#Data3.3"><i class="fa fa-check"></i><b>3.3</b> Authorizations</a></li>
 <li class="chapter" data-level="3.4" data-path="Data3.html"><a href="Data3.html#Data3.4"><i class="fa fa-check"></i><b>3.4</b> Viewing information about NatureCounts collections</a></li>
 <li class="chapter" data-level="3.5" data-path="Data3.html"><a href="Data3.html#Data3.5"><i class="fa fa-check"></i><b>3.5</b> Metadata codes and decriptions</a></li>
-<li class="chapter" data-level="3.6" data-path="Data3.html"><a href="Data3.html#Data3.6"><i class="fa fa-check"></i><b>3.6</b> Examples</a></li>
-<li class="chapter" data-level="3.7" data-path="Data3.html"><a href="Data3.html#Data3.7"><i class="fa fa-check"></i><b>3.7</b> Exercises</a></li>
+<li class="chapter" data-level="3.6" data-path="Data3.html"><a href="Data3.html#Data3.6"><i class="fa fa-check"></i><b>3.6</b> Region &amp; Species filtering</a></li>
+<li class="chapter" data-level="3.7" data-path="Data3.html"><a href="Data3.html#Data3.7"><i class="fa fa-check"></i><b>3.7</b> Examples</a></li>
+<li class="chapter" data-level="3.8" data-path="Data3.html"><a href="Data3.html#Data3.8"><i class="fa fa-check"></i><b>3.8</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="Download4.html"><a href="Download4.html"><i class="fa fa-check"></i><b>4</b> Downloading and Filtering Data</a><ul>
+<li class="chapter" data-level="4" data-path="Download4.html"><a href="Download4.html"><i class="fa fa-check"></i><b>4</b> Downloading and Filtering Data</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="Download4.html"><a href="Download4.html#Download4.1"><i class="fa fa-check"></i><b>4.1</b> Downloading NatureCounts data</a></li>
 <li class="chapter" data-level="4.2" data-path="Download4.html"><a href="Download4.html#Download4.2"><i class="fa fa-check"></i><b>4.2</b> Applying Filters</a></li>
 <li class="chapter" data-level="4.3" data-path="Download4.html"><a href="Download4.html#Download4.3"><i class="fa fa-check"></i><b>4.3</b> Examples</a></li>
 <li class="chapter" data-level="4.4" data-path="Download4.html"><a href="Download4.html#Download4.4"><i class="fa fa-check"></i><b>4.4</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="Manip5.html"><a href="Manip5.html"><i class="fa fa-check"></i><b>5</b> Data Manipulation</a><ul>
-<li class="chapter" data-level="5.1" data-path="Manip5.html"><a href="Manip5.html#Manip5.1"><i class="fa fa-check"></i><b>5.1</b> Basic data wrangling</a><ul>
+<li class="chapter" data-level="5" data-path="Manip5.html"><a href="Manip5.html"><i class="fa fa-check"></i><b>5</b> Data Manipulation</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="Manip5.html"><a href="Manip5.html#Manip5.1"><i class="fa fa-check"></i><b>5.1</b> Basic data wrangling</a>
+<ul>
 <li class="chapter" data-level="5.1.1" data-path="Manip5.html"><a href="Manip5.html#Manip5.1.1"><i class="fa fa-check"></i><b>5.1.1</b> Select</a></li>
 <li class="chapter" data-level="5.1.2" data-path="Manip5.html"><a href="Manip5.html#Manip5.1.2"><i class="fa fa-check"></i><b>5.1.2</b> Filter</a></li>
 <li class="chapter" data-level="5.1.3" data-path="Manip5.html"><a href="Manip5.html#Manip5.1.3"><i class="fa fa-check"></i><b>5.1.3</b> Summarise</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="Manip5.html"><a href="Manip5.html#Manip5.2"><i class="fa fa-check"></i><b>5.2</b> Helper Functions</a></li>
-<li class="chapter" data-level="5.3" data-path="Manip5.html"><a href="Manip5.html#Manip5.3"><i class="fa fa-check"></i><b>5.3</b> Exercies</a></li>
+<li class="chapter" data-level="5.2" data-path="Manip5.html"><a href="Manip5.html#Manip5.2"><i class="fa fa-check"></i><b>5.2</b> Combine datasets</a></li>
+<li class="chapter" data-level="5.3" data-path="Manip5.html"><a href="Manip5.html#Manip5.3"><i class="fa fa-check"></i><b>5.3</b> Helper functions</a></li>
+<li class="chapter" data-level="5.4" data-path="Manip5.html"><a href="Manip5.html#Manip5.4"><i class="fa fa-check"></i><b>5.4</b> Exercies</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="Visual6.html"><a href="Visual6.html"><i class="fa fa-check"></i><b>6</b> Data Visualisation</a><ul>
+<li class="chapter" data-level="6" data-path="Visual6.html"><a href="Visual6.html"><i class="fa fa-check"></i><b>6</b> Data Visualisation</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="Visual6.html"><a href="Visual6.html#PM6.1"><i class="fa fa-check"></i><b>6.1</b> Plotting</a></li>
 <li class="chapter" data-level="6.2" data-path="Visual6.html"><a href="Visual6.html#PM6.2"><i class="fa fa-check"></i><b>6.2</b> Mapping</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="Ans7.html"><a href="Ans7.html"><i class="fa fa-check"></i><b>7</b> Exercise Answers</a><ul>
+<li class="chapter" data-level="7" data-path="Ans7.html"><a href="Ans7.html"><i class="fa fa-check"></i><b>7</b> Exercise Answers</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="Ans7.html"><a href="Ans7.html#Ans7.1"><i class="fa fa-check"></i><b>7.1</b> Chapter 3</a></li>
 <li class="chapter" data-level="7.2" data-path="Ans7.html"><a href="Ans7.html#Ans7.2"><i class="fa fa-check"></i><b>7.2</b> Chapter 4</a></li>
 <li class="chapter" data-level="7.3" data-path="Ans7.html"><a href="Ans7.html#Ans7.3"><i class="fa fa-check"></i><b>7.3</b> Chapter 5</a></li>
@@ -193,13 +209,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="Data3" class="section level1">
+<div id="Data3" class="section level1" number="3">
 <h1><span class="header-section-number">Chapter 3</span> Understanding and Viewing Data</h1>
 <p>This chapter begins with a brief introduction to the structure of the NatureCounts database, followed by a description of access levels and how to create a user account. We then provide instructions on how to view data from various collections and apply filters.</p>
 <blockquote>
 <p>The code in this Chapter will not work unless you replace <code>"testuser"</code> with your actual user name. You will be prompted to enter your password.</p>
 </blockquote>
-<div id="Data3.1" class="section level2">
+<div id="Data3.1" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Data Structure</h2>
 <p>The <a href="https://www.birdscanada.org/birdmon/default/nc_bmde.jsp">Bird Monitoring Data Exchange</a> (BMDE) was developed to be a standardized data exchange schema to promote the sharing and analysis of avian observational data. The schema is the core sharing standard of the <a href="http://www.avianknowledge.net">Avian Knowledge Network</a>.The BMDE (currently version 2.0) includes 169 <em>core</em> fields (variables) that are capable of capturing all metrics and descriptors associated with a bird observation. The BMDE schema was extended in 2018, and the <em>complete</em> version now includes 265 fields (variables).</p>
 <blockquote>
@@ -207,9 +223,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <p>By default, the naturecounts package downloads the data with the <em>minimum</em> set of fields/columns. However, for more advanced applications, users may wish to specify which fields/columns to return using the <code>field_set</code> and <code>fields</code> options in the <code>nc_data_dl()</code> function. For help with this feature, see the naturecounts article <a href="https://birdstudiescanada.github.io/naturecounts/articles/selecting-fields.html">‘Selecting columns and fields to download’</a>.</p>
 </div>
-<div id="Data3.2" class="section level2">
+<div id="Data3.2" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Levels of Data Access</h2>
-<p>NatureCounts hosts many datasets, representing in excess of 140 million occurrence records, with a primary focus on Canadian bird monitoring data. Many of those datasets are from projects lead by Birds Canada and/or its partners. While we strive to make our data as openly available as possible, we also need to recognize the needs of our partners and funders.</p>
+<p>NatureCounts hosts many datasets, representing in excess of 170 million occurrence records, with a primary focus on Canadian bird monitoring data. Many of those datasets are from projects lead by Birds Canada and/or its partners. While we strive to make our data as openly available as possible, we also need to recognize the needs of our partners and funders.</p>
 <p>NatureCounts has five <a href="https://www.birdscanada.org/birdmon/default/nc_access_levels.jsp">Levels of Data Access</a>, which define how each dataset can be used. Those levels are set individually for each dataset, in consultation with the various partners and data custodians involved.</p>
 <ul>
 <li><p>Level 0: most restricted (archival only)</p></li>
@@ -221,25 +237,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>All contributing members of NatureCounts have complete authority over the use of the data they have provided, and can withhold data at any time from any party or application. All users of any NatureCounts data must clearly acknowledge the contribution of the members who are making data available. Each dataset comes with its own <a href="https://www.birdscanada.org/birdmon/default/nc_data_sharing.jsp">Data Sharing Policy</a> that defines the various conditions for data usage.</p>
 <p>You can view the Data Access Level for each collection on the <a href="https://www.birdscanada.org/birdmon/default/datasets.jsp">NatureCounts Datasets</a> page or using the <a href="Data3.html#Data3.5">metadata</a> function (see <code>akn_level</code>):</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">meta_collections</span>() </a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="Data3.html#cb5-1" aria-hidden="true" tabindex="-1"></a>collections<span class="ot">&lt;-</span><span class="fu">meta_collections</span>()</span>
+<span id="cb5-2"><a href="Data3.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(collections)</span></code></pre></div>
+<blockquote>
+<p>You can create a stand alone table for any metadata table using similar syntax as above</p>
+</blockquote>
 </div>
-<div id="Data3.3" class="section level2">
+<div id="Data3.3" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> Authorizations</h2>
 <p>To access data using the naturecounts R package, you must <a href="https://www.birdscanada.org/birdmon/default/register.jsp">sign up</a> for a <strong>free</strong> account. Further, if you would like to access Level 3 or 4 collections you must make a <a href="https://www.birdscanada.org/birdmon/default/searchquery.jsp">data request</a>. For step-by-step visual instructions, we encourage you to watch: <a href="link%20to%20be%20provided">NatureCounts: An Introductory Tutorial</a>.</p>
 <blockquote>
 <p>Create your <strong>free</strong> account now before continuing with this workbook</p>
 </blockquote>
 </div>
-<div id="Data3.4" class="section level2">
+<div id="Data3.4" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> Viewing information about NatureCounts collections</h2>
 <p>First, lets use the naturecounts R package to view the number of records available for different collections. To do this we use the <code>nc_count()</code> function. You can view <em>all</em> the available collections and the number of observations using the default setting.</p>
 <p>If a username is provided, the collections are filtered to only those available to the user. Otherwise all counts from all data sources are returned (default: <code>show = "all"</code>).</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">nc_count</span>() </a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="Data3.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nc_count</span>() </span></code></pre></div>
 <p>Or you can view the collections for which you have access using your username/password.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">nc_count</span>(<span class="dt">username =</span> <span class="st">&quot;testuser&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="Data3.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nc_count</span>(<span class="at">username =</span> <span class="st">&quot;testuser&quot;</span>)</span></code></pre></div>
 <p>Further refinements can be applied to the <code>nc_count()</code> function using <a href="Download4.html#Download4">filters</a> Options include: <code>collections</code>, <code>project_id</code>, <code>species</code>, <code>years</code>, <code>doy</code> (day-of-year), <code>region</code>, and <code>site_type</code>.</p>
 </div>
-<div id="Data3.5" class="section level2">
+<div id="Data3.5" class="section level2" number="3.5">
 <h2><span class="header-section-number">3.5</span> Metadata codes and decriptions</h2>
 <p>There are <a href="https://birdstudiescanada.github.io/naturecounts/reference/meta.html">metadata</a> associated with the various arguments used in the <code>nc_count()</code> and <code>nc_data_dl()</code> functions, the latter you will use in <a href="Download4.html#Download4">Chapter 4</a>. These are stored locally and can be accessed anytime to help filter your data view or download query. They include:</p>
 <ul>
@@ -258,36 +278,64 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><code>meta_projects()</code>: projects ids, names, websites, and descriptions</p></li>
 <li><p><code>meta_protocol_types()</code>: protocol types and descriptions</p></li>
 </ul>
-<p>Comprehensive reference articles are available online for retrieving <a href="https://birdstudiescanada.github.io/naturecounts/articles/region-codes.html">Region</a> and <a href="https://birdstudiescanada.github.io/naturecounts/articles/species-codes.html">Species</a> codes. We do not repeat those material here, but encourage you to review these prior to proceeding.</p>
-<p>You can explore the metadata materials using one line of code. For example, you can view the Important Bird Area (IBA) metadata using:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">meta_iba_codes</span>()</a></code></pre></div>
+<p>You can explore the metadata materials using two lines of code. For example, you can view the Important Bird Area (IBA) metadata using:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="Data3.html#cb8-1" aria-hidden="true" tabindex="-1"></a>iba<span class="ot">&lt;-</span><span class="fu">meta_iba_codes</span>()</span>
+<span id="cb8-2"><a href="Data3.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(iba)</span></code></pre></div>
 </div>
-<div id="Data3.6" class="section level2">
-<h2><span class="header-section-number">3.6</span> Examples</h2>
+<div id="Data3.6" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Region &amp; Species filtering</h2>
+<p>Filtering will often be done based on geographic extent (i.e., <code>region</code>). To filtering by <code>region</code> you must provide a named list with <em>one</em> of the following:</p>
+<ul>
+<li><p><code>country</code>: country code (e.g., CA for Canada)</p></li>
+<li><p><code>statprov</code>: state/province code (e.g., MB for Manitoba)</p></li>
+<li><p><code>subnational2</code>: subnational (type 2) code (e.g., CA.MB.07 for the Brandon Area)</p></li>
+<li><p><code>iba</code>: Important Bird Areas (IBA) code (e.g., AB001 for Beaverhill Lake in Alberta)</p></li>
+<li><p><code>bcr</code>: Bird Conservation Regions (e.g., 2 for Western Alaska)</p></li>
+<li><p><code>utm_squares</code>: UTM square code (e.g., 10UFE96 for a grid in Alberta)</p></li>
+<li><p><code>bbox</code>: bounding box coordinates (e.g., c(left = -101.097223, bottom = 50.494717, right = -99.511239, top = 51.027557) for a box containing Riding Mountain National Park in Manitoba). On the NatureCounts web portal there is a handy <a href="https://www.birdscanada.org/birdmon/default/searchquery.jsp">Within Coordinates</a>) tool to help you retrieve custom coordinates for your data query and/or download.</p></li>
+</ul>
+<p>To use the <code>region</code> argument:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="Data3.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nc_count</span>(<span class="at">region=</span><span class="fu">list</span>(<span class="at">statprov=</span><span class="st">&quot;ON&quot;</span>))</span></code></pre></div>
+<p>Another commonly used filter is specific to <code>species</code>. In order to filter by <code>species</code> you need to get the species id codes. These are numeric codes that reflect species identity.</p>
+<p>For all species, you can search by scientific, English or French name with the search_species() function.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="Data3.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">search_species</span>(<span class="st">&quot;chickadee&quot;</span>)</span></code></pre></div>
+<p>For birds, you can also search by alphanumeric species codes with the search_species_code() function. This function also gives you the option of returning all species codes (including subspecies) related to a single species, and is considered a more robust method for ensuring that you do not miss observations.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="Data3.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">search_species_code</span>(<span class="st">&quot;BCCH&quot;</span>)</span></code></pre></div>
+<p>For additional examples and more advanced options are available online for retrieving <a href="https://birdstudiescanada.github.io/naturecounts/articles/region-codes.html">Region</a> and <a href="https://birdstudiescanada.github.io/naturecounts/articles/species-codes.html">Species</a> codes.</p>
+</div>
+<div id="Data3.7" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> Examples</h2>
 <p>Here are a few examples for you to work through to become familiar with the <code>nc_count()</code> function.</p>
 <p><em>Example 1</em>: Determine the number of collections and records for a specific <em>region</em>. The options include: <code>country</code>, <code>statprov</code>, <code>subnational2</code>, <code>iba</code>, <code>bcr</code>, <code>utm_squares</code>, and <code>bbox</code>. You can find details and examples on how to <a href="https://birdstudiescanada.github.io/naturecounts/articles/region-codes.html"><code>search_region()</code></a> at the link provided.</p>
 <p>The following code will retrieve all available collections and number of records for British Columbia</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">search_region</span>(<span class="st">&quot;British Columbia&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;statprov&quot;</span>)</a>
-<a class="sourceLine" id="cb9-2" title="2"><span class="kw">nc_count</span>(<span class="dt">region =</span> <span class="kw">list</span>(<span class="dt">statprov =</span> <span class="st">&quot;BC&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="Data3.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">search_region</span>(<span class="st">&quot;British Columbia&quot;</span>, <span class="at">type =</span> <span class="st">&quot;statprov&quot;</span>)</span>
+<span id="cb12-2"><a href="Data3.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nc_count</span>(<span class="at">region =</span> <span class="fu">list</span>(<span class="at">statprov =</span> <span class="st">&quot;BC&quot;</span>))</span></code></pre></div>
 <p><em>Example 2</em>: Determine the number of records for a specific <em>species</em>. You can find details and examples on how to <a href="https://birdstudiescanada.github.io/naturecounts/reference/search_species_code.html"><code>search_species_code()</code></a> based on 4 letter alpha code and <a href="https://birdstudiescanada.github.io/naturecounts/reference/search_species.html"><code>search_species()</code></a> based on common names at the links provided.</p>
 <p>The following code will retrieve all available collections and number of records for Red-headed Woodpecker</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">search_species</span>(<span class="st">&quot;Red-headed Woodpecker&quot;</span>)</a>
-<a class="sourceLine" id="cb10-2" title="2"><span class="kw">nc_count</span>(<span class="dt">species =</span> <span class="dv">10060</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="Data3.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">search_species</span>(<span class="st">&quot;Red-headed Woodpecker&quot;</span>)</span>
+<span id="cb13-2"><a href="Data3.html#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="Data3.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">search_species_code</span>(<span class="st">&quot;RHWO&quot;</span>)</span>
+<span id="cb13-4"><a href="Data3.html#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="Data3.html#cb13-5" aria-hidden="true" tabindex="-1"></a>RHWO<span class="ot">&lt;-</span><span class="fu">nc_count</span>(<span class="at">species =</span> <span class="dv">10060</span>)</span>
+<span id="cb13-6"><a href="Data3.html#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(RHWO)</span></code></pre></div>
 <p><em>Example 3</em>: We can further refine the Red-headed Woodpecker example (above) by filtering the species-specific data by region (e.g., <a href="http://nabci-us.org/assets/images/bcr_map2.jpg">Bird Conservation Region</a> 11), time period (e.g., 2015-2019), or a combination of both.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">nc_count</span>(<span class="dt">species =</span> <span class="dv">10060</span>, <span class="dt">region =</span> <span class="kw">list</span>(<span class="dt">bcr =</span> <span class="st">&quot;11&quot;</span>))</a>
-<a class="sourceLine" id="cb11-2" title="2"></a>
-<a class="sourceLine" id="cb11-3" title="3"><span class="kw">nc_count</span>(<span class="dt">species =</span> <span class="dv">10060</span>, <span class="dt">year =</span> <span class="kw">c</span>(<span class="dv">2015</span>, <span class="dv">2019</span>))</a>
-<a class="sourceLine" id="cb11-4" title="4"></a>
-<a class="sourceLine" id="cb11-5" title="5"><span class="kw">nc_count</span>(<span class="dt">species =</span> <span class="dv">10060</span>, <span class="dt">region =</span> <span class="kw">list</span>(<span class="dt">bcr =</span> <span class="st">&quot;11&quot;</span>), <span class="dt">year =</span> <span class="kw">c</span>(<span class="dv">2015</span>, <span class="dv">2019</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="Data3.html#cb14-1" aria-hidden="true" tabindex="-1"></a>RHWO_11<span class="ot">&lt;-</span><span class="fu">nc_count</span>(<span class="at">species =</span> <span class="dv">10060</span>, <span class="at">region =</span> <span class="fu">list</span>(<span class="at">bcr =</span> <span class="st">&quot;11&quot;</span>))</span>
+<span id="cb14-2"><a href="Data3.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(RHWO_11)</span>
+<span id="cb14-3"><a href="Data3.html#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="Data3.html#cb14-4" aria-hidden="true" tabindex="-1"></a>RHWO_year<span class="ot">&lt;-</span><span class="fu">nc_count</span>(<span class="at">species =</span> <span class="dv">10060</span>, <span class="at">year =</span> <span class="fu">c</span>(<span class="dv">2015</span>, <span class="dv">2019</span>))</span>
+<span id="cb14-5"><a href="Data3.html#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(RHWO_year)</span>
+<span id="cb14-6"><a href="Data3.html#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="Data3.html#cb14-7" aria-hidden="true" tabindex="-1"></a>RHWO_11_year<span class="ot">&lt;-</span><span class="fu">nc_count</span>(<span class="at">species =</span> <span class="dv">10060</span>, <span class="at">region =</span> <span class="fu">list</span>(<span class="at">bcr =</span> <span class="st">&quot;11&quot;</span>), <span class="at">year =</span> <span class="fu">c</span>(<span class="dv">2015</span>, <span class="dv">2019</span>))</span>
+<span id="cb14-8"><a href="Data3.html#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(RHWO_11_year)</span></code></pre></div>
 </div>
-<div id="Data3.7" class="section level2">
-<h2><span class="header-section-number">3.7</span> Exercises</h2>
+<div id="Data3.8" class="section level2" number="3.8">
+<h2><span class="header-section-number">3.8</span> Exercises</h2>
 <p>Now apply your newly acquired skills!</p>
 <p><em>Exercise 1</em>: If you are interesting in doing a research project on Snowy Owls in Quebec, which three collections are you most likely to consider using (i.e., which have the most data)?</p>
 <p>Answer: EBird-CA-QC, OISEAUXQC, CBC</p>
 <p><em>Exercise 2</em>: How many records of Gadwal are in the <a href="https://www.birdscanada.org/birdmon/atowls/datasets.jsp?code=BCCWS">British Columbia Coastal Waterbird Survey</a> collection? What if you are only interested in records from 2010-2019, how many records are available?</p>
 <p>Answer: 702, 389</p>
-<p>Answers to the exercises can be found in <a href="Ans7.html#Ans7.1">Chapter 7</a>.</p>
+<p>Full answers to the exercises can be found in <a href="Ans7.html#Ans7.1">Chapter 7</a>.</p>
 
 </div>
 </div>
@@ -301,7 +349,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -320,6 +367,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -340,10 +388,13 @@ gitbook.start({
 "text": null
 },
 "download": null,
-"toc": {
-"collapse": "subsection"
+"search": {
+"engine": "fuse",
+"options": null
 },
-"search": true
+"toc": {
+"collapse": "section"
+}
 });
 });
 </script>

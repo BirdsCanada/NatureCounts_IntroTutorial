@@ -4,7 +4,7 @@ bookdown::gitbook:
   config:
     search: yes
     toc:
-      collapse: subsection
+      collapse: section
       before: |
         <li><a href="./">NatureCounts Introductory Tutorial</a></li>
       after: |
