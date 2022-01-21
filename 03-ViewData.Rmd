@@ -184,13 +184,13 @@ View(RHWO)
 *Example 3*: We can further refine the Red-headed Woodpecker example (above) by filtering the species-specific data by region (e.g., [Bird Conservation Region](http://nabci-us.org/assets/images/bcr_map2.jpg) 11), time period (e.g., 2015-2019), or a combination of both.
 
 ```{r nc_species2, eval=FALSE}
-RHWO_11<-nc_count(species = 10060, region = list(bcr = "11"))
+RHWO_11 <- nc_count(species = 10060, region = list(bcr = "11"))
 View(RHWO_11)
 
-RHWO_year<-nc_count(species = 10060, year = c(2015, 2019))
+RHWO_year <- nc_count(species = 10060, year = c(2015, 2019))
 View(RHWO_year)
 
-RHWO_11_year<-nc_count(species = 10060, region = list(bcr = "11"), year = c(2015, 2019))
+RHWO_11_year <- nc_count(species = 10060, region = list(bcr = "11"), year = c(2015, 2019))
 View(RHWO_11_year)
 ```
 
