@@ -23,7 +23,7 @@ What can you do on the NatureCounts [webportal](http://www.naturecounts.ca)?
 
 ## NatureCounts and R {#intro1.1}
 
-The naturecounts R package was create to allow users to directly access and download data from NatureCounts into R. The goal of this online book is to show NatureCounts users how to use the [R](https://www.r-project.org/) statistical programming language  to access, filter, summarize, and visualize NatureCounts data. Moving forward, we intend to create more advanced tutorials which explore analytical procedures suitable for various datasets. If you have suggestions for additional content, please let us know by emailing dethier@birdscanada.org
+The naturecounts R package was create to allow users to directly access and download data from NatureCounts into R. The goal of this online book is to show naturecounts users how to use the [R](https://www.r-project.org/) statistical programming language  to access, filter, summarize, and visualize NatureCounts data. Moving forward, we intend to create more advanced tutorials which explore analytical procedures suitable for various datasets. If you have suggestions for additional content, please let us know by emailing dethier@birdscanada.org
 
 > Note you can differentiate the R package ("naturecounts") from the database ("NatureCounts")
 
