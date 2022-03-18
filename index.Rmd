@@ -1,7 +1,7 @@
 --- 
 title: "NatureCounts: An Introductory R Tutorial"
 author: "Danielle Ethier"
-date: "Version 2: November 2021"
+date: "Version 2: March 2022"
 site: bookdown::bookdown_site
 documentclass: book
 biblio-style: apalike

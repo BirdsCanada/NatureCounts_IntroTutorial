@@ -183,13 +183,13 @@ View(RHWO)
 
 
 ```r
-RHWO_11<-nc_count(species = 10060, region = list(bcr = "11"))
+RHWO_11 <- nc_count(species = 10060, region = list(bcr = "11"))
 View(RHWO_11)
 
-RHWO_year<-nc_count(species = 10060, year = c(2015, 2019))
+RHWO_year <- nc_count(species = 10060, year = c(2015, 2019))
 View(RHWO_year)
 
-RHWO_11_year<-nc_count(species = 10060, region = list(bcr = "11"), year = c(2015, 2019))
+RHWO_11_year <- nc_count(species = 10060, region = list(bcr = "11"), year = c(2015, 2019))
 View(RHWO_11_year)
 ```
 

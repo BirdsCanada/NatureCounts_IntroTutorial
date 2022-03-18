@@ -19,7 +19,7 @@ You can install naturecounts from GitHub with the remotes package:
 
 ```{r install, eval = FALSE}
 install.packages("remotes")
-remotes::install_github("BirdStudiesCanada/naturecounts")
+remotes::install_github("BirdCanada/naturecounts")
 ```
 
 After installation, you need to load the package each time you open a new R session.

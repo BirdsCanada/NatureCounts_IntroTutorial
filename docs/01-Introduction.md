@@ -7,7 +7,7 @@ output:
 
 
 
-[NatureCounts](https://www.naturecounts.ca) is a website hosted and managed by [Birds Canada](https://www.birdscanada.org), Canada’s leading scientific non-government organization dedicated to increasing the understanding, appreciation and conservation of wild birds and their habitats . Birds Canada specializes in citizen science long-term monitoring programs using a partnership-based model.  Citizen science has been found to be the most cost-effective way to monitor bird populations across large geographic areas. In Canada, over 16,000 volunteers are currently involved in Birds Canada’s programs. 
+[NatureCounts](https://www.birdscanada.org/naturecounts/default/main.jsp) is a website hosted and managed by [Birds Canada](https://www.birdscanada.org), Canada’s leading scientific non-government organization dedicated to increasing the understanding, appreciation and conservation of wild birds and their habitats . Birds Canada specializes in citizen science long-term monitoring programs using a partnership-based model.  Citizen science has been found to be the most cost-effective way to monitor bird populations across large geographic areas. In Canada, over 16,000 volunteers are currently involved in Birds Canada’s programs. 
 
 Launched in January 2008, NatureCounts  is the first Canadian node of the [Avian Knowledge Network](http://www.avianknowledge.net). It serves as an online data dissemination portal to facilitate the collection, management and sharing of biological data.  NatureCounts hosts hundreds of datasets, representing well over 140 million occurrences of birds. These include virtually all of Birds Canada’s monitoring initiatives, such as Breeding Bird Atlases, eBird Canada, the Marsh Monitoring Program, Nocturnal Owl Surveys, as well as many other major initiatives to which Birds Canada contributes in some capacity (e.g., Canadian Migration Monitoring Program, HawkCount and the Raptor Population Index, Monarch Knowledge Network, Breeding Bird Survey, Christmas Bird Count, Project FeederWatch). 
 
@@ -23,7 +23,7 @@ What can you do on the NatureCounts [webportal](http://www.naturecounts.ca)?
 
 ## NatureCounts and R {#intro1.1}
 
-The naturecounts R package was create to allow users to directly access and download data from NatureCounts into R. The goal of this online book is to show NatureCounts users how to use the [R](https://www.r-project.org/) statistical programming language  to access, filter, summarize, and visualize naturecounts data. Moving forward, we intend to create more advanced tutorials which explore analytical procedures suitable for various datasets. If you have suggestions for additional content, please let us know by emailing dethier@birdscanada.org
+The naturecounts R package was create to allow users to directly access and download data from NatureCounts into R. The goal of this online book is to show naturecounts users how to use the [R](https://www.r-project.org/) statistical programming language  to access, filter, summarize, and visualize NatureCounts data. Moving forward, we intend to create more advanced tutorials which explore analytical procedures suitable for various datasets. If you have suggestions for additional content, please let us know by emailing dethier@birdscanada.org
 
 > Note you can differentiate the R package ("naturecounts") from the database ("NatureCounts")
 
@@ -35,7 +35,7 @@ This book assumes that you have a basic understanding of R. We recommend that yo
 
 ## Acknowledgements {#intro1.3}
 
-The text in this document were adapted from the [NatureCount webpage](https://www.birdscanada.org/birdmon/default/main.jsp) and the [NatureCounts GitHub](https://github.com/BirdStudiesCanada/naturecounts) repository. The structure of this book follows that of the [Motus R Book](https://beta.motus.org/MotusRBook/index.html). Online [tutorials](https://birdstudiescanada.github.io/naturecounts/articles/index.html) are available for the naturecounts R-package, which are referenced throughout this document. You are encouraged to review these tutorials for additional examples and more advanced options.  
+The text in this document were adapted from the [NatureCounts webpage](https://www.birdscanada.org/naturecounts/default/main.jsp) and the [NatureCounts GitHub](https://birdscanada.github.io/naturecounts/) repository. The structure of this book follows that of the [Motus R Book](https://beta.motus.org/MotusRBook/index.html). Online [tutorials](https://birdscanada.github.io/naturecounts/articles/index.html) are available for the naturecounts R-package, which are referenced throughout this document. You are encouraged to review these tutorials for additional examples and more advanced options.  
 
 Many people have contributed to the NatureCounts web interface and the R package, including, Denis Lepage, Steffi LaZerte, Paul Morrill and Catherine Jardine. The development of the NatureCounts web interface, R package, and accompanying online book were made possible by funding provided by Environment and Climate Change Canada and the generosity of donors to [Birds Canada](https://www.birdscanada.org/give/). Thank you!
 
