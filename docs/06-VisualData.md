@@ -60,10 +60,6 @@ GRCA_year <- GRCA %>%
   mutate(yrmin = MeanObs + SEObs, yrmax = MeanObs - SEObs)
 ```
 
-```
-## `summarise()` ungrouping output (override with `.groups` argument)
-```
-
 Now we can create the plot: 
 
 

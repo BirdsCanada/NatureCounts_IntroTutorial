@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 Data Manipulation | NatureCounts: An Introductory R Tutorial</title>
   <meta name="description" content="Introduction to NatureCounts and associated R Package" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 Data Manipulation | NatureCounts: An Introductory R Tutorial" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.git" />
   <meta property="og:image" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.git/NC.png" />
   <meta property="og:description" content="Introduction to NatureCounts and associated R Package" />
   <meta name="github-repo" content="DMEthier/NatureCounts_Tutorial_1" />
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="Download4.html"/>
 <link rel="next" href="Visual6.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -154,7 +153,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="Data3.html"><a href="Data3.html#Data3.2"><i class="fa fa-check"></i><b>3.2</b> Levels of Data Access</a></li>
 <li class="chapter" data-level="3.3" data-path="Data3.html"><a href="Data3.html#Data3.3"><i class="fa fa-check"></i><b>3.3</b> Authorizations</a></li>
 <li class="chapter" data-level="3.4" data-path="Data3.html"><a href="Data3.html#Data3.4"><i class="fa fa-check"></i><b>3.4</b> Viewing information about NatureCounts collections</a></li>
-<li class="chapter" data-level="3.5" data-path="Data3.html"><a href="Data3.html#Data3.5"><i class="fa fa-check"></i><b>3.5</b> Metadata codes and decriptions</a></li>
+<li class="chapter" data-level="3.5" data-path="Data3.html"><a href="Data3.html#Data3.5"><i class="fa fa-check"></i><b>3.5</b> Metadata codes and descriptions</a></li>
 <li class="chapter" data-level="3.6" data-path="Data3.html"><a href="Data3.html#Data3.6"><i class="fa fa-check"></i><b>3.6</b> Region &amp; Species filtering</a></li>
 <li class="chapter" data-level="3.7" data-path="Data3.html"><a href="Data3.html#Data3.7"><i class="fa fa-check"></i><b>3.7</b> Examples</a></li>
 <li class="chapter" data-level="3.8" data-path="Data3.html"><a href="Data3.html#Data3.8"><i class="fa fa-check"></i><b>3.8</b> Exercises</a></li>
@@ -209,14 +208,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="Manip5" class="section level1" number="5">
-<h1><span class="header-section-number">Chapter 5</span> Data Manipulation</h1>
+<div id="Manip5" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Data Manipulation<a href="Manip5.html#Manip5" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>You have successfully downloaded your NatureCounts dataset and are ready to explore and summarise the data. In this chapter we will demonstrate how to do some basic data manipulations and summaries. The possibilities are endless, so we try to focus on examples we think would be most valuable to users. We intend to develop <code>collection</code> and <code>protocol_id</code> specific data manipulation and analysis code in the future. If you have specific requests or would like to contribute your existing code, please contact <a href="mailto:dethier@birdscanada.org" class="email">dethier@birdscanada.org</a>.</p>
 <blockquote>
 <p>The code in this Chapter will not work unless you replace <code>"testuser"</code> with your actual user name. You will be prompted to enter your password.</p>
 </blockquote>
-<div id="Manip5.1" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> Basic data wrangling</h2>
+<div id="Manip5.1" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Basic data wrangling<a href="Manip5.html#Manip5.1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Recall in <a href="Package2.html#Package2.2">Chapter 2</a> you installed the <a href="https://www.tidyverse.org/">tidyverse</a> package, which included dplyr for data manipulations. You are encouraged to learn more about this function by reviewing the <a href="https://r4ds.had.co.nz/transform.html">Data Transformations</a> chapter in “R for Data Science” by Hadley Wickham and Garrett Grolemund. We also recommend you download a copy of the RStudio <a href="https://rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">Data Wrangling</a> cheat sheet as a reference document.</p>
 <p>We are going to apply three key dplyr functions which will give you some of the basic tools needed to solve the vast majority of your data manipulation challenges. These functions include:</p>
 <ul>
@@ -226,8 +225,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Let’s continue using the full <a href="https://www.birdscanada.org/birdmon/default/datasets.jsp?code=WPWI">Ontario Whip-poor-will</a> collection for this chapter.</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="Manip5.html#cb20-1" aria-hidden="true" tabindex="-1"></a>WPWI <span class="ot">&lt;-</span> <span class="fu">nc_data_dl</span>(<span class="at">collections =</span> <span class="st">&quot;WPWI&quot;</span>, <span class="at">username =</span> <span class="st">&quot;testuser&quot;</span>, <span class="at">info =</span> <span class="st">&quot;tutorial example&quot;</span>)</span></code></pre></div>
-<div id="Manip5.1.1" class="section level3" number="5.1.1">
-<h3><span class="header-section-number">5.1.1</span> Select</h3>
+<div id="Manip5.1.1" class="section level3 hasAnchor" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Select<a href="Manip5.html#Manip5.1.1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You will notice that NatureCounts datasets have many fields (i.e., columns) available. Generally, you will only want a few of these fields for your summary or analysis. Recall the complete version of the <a href="Data3.html#Data3.1">BMDE</a> includes 265 fields. The number of variables downloaded from the BMDE will depend on the <code>fields_set</code>, which is by default “minimum” (57 fields). You can narrow in on the variables you are interested in with the <code>select()</code> function, which allows you to subset the dataframe based on the names of the variables.</p>
 <p>For example, we are going to <code>select()</code> a subset of variables from the WPWI dataset that we need for our summary:</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="Manip5.html#cb21-1" aria-hidden="true" tabindex="-1"></a>WPWI_select <span class="ot">&lt;-</span> <span class="fu">select</span>(WPWI, <span class="st">&quot;SurveyAreaIdentifier&quot;</span>, </span>
@@ -235,8 +234,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb21-3"><a href="Manip5.html#cb21-3" aria-hidden="true" tabindex="-1"></a>                      <span class="st">&quot;longitude&quot;</span>, <span class="st">&quot;bcr&quot;</span>, <span class="st">&quot;survey_day&quot;</span>, <span class="st">&quot;survey_month&quot;</span>, </span>
 <span id="cb21-4"><a href="Manip5.html#cb21-4" aria-hidden="true" tabindex="-1"></a>                      <span class="st">&quot;survey_year&quot;</span>)</span></code></pre></div>
 </div>
-<div id="Manip5.1.2" class="section level3" number="5.1.2">
-<h3><span class="header-section-number">5.1.2</span> Filter</h3>
+<div id="Manip5.1.2" class="section level3 hasAnchor" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Filter<a href="Manip5.html#Manip5.1.2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Often there are observational records in a database that are not needed. We could have filtered these records out using the <code>nc_data_dl()</code> <a href="#Dowload4.2">filters</a>. However, we can also use the <code>dplyr::filter()</code> function, which allows us to subset observations based on their row values. Observations are selected using:</p>
 <ul>
 <li>Comparison operators:<code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>!=</code> (not equal), <code>==</code> (equal)</li>
@@ -260,8 +259,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb24-2"><a href="Manip5.html#cb24-2" aria-hidden="true" tabindex="-1"></a>                     survey_month <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">7</span>) <span class="sc">&amp;</span> bcr <span class="sc">==</span> <span class="dv">12</span> <span class="sc">&amp;</span> </span>
 <span id="cb24-3"><a href="Manip5.html#cb24-3" aria-hidden="true" tabindex="-1"></a>                       survey_year <span class="sc">&gt;=</span> <span class="dv">2010</span> <span class="sc">&amp;</span> survey_year <span class="sc">&lt;=</span> <span class="dv">2012</span>)</span></code></pre></div>
 </div>
-<div id="Manip5.1.3" class="section level3" number="5.1.3">
-<h3><span class="header-section-number">5.1.3</span> Summarise</h3>
+<div id="Manip5.1.3" class="section level3 hasAnchor" number="5.1.3">
+<h3><span class="header-section-number">5.1.3</span> Summarise<a href="Manip5.html#Manip5.1.3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Now that we have selected the columns we need for our analysis we will demonstrate how to summarise the data. The <code>summarise()</code> function is most useful if paired with the <code>group_by()</code> argument, because this changes the unit of analysis from the complete dataset to individual groups.</p>
 <p>For example, say we want to determine how many point count stops were on each WPWI Route. We will want to group observations by <code>RouteIdentifier</code> and summarise the number of district <code>SurveyAreaIdentifier</code>.</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="Manip5.html#cb25-1" aria-hidden="true" tabindex="-1"></a>WPWI_Route <span class="ot">&lt;-</span> <span class="fu">group_by</span>(WPWI_select, RouteIdentifier)</span>
@@ -287,8 +286,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb28-5"><a href="Manip5.html#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(WPWI_Obs)</span></code></pre></div>
 </div>
 </div>
-<div id="Manip5.2" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> Combine datasets</h2>
+<div id="Manip5.2" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Combine datasets<a href="Manip5.html#Manip5.2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There are many reasons to join two datatables. For example, if you have species observations across several years you might want to associate these with weather covariates to assess if they are correlated. Or you might have observations over a specific geographic region, which you wish to associate with land cover covariates. To do this, you will want to join (merge) two tables. Looking at the <a href="https://rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">Data Wrangling</a> cheat sheet, you will notice there are several <code>join</code> functions. In all instances, you will need to specify the <strong>key</strong> variable, which is found in both tables, which is used for binding the tables together.</p>
 <p>Here we provide an example using metadata available to you in naturecounts.</p>
 <p>When you pull <code>collections</code> with the “minimum” <code>fields_set</code> (default) you will notice you get the species_id column, but not alpha species code. For example, let’s pull a small amount of data from the second Alberta Breeding Bird Atlas (ABATLAS2) from Beaverhill Lake Important Bird Area (AB001) in 2005.</p>
@@ -314,8 +313,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="Manip5.html#cb33-1" aria-hidden="true" tabindex="-1"></a>AB_Atlas_sp<span class="ot">&lt;-</span><span class="fu">left_join</span>(AB_Atlas, species, <span class="at">by=</span><span class="st">&quot;species_id&quot;</span>)</span></code></pre></div>
 <p>Now your datatable contains the species code, which is familar to most birders. You can also try joining the Atlas data to the meta_species_taxonomy() table if you wish to capture the english common, french, or scientific names, amoung other fields.</p>
 </div>
-<div id="Manip5.3" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> Helper functions</h2>
+<div id="Manip5.3" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Helper functions<a href="Manip5.html#Manip5.3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There are a few additional helper functions built into the naturecounts R package that you may find useful. At present, they include:</p>
 <ul>
 <li><a href="https://birdstudiescanada.github.io/naturecounts/reference/format_dates.html"><code>format_dates()</code></a>:Creates and adds date and day-of-year (doy) field/columns to data</li>
@@ -323,8 +322,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>The zero-fill function is particularly important if you want to ensure your dataset is complete!</p>
 </div>
-<div id="Manip5.4" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> Exercies</h2>
+<div id="Manip5.4" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Exercies<a href="Manip5.html#Manip5.4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><em>Exercise 1</em>: You are doing a research project using the fall migration monitoring data collected at <a href="https://www.birdscanada.org/birdmon/default/datasets.jsp?code=CMMN-DET-VLBO">Vaseux Lake Bird Observatory</a>, British Columbia. You request the open access data from 2017-2020. After you request this subset of the collection, you need to determine the number of unique days Gray catbirds were records in each year?</p>
 <p>Answer:
 2017 = 54

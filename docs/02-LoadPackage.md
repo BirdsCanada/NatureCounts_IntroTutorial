@@ -1,3 +1,9 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
 # Loading R Packages {#Package2}
 
 
@@ -16,7 +22,7 @@ You can install naturecounts from GitHub with the remotes package:
 
 ```r
 install.packages("remotes")
-remotes::install_github("BirdCanada/naturecounts")
+remotes::install_github("BirdsCanada/naturecounts")
 ```
 
 After installation, you need to load the package each time you open a new R session.
@@ -32,8 +38,8 @@ Throughout the book we use the [tidyverse](https://www.tidyverse.org/) R package
 
 
 ```r
-install.packages("tidyverse")
-library(tidyverse)
+install.packages("tidyverse") 
+library(tidyverse) 
 ```
 
-You may find additional packages are needed to manipulate and visualize your data. For example, if you are interested in [Mapping Observation](https://birdstudiescanada.github.io/naturecounts/articles/articles/mapping-observations.html) a suite of packages need to be installed and loaded. The process is similar to that previously describe.  
+You may find additional packages are needed to manipulate and visualize your data. For example, if you are interested in [Mapping Observation](https://birdstudiescanada.github.io/naturecounts/articles/articles/mapping-observations.html) a suite of packages need to be installed and loaded. The process is similar to that previously describe.

@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 Loading R Packages | NatureCounts: An Introductory R Tutorial</title>
   <meta name="description" content="Introduction to NatureCounts and associated R Package" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 Loading R Packages | NatureCounts: An Introductory R Tutorial" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.git" />
   <meta property="og:image" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.git/NC.png" />
   <meta property="og:description" content="Introduction to NatureCounts and associated R Package" />
   <meta name="github-repo" content="DMEthier/NatureCounts_Tutorial_1" />
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="Intro1.html"/>
 <link rel="next" href="Data3.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -154,7 +153,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="Data3.html"><a href="Data3.html#Data3.2"><i class="fa fa-check"></i><b>3.2</b> Levels of Data Access</a></li>
 <li class="chapter" data-level="3.3" data-path="Data3.html"><a href="Data3.html#Data3.3"><i class="fa fa-check"></i><b>3.3</b> Authorizations</a></li>
 <li class="chapter" data-level="3.4" data-path="Data3.html"><a href="Data3.html#Data3.4"><i class="fa fa-check"></i><b>3.4</b> Viewing information about NatureCounts collections</a></li>
-<li class="chapter" data-level="3.5" data-path="Data3.html"><a href="Data3.html#Data3.5"><i class="fa fa-check"></i><b>3.5</b> Metadata codes and decriptions</a></li>
+<li class="chapter" data-level="3.5" data-path="Data3.html"><a href="Data3.html#Data3.5"><i class="fa fa-check"></i><b>3.5</b> Metadata codes and descriptions</a></li>
 <li class="chapter" data-level="3.6" data-path="Data3.html"><a href="Data3.html#Data3.6"><i class="fa fa-check"></i><b>3.6</b> Region &amp; Species filtering</a></li>
 <li class="chapter" data-level="3.7" data-path="Data3.html"><a href="Data3.html#Data3.7"><i class="fa fa-check"></i><b>3.7</b> Examples</a></li>
 <li class="chapter" data-level="3.8" data-path="Data3.html"><a href="Data3.html#Data3.8"><i class="fa fa-check"></i><b>3.8</b> Exercises</a></li>
@@ -209,23 +208,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="Package2" class="section level1" number="2">
-<h1><span class="header-section-number">Chapter 2</span> Loading R Packages</h1>
+<div id="Package2" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Loading R Packages<a href="Package2.html#Package2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>The functionalities of some packages may require updated versions of <a href="https://www.r-project.org/">R</a> and <a href="https://www.rstudio.com">RStudio</a>. To avoid errors, please ensure you are using the most recent releases of R and RStudio, and update your R packages.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="Package2.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">update.packages</span>()                         </span></code></pre></div>
-<div id="Package2.1" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Installing naturecounts</h2>
+<div id="Package2.1" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Installing naturecounts<a href="Package2.html#Package2.1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>You can install naturecounts from GitHub with the remotes package:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="Package2.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;remotes&quot;</span>)</span>
-<span id="cb2-2"><a href="Package2.html#cb2-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;BirdCanada/naturecounts&quot;</span>)</span></code></pre></div>
+<span id="cb2-2"><a href="Package2.html#cb2-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;BirdsCanada/naturecounts&quot;</span>)</span></code></pre></div>
 <p>After installation, you need to load the package each time you open a new R session.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="Package2.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naturecounts)</span></code></pre></div>
 </div>
-<div id="Package2.2" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Additional packages</h2>
+<div id="Package2.2" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Additional packages<a href="Package2.html#Package2.2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Throughout the book we use the <a href="https://www.tidyverse.org/">tidyverse</a> R package, which is actually a collection of R packages for data science, including tidyr, dplyr, and ggplot2, among others. The tidyverse package can be installed from CRAN and loaded into R as follows:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="Package2.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span>
-<span id="cb4-2"><a href="Package2.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="Package2.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>) </span>
+<span id="cb4-2"><a href="Package2.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) </span></code></pre></div>
 <p>You may find additional packages are needed to manipulate and visualize your data. For example, if you are interested in <a href="https://birdstudiescanada.github.io/naturecounts/articles/articles/mapping-observations.html">Mapping Observation</a> a suite of packages need to be installed and loaded. The process is similar to that previously describe.</p>
 
 </div>

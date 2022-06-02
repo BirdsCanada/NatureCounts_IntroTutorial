@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 7 Exercise Answers | NatureCounts: An Introductory R Tutorial</title>
   <meta name="description" content="Introduction to NatureCounts and associated R Package" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 7 Exercise Answers | NatureCounts: An Introductory R Tutorial" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.git" />
   <meta property="og:image" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.git/NC.png" />
   <meta property="og:description" content="Introduction to NatureCounts and associated R Package" />
   <meta name="github-repo" content="DMEthier/NatureCounts_Tutorial_1" />
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="Visual6.html"/>
 
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -154,7 +153,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="Data3.html"><a href="Data3.html#Data3.2"><i class="fa fa-check"></i><b>3.2</b> Levels of Data Access</a></li>
 <li class="chapter" data-level="3.3" data-path="Data3.html"><a href="Data3.html#Data3.3"><i class="fa fa-check"></i><b>3.3</b> Authorizations</a></li>
 <li class="chapter" data-level="3.4" data-path="Data3.html"><a href="Data3.html#Data3.4"><i class="fa fa-check"></i><b>3.4</b> Viewing information about NatureCounts collections</a></li>
-<li class="chapter" data-level="3.5" data-path="Data3.html"><a href="Data3.html#Data3.5"><i class="fa fa-check"></i><b>3.5</b> Metadata codes and decriptions</a></li>
+<li class="chapter" data-level="3.5" data-path="Data3.html"><a href="Data3.html#Data3.5"><i class="fa fa-check"></i><b>3.5</b> Metadata codes and descriptions</a></li>
 <li class="chapter" data-level="3.6" data-path="Data3.html"><a href="Data3.html#Data3.6"><i class="fa fa-check"></i><b>3.6</b> Region &amp; Species filtering</a></li>
 <li class="chapter" data-level="3.7" data-path="Data3.html"><a href="Data3.html#Data3.7"><i class="fa fa-check"></i><b>3.7</b> Examples</a></li>
 <li class="chapter" data-level="3.8" data-path="Data3.html"><a href="Data3.html#Data3.8"><i class="fa fa-check"></i><b>3.8</b> Exercises</a></li>
@@ -209,70 +208,70 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="Ans7" class="section level1" number="7">
-<h1><span class="header-section-number">Chapter 7</span> Exercise Answers</h1>
-<div id="Ans7.1" class="section level2" number="7.1">
-<h2><span class="header-section-number">7.1</span> Chapter 3</h2>
+<div id="Ans7" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Exercise Answers<a href="Ans7.html#Ans7" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="Ans7.1" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Chapter 3<a href="Ans7.html#Ans7.1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Exercise 1: If you are interesting in doing a research project on Snowy Owls in Quebec, which three collections are you most likely to consider using (i.e., which have the most data)?</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="Ans7.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">search_species</span>(<span class="st">&quot;Snowy Owl&quot;</span>)</span>
-<span id="cb40-2"><a href="Ans7.html#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">search_region</span>(<span class="st">&quot;Quebec&quot;</span>, <span class="at">type =</span> <span class="st">&quot;statprov&quot;</span>)</span>
-<span id="cb40-3"><a href="Ans7.html#cb40-3" aria-hidden="true" tabindex="-1"></a>SNOW<span class="ot">&lt;-</span><span class="fu">nc_count</span>(<span class="at">species=</span><span class="dv">7450</span>, <span class="at">region =</span> <span class="fu">list</span>(<span class="at">statprov=</span><span class="st">&quot;QC&quot;</span>))</span>
-<span id="cb40-4"><a href="Ans7.html#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(SNOW)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="Ans7.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">search_species</span>(<span class="st">&quot;Snowy Owl&quot;</span>)</span>
+<span id="cb39-2"><a href="Ans7.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">search_region</span>(<span class="st">&quot;Quebec&quot;</span>, <span class="at">type =</span> <span class="st">&quot;statprov&quot;</span>)</span>
+<span id="cb39-3"><a href="Ans7.html#cb39-3" aria-hidden="true" tabindex="-1"></a>SNOW<span class="ot">&lt;-</span><span class="fu">nc_count</span>(<span class="at">species=</span><span class="dv">7450</span>, <span class="at">region =</span> <span class="fu">list</span>(<span class="at">statprov=</span><span class="st">&quot;QC&quot;</span>))</span>
+<span id="cb39-4"><a href="Ans7.html#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(SNOW)</span></code></pre></div>
 <p>Answer: EBird-CA-QC, OISEAUXQC, CBC</p>
 <p>Exercise 2: How many records of Gadwal are in the British Columbia Coastal Waterbird Survey collection? What if you are only interested in records from 2010-2019, how many records are available?</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="Ans7.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">search_species</span>(<span class="st">&quot;Gadwal&quot;</span>)</span>
-<span id="cb41-2"><a href="Ans7.html#cb41-2" aria-hidden="true" tabindex="-1"></a>collection<span class="ot">&lt;-</span>collections<span class="ot">&lt;-</span><span class="fu">meta_collections</span>()</span>
-<span id="cb41-3"><a href="Ans7.html#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(collection)</span>
-<span id="cb41-4"><a href="Ans7.html#cb41-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-5"><a href="Ans7.html#cb41-5" aria-hidden="true" tabindex="-1"></a>GADW<span class="ot">&lt;-</span><span class="fu">nc_count</span>(<span class="at">species=</span><span class="dv">390</span>, <span class="at">collections =</span> <span class="st">&quot;BCCWS&quot;</span>)</span>
-<span id="cb41-6"><a href="Ans7.html#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(GADW)</span>
-<span id="cb41-7"><a href="Ans7.html#cb41-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-8"><a href="Ans7.html#cb41-8" aria-hidden="true" tabindex="-1"></a>GADW2<span class="ot">&lt;-</span><span class="fu">nc_count</span>(<span class="at">species=</span><span class="dv">390</span>, <span class="at">collections =</span> <span class="st">&quot;BCCWS&quot;</span>, <span class="at">years =</span><span class="fu">c</span>(<span class="dv">2010</span>,<span class="dv">2019</span>))</span>
-<span id="cb41-9"><a href="Ans7.html#cb41-9" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(GADW2)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="Ans7.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">search_species</span>(<span class="st">&quot;Gadwal&quot;</span>)</span>
+<span id="cb40-2"><a href="Ans7.html#cb40-2" aria-hidden="true" tabindex="-1"></a>collection<span class="ot">&lt;-</span>collections<span class="ot">&lt;-</span><span class="fu">meta_collections</span>()</span>
+<span id="cb40-3"><a href="Ans7.html#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(collection)</span>
+<span id="cb40-4"><a href="Ans7.html#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-5"><a href="Ans7.html#cb40-5" aria-hidden="true" tabindex="-1"></a>GADW<span class="ot">&lt;-</span><span class="fu">nc_count</span>(<span class="at">species=</span><span class="dv">390</span>, <span class="at">collections =</span> <span class="st">&quot;BCCWS&quot;</span>)</span>
+<span id="cb40-6"><a href="Ans7.html#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(GADW)</span>
+<span id="cb40-7"><a href="Ans7.html#cb40-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-8"><a href="Ans7.html#cb40-8" aria-hidden="true" tabindex="-1"></a>GADW2<span class="ot">&lt;-</span><span class="fu">nc_count</span>(<span class="at">species=</span><span class="dv">390</span>, <span class="at">collections =</span> <span class="st">&quot;BCCWS&quot;</span>, <span class="at">years =</span><span class="fu">c</span>(<span class="dv">2010</span>,<span class="dv">2019</span>))</span>
+<span id="cb40-9"><a href="Ans7.html#cb40-9" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(GADW2)</span></code></pre></div>
 <p>Answer: 702, 389</p>
 </div>
-<div id="Ans7.2" class="section level2" number="7.2">
-<h2><span class="header-section-number">7.2</span> Chapter 4</h2>
+<div id="Ans7.2" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Chapter 4<a href="Ans7.html#Ans7.2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Exercise 1: You are from the Northwest Territories and interested in learning more about birds in your region. First, you identify the NatureCounts dataset most suitable for this exercise using the nc_count() function (i.e., which has the most data). Next, you decide to focus your download to only include Blackpoll Warbler data collected over the past 5 years (2015-2020). How many observation records did you download?</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="Ans7.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">search_region</span>(<span class="st">&quot;Northwest Territories&quot;</span>, <span class="at">type =</span> <span class="st">&quot;statprov&quot;</span>)</span>
-<span id="cb42-2"><a href="Ans7.html#cb42-2" aria-hidden="true" tabindex="-1"></a>NT<span class="ot">&lt;-</span><span class="fu">nc_count</span>(<span class="at">region =</span> <span class="fu">list</span>(<span class="at">statprov=</span><span class="st">&quot;NT&quot;</span>), <span class="at">username=</span><span class="st">&quot;testuser&quot;</span>)</span>
-<span id="cb42-3"><a href="Ans7.html#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(NT)</span>
-<span id="cb42-4"><a href="Ans7.html#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-5"><a href="Ans7.html#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="fu">search_species</span>(<span class="st">&quot;Blackpoll warbler&quot;</span>)</span>
-<span id="cb42-6"><a href="Ans7.html#cb42-6" aria-hidden="true" tabindex="-1"></a>BLPW<span class="ot">&lt;-</span><span class="fu">nc_data_dl</span>(<span class="at">collections=</span><span class="st">&quot;BBS50-CAN&quot;</span>, <span class="at">species =</span> <span class="dv">16820</span>, <span class="at">years =</span><span class="fu">c</span>(<span class="dv">2015</span>, <span class="dv">2020</span>), <span class="at">username=</span><span class="st">&quot;testuser&quot;</span>, <span class="at">info=</span><span class="st">&quot;tutorial example&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="Ans7.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">search_region</span>(<span class="st">&quot;Northwest Territories&quot;</span>, <span class="at">type =</span> <span class="st">&quot;statprov&quot;</span>)</span>
+<span id="cb41-2"><a href="Ans7.html#cb41-2" aria-hidden="true" tabindex="-1"></a>NT<span class="ot">&lt;-</span><span class="fu">nc_count</span>(<span class="at">region =</span> <span class="fu">list</span>(<span class="at">statprov=</span><span class="st">&quot;NT&quot;</span>), <span class="at">username=</span><span class="st">&quot;testuser&quot;</span>)</span>
+<span id="cb41-3"><a href="Ans7.html#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(NT)</span>
+<span id="cb41-4"><a href="Ans7.html#cb41-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-5"><a href="Ans7.html#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="fu">search_species</span>(<span class="st">&quot;Blackpoll warbler&quot;</span>)</span>
+<span id="cb41-6"><a href="Ans7.html#cb41-6" aria-hidden="true" tabindex="-1"></a>BLPW<span class="ot">&lt;-</span><span class="fu">nc_data_dl</span>(<span class="at">collections=</span><span class="st">&quot;BBS50-CAN&quot;</span>, <span class="at">species =</span> <span class="dv">16820</span>, <span class="at">years =</span><span class="fu">c</span>(<span class="dv">2015</span>, <span class="dv">2020</span>), <span class="at">username=</span><span class="st">&quot;testuser&quot;</span>, <span class="at">info=</span><span class="st">&quot;tutorial example&quot;</span>)</span></code></pre></div>
 <p>Answer: BBS50-CAN, 1756</p>
 <p>Exercise 2: You are birding in the Beaverhill Lake Important Bird Area (iba) in May. You think you hear a Bobolink! You are curious if this species has been detected here in the month of May. You choose to download the records you have authorization to freely access from NatureCounts. How many observation records did you download? What year are these records from?</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="Ans7.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">search_region</span>(<span class="st">&quot;Beaverhill Lake&quot;</span>, <span class="at">type =</span> <span class="st">&quot;iba&quot;</span>) </span>
-<span id="cb43-2"><a href="Ans7.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">search_species</span>(<span class="st">&quot;Bobolink&quot;</span>)</span>
-<span id="cb43-3"><a href="Ans7.html#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="co">#May = doy 122-152</span></span>
-<span id="cb43-4"><a href="Ans7.html#cb43-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-5"><a href="Ans7.html#cb43-5" aria-hidden="true" tabindex="-1"></a>BOBO<span class="ot">&lt;-</span><span class="fu">nc_data_dl</span>(<span class="at">region =</span> <span class="fu">list</span>(<span class="at">iba=</span><span class="st">&quot;AB001&quot;</span>), <span class="at">species=</span> <span class="dv">19520</span>, <span class="at">doy=</span><span class="fu">c</span>(<span class="dv">122</span>,<span class="dv">152</span>),  <span class="at">username=</span><span class="st">&quot;testuser&quot;</span>, <span class="at">info=</span><span class="st">&quot;tutorial example&quot;</span>)</span>
-<span id="cb43-6"><a href="Ans7.html#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(BOBO)</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="Ans7.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">search_region</span>(<span class="st">&quot;Beaverhill Lake&quot;</span>, <span class="at">type =</span> <span class="st">&quot;iba&quot;</span>) </span>
+<span id="cb42-2"><a href="Ans7.html#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">search_species</span>(<span class="st">&quot;Bobolink&quot;</span>)</span>
+<span id="cb42-3"><a href="Ans7.html#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="co">#May = doy 122-152</span></span>
+<span id="cb42-4"><a href="Ans7.html#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-5"><a href="Ans7.html#cb42-5" aria-hidden="true" tabindex="-1"></a>BOBO<span class="ot">&lt;-</span><span class="fu">nc_data_dl</span>(<span class="at">region =</span> <span class="fu">list</span>(<span class="at">iba=</span><span class="st">&quot;AB001&quot;</span>), <span class="at">species=</span> <span class="dv">19520</span>, <span class="at">doy=</span><span class="fu">c</span>(<span class="dv">122</span>,<span class="dv">152</span>),  <span class="at">username=</span><span class="st">&quot;testuser&quot;</span>, <span class="at">info=</span><span class="st">&quot;tutorial example&quot;</span>)</span>
+<span id="cb42-6"><a href="Ans7.html#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(BOBO)</span></code></pre></div>
 <p>Answer: 3, 1988 &amp; 1987</p>
 </div>
-<div id="Ans7.3" class="section level2" number="7.3">
-<h2><span class="header-section-number">7.3</span> Chapter 5</h2>
+<div id="Ans7.3" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Chapter 5<a href="Ans7.html#Ans7.3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Exercise 1: You are doing a research project using the fall migration monitoring data collected at Vaseux Lake Bird Observatory, British Columbia. You request the open access data from 2017-2020. After you request this subset of the collection, you need to determine the number of unique days Gray catbirds were records in each year?</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="Ans7.html#cb44-1" aria-hidden="true" tabindex="-1"></a>collections<span class="ot">&lt;-</span><span class="fu">meta_collections</span>()</span>
-<span id="cb44-2"><a href="Ans7.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">search_species</span>(<span class="st">&quot;Gray Catbird&quot;</span>) </span>
-<span id="cb44-3"><a href="Ans7.html#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-4"><a href="Ans7.html#cb44-4" aria-hidden="true" tabindex="-1"></a>VLBO <span class="ot">&lt;-</span> <span class="fu">nc_data_dl</span>(<span class="at">collections =</span> <span class="st">&quot;CMMN-DET-VLBO&quot;</span>, <span class="at">species=</span><span class="dv">15900</span>, <span class="at">years =</span> <span class="fu">c</span>(<span class="dv">2017</span>, <span class="dv">2020</span>), <span class="at">username =</span> <span class="st">&quot;testuser&quot;</span>, <span class="at">info =</span> <span class="st">&quot;tutorial example&quot;</span>)</span>
-<span id="cb44-5"><a href="Ans7.html#cb44-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-6"><a href="Ans7.html#cb44-6" aria-hidden="true" tabindex="-1"></a>VLBO<span class="ot">&lt;-</span><span class="fu">format_dates</span>(VLBO) <span class="co">#This step is not strictly required.</span></span>
-<span id="cb44-7"><a href="Ans7.html#cb44-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-8"><a href="Ans7.html#cb44-8" aria-hidden="true" tabindex="-1"></a>GRCA<span class="ot">&lt;-</span>VLBO <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(survey_year) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">day_distinct =</span> <span class="fu">n_distinct</span>(doy)) <span class="co">#Could have alternatively counted the number of district `SamplingEventIdentifier` </span></span>
-<span id="cb44-9"><a href="Ans7.html#cb44-9" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(GRCA)</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="Ans7.html#cb43-1" aria-hidden="true" tabindex="-1"></a>collections<span class="ot">&lt;-</span><span class="fu">meta_collections</span>()</span>
+<span id="cb43-2"><a href="Ans7.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">search_species</span>(<span class="st">&quot;Gray Catbird&quot;</span>) </span>
+<span id="cb43-3"><a href="Ans7.html#cb43-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-4"><a href="Ans7.html#cb43-4" aria-hidden="true" tabindex="-1"></a>VLBO <span class="ot">&lt;-</span> <span class="fu">nc_data_dl</span>(<span class="at">collections =</span> <span class="st">&quot;CMMN-DET-VLBO&quot;</span>, <span class="at">species=</span><span class="dv">15900</span>, <span class="at">years =</span> <span class="fu">c</span>(<span class="dv">2017</span>, <span class="dv">2020</span>), <span class="at">username =</span> <span class="st">&quot;testuser&quot;</span>, <span class="at">info =</span> <span class="st">&quot;tutorial example&quot;</span>)</span>
+<span id="cb43-5"><a href="Ans7.html#cb43-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-6"><a href="Ans7.html#cb43-6" aria-hidden="true" tabindex="-1"></a>VLBO<span class="ot">&lt;-</span><span class="fu">format_dates</span>(VLBO) <span class="co">#This step is not strictly required.</span></span>
+<span id="cb43-7"><a href="Ans7.html#cb43-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-8"><a href="Ans7.html#cb43-8" aria-hidden="true" tabindex="-1"></a>GRCA<span class="ot">&lt;-</span>VLBO <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(survey_year) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">day_distinct =</span> <span class="fu">n_distinct</span>(doy)) <span class="co">#Could have alternatively counted the number of district `SamplingEventIdentifier` </span></span>
+<span id="cb43-9"><a href="Ans7.html#cb43-9" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(GRCA)</span></code></pre></div>
 <p>Answer: 2017 = 54 2018 = 53</p>
 <p>Exercise 2: Building off the same dataset used in Exercise 1, you now want to zero-fill the dataframe to ensure it is complete for your study on Gray catbirds. How many records (rows) are in the zero-fill Gray catbird dataframe?</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="Ans7.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co">#You will pull all the data for this exercise, not just the records for Gray catbird. This ensures the zero-fill works correctly</span></span>
-<span id="cb45-2"><a href="Ans7.html#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-3"><a href="Ans7.html#cb45-3" aria-hidden="true" tabindex="-1"></a>VLBO <span class="ot">&lt;-</span> <span class="fu">nc_data_dl</span>(<span class="at">collections =</span> <span class="st">&quot;CMMN-DET-VLBO&quot;</span>, <span class="at">years =</span> <span class="fu">c</span>(<span class="dv">2017</span>, <span class="dv">2020</span>), <span class="at">username =</span> <span class="st">&quot;testuser&quot;</span>, <span class="at">info =</span> <span class="st">&quot;tutorial example&quot;</span>)</span>
-<span id="cb45-4"><a href="Ans7.html#cb45-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-5"><a href="Ans7.html#cb45-5" aria-hidden="true" tabindex="-1"></a>VLBO<span class="ot">&lt;-</span><span class="fu">format_zero_fill</span>(VLBO)</span>
-<span id="cb45-6"><a href="Ans7.html#cb45-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-7"><a href="Ans7.html#cb45-7" aria-hidden="true" tabindex="-1"></a>GRCA<span class="ot">&lt;-</span>VLBO <span class="sc">%&gt;%</span> <span class="fu">filter</span>(species_id<span class="sc">==</span><span class="dv">15900</span>)</span>
-<span id="cb45-8"><a href="Ans7.html#cb45-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-9"><a href="Ans7.html#cb45-9" aria-hidden="true" tabindex="-1"></a><span class="co">#The number of records is the number of rows in the resulting dataframe. </span></span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="Ans7.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co">#You will pull all the data for this exercise, not just the records for Gray catbird. This ensures the zero-fill works correctly</span></span>
+<span id="cb44-2"><a href="Ans7.html#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-3"><a href="Ans7.html#cb44-3" aria-hidden="true" tabindex="-1"></a>VLBO <span class="ot">&lt;-</span> <span class="fu">nc_data_dl</span>(<span class="at">collections =</span> <span class="st">&quot;CMMN-DET-VLBO&quot;</span>, <span class="at">years =</span> <span class="fu">c</span>(<span class="dv">2017</span>, <span class="dv">2020</span>), <span class="at">username =</span> <span class="st">&quot;testuser&quot;</span>, <span class="at">info =</span> <span class="st">&quot;tutorial example&quot;</span>)</span>
+<span id="cb44-4"><a href="Ans7.html#cb44-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-5"><a href="Ans7.html#cb44-5" aria-hidden="true" tabindex="-1"></a>VLBO<span class="ot">&lt;-</span><span class="fu">format_zero_fill</span>(VLBO)</span>
+<span id="cb44-6"><a href="Ans7.html#cb44-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-7"><a href="Ans7.html#cb44-7" aria-hidden="true" tabindex="-1"></a>GRCA<span class="ot">&lt;-</span>VLBO <span class="sc">%&gt;%</span> <span class="fu">filter</span>(species_id<span class="sc">==</span><span class="dv">15900</span>)</span>
+<span id="cb44-8"><a href="Ans7.html#cb44-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-9"><a href="Ans7.html#cb44-9" aria-hidden="true" tabindex="-1"></a><span class="co">#The number of records is the number of rows in the resulting dataframe. </span></span></code></pre></div>
 <p>Answer: 152</p>
 
 </div>

@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 Data Visualisation | NatureCounts: An Introductory R Tutorial</title>
   <meta name="description" content="Introduction to NatureCounts and associated R Package" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 Data Visualisation | NatureCounts: An Introductory R Tutorial" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.git" />
   <meta property="og:image" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.git/NC.png" />
   <meta property="og:description" content="Introduction to NatureCounts and associated R Package" />
   <meta name="github-repo" content="DMEthier/NatureCounts_Tutorial_1" />
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="Manip5.html"/>
 <link rel="next" href="Ans7.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -154,7 +153,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="Data3.html"><a href="Data3.html#Data3.2"><i class="fa fa-check"></i><b>3.2</b> Levels of Data Access</a></li>
 <li class="chapter" data-level="3.3" data-path="Data3.html"><a href="Data3.html#Data3.3"><i class="fa fa-check"></i><b>3.3</b> Authorizations</a></li>
 <li class="chapter" data-level="3.4" data-path="Data3.html"><a href="Data3.html#Data3.4"><i class="fa fa-check"></i><b>3.4</b> Viewing information about NatureCounts collections</a></li>
-<li class="chapter" data-level="3.5" data-path="Data3.html"><a href="Data3.html#Data3.5"><i class="fa fa-check"></i><b>3.5</b> Metadata codes and decriptions</a></li>
+<li class="chapter" data-level="3.5" data-path="Data3.html"><a href="Data3.html#Data3.5"><i class="fa fa-check"></i><b>3.5</b> Metadata codes and descriptions</a></li>
 <li class="chapter" data-level="3.6" data-path="Data3.html"><a href="Data3.html#Data3.6"><i class="fa fa-check"></i><b>3.6</b> Region &amp; Species filtering</a></li>
 <li class="chapter" data-level="3.7" data-path="Data3.html"><a href="Data3.html#Data3.7"><i class="fa fa-check"></i><b>3.7</b> Examples</a></li>
 <li class="chapter" data-level="3.8" data-path="Data3.html"><a href="Data3.html#Data3.8"><i class="fa fa-check"></i><b>3.8</b> Exercises</a></li>
@@ -209,14 +208,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="Visual6" class="section level1" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Data Visualisation</h1>
+<div id="Visual6" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Data Visualisation<a href="Visual6.html#Visual6" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>You have successfully downloaded and summarised your NatureCounts dataset. In this chapter we will demonstrate how to do some basic visualizations with plots.</p>
 <blockquote>
 <p>The code in this Chapter will not work unless you replace <code>"testuser"</code> with your actual user name. You will be prompted to enter your password.</p>
 </blockquote>
-<div id="PM6.1" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Plotting</h2>
+<div id="PM6.1" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Plotting<a href="Visual6.html#PM6.1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Plotting your data is a powerful way to detect patterns and make results stand out. Recall in <a href="Package2.html#Package2.2">Chapter 2</a> you installed the <a href="https://www.tidyverse.org/">tidyverse</a> package, which included <code>ggplot2</code> for data visualizations. You are encouraged to learn more about this function by reviewing <a href="http://www.cookbook-r.com/Graphs/">Cookbook for R</a>. We also recommend you download a copy of the RStudio <a href="https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">Data Visualization</a> cheat sheet as a reference document.</p>
 <p>At the end of <a href="Manip5.html#Manip5">Chapter 5</a> you were exploring fall migration monitoring data collected at <a href="https://www.birdscanada.org/birdmon/default/datasets.jsp?code=CMMN-DET-VLBO">Vaseux Lake Bird Observatory</a>, British Columbia. Let’s continue using this dataset for our plotting example and download the data for 2015-present.</p>
 <p>First, lets apply our previously acquired skills to download the filtered dataset and zero-fill for GRCA, while also keep some extra variables.</p>
@@ -245,15 +244,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb37-6"><a href="Visual6.html#cb37-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">MeanObs =</span> <span class="fu">mean</span>(ObservationCount), </span>
 <span id="cb37-7"><a href="Visual6.html#cb37-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">SEObs =</span> <span class="fu">se</span>(ObservationCount)) <span class="sc">%&gt;%</span>   </span>
 <span id="cb37-8"><a href="Visual6.html#cb37-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">yrmin =</span> MeanObs <span class="sc">+</span> SEObs, <span class="at">yrmax =</span> MeanObs <span class="sc">-</span> SEObs)</span></code></pre></div>
-<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
 <p>Now we can create the plot:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="Visual6.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> GRCA_year) <span class="sc">+</span>  </span>
-<span id="cb39-2"><a href="Visual6.html#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_pointrange</span>(<span class="fu">aes</span>(<span class="at">x =</span> survey_year, <span class="at">y =</span> MeanObs, <span class="at">ymin =</span> yrmin, <span class="at">ymax =</span> yrmax))</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="Visual6.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> GRCA_year) <span class="sc">+</span>  </span>
+<span id="cb38-2"><a href="Visual6.html#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_pointrange</span>(<span class="fu">aes</span>(<span class="at">x =</span> survey_year, <span class="at">y =</span> MeanObs, <span class="at">ymin =</span> yrmin, <span class="at">ymax =</span> yrmax))</span></code></pre></div>
 <p><img src="06-VisualData_files/figure-html/plot2VLBO-1.png" width="672" /></p>
 <p>You will notice there was an increase in the mean number of GRCA observed in the last three years, compared to 2015. You might now be wondering why.</p>
 </div>
-<div id="PM6.2" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> Mapping</h2>
+<div id="PM6.2" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Mapping<a href="Visual6.html#PM6.2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There is a comprehensive tutorial online for <a href="https://birdstudiescanada.github.io/naturecounts/articles/articles/mapping-observations.html">Mapping Observation</a>. The materials are not repeated here. We encourage you to check this out if are interested in mapping your data!</p>
 
 </div>

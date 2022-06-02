@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>NatureCounts: An Introductory R Tutorial</title>
   <meta name="description" content="Introduction to NatureCounts and associated R Package" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="NatureCounts: An Introductory R Tutorial" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.git" />
   <meta property="og:image" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.git/NC.png" />
   <meta property="og:description" content="Introduction to NatureCounts and associated R Package" />
   <meta name="github-repo" content="DMEthier/NatureCounts_Tutorial_1" />
@@ -32,7 +31,6 @@
   
 
 <link rel="next" href="Intro1.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -154,7 +153,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="Data3.html"><a href="Data3.html#Data3.2"><i class="fa fa-check"></i><b>3.2</b> Levels of Data Access</a></li>
 <li class="chapter" data-level="3.3" data-path="Data3.html"><a href="Data3.html#Data3.3"><i class="fa fa-check"></i><b>3.3</b> Authorizations</a></li>
 <li class="chapter" data-level="3.4" data-path="Data3.html"><a href="Data3.html#Data3.4"><i class="fa fa-check"></i><b>3.4</b> Viewing information about NatureCounts collections</a></li>
-<li class="chapter" data-level="3.5" data-path="Data3.html"><a href="Data3.html#Data3.5"><i class="fa fa-check"></i><b>3.5</b> Metadata codes and decriptions</a></li>
+<li class="chapter" data-level="3.5" data-path="Data3.html"><a href="Data3.html#Data3.5"><i class="fa fa-check"></i><b>3.5</b> Metadata codes and descriptions</a></li>
 <li class="chapter" data-level="3.6" data-path="Data3.html"><a href="Data3.html#Data3.6"><i class="fa fa-check"></i><b>3.6</b> Region &amp; Species filtering</a></li>
 <li class="chapter" data-level="3.7" data-path="Data3.html"><a href="Data3.html#Data3.7"><i class="fa fa-check"></i><b>3.7</b> Examples</a></li>
 <li class="chapter" data-level="3.8" data-path="Data3.html"><a href="Data3.html#Data3.8"><i class="fa fa-check"></i><b>3.8</b> Exercises</a></li>
@@ -214,8 +213,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p class="author"><em>Danielle Ethier</em></p>
 <p class="date"><em>Version 2: March 2022</em></p>
 </div>
-<div id="welcome-to-naturecounts" class="section level1 unnumbered">
-<h1>Welcome to NatureCounts</h1>
+<div id="welcome-to-naturecounts" class="section level1 unnumbered hasAnchor">
+<h1>Welcome to NatureCounts<a href="index.html#welcome-to-naturecounts" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>NatureCounts is the gateway to avian citizen science data collected in North American, with an emphasis on Canadian datasets managed by Birds Canada. The purpose of this workbook is to provide you with the basic tools and skills you will need to get started using the <code>naturecounts</code> R package. Let’s get started!</p>
 <p><img src="images/NC.png" width="700px" style="display: block; margin: auto;" /></p>
 
