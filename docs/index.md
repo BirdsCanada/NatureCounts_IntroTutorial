@@ -6,8 +6,8 @@ site: bookdown::bookdown_site
 documentclass: book
 biblio-style: apalike
 link-citations: yes
-github-repo: DMEthier/NatureCounts_Tutorial_1
-url: 'https://github.com/DMEthier/NatureCounts_Tutorial_1.git'
+github-repo: BirdsCanada/NatureCounts_IntroTutorial
+url: 'https://github.com/BirdsCanada/NatureCounts_IntroTutorial'
 description: "Introduction to NatureCounts and associated R Package"
 cover-image: NC.png
 ---

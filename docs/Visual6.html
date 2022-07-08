@@ -10,15 +10,15 @@
 
   <meta property="og:title" content="Chapter 6 Data Visualisation | NatureCounts: An Introductory R Tutorial" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.git/NC.png" />
+  <meta property="og:image" content="https://github.com/BirdsCanada/NatureCounts_IntroTutorial/NC.png" />
   <meta property="og:description" content="Introduction to NatureCounts and associated R Package" />
-  <meta name="github-repo" content="DMEthier/NatureCounts_Tutorial_1" />
+  <meta name="github-repo" content="BirdsCanada/NatureCounts_IntroTutorial" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 6 Data Visualisation | NatureCounts: An Introductory R Tutorial" />
   
   <meta name="twitter:description" content="Introduction to NatureCounts and associated R Package" />
-  <meta name="twitter:image" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.git/NC.png" />
+  <meta name="twitter:image" content="https://github.com/BirdsCanada/NatureCounts_IntroTutorial/NC.png" />
 
 <meta name="author" content="Danielle Ethier" />
 
@@ -217,7 +217,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="PM6.1" class="section level2 hasAnchor" number="6.1">
 <h2><span class="header-section-number">6.1</span> Plotting<a href="Visual6.html#PM6.1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Plotting your data is a powerful way to detect patterns and make results stand out. Recall in <a href="Package2.html#Package2.2">Chapter 2</a> you installed the <a href="https://www.tidyverse.org/">tidyverse</a> package, which included <code>ggplot2</code> for data visualizations. You are encouraged to learn more about this function by reviewing <a href="http://www.cookbook-r.com/Graphs/">Cookbook for R</a>. We also recommend you download a copy of the RStudio <a href="https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">Data Visualization</a> cheat sheet as a reference document.</p>
-<p>At the end of <a href="Manip5.html#Manip5">Chapter 5</a> you were exploring fall migration monitoring data collected at <a href="https://www.birdscanada.org/birdmon/default/datasets.jsp?code=CMMN-DET-VLBO">Vaseux Lake Bird Observatory</a>, British Columbia. Let’s continue using this dataset for our plotting example and download the data for 2015-present.</p>
+<p>At the end of <a href="Manip5.html#Manip5">Chapter 5</a> you were exploring fall migration monitoring data collected at <a href="https://naturecounts.ca/nc/default/datasets.jsp?code=CMMN-DET-VLBO">Vaseux Lake Bird Observatory</a>, British Columbia. Let’s continue using this dataset for our plotting example and download the data for 2015-present.</p>
 <p>First, lets apply our previously acquired skills to download the filtered dataset and zero-fill for GRCA, while also keep some extra variables.</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="Visual6.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naturecounts)</span>
 <span id="cb34-2"><a href="Visual6.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>

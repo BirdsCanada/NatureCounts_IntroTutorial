@@ -1,6 +1,6 @@
 book_filename: "NatureCounts Introductory Tutorial"
 chapter_name: "Chapter "
-repo: https://github.com/DMEthier/NatureCounts_Tutorial_1
+repo: https://github.com/BirdsCanada/NatureCounts_IntroTutorial.git
 output_dir: docs
 rmd_files: ["index.Rmd", "01-Introduction.Rmd", "02-LoadPackage.Rmd", "03-ViewData.Rmd", "04-DownloadData.Rmd", "05-ManipData.Rmd", "06-VisualData.Rmd", "07-Answers.Rmd"]
 clean: [packages.bib, bookdown.bbl]

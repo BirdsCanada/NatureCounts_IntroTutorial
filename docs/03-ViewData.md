@@ -14,7 +14,7 @@ This chapter begins with a brief introduction to the structure of the NatureCoun
 
 ## Data Structure {#Data3.1}
 
-The [Bird Monitoring Data Exchange](https://www.birdscanada.org/birdmon/default/nc_bmde.jsp) (BMDE) was developed to be a standardized data exchange schema to promote the sharing and analysis of avian observational data. The schema is the core sharing standard of the [Avian Knowledge Network](http://www.avianknowledge.net).The BMDE (currently version 2.0) includes 169 *core* fields (variables) that are capable of capturing all metrics and descriptors associated with a bird observation. The BMDE schema was extended in 2018, and the *complete* version now includes 265 fields (variables).
+The [Bird Monitoring Data Exchange](https://naturecounts.ca/nc/default/nc_bmde.jsp) (BMDE) was developed to be a standardized data exchange schema to promote the sharing and analysis of avian observational data. The schema is the core sharing standard of the [Avian Knowledge Network](http://www.avianknowledge.net).The BMDE (currently version 2.0) includes 169 *core* fields (variables) that are capable of capturing all metrics and descriptors associated with a bird observation. The BMDE schema was extended in 2018, and the *complete* version now includes 265 fields (variables).
 
 > **Fields** are variables or columns in a data set
 
@@ -24,7 +24,7 @@ By default, the naturecounts package downloads the data with the *minimum* set o
 
 NatureCounts hosts many datasets, representing in excess of 170 million occurrence records, with a primary focus on Canadian bird monitoring data. Many of those datasets are from projects lead by Birds Canada and/or its partners. While we strive to make our data as openly available as possible, we also need to recognize the needs of our partners and funders.
 
-NatureCounts has five [Levels of Data Access](https://www.birdscanada.org/birdmon/default/nc_access_levels.jsp), which define how each dataset can be used. Those levels are set individually for each dataset, in consultation with the various partners and data custodians involved.
+NatureCounts has five [Levels of Data Access](https://naturecounts.ca/nc/default/nc_access_levels.jsp), which define how each dataset can be used. Those levels are set individually for each dataset, in consultation with the various partners and data custodians involved.
 
 -   Level 0: most restricted (archival only)
 
@@ -38,9 +38,9 @@ NatureCounts has five [Levels of Data Access](https://www.birdscanada.org/birdmo
 
 -   Level 5: open access
 
-All contributing members of NatureCounts have complete authority over the use of the data they have provided, and can withhold data at any time from any party or application. All users of any NatureCounts data must clearly acknowledge the contribution of the members who are making data available. Each dataset comes with its own [Data Sharing Policy](https://www.birdscanada.org/birdmon/default/nc_data_sharing.jsp) that defines the various conditions for data usage.
+All contributing members of NatureCounts have complete authority over the use of the data they have provided, and can withhold data at any time from any party or application. All users of any NatureCounts data must clearly acknowledge the contribution of the members who are making data available. Each dataset comes with its own [Data Sharing Policy](https://naturecounts.ca/nc/default/nc_data_sharing.jsp) that defines the various conditions for data usage.
 
-You can view the Data Access Level for each collection on the [NatureCounts Datasets](https://www.birdscanada.org/birdmon/default/datasets.jsp) page or using the [metadata](#Data3.5) function (see `akn_level`):
+You can view the Data Access Level for each collection on the [NatureCounts Datasets](https://naturecounts.ca/nc/default/datasets.jsp) page or using the [metadata](#Data3.5) function (see `akn_level`):
 
 
 ```r
@@ -52,7 +52,7 @@ View(collections)
 
 ## Authorizations {#Data3.3}
 
-To access data using the naturecounts R package, you must [sign up](https://www.birdscanada.org/birdmon/default/register.jsp) for a **free** account. Further, if you would like to access Level 3 or 4 collections you must make a [data request](https://www.birdscanada.org/birdmon/default/searchquery.jsp). For step-by-step visual instructions, we encourage you to watch: [NatureCounts: An Introductory Tutorial](link%20to%20be%20provided).
+To access data using the naturecounts R package, you must [sign up](https://naturecounts.ca/nc/default/register.jsp) for a **free** account. Further, if you would like to access Level 3 or 4 collections you must make a [data request](https://naturecounts.ca/nc/default/searchquery.jsp). For step-by-step visual instructions, we encourage you to watch: [NatureCounts: An Introductory Tutorial](link%20to%20be%20provided).
 
 > Create your **free** account now before continuing with this workbook
 

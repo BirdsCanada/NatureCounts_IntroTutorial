@@ -10,15 +10,15 @@
 
   <meta property="og:title" content="Chapter 3 Understanding and Viewing Data | NatureCounts: An Introductory R Tutorial" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.git/NC.png" />
+  <meta property="og:image" content="https://github.com/BirdsCanada/NatureCounts_IntroTutorial/NC.png" />
   <meta property="og:description" content="Introduction to NatureCounts and associated R Package" />
-  <meta name="github-repo" content="DMEthier/NatureCounts_Tutorial_1" />
+  <meta name="github-repo" content="BirdsCanada/NatureCounts_IntroTutorial" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 3 Understanding and Viewing Data | NatureCounts: An Introductory R Tutorial" />
   
   <meta name="twitter:description" content="Introduction to NatureCounts and associated R Package" />
-  <meta name="twitter:image" content="https://github.com/DMEthier/NatureCounts_Tutorial_1.git/NC.png" />
+  <meta name="twitter:image" content="https://github.com/BirdsCanada/NatureCounts_IntroTutorial/NC.png" />
 
 <meta name="author" content="Danielle Ethier" />
 
@@ -216,7 +216,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <div id="Data3.1" class="section level2 hasAnchor" number="3.1">
 <h2><span class="header-section-number">3.1</span> Data Structure<a href="Data3.html#Data3.1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The <a href="https://www.birdscanada.org/birdmon/default/nc_bmde.jsp">Bird Monitoring Data Exchange</a> (BMDE) was developed to be a standardized data exchange schema to promote the sharing and analysis of avian observational data. The schema is the core sharing standard of the <a href="http://www.avianknowledge.net">Avian Knowledge Network</a>.The BMDE (currently version 2.0) includes 169 <em>core</em> fields (variables) that are capable of capturing all metrics and descriptors associated with a bird observation. The BMDE schema was extended in 2018, and the <em>complete</em> version now includes 265 fields (variables).</p>
+<p>The <a href="https://naturecounts.ca/nc/default/nc_bmde.jsp">Bird Monitoring Data Exchange</a> (BMDE) was developed to be a standardized data exchange schema to promote the sharing and analysis of avian observational data. The schema is the core sharing standard of the <a href="http://www.avianknowledge.net">Avian Knowledge Network</a>.The BMDE (currently version 2.0) includes 169 <em>core</em> fields (variables) that are capable of capturing all metrics and descriptors associated with a bird observation. The BMDE schema was extended in 2018, and the <em>complete</em> version now includes 265 fields (variables).</p>
 <blockquote>
 <p><strong>Fields</strong> are variables or columns in a data set</p>
 </blockquote>
@@ -225,7 +225,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="Data3.2" class="section level2 hasAnchor" number="3.2">
 <h2><span class="header-section-number">3.2</span> Levels of Data Access<a href="Data3.html#Data3.2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>NatureCounts hosts many datasets, representing in excess of 170 million occurrence records, with a primary focus on Canadian bird monitoring data. Many of those datasets are from projects lead by Birds Canada and/or its partners. While we strive to make our data as openly available as possible, we also need to recognize the needs of our partners and funders.</p>
-<p>NatureCounts has five <a href="https://www.birdscanada.org/birdmon/default/nc_access_levels.jsp">Levels of Data Access</a>, which define how each dataset can be used. Those levels are set individually for each dataset, in consultation with the various partners and data custodians involved.</p>
+<p>NatureCounts has five <a href="https://naturecounts.ca/nc/default/nc_access_levels.jsp">Levels of Data Access</a>, which define how each dataset can be used. Those levels are set individually for each dataset, in consultation with the various partners and data custodians involved.</p>
 <ul>
 <li><p>Level 0: most restricted (archival only)</p></li>
 <li><p>Level 1: archival only, metadata visible</p></li>
@@ -234,8 +234,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Level 4: data shared with external portals and available by request</p></li>
 <li><p>Level 5: open access</p></li>
 </ul>
-<p>All contributing members of NatureCounts have complete authority over the use of the data they have provided, and can withhold data at any time from any party or application. All users of any NatureCounts data must clearly acknowledge the contribution of the members who are making data available. Each dataset comes with its own <a href="https://www.birdscanada.org/birdmon/default/nc_data_sharing.jsp">Data Sharing Policy</a> that defines the various conditions for data usage.</p>
-<p>You can view the Data Access Level for each collection on the <a href="https://www.birdscanada.org/birdmon/default/datasets.jsp">NatureCounts Datasets</a> page or using the <a href="Data3.html#Data3.5">metadata</a> function (see <code>akn_level</code>):</p>
+<p>All contributing members of NatureCounts have complete authority over the use of the data they have provided, and can withhold data at any time from any party or application. All users of any NatureCounts data must clearly acknowledge the contribution of the members who are making data available. Each dataset comes with its own <a href="https://naturecounts.ca/nc/default/nc_data_sharing.jsp">Data Sharing Policy</a> that defines the various conditions for data usage.</p>
+<p>You can view the Data Access Level for each collection on the <a href="https://naturecounts.ca/nc/default/datasets.jsp">NatureCounts Datasets</a> page or using the <a href="Data3.html#Data3.5">metadata</a> function (see <code>akn_level</code>):</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="Data3.html#cb5-1" aria-hidden="true" tabindex="-1"></a>collections<span class="ot">&lt;-</span><span class="fu">meta_collections</span>()</span>
 <span id="cb5-2"><a href="Data3.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(collections)</span></code></pre></div>
 <blockquote>
@@ -244,7 +244,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="Data3.3" class="section level2 hasAnchor" number="3.3">
 <h2><span class="header-section-number">3.3</span> Authorizations<a href="Data3.html#Data3.3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>To access data using the naturecounts R package, you must <a href="https://www.birdscanada.org/birdmon/default/register.jsp">sign up</a> for a <strong>free</strong> account. Further, if you would like to access Level 3 or 4 collections you must make a <a href="https://www.birdscanada.org/birdmon/default/searchquery.jsp">data request</a>. For step-by-step visual instructions, we encourage you to watch: <a href="link%20to%20be%20provided">NatureCounts: An Introductory Tutorial</a>.</p>
+<p>To access data using the naturecounts R package, you must <a href="https://naturecounts.ca/nc/default/register.jsp">sign up</a> for a <strong>free</strong> account. Further, if you would like to access Level 3 or 4 collections you must make a <a href="https://naturecounts.ca/nc/default/searchquery.jsp">data request</a>. For step-by-step visual instructions, we encourage you to watch: <a href="link%20to%20be%20provided">NatureCounts: An Introductory Tutorial</a>.</p>
 <blockquote>
 <p>Create your <strong>free</strong> account now before continuing with this workbook</p>
 </blockquote>

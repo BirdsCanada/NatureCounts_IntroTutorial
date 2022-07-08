@@ -23,7 +23,7 @@ We are going to apply three key dplyr functions which will give you some of the 
   - `filter()`: Pick observations by their values (rows)
   - `summarise()`: Collapse many values down to a single summary (often with `group_by()`)
 
-Let's continue using the full [Ontario Whip-poor-will](https://www.birdscanada.org/birdmon/default/datasets.jsp?code=WPWI) collection for this chapter.   
+Let's continue using the full [Ontario Whip-poor-will](https://naturecounts.ca/nc/default/datasets.jsp?code=WPWI) collection for this chapter.   
 
 ```{r OpenAccess, eval=FALSE}
 WPWI <- nc_data_dl(collections = "WPWI", username = "testuser", info = "tutorial example")
@@ -193,7 +193,7 @@ The zero-fill function is particularly important if you want to ensure your data
 
 ## Exercies {#Manip5.4}
 
-*Exercise 1*:  You are doing a research project using the fall migration monitoring data collected at [Vaseux Lake Bird Observatory](https://www.birdscanada.org/birdmon/default/datasets.jsp?code=CMMN-DET-VLBO), British Columbia. You request the open access data from 2017-2020. After you request this subset of the collection, you need to determine the number of unique days Gray catbirds were records in each year?
+*Exercise 1*:  You are doing a research project using the fall migration monitoring data collected at [Vaseux Lake Bird Observatory](https://naturecounts.ca/nc/default/datasets.jsp?code=CMMN-DET-VLBO), British Columbia. You request the open access data from 2017-2020. After you request this subset of the collection, you need to determine the number of unique days Gray catbirds were records in each year?
 
 Answer: 
 2017 =	54
