@@ -74,5 +74,5 @@ You will notice there was an increase in the mean number of GRCA observed in the
 
 ## Mapping {#PM6.2}
 
-There is a comprehensive tutorial online for [Mapping Observation](https://birdstudiescanada.github.io/naturecounts/articles/articles/mapping-observations.html). The materials are not repeated here. We encourage you to check this out if are interested in mapping your data! 
+There is a comprehensive tutorial online for [Mapping Observation](https://birdscanada.github.io/naturecounts/articles/articles/mapping-observations.html). The materials are not repeated here. We encourage you to check this out if are interested in mapping your data! 
 
