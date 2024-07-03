@@ -54,6 +54,26 @@ View(collections)
 
 > You can create a stand alone table for any metadata table using similar syntax as above
 
+# to retrieve the metadata of specific set of collections based on its project_id, you can index the 'collections' dataframe
+
+```{r}
+# Specify the project_id you want to retrieve
+projectID <- "insert_project_id_number"
+
+# Subset to retrieve the relevant metadata based on project_id
+collection_metadata <- collections[collections$project_id == projectID, ]
+
+# Print the metadata of the collection(s) with the specified project_id
+if (nrow(collection_metadata) > 0) {
+ # Iterate over each row and print its contents
+  for (i in 1:nrow(collection_metadata)) {
+    print(collection_metadata[i, ])
+  }
+} else {
+  print("No collection found with the specified project_id.")
+}
+```
+
 ## Authorizations {#Data3.3}
 
 To access data using the naturecounts R package, you must [sign up](https://naturecounts.ca/nc/default/register.jsp) for a **free** account. Further, if you would like to access Level 3 or 4 collections you must make a [data request](https://naturecounts.ca/nc/default/searchquery.jsp). For step-by-step visual instructions, we encourage you to watch: [NatureCounts: An Introductory Tutorial](link%20to%20be%20provided).
