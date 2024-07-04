@@ -54,7 +54,7 @@ View(collections)
 
 > You can create a stand alone table for any metadata table using similar syntax as above
 
-# to retrieve the metadata of specific set of collections based on its project_id, you can index the 'collections' dataframe
+# to retrieve the metadata of a specific set of collections based on its project_id, you can index the 'collections' dataframe
 
 ```{r}
 # Specify the project_id you want to retrieve
@@ -63,12 +63,9 @@ projectID <- "insert_project_id_number"
 # Subset to retrieve the relevant metadata based on project_id
 collection_metadata <- collections[collections$project_id == projectID, ]
 
-# Print the metadata of the collection(s) with the specified project_id
+# View the metadata of the collection(s) with the specified project_id
 if (nrow(collection_metadata) > 0) {
- # Iterate over each row and print its contents
-  for (i in 1:nrow(collection_metadata)) {
-    print(collection_metadata[i, ])
-  }
+  View(collection_metadata)
 } else {
   print("No collection found with the specified project_id.")
 }
@@ -87,13 +84,15 @@ First, lets use the naturecounts R package to view the number of records availab
 If a username is provided, the collections are filtered to only those available to the user. Otherwise all counts from all data sources are returned (default: `show = "all"`).
 
 ```{r view all, eval=FALSE}
-nc_count() 
+nc_count <- nc_count()
+View(nc_count)
 ```
 
 Or you can view the collections for which you have access using your username/password.
 
 ```{r view username, eval=FALSE}
-nc_count(username = "testuser")
+nc_count <- nc_count(username = "testuser")
+View(nc_count)
 ```
 
 Further refinements can be applied to the `nc_count()` function using [filters](#Download4) Options include: `collections`, `project_id`, `species`, `years`, `doy` (day-of-year), `region`, and `site_type`.
@@ -133,8 +132,8 @@ There are [metadata](https://birdstudiescanada.github.io/naturecounts/reference/
 You can explore the metadata materials using two lines of code. For example, you can view the Important Bird Area (IBA) metadata using:
 
 ```{r meta, eval = FALSE}
-iba<-meta_iba_codes()
-View(iba)
+iba<-meta_iba_codes() # retrieve the IBA metadata 
+View(iba) # explore the dataframe 
 ```
 
 ## Region & Species filtering {#Data3.6}
@@ -158,7 +157,8 @@ Filtering will often be done based on geographic extent (i.e., `region`). To fil
 To use the `region` argument:
 
 ```{r nc_count example, eval=FALSE}
-nc_count(region=list(statprov="ON"))
+ontario_birds <- nc_count(region=list(statprov="ON")) # filter nc_count by region (statprov)
+View(ontario_birds) # explore the dataframe
 ```
 
 Another commonly used filter is specific to `species`. In order to filter by `species` you need to get the species id codes. These are numeric codes that reflect species identity.
@@ -166,13 +166,20 @@ Another commonly used filter is specific to `species`. In order to filter by `sp
 For all species, you can search by scientific, English or French name with the search_species() function.
 
 ```{r species example, eval=FALSE}
-search_species("chickadee")
+chickadee_IDs <- search_species("chickadee") # retrieve all chickadee species_id
+View(chickadee_IDs) # explore the dataframe 
 ```
 
 For birds, you can also search by alphanumeric species codes with the search_species_code() function. This function also gives you the option of returning all species codes (including subspecies) related to a single species, and is considered a more robust method for ensuring that you do not miss observations.
 
+```{r}
+species_codes <- search_species_code() # retrieve all species codes
+View(species_codes) # explore the dataframe
+```
+
 ```{r species code search example, eval=FALSE}
-search_species_code("BCCH")
+meta_bcch <- search_species_code("BCCH") # Filter by species code
+View(meta_bcch) # View the metadata for the Black-capped Chickadee (BCCH)
 ```
 
 For additional examples and more advanced options are available online for retrieving [Region](https://birdstudiescanada.github.io/naturecounts/articles/region-codes.html) and [Species](https://birdstudiescanada.github.io/naturecounts/articles/species-codes.html) codes.
