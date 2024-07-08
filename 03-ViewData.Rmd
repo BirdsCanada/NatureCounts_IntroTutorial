@@ -129,12 +129,14 @@ There are [metadata](https://birdstudiescanada.github.io/naturecounts/reference/
 
 -   `meta_protocol_types()`: protocol types and descriptions
 
-You can explore the metadata materials using two lines of code. For example, you can view the Important Bird Area (IBA) metadata using:
+Any of these functions can be used to browse the code lists relevant to your search. For example, you can view the metadata for Birds Canada projects, including project ids using:
 
 ```{r meta, eval = FALSE}
-iba<-meta_iba_codes() # retrieve the IBA metadata 
-View(iba) # explore the dataframe 
+project_ids <- meta_projects() # retrieve the project_ids represented in the repository 
+View(project_ids) # explore the dataframe 
 ```
+
+Using the above functions to search by country, state/province, subnational2, BCR etc. is especially useful for regional filtering in this next section.
 
 ## Region & Species filtering {#Data3.6}
 
@@ -154,35 +156,115 @@ Filtering will often be done based on geographic extent (i.e., `region`). To fil
 
 -   `bbox`: bounding box coordinates (e.g., c(left = -101.097223, bottom = 50.494717, right = -99.511239, top = 51.027557) for a box containing Riding Mountain National Park in Manitoba). On the NatureCounts web portal there is a handy [Within Coordinates](https://www.birdscanada.org/birdmon/default/searchquery.jsp)) tool to help you retrieve custom coordinates for your data query and/or download.
 
-To use the `region` argument:
+The search_region function may be used to search a region by name (English or French) by specifying the 'type' argument.
+
+For example, by country;
+
+```{r}
+search_region("États-Unis", type = "country")
+```
+
+Or by Bird Conservation Region:
+
+```{r}
+search_region("rainforest", type = "bcr")
+```
+
+When using the naturecounts data download functions, `nc_data_dl()` or `nc_count()`, you have the helpful option of filtering data by region. Let's demonstrate how to use the `region` argument with a few examples.
+
+First, let's limit our data search to Quebec:
 
 ```{r nc_count example, eval=FALSE}
-ontario_birds <- nc_count(region=list(statprov="ON")) # filter nc_count by region (statprov)
-View(ontario_birds) # explore the dataframe
+nc_count(region = list(statprov="QC")) # filter nc_count by statprov
 ```
+
+Next, let's say we want to narrow down our search to the subnational level (Montreal and Toronto) but don't know the corresponding codes for these regions.
+
+Browse the code list:
+
+```{r}
+View(meta_subnational2_codes())
+```
+
+Or, more efficiently, search by region: 
+
+```{r}
+search_region("Montreal", type = "subnational2")
+```
+
+Great, we now know the codes we need and can grab our metadata using `nc_count()`:
+
+```{r}
+nc_count(region = list(subnational2 = c("CA-QC-MR", "CA-ON-TO")))
+```
+
+Similarly, this function can be used to grab metadata for a bounding box using latitude and longitude coordinates:
+
+```{r}
+nc_count(region = list(bbox = c(left = -125, bottom = 45, 
+                                right = -100, top = 50)))
+```
+
 
 Another commonly used filter is specific to `species`. In order to filter by `species` you need to get the species id codes. These are numeric codes that reflect species identity.
 
-For all species, you can search by scientific, English or French name with the search_species() function.
+For all species, you can search the NatureCounts repository by scientific, English or French name with the search_species() function.
 
 ```{r species example, eval=FALSE}
-chickadee_IDs <- search_species("chickadee") # retrieve all chickadee species_id
-View(chickadee_IDs) # explore the dataframe 
+search_species("chickadee") # returns all chickadee species ids
 ```
 
-For birds, you can also search by alphanumeric species codes with the search_species_code() function. This function also gives you the option of returning all species codes (including subspecies) related to a single species, and is considered a more robust method for ensuring that you do not miss observations.
+The corresponding species id can then be used to download the data either directly or by saving and referencing the data frame: [see Chapter 4](#Data4) 
+
+For birds, you can also search by alphanumeric species code with the search_species_code() function. 
 
 ```{r}
-species_codes <- search_species_code() # retrieve all species codes
-View(species_codes) # explore the dataframe
+species_codes <- search_species_code() # returns all species codes represented in the database.
 ```
+
+This function, by default, uses the BSCDATA taxonomic authority and returns all species ids related to the search term including related subspecies. For this reason, it is considered a more robust method for ensuring that you do not miss observations in your search.
+
+This function also gives you the option of returning all species codes (including subspecies) related to a single species, and is considered a more robust method for ensuring that you do not miss observations.
 
 ```{r species code search example, eval=FALSE}
-meta_bcch <- search_species_code("BCCH") # Filter by species code
-View(meta_bcch) # View the metadata for the Black-capped Chickadee (BCCH)
+search_species_code("BCCH") # Filters by species code
 ```
 
-For additional examples and more advanced options are available online for retrieving [Region](https://birdstudiescanada.github.io/naturecounts/articles/region-codes.html) and [Species](https://birdstudiescanada.github.io/naturecounts/articles/species-codes.html) codes.
+The search function is case insensitive:
+```{r}
+search_species_code("bcch") # Also filters by species code
+```
+
+It is important to note that species subdivisions (subspecies, subpopulations, hybrids, etc.) can also be recognized with different codes across taxonomic authority (BSCDATA, CBC).
+
+For example, BSCDATA recognizes 3 sub groups of the Dark-eyed junco:
+
+```{r}
+search_species_code("DEJU") # Returns species ids for Junco hyemali and 3 related subgroups
+```
+
+We have to modify our search when filtering by the CBC code system. This taxonomic authority recognizes 9 sub group hybrids of the Dark-eyed junco, as well as the Guadalupe junco:
+
+```{r}
+search_species_code("12385", authority = "CBC") # Returns the species ids and CBC codes for Junco hyemali, 9 subgroups, and the Guadelupe junco
+```
+
+You can search by more than one authority at the same time. Note that your search term only needs to match one authority (not both), and that the information returned reflects both authorities combined.
+
+```{r}
+View(search_species_code("DEJU", authority = c("BSCDATA", "CBC")))
+```
+
+If you do not want all subgroups, you can use the results = "exact" argument to return only an exact match.
+
+```{r}
+search_species_code("DEJU", results = "exact")
+```
+
+
+For additional examples and more advanced options are available online for retrieving [Region](https://birdstudiescanada.github.io/naturecounts/articles/region-codes.html) and [Species](https://birdscanada.github.io/naturecounts/articles/species-codes.html#advanced-searches) codes.
+
+
 
 ## Examples {#Data3.7}
 
