@@ -140,7 +140,7 @@ Using the above functions to search by country, state/province, subnational2, BC
 
 ## Region & Species filtering {#Data3.6}
 
-Filtering will often be done based on geographic extent (i.e., `region`). To filtering by `region` you must provide a named list with *one* of the following:
+Filtering will often be done based on geographic extent (i.e., `region`). To filter by `region` you must provide a named list with *one* of the following:
 
 -   `country`: country code (e.g., CA for Canada)
 
@@ -186,25 +186,24 @@ Browse the code list:
 View(meta_subnational2_codes())
 ```
 
-Or, more efficiently, search by region: 
+Or, more efficiently, search by region:
 
 ```{r}
 search_region("Montreal", type = "subnational2")
 ```
 
-Great, we now know the codes we need and can grab our metadata using `nc_count()`:
+Great, we now know the codes we need and can view our metadata using `nc_count()`:
 
 ```{r}
 nc_count(region = list(subnational2 = c("CA-QC-MR", "CA-ON-TO")))
 ```
 
-Similarly, this function can be used to grab metadata for a bounding box using latitude and longitude coordinates:
+Similarly, this function can be used to view metadata for a bounding box using latitude and longitude coordinates:
 
 ```{r}
 nc_count(region = list(bbox = c(left = -125, bottom = 45, 
                                 right = -100, top = 50)))
 ```
-
 
 Another commonly used filter is specific to `species`. In order to filter by `species` you need to get the species id codes. These are numeric codes that reflect species identity.
 
@@ -214,9 +213,9 @@ For all species, you can search the NatureCounts repository by scientific, Engli
 search_species("chickadee") # returns all chickadee species ids
 ```
 
-The corresponding species id can then be used to download the data either directly or by saving and referencing the data frame: [see Chapter 4](#Data4) 
+The corresponding species id can then be used to download the data either directly or by saving and referencing the data frame: [see Chapter 4](#Data4)
 
-For birds, you can also search by alphanumeric species code with the search_species_code() function. 
+For birds, you can also search by alphanumeric species code with the search_species_code() function.
 
 ```{r}
 species_codes <- search_species_code() # returns all species codes represented in the database.
@@ -262,10 +261,7 @@ If you do not want all subgroups, you can use the results = "exact" argument to 
 search_species_code("DEJU", results = "exact")
 ```
 
-
 For additional examples and more advanced options are available online for retrieving [Region](https://birdstudiescanada.github.io/naturecounts/articles/region-codes.html) and [Species](https://birdscanada.github.io/naturecounts/articles/species-codes.html#advanced-searches) codes.
-
-
 
 ## Examples {#Data3.7}
 
