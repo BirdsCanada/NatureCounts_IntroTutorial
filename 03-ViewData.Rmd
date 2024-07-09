@@ -54,9 +54,9 @@ View(collections)
 
 > You can create a stand alone table for any metadata table using similar syntax as above
 
-# to retrieve the metadata of a specific set of collections based on its project_id, you can index the 'collections' dataframe
+To retrieve the metadata of specific set of collections based on its project_id, you can index the 'collections' dataframe.
 
-```{r}
+```{r project id, eval=FALSE}
 # Specify the project_id you want to retrieve
 projectID <- "insert_project_id_number"
 
