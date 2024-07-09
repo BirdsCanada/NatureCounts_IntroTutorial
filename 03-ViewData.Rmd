@@ -170,7 +170,7 @@ Or by Bird Conservation Region:
 search_region("rainforest", type = "bcr")
 ```
 
-When using the naturecounts data download functions, `nc_data_dl()` or `nc_count()`, you have the helpful option of filtering data by region. Let's demonstrate how to use the `region` argument with a few examples.
+When using the `nc_count()` view function, you have the helpful option of filtering data by region. Let's demonstrate how to use this function and the `region` argument with a few examples.
 
 First, let's limit our data search to Quebec:
 
@@ -222,15 +222,16 @@ For birds, you can also search by alphanumeric species code with the search_spec
 species_codes <- search_species_code() # returns all species codes represented in the database.
 ```
 
-This function, by default, uses the BSCDATA taxonomic authority and returns all species ids related to the search term including related subspecies. For this reason, it is considered a more robust method for ensuring that you do not miss observations in your search.
+This function, by default, uses the BSCDATA taxonomic authority and returns all species codes related to the search term including related subspecies. For this reason, it is considered a more robust method for ensuring that you do not miss observations in your search.
 
-This function also gives you the option of returning all species codes (including subspecies) related to a single species, and is considered a more robust method for ensuring that you do not miss observations.
+If you're interested in a particular species, and any recognized subspecies, you can filter your search:
 
 ```{r species code search example, eval=FALSE}
 search_species_code("BCCH") # Filters by species code
 ```
 
 The search function is case insensitive:
+
 ```{r}
 search_species_code("bcch") # Also filters by species code
 ```
