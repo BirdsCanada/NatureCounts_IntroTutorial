@@ -19,15 +19,31 @@ This chapter jumps right into downloading NatureCounts data, which builds direct
 
 To download data you need to [sign up](https://naturecounts.ca/nc/default/register.jsp) for a **free** account.
 
+Let's try fetching observational data across multiple collections into a local data frame. To do so, we will use the `nc_data_dl()` download function. There is lots of data here, so this could take a couple minutes.
+
+First find the species id for the target species:
+
+```{r}
+search_species("American Bittern")
+```
+
+Then use this id with nc_data_dl(): 
+
+```{r}
+bittern <-  nc_data_dl(species = 2490, username = "testuser", info = "tutorial example")
+```
+
+The bittern dataframe should now appear in the upper right panel of RStudio under the *Environment* tab. Notice we specified the `info` parameter which is a short description of what the data is being downloaded for. This does not need to be specified when using the `nc_count()` view function.
+
 > The code in this Chapter will not work unless you replace `"testuser"` with your actual user name. You will be prompted to enter your password.
 
-Here we demonstrate how to download the Ontario Whip-poor-will collection (WPWI), since it is Open Access (Level 5) and contains relatively few records (n = 3012). Click [here](https://naturecounts.ca/nc/default/datasets.jsp?code=WPWI) for more information on this dataset.
+Next we demonstrate how to download the Ontario Whip-poor-will collection (WPWI), since it is Open Access (Level 5) and contains relatively few records (n = 3012). Click [here](https://naturecounts.ca/nc/default/datasets.jsp?code=WPWI) for more information on this dataset.
 
 ```{r OpenAccess, eval = FALSE}
 WPWI <- nc_data_dl(collections = "WPWI", username = "testuser", info = "tutorial example")
 ```
 
-You should now see a copy of the WPWI collection in the upper right panel of RStudio under the *Environment* tab. Notice in the code that `info` needs to be provided. This is a short description of reason for the download. This does not need to be specified when using the `nc_count()` function.
+Our data download was more specific, and way faster! This will depend on your research goals and data needs. Instead of specifying species id, we filtered our data download by using the species alpha-numeric code and the `collections` argument.
 
 To access Level 3 or 4 collections you must [sign up](https://naturecounts.ca/nc/default/nc_access_levels.jsp) for a **free** account and request permission from the data custodian. For a complete list of datasets and access level, visit the [NatureCounts datasets](https://naturecounts.ca/nc/default/datasets.jsp) page or use the `meta_collection()` function. Here you can browse information on each dataset prior to requesting access.
 
