@@ -27,7 +27,7 @@ First find the species id for the target species:
 search_species("American Bittern")
 ```
 
-Then use this id with nc_data_dl():
+Then use this id with `nc_data_dl()`:
 
 ```{r}
 bittern <-  nc_data_dl(species = 2490, username = "testuser", info = "tutorial example")
