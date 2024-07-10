@@ -53,7 +53,7 @@ ggplot(data = GRCA_dates) +
 
 What you will notice is that migration for this species is highest early in the year and diminishes with time. 
 
-Next, we are interested in visually examining the mean number of migrant GRCA each year, to see if there are any noticeable changes over time. First, we need to summarise the data: 
+Next, we are interested in visually examining the mean number of migrant GRCA each year, to see if there are any noticeable changes over time. First, we need to summarise the data. Here, we create a function that calculates standard error (se) and deploy the `mutate()` function which helps create new variables from existing ones: 
 
 ```{r VLBOsum, warning=FALSE}
 
