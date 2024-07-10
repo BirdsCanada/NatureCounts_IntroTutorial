@@ -84,7 +84,7 @@ WPWI_multi <- filter(WPWI_select,
 
 Now that we have selected the columns we need for our analysis we will demonstrate how to summarise the data. The `summarise()` function is most useful if paired with the `group_by()` argument, because this changes the unit of analysis from the complete dataset to individual groups.
 
-For example, say we want to determine how many point count stops were on each WPWI Route. We will want to group observations by `RouteIdentifier` and summarise the number of district `SurveyAreaIdentifier`. 
+For example, say we want to determine how many point count stops were on each WPWI Route. We will want to group observations by `RouteIdentifier` and summarise the number of distinct `SurveyAreaIdentifier` entries using the `n_distinct()` function and creating a new column named `Nstops`.  
 
 ```{r, eval = FALSE,  eval=FALSE}
 WPWI_Route <- group_by(WPWI_select, RouteIdentifier)
@@ -104,7 +104,7 @@ View(WPWI_Route)
 
 Note that there is a pipe (`%>%`) between each set of lines and that the data (`WPWI_select`) is only referred to once, at the very start. These two different codes achieve the exact same result.
 
-Back to our example, we might also want to know how many routes where run in each year. 
+Back to our example, we might also want to know how many routes were run in each year. 
 
 ```{r WPWIYear, eval=FALSE}
 WPWI_Year <- WPWI_select %>% 
@@ -180,7 +180,7 @@ Third, join your tables so that it includes the desired species information.
 AB_Atlas_sp<-left_join(AB_Atlas, species, by="species_id")
 
 ```
-Now your datatable contains the species code, which is familar to most birders. You can also try joining the Atlas data to the meta_species_taxonomy() table if you wish to capture the english common, french, or scientific names, amoung other fields. 
+Now your datatable contains the species code, which is familiar to most birders. You can also try joining the Atlas data to the meta_species_taxonomy() table if you wish to capture the english common, french, or scientific names, among other fields. 
 
 ## Helper functions {#Manip5.3}
 
