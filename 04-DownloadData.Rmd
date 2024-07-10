@@ -95,7 +95,7 @@ WPWI_bp <- nc_data_dl(collections = "WPWI",
 
 You will notice there are now even fewer observation records (`WPWI_bp` = 72)
 
-Through the naturecounts R package, data is downloaded with a specific set of fields/columns by default. However, for more advanced applications, users may wish to [specify which fields/columns to return](https://birdscanada.github.io/naturecounts/articles/selecting-fields.html).
+Reminder that, through the naturecounts R package, data is downloaded with a specific set of fields/columns by default. However, for more advanced applications, users may wish to [specify which fields/columns to return](https://birdscanada.github.io/naturecounts/articles/selecting-fields.html).
 
 ## Exercises {#Download4.4}
 
