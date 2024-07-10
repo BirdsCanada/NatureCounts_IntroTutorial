@@ -51,7 +51,7 @@ Often there are observational records in a database that are not needed. We coul
   - Comparison operators:`>`, `>=`, `<`, `<=`, `!=` (not equal), `==` (equal) 
   - Logical operators: `&` (and), `|` (or),  `!` (is not)
 
-There are worked examples provided in the naturecounts article [Filtering data after download](https://birdstudiescanada.github.io/naturecounts/articles/filtering-data.html) to get you started with applying filters. These include:
+There are worked examples provided in the naturecounts article [Filtering data after download](https://birdscanada.github.io/naturecounts/articles/filtering-data.html) to get you started with applying filters. These include:
 
   - Categorical filters
   - Numerical filters
