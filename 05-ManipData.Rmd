@@ -91,7 +91,7 @@ WPWI_Route <- group_by(WPWI_select, RouteIdentifier)
 WPWI_Route <- summarise(WPWI_Route, Nstops = n_distinct(SurveyAreaIdentifier))
 ```
 
-However, now that we're getting on to more complex operations, we'll introduce the use of the pipe `%>%`. This allows you to pass (pipe) the output of one line as input to the next line. Therefore, the previous code can be re-written as:
+However, now that we're getting on to more complex operations, we'll introduce the use of the pipe `%>%`. Piping can be used to chain a sequence of functions, in order to avoid creating multiple intermediate objects which can clutter our Environment! This allows you to pass (pipe) the output of one line as input to the next line. Therefore, the previous code can be re-written as:
 
 ```{r WPWIRoute, eval=FALSE}
 WPWI_Route <- WPWI_select %>% 
